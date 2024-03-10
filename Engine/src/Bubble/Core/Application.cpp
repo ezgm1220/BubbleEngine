@@ -1,5 +1,5 @@
-﻿#include "Application.h"
-
+﻿#include "Bubble/Core/Application.h"
+#include "Bubble/Core/Log.h"
 namespace Bubble
 {
     Application::Application() {}
@@ -8,6 +8,7 @@ namespace Bubble
     void Application::Run()
     {
         printf("AAAAAAAAAAAA\n");
+        BUBE_CORE_TRACE("DASDASFAS");
         // while (true);
     }
 } // namespace Bubble

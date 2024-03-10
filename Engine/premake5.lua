@@ -1,12 +1,12 @@
 project "Engine"
-	kind "StaticLib"-- ¾²Ì¬¿â
+	kind "StaticLib"-- é™æ€åº“
 	language "C++"
 	cppdialect "C++17"
 	staticruntime "on"
 
-	-- ÉèÖÃ±àÒëºó¶ş½øÖÆÄ¿±êµÄÄ¿±êÄ¿Â¼
+	-- è®¾ç½®ç¼–è¯‘åäºŒè¿›åˆ¶ç›®æ ‡çš„ç›®æ ‡ç›®å½•
 	targetdir ("%{wks.location}/bin/" .. outputdir .. "/%{prj.name}")
-	-- ÉèÖÃ¹¹½¨ÏîÄ¿Ê±·ÅÖÃ¶ÔÏóºÍÆäËûÖĞ¼äÎÄ¼şµÄÄ¿Â¼
+	-- è®¾ç½®æ„å»ºé¡¹ç›®æ—¶æ”¾ç½®å¯¹è±¡å’Œå…¶ä»–ä¸­é—´æ–‡ä»¶çš„ç›®å½•
 	objdir ("%{wks.location}/bin-int/" .. outputdir .. "/%{prj.name}")
 
 	files
@@ -22,7 +22,8 @@ project "Engine"
 
 	includedirs
 	{
-		"src"
+		"src",
+		"thirdparty/spdlog/include"
 	}
 
 

@@ -22,6 +22,7 @@
 
 	includedirs
 	{
+        "%{wks.location}/Engine/thirdparty/spdlog/include",
 		"%{wks.location}/Engine/src"
 	}
 
