@@ -23,7 +23,9 @@
 	includedirs
 	{
         "%{wks.location}/Engine/thirdparty/spdlog/include",
-		"%{wks.location}/Engine/src"
+		"%{wks.location}/Engine/src",
+		"%{wks.location}/Engine/thirdparty",
+		"%{IncludeDir.glm}"
 	}
 
 	links
@@ -35,11 +37,11 @@
 		systemversion "latest"
 
 	filter "configurations:Debug"
-		defines "BE_DEBUG"
+		defines "BB_DEBUG"
 		runtime "Debug"
 		symbols "on"
 
 	filter "configurations:Release"
-		defines "BE_RELEASE"
+		defines "BB_RELEASE"
 		runtime "Release"
 		optimize "on"

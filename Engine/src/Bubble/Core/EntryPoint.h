@@ -1,5 +1,5 @@
 #pragma once
-
+#include "Bubble/Core/Base.h"
 extern Bubble::Application* Bubble::CreatApplication();
 
 int main(int argc, char** argv)

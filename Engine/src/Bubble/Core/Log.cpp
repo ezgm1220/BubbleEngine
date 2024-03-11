@@ -1,4 +1,4 @@
-
+#include "bubblepch.h"
 #include "Bubble/Core/Log.h"
 
 #include <spdlog/sinks/stdout_color_sinks.h>

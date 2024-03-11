@@ -25,15 +25,15 @@ namespace Bubble
 }
 
 // Core log macros
-#define BUBE_CORE_TRACE(...)    ::Bubble::Log::GetCoreLogger()->trace(__VA_ARGS__)
-#define BUBE_CORE_INFO(...)     ::Bubble::Log::GetCoreLogger()->info(__VA_ARGS__)
-#define BUBE_CORE_WARN(...)     ::Bubble::Log::GetCoreLogger()->warn(__VA_ARGS__)
-#define BUBE_CORE_ERROR(...)    ::Bubble::Log::GetCoreLogger()->error(__VA_ARGS__)
-#define BUBE_CORE_CRITICAL(...) ::Bubble::Log::GetCoreLogger()->critical(__VA_ARGS__)
+#define BB_CORE_TRACE(...)    ::Bubble::Log::GetCoreLogger()->trace(__VA_ARGS__)
+#define BB_CORE_INFO(...)     ::Bubble::Log::GetCoreLogger()->info(__VA_ARGS__)
+#define BB_CORE_WARN(...)     ::Bubble::Log::GetCoreLogger()->warn(__VA_ARGS__)
+#define BB_CORE_ERROR(...)    ::Bubble::Log::GetCoreLogger()->error(__VA_ARGS__)
+#define BB_CORE_CRITICAL(...) ::Bubble::Log::GetCoreLogger()->critical(__VA_ARGS__)
 
 // Client log macros
-#define BUBE_TRACE(...)         ::Bubble::Log::GetClientLogger()->trace(__VA_ARGS__)
-#define BUBE_INFO(...)          ::Bubble::Log::GetClientLogger()->info(__VA_ARGS__)
-#define BUBE_WARN(...)          ::Bubble::Log::GetClientLogger()->warn(__VA_ARGS__)
-#define BUBE_ERROR(...)         ::Bubble::Log::GetClientLogger()->error(__VA_ARGS__)
-#define BUBE_CRITICAL(...)      ::Bubble::Log::GetClientLogger()->critical(__VA_ARGS__)
+#define BB_TRACE(...)         ::Bubble::Log::GetClientLogger()->trace(__VA_ARGS__)
+#define BB_INFO(...)          ::Bubble::Log::GetClientLogger()->info(__VA_ARGS__)
+#define BB_WARN(...)          ::Bubble::Log::GetClientLogger()->warn(__VA_ARGS__)
+#define BB_ERROR(...)         ::Bubble::Log::GetClientLogger()->error(__VA_ARGS__)
+#define BB_CRITICAL(...)      ::Bubble::Log::GetClientLogger()->critical(__VA_ARGS__)
