@@ -20,13 +20,14 @@ project "Engine"
 		"thirdparty/stb_image/**.cpp",
 		"thirdparty/glm/glm/**.hpp",
 		"thirdparty/glm/glm/**.inl",
+        "thirdparty/ImGuizmo/ImGuizmo.h",
+		"thirdparty/ImGuizmo/ImGuizmo.cpp"
 	}
 
 	defines
 	{
         "_CRT_SECURE_NO_WARNINGS",
-		"GLFW_INCLUDE_NONE",
-        "BB_ENABLE_ASSERTS"
+		"GLFW_INCLUDE_NONE"
 	}
 
 	includedirs
@@ -37,7 +38,10 @@ project "Engine"
 		"%{IncludeDir.Glad}",
 		"%{IncludeDir.ImGui}",
 		"%{IncludeDir.glm}",
-		"%{IncludeDir.stb_image}"
+		"%{IncludeDir.stb_image}",
+        "%{IncludeDir.entt}",
+		"%{IncludeDir.yaml_cpp}",
+		"%{IncludeDir.ImGuizmo}"
 	}
 
     links
@@ -45,8 +49,12 @@ project "Engine"
 		"GLFW",
 		"Glad",
 		"ImGui",
+        "yaml-cpp",
 		"opengl32.lib"
 	}
+
+    filter "files:thirdparty/ImGuizmo/**.cpp"
+	flags { "NoPCH" }
 
 	filter "system:windows"
 		systemversion "latest"

@@ -2,7 +2,9 @@
 #include "Bubble/Core/Application.h"
 #include "Bubble/Core/Log.h"
 
-#include <glad/glad.h>
+#include "Bubble/Renderer/Renderer.h"
+#include "Bubble/Core/Input.h"
+
 #include <GLFW/glfw3.h>
 
 namespace Bubble
@@ -16,9 +18,10 @@ namespace Bubble
         m_Window = Window::Create(WindowProps(name));
         m_Window->SetEventCallback(BB_BIND_EVENT_FN(Application::OnEvent));// 设置回调函数
 
+        Renderer::Init();
+
         m_ImGuiLayer = new ImGuiLayer();
         PushOverlay(m_ImGuiLayer);
-
     }
 
 
@@ -64,20 +67,25 @@ namespace Bubble
             Timestep timestep = time - m_LastFrameTime;
             m_LastFrameTime = time;
 
-            
+            if(!m_Minimized)
+            {
+                // 逻辑
+                for(Layer* layer : m_LayerStack)
+                {
+                    layer->OnUpdate(timestep);
+                }
 
-            for(Layer* layer : m_LayerStack)
-                layer->OnUpdate(timestep);
-
-            m_ImGuiLayer->Begin();
-
-            for(Layer* layer : m_LayerStack)
-                layer->OnImGuiRender();
-            m_ImGuiLayer->End();
+                // UI
+                m_ImGuiLayer->Begin();
+                for(Layer* layer : m_LayerStack)
+                {
+                    layer->OnImGuiRender();
+                }
+                m_ImGuiLayer->End();
+            }
+   
+            // 更新窗口,交换缓冲区
             m_Window->OnUpdate();
-
-            glClearColor(227.0f / 256.0f, 180.0f / 256.0f, 184.0f / 256.0f, 1);
-            glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         }
         // while (true);
     }
@@ -89,6 +97,15 @@ namespace Bubble
     }
     bool Application::OnWindowResize(WindowResizeEvent& e)
     {
+        if(e.GetWidth() == 0 || e.GetHeight() == 0)
+        {
+            m_Minimized = true;
+            return false;
+        }
+
+        m_Minimized = false;
+        Renderer::OnWindowResize(e.GetWidth(), e.GetHeight());
+
         return false;
     }
 } // namespace Bubble

@@ -15,17 +15,14 @@
 		"src/**.cpp"
 	}
 
-	defines
-	{
-
-	}
-
 	includedirs
 	{
         "%{wks.location}/Engine/thirdparty/spdlog/include",
 		"%{wks.location}/Engine/src",
 		"%{wks.location}/Engine/thirdparty",
-		"%{IncludeDir.glm}"
+		"%{IncludeDir.glm}",
+		"%{IncludeDir.entt}",
+		"%{IncludeDir.ImGuizmo}"
 	}
 
 	links
