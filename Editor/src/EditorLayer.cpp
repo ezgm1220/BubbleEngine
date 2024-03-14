@@ -53,14 +53,14 @@ namespace Bubble
             Bubble::Renderer2D::EndScene();
 
             Bubble::Renderer2D::BeginScene(m_CameraController.GetCamera());
-            for(float y = -5.0f; y < 5.0f; y += 0.5f)
+           /* for(float y = -5.0f; y < 5.0f; y += 0.5f)
             {
                 for(float x = -5.0f; x < 5.0f; x += 0.5f)
                 {
                     glm::vec4 color = {(x + 5.0f) / 10.0f, 0.4f, (y + 5.0f) / 10.0f, 0.7f};
                     Bubble::Renderer2D::DrawQuad({x, y}, {0.45f, 0.45f}, color);
                 }
-            }
+            }*/
             Bubble::Renderer2D::EndScene();
             m_Framebuffer->Unbind();
         }

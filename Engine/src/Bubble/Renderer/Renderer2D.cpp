@@ -49,8 +49,6 @@ namespace Bubble {
 
 	void Renderer2D::Init()
 	{
-		  
-
 		s_Data.QuadVertexArray = VertexArray::Create();
 
 		s_Data.QuadVertexBuffer = VertexBuffer::Create(s_Data.MaxVertices * sizeof(QuadVertex));
@@ -150,8 +148,6 @@ namespace Bubble {
 
 	void Renderer2D::EndScene()
 	{
-		  
-
 		Flush();
 	}
 
@@ -217,8 +213,6 @@ namespace Bubble {
 
 	void Renderer2D::DrawQuad(const glm::mat4& transform, const glm::vec4& color, int entityID)
 	{
-		  
-
 		constexpr size_t quadVertexCount = 4;
 		const float textureIndex = 0.0f; // White Texture
 		constexpr glm::vec2 textureCoords[] = { { 0.0f, 0.0f }, { 1.0f, 0.0f }, { 1.0f, 1.0f }, { 0.0f, 1.0f } };
