@@ -20,6 +20,8 @@ namespace Bubble
         fbSpec.Width = 1280;
         fbSpec.Height = 720;
         m_Framebuffer = Bubble::Framebuffer::Create(fbSpec);
+
+        m_EditorCamera = EditorCamera(30.0f, 1.778f, 0.1f, 1000.0f);
     }
 
     void EditorLayer::OnDetach()
@@ -28,9 +30,22 @@ namespace Bubble
 
     void EditorLayer::OnUpdate(Timestep ts)
     {
+        // Resize
+        if(FramebufferSpecification spec = m_Framebuffer->GetSpecification();
+            m_ViewportSize.x > 0.0f && m_ViewportSize.y > 0.0f && // zero sized framebuffer is invalid
+            (spec.Width != m_ViewportSize.x || spec.Height != m_ViewportSize.y))
+        {
+            m_Framebuffer->Resize((uint32_t)m_ViewportSize.x, (uint32_t)m_ViewportSize.y);
+            m_CameraController.OnResize(m_ViewportSize.x, m_ViewportSize.y);
+            m_EditorCamera.SetViewportSize(m_ViewportSize.x, m_ViewportSize.y);
+            //m_ActiveScene->OnViewportResize((uint32_t)m_ViewportSize.x, (uint32_t)m_ViewportSize.y);
+        }
+
         // Update
         if(m_ViewportFocused)// 只有焦点在视图上时再更新相机
             m_CameraController.OnUpdate(ts);
+
+        m_EditorCamera.OnUpdate(ts);
 
         // Render
         Bubble::Renderer2D::ResetStats();
@@ -39,12 +54,12 @@ namespace Bubble
             Bubble::RenderCommand::SetClearColor({0.1f, 0.1f, 0.1f, 1});
             Bubble::RenderCommand::Clear();
         }
-
+    
         {
             static float rotation = 0.0f;
             rotation += ts * 50.0f;
 
-            Bubble::Renderer2D::BeginScene(m_CameraController.GetCamera());
+            Bubble::Renderer2D::BeginScene(m_EditorCamera);
             Bubble::Renderer2D::DrawRotatedQuad({1.0f, 0.0f}, {0.8f, 0.8f}, -45.0f, {0.8f, 0.2f, 0.3f, 1.0f});
             Bubble::Renderer2D::DrawQuad({-1.0f, 0.0f}, {0.8f, 0.8f}, {0.8f, 0.2f, 0.3f, 1.0f});
             Bubble::Renderer2D::DrawQuad({0.5f, -0.5f}, {0.5f, 0.75f}, m_SquareColor);
@@ -52,7 +67,7 @@ namespace Bubble
             Bubble::Renderer2D::DrawRotatedQuad({-2.0f, 0.0f, 0.0f}, {1.0f, 1.0f}, rotation, m_CheckerboardTexture, 20.0f);
             Bubble::Renderer2D::EndScene();
 
-            Bubble::Renderer2D::BeginScene(m_CameraController.GetCamera());
+            Bubble::Renderer2D::BeginScene(m_EditorCamera);
            /* for(float y = -5.0f; y < 5.0f; y += 0.5f)
             {
                 for(float x = -5.0f; x < 5.0f; x += 0.5f)
@@ -166,6 +181,11 @@ namespace Bubble
     void EditorLayer::OnEvent(Event& e)
     {
         m_CameraController.OnEvent(e);
+        m_EditorCamera.OnEvent(e);
+
+        EventDispatcher dispatcher(e);
+        dispatcher.Dispatch<KeyPressedEvent>(BB_BIND_EVENT_FN(EditorLayer::OnKeyPressed));
+        dispatcher.Dispatch<MouseButtonPressedEvent>(BB_BIND_EVENT_FN(EditorLayer::OnMouseButtonPressed));
     }
     bool EditorLayer::OnKeyPressed(KeyPressedEvent& e)
     {

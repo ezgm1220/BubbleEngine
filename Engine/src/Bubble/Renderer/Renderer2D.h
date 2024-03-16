@@ -4,8 +4,8 @@
 
 #include "Bubble/Renderer/Texture.h"
 
-#include "Bubble/Renderer/Camera.h"
-#include "Bubble/Renderer/EditorCamera.h"
+#include "Bubble/Camera/Camera.h"
+#include "Bubble/Camera/EditorCamera.h"
 
 //#include "Bubble/Scene/Components.h"
 

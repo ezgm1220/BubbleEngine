@@ -59,8 +59,6 @@ namespace Bubble {
 
 	void OrthographicCameraController::OnEvent(Event& e)
 	{
-		  
-
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<MouseScrolledEvent>(BB_BIND_EVENT_FN(OrthographicCameraController::OnMouseScrolled));
 		dispatcher.Dispatch<WindowResizeEvent>(BB_BIND_EVENT_FN(OrthographicCameraController::OnWindowResized));
@@ -74,8 +72,6 @@ namespace Bubble {
 
 	bool OrthographicCameraController::OnMouseScrolled(MouseScrolledEvent& e)
 	{
-		  
-
 		m_ZoomLevel -= e.GetYOffset() * 0.25f;
 		m_ZoomLevel = std::max(m_ZoomLevel, 0.25f);
 		m_Camera.SetProjection(-m_AspectRatio * m_ZoomLevel, m_AspectRatio * m_ZoomLevel, -m_ZoomLevel, m_ZoomLevel);
@@ -84,8 +80,6 @@ namespace Bubble {
 
 	bool OrthographicCameraController::OnWindowResized(WindowResizeEvent& e)
 	{
-		  
-
 		OnResize((float)e.GetWidth(), (float)e.GetHeight());
 		return false;
 	}

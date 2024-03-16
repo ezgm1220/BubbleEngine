@@ -14,6 +14,8 @@
 
 #include "Bubble/ImGui/ImGuiLayer.h"
 
+#include "Bubble/Camera/EditorCamera.h"
+
 //#include "Bubble/Core/EntryPoint.h"
 // ---Renderer------------------------
 #include "Bubble/Renderer/Renderer.h"
