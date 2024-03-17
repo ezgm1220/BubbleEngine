@@ -2,6 +2,7 @@
 
 #include "Bubble.h"
 #include "Panels/SceneHierarchyPanel.h"
+#include "Panels/ContentBrowserPanel.h"
 
 #include "Bubble/Camera/EditorCamera.h"
 
@@ -26,6 +27,7 @@ namespace Bubble
 
         void NewScene();
         void OpenScene();
+        void OpenScene(const std::filesystem::path& path);
         void SaveSceneAs();
     private:
         Bubble::OrthographicCameraController m_CameraController;
@@ -58,6 +60,8 @@ namespace Bubble
         int m_GizmoType = -1;
         // 场景层次面板
         SceneHierarchyPanel m_SceneHierarchyPanel;
+        // 资源管理器
+        ContentBrowserPanel m_ContentBrowserPanel;
     };
 
 }

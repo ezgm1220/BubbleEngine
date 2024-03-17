@@ -3,12 +3,12 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
-
 #define GLM_ENABLE_EXPERIMENTAL
 #include <glm/gtx/quaternion.hpp>
 
 #include "Bubble/Camera/SceneCamera.h"
 #include "Bubble/Scene/ScriptableEntity.h"
+#include "Bubble/Renderer/Texture.h"
 
 namespace Bubble
 {
@@ -51,6 +51,8 @@ namespace Bubble
     struct SpriteRendererComponent
     {
         glm::vec4 Color{ 1.0f, 1.0f, 1.0f, 1.0f };
+        Ref<Texture2D> Texture;
+        float TilingFactor = 1.0f;
 
         SpriteRendererComponent() = default;
         SpriteRendererComponent(const SpriteRendererComponent&) = default;

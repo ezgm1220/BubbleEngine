@@ -1,6 +1,4 @@
-[18:12:48] [info] BUBBLE: Creating window Bubble Editor (1600, 900)
-[18:13:16] [trace] BUBBLE: Deserializing scene 'Untitled'
-[18:13:16] [trace] BUBBLE: Deserialized entity with ID = 12837192831273, name = Green Square
-[18:13:16] [trace] BUBBLE: Deserialized entity with ID = 12837192831273, name = Red Square
-[18:13:16] [trace] BUBBLE: Deserialized entity with ID = 12837192831273, name = Camera A
-[18:13:16] [trace] BUBBLE: Deserialized entity with ID = 12837192831273, name = Camera B
+[21:34:27] [info] BUBBLE: Creating window Bubble Editor (1600, 900)
+[21:34:32] [trace] BUBBLE: Deserializing scene 'Untitled'
+[21:34:32] [trace] BUBBLE: Deserialized entity with ID = 12837192831273, name = B
+[21:34:32] [trace] BUBBLE: Deserialized entity with ID = 12837192831273, name = A
