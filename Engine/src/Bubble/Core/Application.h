@@ -7,6 +7,8 @@
 #include "Bubble/Events/Event.h"
 #include "Bubble/Events/ApplicationEvent.h"
 
+#include "Bubble/Core/Timestep.h"
+
 #include "Bubble/ImGui/ImGuiLayer.h"
 
 int main(int argc, char** argv);

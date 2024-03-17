@@ -15,6 +15,7 @@ namespace Bubble
     {
         s_Instance = this;
 
+        BB_CORE_ASSERT(!s_Instance, "Application already exists!");
         m_Window = Window::Create(WindowProps(name));
         m_Window->SetEventCallback(BB_BIND_EVENT_FN(Application::OnEvent));// 设置回调函数
 
@@ -25,12 +26,16 @@ namespace Bubble
     }
 
 
-    Application::~Application() {}
+    Application::~Application() {
+        Renderer::Shutdown();
+    }
 
     void Application::OnEvent(Event& e)
     {
         EventDispatcher dispatcher(e);
+
         dispatcher.Dispatch<WindowCloseEvent>(BB_BIND_EVENT_FN(Application::OnWindowClose));
+        dispatcher.Dispatch<WindowResizeEvent>(BB_BIND_EVENT_FN(Application::OnWindowResize));
 
         for(auto it = m_LayerStack.rbegin(); it != m_LayerStack.rend(); ++it)
         {

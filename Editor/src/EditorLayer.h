@@ -1,6 +1,9 @@
 #pragma once
 
 #include "Bubble.h"
+#include "Panels/SceneHierarchyPanel.h"
+
+#include "Bubble/Camera/EditorCamera.h"
 
 namespace Bubble
 {
@@ -21,9 +24,9 @@ namespace Bubble
         bool OnKeyPressed(KeyPressedEvent& e);
         bool OnMouseButtonPressed(MouseButtonPressedEvent& e);
 
-        /*void NewScene();
+        void NewScene();
         void OpenScene();
-        void SaveSceneAs();*/
+        void SaveSceneAs();
     private:
         Bubble::OrthographicCameraController m_CameraController;
 
@@ -32,12 +35,12 @@ namespace Bubble
         Ref<Shader> m_FlatColorShader;
         Ref<Framebuffer> m_Framebuffer;
 
-        /*Ref<Scene> m_ActiveScene;
+        Ref<Scene> m_ActiveScene;
         Entity m_SquareEntity;
         Entity m_CameraEntity;
         Entity m_SecondCamera;
 
-        Entity m_HoveredEntity;*/
+        Entity m_HoveredEntity;
 
         bool m_PrimaryCamera = true;
 
@@ -53,13 +56,8 @@ namespace Bubble
         glm::vec4 m_SquareColor = {0.2f, 0.3f, 0.8f, 1.0f};
 
         int m_GizmoType = -1;
-
-        bool show_demo_window = true;
-        bool show_another_window = false;
-        //ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
-
-        // Panels
-        //SceneHierarchyPanel m_SceneHierarchyPanel;
+        // 场景层次面板
+        SceneHierarchyPanel m_SceneHierarchyPanel;
     };
 
 }

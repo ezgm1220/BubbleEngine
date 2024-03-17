@@ -1,5 +1,7 @@
 #pragma once
 
+#include <sstream>
+
 #include "Bubble/Events/Event.h"
 #include "Bubble/Core/MouseCodes.h"
 
