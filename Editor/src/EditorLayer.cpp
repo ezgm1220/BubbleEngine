@@ -46,9 +46,7 @@ namespace Bubble
 
     void EditorLayer::OnUpdate(Timestep ts)
     {
-        
-
-        // Resize
+        // Resize,当视图尺寸发生变换时更新信息
         if(FramebufferSpecification spec = m_Framebuffer->GetSpecification();
             m_ViewportSize.x > 0.0f && m_ViewportSize.y > 0.0f && // zero sized framebuffer is invalid
             (spec.Width != m_ViewportSize.x || spec.Height != m_ViewportSize.y))
@@ -71,12 +69,13 @@ namespace Bubble
         RenderCommand::SetClearColor({0.1f, 0.1f, 0.1f, 1});
         RenderCommand::Clear();
 
-        // Clear our entity ID attachment to -1
+        // 将id为1的附件值设为-1.随后用来渲染id
         m_Framebuffer->ClearAttachment(1, -1);
 
-        // 更新场景
-        m_ActiveScene->OnUpdateEditor(ts, m_EditorCamera);// 找到主相机,在主相机内进行遍历实体更新场景
+        // 更新场景,通过遍历场景中的实体进行渲染
+        m_ActiveScene->OnUpdateEditor(ts, m_EditorCamera);
 
+        // 获取鼠标在view中的坐标
         auto [mx, my] = ImGui::GetMousePos();
         mx -= m_ViewportBounds[0].x;
         my -= m_ViewportBounds[0].y;
@@ -85,21 +84,19 @@ namespace Bubble
         int mouseX = (int)mx;
         int mouseY = (int)my;
 
+        // 读取坐标下的id,获得该id下的悬停实体
         if(mouseX >= 0 && mouseY >= 0 && mouseX < (int)viewportSize.x && mouseY < (int)viewportSize.y)
         {
             int pixelData = m_Framebuffer->ReadPixel(1, mouseX, mouseY);
             m_HoveredEntity = pixelData == -1 ? Entity() : Entity((entt::entity)pixelData, m_ActiveScene.get());
         }
 
+        // 解绑Framebuffer
         m_Framebuffer->Unbind();
-
-
     }
 
     void EditorLayer::OnImGuiRender()
     {
-        
-
         // 注意： 将此项切换为 true 可启用 dockspace
         static bool dockspaceOpen = true;
         static bool opt_fullscreen_persistant = true;
@@ -197,8 +194,11 @@ namespace Bubble
         ImGui::End();
 
         ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2{0, 0});
+
+        // 渲染Viewport窗口
         ImGui::Begin("Viewport");
 
+        // 获取窗口偏移后的位置
         auto viewportMinRegion = ImGui::GetWindowContentRegionMin();
         auto viewportMaxRegion = ImGui::GetWindowContentRegionMax();
         auto viewportOffset = ImGui::GetWindowPos();
@@ -274,6 +274,7 @@ namespace Bubble
                 tc.Translation = translation;
                 tc.Rotation += deltaRotation;
                 tc.Scale = scale;
+                BB_CORE_INFO("translation {0} {1} {2}", translation.x, translation.y, translation.z);
             }
         }
 

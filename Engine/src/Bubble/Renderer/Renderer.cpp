@@ -1,6 +1,7 @@
 #include "bubblepch.h"
 #include "Bubble/Renderer/Renderer.h"
 #include "Bubble/Renderer/Renderer2D.h"
+#include "Bubble/Renderer/Renderer3D.h"
 
 namespace Bubble {
 
@@ -8,10 +9,9 @@ namespace Bubble {
 
 	void Renderer::Init()
 	{
-		  
-
 		RenderCommand::Init();
-		Renderer2D::Init();
+		//Renderer2D::Init();
+        Renderer3D::Init();
 	}
 
 	void Renderer::Shutdown()

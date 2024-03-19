@@ -3,6 +3,7 @@
 
 #include "Bubble/Scene/Components.h"
 #include "Bubble/Renderer/Renderer2D.h"
+#include "Bubble/Renderer/Renderer3D.h"
 
 #include <glm/glm.hpp>
 
@@ -88,7 +89,7 @@ namespace Bubble
 
     void Scene::OnUpdateEditor(Timestep ts, EditorCamera& camera)
     {
-        Renderer2D::BeginScene(camera);
+        /*Renderer2D::BeginScene(camera);
 
         auto group = m_Registry.group<TransformComponent>(entt::get<SpriteRendererComponent>);
         for(auto entity : group)
@@ -98,7 +99,22 @@ namespace Bubble
             Renderer2D::DrawSprite(transform.GetTransform(), sprite, (int)entity);
         }
 
-        Renderer2D::EndScene();
+        Renderer2D::EndScene();*/
+
+        {
+            Renderer3D::ResetStats();
+            Renderer3D::BeginScene(camera);
+
+            auto group = m_Registry.group<TransformComponent>(entt::get<SpriteRendererComponent>);
+            for(auto entity : group)
+            {
+                auto [transform, sprite] = group.get<TransformComponent, SpriteRendererComponent>(entity);
+
+                Renderer3D::DrawCube(transform.GetTransform(), sprite.Color, (int)entity);
+            }
+
+            Renderer3D::EndScene();
+        }
     }
 
     void Scene::OnViewportResize(uint32_t width, uint32_t height)

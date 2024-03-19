@@ -28,15 +28,11 @@ namespace Bubble {
 
 	OpenGLVertexArray::OpenGLVertexArray()
 	{
-		  
-
 		glCreateVertexArrays(1, &m_RendererID);
 	}
 
 	OpenGLVertexArray::~OpenGLVertexArray()
 	{
-		  
-
 		glDeleteVertexArrays(1, &m_RendererID);
 	}
 
