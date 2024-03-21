@@ -15,6 +15,7 @@ namespace Bubble
         glm::vec4 Color;
         glm::vec2 TexCoord;
         float TexIndex;
+        float TilingFactor;
 
         // Editor-only
         int EntityID;
@@ -56,7 +57,7 @@ namespace Bubble
                 { ShaderDataType::Float4, "a_Color"        },
                 { ShaderDataType::Float2, "a_TexCoord"     },
                 { ShaderDataType::Float,  "a_TexIndex"     },
-                //{ ShaderDataType::Float,  "a_TilingFactor" },
+                { ShaderDataType::Float,  "a_TilingFactor" },
                 { ShaderDataType::Int,    "a_EntityID"     }
             });
         s_Data.CubeVertexArray->AddVertexBuffer(s_Data.CubeVertexBuffer);
@@ -209,6 +210,7 @@ namespace Bubble
             s_Data.CubeVertexBufferPtr->Color = color;
             s_Data.CubeVertexBufferPtr->TexCoord = textureCoords[i];
             s_Data.CubeVertexBufferPtr->TexIndex = textureIndex;
+            s_Data.CubeVertexBufferPtr->TilingFactor = tilingFactor;
             s_Data.CubeVertexBufferPtr->EntityID = entityID;
             s_Data.CubeVertexBufferPtr++;
         }

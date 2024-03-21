@@ -64,7 +64,7 @@ namespace Bubble
         m_EditorCamera.OnUpdate(ts);
 
         // Render
-        Renderer2D::ResetStats();
+        //Renderer2D::ResetStats();
         m_Framebuffer->Bind();
         RenderCommand::SetClearColor({0.1f, 0.1f, 0.1f, 1});
         RenderCommand::Clear();

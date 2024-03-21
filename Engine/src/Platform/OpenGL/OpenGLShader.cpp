@@ -187,8 +187,6 @@ namespace Bubble {
 
 	void OpenGLShader::Bind() const
 	{
-		  
-
 		glUseProgram(m_RendererID);
 	}
 

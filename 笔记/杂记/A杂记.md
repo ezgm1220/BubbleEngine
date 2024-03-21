@@ -216,7 +216,9 @@ AttachColorTexture的实现如下：
 
 ![image-20240313232232268](image-20240313232232268.png)
 
-## 老版OenGL顶点数据传输方式
+## 老版OenGL
+
+顶点数据传输方式
 
 ![image-20240312152050020](image-20240312152050020.png)
 
@@ -373,3 +375,56 @@ EndScene标志结束了渲染，所以只需将已有的数据进行渲染即可
 实现如下：
 ![image-20240314163430807](image-20240314163430807.png)
 
+# HEngine_Render分析
+
+在main函数中依次进行init run clean
+
+![image-20240320174151712](A%E6%9D%82%E8%AE%B0.assets/image-20240320174151712.png)
+
+在MyAppInitialize中进行Application的初始化以及pushEditor层
+![image-20240320174849011](A%E6%9D%82%E8%AE%B0.assets/image-20240320174849011.png)
+
+在Application::Init进行真正的初始化操作
+
+![image-20240320174124604](A%E6%9D%82%E8%AE%B0.assets/image-20240320174124604.png)
+
+## Renderer::Init()
+
+![image-20240320174938864](A%E6%9D%82%E8%AE%B0.assets/image-20240320174938864.png)
+
+### RenderCommand::Init()
+
+在此会进行API的Init
+![image-20240320175044007](A%E6%9D%82%E8%AE%B0.assets/image-20240320175044007.png)
+
+初始化进行的操作如下
+![image-20240320175105807](A%E6%9D%82%E8%AE%B0.assets/image-20240320175105807.png)
+
+### Renderer3D::Init()
+
+![image-20240320175136375](A%E6%9D%82%E8%AE%B0.assets/image-20240320175136375.png)
+
+### PostProcessing::Init()
+
+![image-20240320190249739](A%E6%9D%82%E8%AE%B0.assets/image-20240320190249739.png)
+
+至此Init结束
+
+## Application::Run()
+
+![image-20240320191233090](A%E6%9D%82%E8%AE%B0.assets/image-20240320191233090.png)
+
+# PBR管线想法
+
+![image-20240320215622993](A%E6%9D%82%E8%AE%B0.assets/image-20240320215622993.png)
+
+新建的Pipeline文件夹
+![image-20240321150705757](A%E6%9D%82%E8%AE%B0.assets/image-20240321150705757.png)
+
+在Scene中将会引入Pipeline
+
+# OpenGL流程
+
+Render3D的Init中
+![image-20240321205940089](A%E6%9D%82%E8%AE%B0.assets/image-20240321205940089.png)
+延迟到Pipeline中进行
