@@ -87,7 +87,7 @@ namespace Bubble
 
     }
 
-    void Scene::OnUpdateEditor(Timestep ts, EditorCamera& camera)
+    void Scene::OnUpdateEditor(Timestep ts, EditorCamera& camera, Ref<Pipeline> pipeline)
     {
         /*Renderer2D::BeginScene(camera);
 
@@ -103,17 +103,17 @@ namespace Bubble
 
         {
             Renderer3D::ResetStats();
-            Renderer3D::BeginScene(camera);
+            Renderer3D::BeginScene(camera,pipeline);
 
             auto group = m_Registry.group<TransformComponent>(entt::get<SpriteRendererComponent>);
             for(auto entity : group)
             {
                 auto [transform, sprite] = group.get<TransformComponent, SpriteRendererComponent>(entity);
 
-                Renderer3D::DrawCube(transform.GetTransform(), sprite.Color, (int)entity);
+                Renderer3D::DrawCube(transform.GetTransform(), sprite.Color, pipeline,(int)entity);
             }
 
-            Renderer3D::EndScene();
+            Renderer3D::EndScene(pipeline);
         }
     }
 

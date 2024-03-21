@@ -6,13 +6,15 @@
 
 #include "Bubble/Camera/EditorCamera.h"
 
+#include "Bubble/Pipeline/Pipeline.h"
+
 namespace Bubble
 {
 
     class EditorLayer : public Layer
     {
     public:
-        EditorLayer();
+        EditorLayer(Ref<Pipeline> pipeline);
         virtual ~EditorLayer() = default;
 
         virtual void OnAttach() override;
@@ -34,8 +36,8 @@ namespace Bubble
 
         // Temp
         Ref<VertexArray> m_SquareVA;
-        Ref<Shader> m_FlatColorShader;
-        Ref<Framebuffer> m_Framebuffer;
+        //Ref<Shader> m_FlatColorShader;
+        //Ref<Framebuffer> m_Framebuffer;
 
         Ref<Scene> m_ActiveScene;
         Entity m_SquareEntity;
@@ -46,7 +48,7 @@ namespace Bubble
 
         bool m_PrimaryCamera = true;
 
-        Ref<Texture2D> m_CheckerboardTexture;
+        //Ref<Texture2D> m_CheckerboardTexture;
 
         EditorCamera m_EditorCamera;
 
@@ -62,6 +64,8 @@ namespace Bubble
         SceneHierarchyPanel m_SceneHierarchyPanel;
         // 资源管理器
         ContentBrowserPanel m_ContentBrowserPanel;
+        // Pipeline
+        Ref<Pipeline> m_pipeline;
     };
 
 }

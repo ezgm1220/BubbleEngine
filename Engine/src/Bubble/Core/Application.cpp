@@ -5,6 +5,8 @@
 #include "Bubble/Renderer/Renderer.h"
 #include "Bubble/Core/Input.h"
 
+#include "Bubble/Pipeline/PBR_Pipeline.h"
+
 #include <GLFW/glfw3.h>
 
 namespace Bubble
@@ -15,11 +17,14 @@ namespace Bubble
     {
         s_Instance = this;
 
-        BB_CORE_ASSERT(!s_Instance, "Application already exists!");
+        BB_CORE_ASSERT(s_Instance, "Application already exists!");
         m_Window = Window::Create(WindowProps(name));
         m_Window->SetEventCallback(BB_BIND_EVENT_FN(Application::OnEvent));// 设置回调函数
 
-        Renderer::Init();
+        // 初始化Pipeline(默认Pipeline为PBR)
+        m_Pipeline = CreateRef<PBRPipeline>();
+
+        Renderer::Init(m_Pipeline);
 
         m_ImGuiLayer = new ImGuiLayer();
 

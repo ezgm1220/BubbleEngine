@@ -2,7 +2,7 @@
 
 #include <memory>
 
-#ifdef BB_DEBU
+#ifdef BB_DEBUG
 #define BB_DEBUGBREAK() __debugbreak()
 #define BB_ENABLE_ASSERTS
 #else

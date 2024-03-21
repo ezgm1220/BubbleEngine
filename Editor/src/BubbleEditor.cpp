@@ -8,7 +8,7 @@ namespace Bubble
     class Sandbox : public Application
     {
     public:
-        Sandbox() : Application("Bubble Editor") { PushLayer(new EditorLayer()); }
+        Sandbox() : Application("Bubble Editor") { PushLayer(new EditorLayer(m_Pipeline)); }
         ~Sandbox() {}
     };
 

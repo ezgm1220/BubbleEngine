@@ -7,11 +7,11 @@ namespace Bubble {
 
 	Scope<Renderer::SceneData> Renderer::s_SceneData = CreateScope<Renderer::SceneData>();
 
-	void Renderer::Init()
+	void Renderer::Init(Ref<Pipeline>pipeline)
 	{
 		RenderCommand::Init();
 		//Renderer2D::Init();
-        Renderer3D::Init();
+        Renderer3D::Init(pipeline);
 	}
 
 	void Renderer::Shutdown()

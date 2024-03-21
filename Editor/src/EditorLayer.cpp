@@ -16,21 +16,24 @@ namespace Bubble
 {
     extern const std::filesystem::path g_AssetPath;
 
-    EditorLayer::EditorLayer()
-        : Layer("EditorLayer"), m_CameraController(1280.0f / 720.0f), m_SquareColor({0.2f, 0.3f, 0.8f, 1.0f})
+    EditorLayer::EditorLayer(Ref<Pipeline> pipeline)
+        : Layer("EditorLayer"), m_CameraController(1280.0f / 720.0f), m_SquareColor({0.2f, 0.3f, 0.8f, 1.0f}),m_pipeline(pipeline)
     {
     }
 
     void EditorLayer::OnAttach()
     {
         
-        m_CheckerboardTexture = Texture2D::Create("assets/textures/Checkerboard.png");
+        //m_CheckerboardTexture = Texture2D::Create("assets/textures/Checkerboard.png");
 
         FramebufferSpecification fbSpec;
         fbSpec.Attachments = {FramebufferTextureFormat::RGBA8, FramebufferTextureFormat::RED_INTEGER, FramebufferTextureFormat::Depth};
         fbSpec.Width = 1280;
         fbSpec.Height = 720;
-        m_Framebuffer = Framebuffer::Create(fbSpec);
+
+        m_pipeline->Set_Framebuffer(fbSpec, PID(GBuffer));
+
+        //m_Framebuffer = Framebuffer::Create(fbSpec);
 
         m_ActiveScene = CreateRef<Scene>();
 
@@ -47,6 +50,7 @@ namespace Bubble
     void EditorLayer::OnUpdate(Timestep ts)
     {
         // Resize,当视图尺寸发生变换时更新信息
+        auto m_Framebuffer = m_pipeline->Get_Framebuffer(PID(GBuffer));
         if(FramebufferSpecification spec = m_Framebuffer->GetSpecification();
             m_ViewportSize.x > 0.0f && m_ViewportSize.y > 0.0f && // zero sized framebuffer is invalid
             (spec.Width != m_ViewportSize.x || spec.Height != m_ViewportSize.y))
@@ -73,7 +77,7 @@ namespace Bubble
         m_Framebuffer->ClearAttachment(1, -1);
 
         // 更新场景,通过遍历场景中的实体进行渲染
-        m_ActiveScene->OnUpdateEditor(ts, m_EditorCamera);
+        m_ActiveScene->OnUpdateEditor(ts, m_EditorCamera,m_pipeline);
 
         // 获取鼠标在view中的坐标
         auto [mx, my] = ImGui::GetMousePos();
@@ -212,7 +216,9 @@ namespace Bubble
         ImVec2 viewportPanelSize = ImGui::GetContentRegionAvail();
         m_ViewportSize = {viewportPanelSize.x, viewportPanelSize.y};
 
-        uint64_t textureID = m_Framebuffer->GetColorAttachmentRendererID();
+
+        uint64_t textureID = m_pipeline->Get_Framebuffer(PID(GBuffer))->GetColorAttachmentRendererID();
+        //uint64_t textureID = m_Framebuffer->GetColorAttachmentRendererID();
         ImGui::Image(reinterpret_cast<void*>(textureID), ImVec2{m_ViewportSize.x, m_ViewportSize.y}, ImVec2{0, 1}, ImVec2{1, 0});
 
         // 纹理拖放

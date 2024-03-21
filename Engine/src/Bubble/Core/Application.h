@@ -11,6 +11,8 @@
 
 #include "Bubble/ImGui/ImGuiLayer.h"
 
+#include "Bubble/Pipeline/Pipeline.h"
+
 int main(int argc, char** argv);
 
 namespace Bubble
@@ -34,6 +36,8 @@ namespace Bubble
 
         static Application& Get() { return *s_Instance; }
 
+
+
     private:
         void Run();
         bool OnWindowClose(WindowCloseEvent& e);
@@ -48,6 +52,8 @@ namespace Bubble
     private:
         static Application* s_Instance;
         friend int ::main(int argc, char** argv);
+    protected:
+        Ref<Pipeline>m_Pipeline;
     };
     Application* CreatApplication();
 

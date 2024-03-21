@@ -30,7 +30,7 @@ namespace Bubble
 
         Ref<VertexArray> CubeVertexArray;
         Ref<VertexBuffer> CubeVertexBuffer;
-        Ref<Shader> TextureShader;
+        //Ref<Shader> TextureShader;
         Ref<Texture2D> WhiteTexture;
 
         uint32_t CubeIndexCount = 0;
@@ -47,7 +47,7 @@ namespace Bubble
 
     static Renderer3DData s_Data;
 
-    void Renderer3D::Init()
+    void Renderer3D::Init(Ref<Pipeline>pipeline)
     {
         s_Data.CubeVertexArray = VertexArray::Create();
 
@@ -133,9 +133,13 @@ namespace Bubble
         for(uint32_t i = 0; i < s_Data.MaxTextureSlots; i++)
             samplers[i] = i;
 
-        s_Data.TextureShader = Shader::Create("assets/shaders/Texture.glsl");
-        s_Data.TextureShader->Bind();
-        s_Data.TextureShader->SetIntArray("u_Textures", samplers, s_Data.MaxTextureSlots);
+        pipeline->Set_Shader("assets/shaders/Texture.glsl", 0);
+        auto shader = pipeline->Get_Shader(0);
+        shader->Bind();
+        shader->SetIntArray("u_Textures", samplers, s_Data.MaxTextureSlots);
+        //s_Data.TextureShader = Shader::Create("assets/shaders/Texture.glsl");
+        //s_Data.TextureShader->Bind();
+        //s_Data.TextureShader->SetIntArray("u_Textures", samplers, s_Data.MaxTextureSlots);
 
         // Set first texture slot to 0
         s_Data.TextureSlots[0] = s_Data.WhiteTexture;
@@ -154,16 +158,18 @@ namespace Bubble
     {
     }
     
-    void Renderer3D::BeginScene(const Camera& camera, const glm::mat4& transform)
+    void Renderer3D::BeginScene(const Camera& camera, const glm::mat4& transform, Ref<Pipeline>pipeline)
     {
     }
     
-    void Renderer3D::BeginScene(const EditorCamera& camera)
+    void Renderer3D::BeginScene(const EditorCamera& camera, Ref<Pipeline>pipeline)
     {
-        glm::mat4 viewProj = camera.GetViewProjection();
+        //glm::mat4 viewProj = camera.GetViewProjection();
 
-        s_Data.TextureShader->Bind();
-        s_Data.TextureShader->SetMat4("u_ViewProjection", viewProj);
+        pipeline->BeginScene(camera);
+
+       /* s_Data.TextureShader->Bind();
+        s_Data.TextureShader->SetMat4("u_ViewProjection", viewProj);*/
 
         StartBatch();
     }
@@ -172,12 +178,12 @@ namespace Bubble
     {
     }
     
-    void Renderer3D::EndScene()
+    void Renderer3D::EndScene(Ref<Pipeline>pipeline)
     {
-        Flush();
+        Flush(pipeline);
     }
     
-    void Renderer3D::Flush()
+    void Renderer3D::Flush(Ref<Pipeline>pipeline)
     {
         if(s_Data.CubeIndexCount == 0)
             return; // Nothing to draw
@@ -193,7 +199,7 @@ namespace Bubble
         s_Data.Stats.DrawCalls++;
     }
     
-    void Renderer3D::DrawCube(const glm::mat4& transform, const glm::vec4& color, int entityID)
+    void Renderer3D::DrawCube(const glm::mat4& transform, const glm::vec4& color, Ref<Pipeline>pipeline, int entityID)
     {
         constexpr size_t quadVertexCount = 8;
         const float textureIndex = 0.0f; // White Texture
@@ -202,7 +208,7 @@ namespace Bubble
         const float tilingFactor = 1.0f;
 
         if(s_Data.CubeIndexCount >= Renderer3DData::MaxIndices)
-            NextBatch();
+            NextBatch(pipeline);
 
         for(size_t i = 0; i < quadVertexCount; i++)
         {
@@ -238,9 +244,9 @@ namespace Bubble
         s_Data.TextureSlotIndex = 1;
     }
     
-    void Renderer3D::NextBatch()
+    void Renderer3D::NextBatch(Ref<Pipeline>pipeline)
     {
-        Flush();
+        Flush(pipeline);
         StartBatch();
     }
 }
