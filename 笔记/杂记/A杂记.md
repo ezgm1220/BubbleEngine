@@ -428,3 +428,8 @@ EndScene标志结束了渲染，所以只需将已有的数据进行渲染即可
 Render3D的Init中
 ![image-20240321205940089](A%E6%9D%82%E8%AE%B0.assets/image-20240321205940089.png)
 延迟到Pipeline中进行
+
+![image-20240321213432868](A%E6%9D%82%E8%AE%B0.assets/image-20240321213432868.png)
+
+正常的逻辑更新
+
