@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Bubble/Core/Timestep.h"
+#include "Bubble/Core/UUID.h"
 #include "Bubble/Camera/EditorCamera.h"
 
 #include "Bubble/Pipeline/Pipeline.h"
@@ -19,6 +20,7 @@ namespace Bubble
         ~Scene();
 
         Entity CreateEntity(const std::string& name = std::string());
+        Entity CreateEntityWithUUID(UUID uuid, const std::string& name = std::string());
         void DestroyEntity(Entity entity);
 
         void OnUpdateRuntime(Timestep ts);

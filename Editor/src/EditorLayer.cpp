@@ -293,7 +293,7 @@ namespace Bubble
                 tc.Translation = translation;
                 tc.Rotation += deltaRotation;
                 tc.Scale = scale;
-                BB_CORE_INFO("translation {0} {1} {2}", translation.x, translation.y, translation.z);
+                BB_CORE_INFO("translation {0}", translation);
             }
         }
 

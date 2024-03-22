@@ -1,17 +1,29 @@
 #pragma once
 
+#include "Bubble/Camera/SceneCamera.h"
+#include "Bubble/Core/UUID.h"
+#include "Bubble/Renderer/Texture.h"
+
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
 #define GLM_ENABLE_EXPERIMENTAL
 #include <glm/gtx/quaternion.hpp>
 
-#include "Bubble/Camera/SceneCamera.h"
-#include "Bubble/Scene/ScriptableEntity.h"
-#include "Bubble/Renderer/Texture.h"
+//#include "Bubble/Camera/SceneCamera.h"
+//#include "Bubble/Scene/ScriptableEntity.h"
+//#include "Bubble/Renderer/Texture.h"
 
 namespace Bubble
 {
+
+    struct IDComponent
+    {
+        UUID ID;
+
+        IDComponent() = default;
+        IDComponent(const IDComponent&) = default;
+    };
 
     struct TagComponent
     {
@@ -71,6 +83,9 @@ namespace Bubble
         CameraComponent() = default;
         CameraComponent(const CameraComponent&) = default;
     };
+
+    // Forward declaration
+    class ScriptableEntity;
 
     struct NativeScriptComponent
     {
