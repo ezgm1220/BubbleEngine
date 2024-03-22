@@ -1,7 +1,8 @@
-[11:09:39] [info] BUBBLE: Creating window Bubble Editor (1600, 900)
-[11:09:42] [trace] BUBBLE: Deserializing scene 'Untitled'
-[11:09:42] [trace] BUBBLE: Deserialized entity with ID = 12837192831273, name = Empty Entity
-[11:09:42] [trace] BUBBLE: Deserialized entity with ID = 12837192831273, name = Empty Entity
-[11:09:42] [trace] BUBBLE: Deserialized entity with ID = 12837192831273, name = Empty Entity
-[11:09:42] [trace] BUBBLE: Deserialized entity with ID = 12837192831273, name = A
-[11:09:42] [trace] BUBBLE: Deserialized entity with ID = 12837192831273, name = B
+[11:16:12] [info] BUBBLE: Creating window Bubble Editor (1600, 900)
+[11:16:15] [trace] BUBBLE: Deserializing scene 'Untitled'
+[11:16:15] [trace] BUBBLE: Deserialized entity with ID = 12837192831273, name = Empty Entity
+[11:16:15] [trace] BUBBLE: Deserialized entity with ID = 12837192831273, name = Empty Entity
+[11:16:15] [trace] BUBBLE: Deserialized entity with ID = 12837192831273, name = Empty Entity
+[11:16:15] [trace] BUBBLE: Deserialized entity with ID = 12837192831273, name = A
+[11:16:15] [trace] BUBBLE: Deserialized entity with ID = 12837192831273, name = B
+[11:16:23] [warning] APP: Could not load texture M_Bubble.bubble
