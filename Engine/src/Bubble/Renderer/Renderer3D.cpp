@@ -23,8 +23,8 @@ namespace Bubble
 
     struct Renderer3DData
     {
-        static const uint32_t MaxCubes = 1000;
-        static const uint32_t MaxVertices = MaxCubes * 8;
+        static const uint32_t MaxCubes = 500;
+        static const uint32_t MaxVertices = MaxCubes * 16;
         static const uint32_t MaxIndices = MaxCubes * 36;
         static const uint32_t MaxTextureSlots = 32; // TODO: RenderCaps
 
@@ -40,7 +40,7 @@ namespace Bubble
         std::array<Ref<Texture2D>, MaxTextureSlots> TextureSlots;
         uint32_t TextureSlotIndex = 1; // 0 = white texture
 
-        glm::vec4 CubeVertexPositions[8];
+        glm::vec4 CubeVertexPositions[16];
 
         Renderer3D::Statistics Stats;
     };
@@ -71,54 +71,54 @@ namespace Bubble
         for(uint32_t i = 0; i < s_Data.MaxIndices; i += 36)
         {
             // 前面
-            quadIndices[i +  0] = offset + 0;
-            quadIndices[i +  1] = offset + 1;
-            quadIndices[i +  2] = offset + 2;              
-            quadIndices[i +  3] = offset + 0;
-            quadIndices[i +  4] = offset + 2;
-            quadIndices[i +  5] = offset + 3;
-            
-            // 下面
-            quadIndices[i +  6] = offset + 0;
-            quadIndices[i +  7] = offset + 1;
-            quadIndices[i +  8] = offset + 5;
-            quadIndices[i +  9] = offset + 0;
-            quadIndices[i + 10] = offset + 5;
-            quadIndices[i + 11] = offset + 4;
-
-            // 右面
-            quadIndices[i + 12] = offset + 1;
-            quadIndices[i + 13] = offset + 5;
-            quadIndices[i + 14] = offset + 6;
-            quadIndices[i + 15] = offset + 1;
-            quadIndices[i + 16] = offset + 6;
-            quadIndices[i + 17] = offset + 2;
+            quadIndices[i + 0] = offset + 0;
+            quadIndices[i + 1] = offset + 1;
+            quadIndices[i + 2] = offset + 2;
+            quadIndices[i + 3] = offset + 0;
+            quadIndices[i + 4] = offset + 2;
+            quadIndices[i + 5] = offset + 3;
 
             //后面
-            quadIndices[i + 18] = offset + 5;
-            quadIndices[i + 19] = offset + 4;
-            quadIndices[i + 20] = offset + 7;
-            quadIndices[i + 21] = offset + 5;
-            quadIndices[i + 22] = offset + 7;
-            quadIndices[i + 23] = offset + 6;
+            quadIndices[i + 6 ] = offset + 5;
+            quadIndices[i + 7 ] = offset + 4;
+            quadIndices[i + 8 ] = offset + 7;
+            quadIndices[i + 9 ] = offset + 5;
+            quadIndices[i + 10] = offset + 7;
+            quadIndices[i + 11] = offset + 6;
 
-            //左面
-            quadIndices[i + 24] = offset + 4;
-            quadIndices[i + 25] = offset + 0;
-            quadIndices[i + 26] = offset + 3;
-            quadIndices[i + 27] = offset + 4;
-            quadIndices[i + 28] = offset + 3;
-            quadIndices[i + 29] = offset + 7;
+                //左面
+            quadIndices[i + 12] = offset + 4;
+            quadIndices[i + 13] = offset + 0;
+            quadIndices[i + 14] = offset + 3;
+            quadIndices[i + 15] = offset + 4;
+            quadIndices[i + 16] = offset + 3;
+            quadIndices[i + 17] = offset + 7;
+
+            // 右面
+            quadIndices[i +  18] = offset + 1;
+            quadIndices[i +  19] = offset + 5;
+            quadIndices[i +  20] = offset + 6;
+            quadIndices[i +  21] = offset + 1;
+            quadIndices[i +  22] = offset + 6;
+            quadIndices[i +  23] = offset + 2;
 
             // 上面
-            quadIndices[i + 30] = offset + 3;
-            quadIndices[i + 31] = offset + 5;
-            quadIndices[i + 32] = offset + 6;
-            quadIndices[i + 33] = offset + 3;
-            quadIndices[i + 34] = offset + 6;
-            quadIndices[i + 35] = offset + 7;
+            quadIndices[i + 24] = offset + 11;
+            quadIndices[i + 25] = offset + 10;
+            quadIndices[i + 26] = offset + 14;
+            quadIndices[i + 27] = offset + 11;
+            quadIndices[i + 28] = offset + 14;
+            quadIndices[i + 29] = offset + 15;
 
-            offset += 8;
+             // 下面
+            quadIndices[i + 30] = offset + 8;   
+            quadIndices[i + 31] = offset + 9;   
+            quadIndices[i + 32] = offset + 13;   
+            quadIndices[i + 33] = offset + 8;   
+            quadIndices[i + 34] = offset + 13;   
+            quadIndices[i + 35] = offset + 12;   
+
+            offset += 16;
         }
 
         Ref<IndexBuffer> quadIB = IndexBuffer::Create(quadIndices, s_Data.MaxIndices);
@@ -152,6 +152,14 @@ namespace Bubble
         s_Data.CubeVertexPositions[5] = { 0.5f, -0.5f, -0.5f, 1.0f};
         s_Data.CubeVertexPositions[6] = { 0.5f,  0.5f, -0.5f, 1.0f};
         s_Data.CubeVertexPositions[7] = {-0.5f,  0.5f, -0.5f, 1.0f};
+        s_Data.CubeVertexPositions[8] = {-0.5f, -0.5f,  0.5f, 1.0f};
+        s_Data.CubeVertexPositions[9] = {0.5f, -0.5f,  0.5f, 1.0f};
+        s_Data.CubeVertexPositions[10] = {0.5f,  0.5f,  0.5f, 1.0f};
+        s_Data.CubeVertexPositions[11] = {-0.5f,  0.5f,  0.5f, 1.0f};
+        s_Data.CubeVertexPositions[12] = {-0.5f, -0.5f, -0.5f, 1.0f};
+        s_Data.CubeVertexPositions[13] = {0.5f, -0.5f, -0.5f, 1.0f};
+        s_Data.CubeVertexPositions[14] = {0.5f,  0.5f, -0.5f, 1.0f};
+        s_Data.CubeVertexPositions[15] = {-0.5f,  0.5f, -0.5f, 1.0f};
     }
     
     void Renderer3D::Shutdown()
@@ -200,10 +208,12 @@ namespace Bubble
     
     void Renderer3D::DrawCube(Ref<Pipeline>pipeline, const glm::mat4& transform, const glm::vec4& color, int entityID)
     {
-        constexpr size_t quadVertexCount = 8;
+        constexpr size_t quadVertexCount = 16;
         const float textureIndex = 0.0f; // White Texture
         constexpr glm::vec2 textureCoords[] = {{ 0.0f, 0.0f }, { 1.0f, 0.0f }, { 1.0f, 1.0f }, { 0.0f, 1.0f },
-                                               { 1.0f, 0.0f }, { 0.0f, 0.0f }, { 0.0f, 1.0f }, { 1.0f, 1.0f }};
+                                               { 1.0f, 0.0f }, { 0.0f, 0.0f }, { 0.0f, 1.0f }, { 1.0f, 1.0f },
+                                               { 0.0f, 0.0f }, { 1.0f, 0.0f }, { 1.0f, 0.0f }, { 0.0f, 0.0f },
+                                               { 0.0f, 1.0f }, { 1.0f, 1.0f }, { 1.0f, 1.0f }, { 0.0f, 1.0f }};
         const float tilingFactor = 1.0f;
 
         if(s_Data.CubeIndexCount >= Renderer3DData::MaxIndices)
@@ -227,9 +237,11 @@ namespace Bubble
 
     void Renderer3D::DrawCube(Ref<Pipeline>pipeline, const glm::mat4& transform, const Ref<Texture2D>& texture, float tilingFactor /*= 1.0f*/, const glm::vec4& tintColor /*= glm::vec4(1.0f)*/, int entityID /*= -1*/)
     {
-        constexpr size_t quadVertexCount = 8;
+        constexpr size_t quadVertexCount = 16;
         constexpr glm::vec2 textureCoords[] = {{ 0.0f, 0.0f }, { 1.0f, 0.0f }, { 1.0f, 1.0f }, { 0.0f, 1.0f },
-                                               { 1.0f, 0.0f }, { 0.0f, 0.0f }, { 0.0f, 1.0f }, { 1.0f, 1.0f }};
+                                               { 1.0f, 0.0f }, { 0.0f, 0.0f }, { 0.0f, 1.0f }, { 1.0f, 1.0f },
+                                               { 0.0f, 0.0f }, { 1.0f, 0.0f }, { 1.0f, 0.0f }, { 0.0f, 0.0f },
+                                               { 0.0f, 1.0f }, { 1.0f, 1.0f }, { 1.0f, 1.0f }, { 0.0f, 1.0f }};
 
         if(s_Data.CubeIndexCount >= Renderer3DData::MaxIndices)
             NextBatch(pipeline);
