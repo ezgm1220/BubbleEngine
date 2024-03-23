@@ -89,7 +89,7 @@ namespace Bubble
                 auto [transform, sprite] = group.get<TransformComponent, SpriteRendererComponent>(entity);
 
                 //Renderer2D::DrawSprite(transform.GetTransform(), sprite, (int)entity);
-                Renderer3D::DrawCube(transform.GetTransform(), sprite.Color, pipeline, (int)entity);
+                Renderer3D::DrawSprite(pipeline, transform.GetTransform(), sprite, (int)entity);
             }
 
             Renderer3D::EndScene(pipeline);
@@ -124,7 +124,7 @@ namespace Bubble
             {
                 auto [transform, sprite] = group.get<TransformComponent, SpriteRendererComponent>(entity);
 
-                Renderer3D::DrawCube(transform.GetTransform(), sprite.Color, pipeline,(int)entity);
+                Renderer3D::DrawSprite(pipeline, transform.GetTransform(), sprite, (int)entity);
             }
 
             Renderer3D::EndScene(pipeline);
