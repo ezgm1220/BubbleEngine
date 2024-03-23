@@ -11,6 +11,7 @@ namespace Bubble
     public:
         virtual void Init(int SlotsSize = 0)final;
         virtual void BeginScene(const EditorCamera& camera)final;
+        virtual void BeginScene(const SceneCamera& camera, const glm::mat4& transform)final;
         virtual void EndScene()final;
         virtual void Draw_Forward(Ref<VertexArray> vertex, uint32_t count)final;
         virtual void Draw_Deferred()final;// 离线渲染

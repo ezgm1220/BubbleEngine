@@ -41,7 +41,7 @@ namespace Bubble
         m_Registry.destroy(entity);
     }
 
-    void Scene::OnUpdateRuntime(Timestep ts)
+    void Scene::OnUpdateRuntime(Timestep ts, Ref<Pipeline> pipeline)
     {
         // Update scripts
         {
@@ -59,8 +59,8 @@ namespace Bubble
             });
         }
 
-        // Render 2D
-        Camera* mainCamera = nullptr;
+        // Render
+        SceneCamera* mainCamera = nullptr;
         glm::mat4 cameraTransform;
         {// 寻找主相机
             auto view = m_Registry.view<TransformComponent, CameraComponent>();
@@ -79,17 +79,25 @@ namespace Bubble
 
         if(mainCamera)
         {
-            Renderer2D::BeginScene(*mainCamera, cameraTransform);
+            //Renderer2D::BeginScene(*mainCamera, cameraTransform);
+            
+            Renderer3D::BeginScene(*mainCamera, cameraTransform, pipeline);
 
             auto group = m_Registry.group<TransformComponent>(entt::get<SpriteRendererComponent>);
             for(auto entity : group)
             {
                 auto [transform, sprite] = group.get<TransformComponent, SpriteRendererComponent>(entity);
 
-                Renderer2D::DrawSprite(transform.GetTransform(), sprite, (int)entity);
+                //Renderer2D::DrawSprite(transform.GetTransform(), sprite, (int)entity);
+                Renderer3D::DrawCube(transform.GetTransform(), sprite.Color, pipeline, (int)entity);
             }
 
-            Renderer2D::EndScene();
+            Renderer3D::EndScene(pipeline);
+           // Renderer2D::EndScene();
+        }
+        else
+        {
+            BB_CORE_INFO("No Main Camera");
         }
 
     }
@@ -109,7 +117,6 @@ namespace Bubble
         Renderer2D::EndScene();*/
 
         {
-            Renderer3D::ResetStats();
             Renderer3D::BeginScene(camera,pipeline);
 
             auto group = m_Registry.group<TransformComponent>(entt::get<SpriteRendererComponent>);

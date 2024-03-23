@@ -6,6 +6,7 @@
 #include "Bubble/Renderer/Texture.h"
 #include "Bubble/Renderer/Shader.h"
 #include "Bubble/Camera/EditorCamera.h"
+#include "Bubble/Camera/SceneCamera.h"
 #include "Bubble/Renderer/RenderCommand.h"
 
 #define PID(x) static_cast<int>(Pipeline::Type::x)
@@ -25,6 +26,7 @@ namespace Bubble
 
         virtual void Init(int SlotsSize = 0) = 0;
         virtual void BeginScene(const EditorCamera& camera) = 0;
+        virtual void BeginScene(const SceneCamera& camera,const glm::mat4& transform) = 0;
         virtual void EndScene() = 0;
         virtual void Draw_Forward(Ref<VertexArray> vertex, uint32_t count) = 0;// 前向渲染的接口
         virtual void Draw_Deferred() = 0;// 离线渲染

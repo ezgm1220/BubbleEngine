@@ -23,7 +23,7 @@ namespace Bubble
         Entity CreateEntityWithUUID(UUID uuid, const std::string& name = std::string());
         void DestroyEntity(Entity entity);
 
-        void OnUpdateRuntime(Timestep ts);
+        void OnUpdateRuntime(Timestep ts, Ref<Pipeline> pipeline);
         void OnUpdateEditor(Timestep ts, EditorCamera& camera,Ref<Pipeline> pipeline);
         void OnViewportResize(uint32_t width, uint32_t height);
 

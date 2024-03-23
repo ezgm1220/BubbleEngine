@@ -27,6 +27,15 @@ namespace Bubble
         m_Shader[PID(GBuffer)]->SetMat4("u_ViewProjection", camera.GetViewProjection());
     }
 
+    void PBRPipeline::BeginScene(const SceneCamera& camera, const glm::mat4& transform)
+    {
+        glm::mat4 viewProj = camera.GetProjection() * glm::inverse(transform);
+
+        m_Shader[PID(GBuffer)]->Bind();
+        m_Shader[PID(GBuffer)]->SetMat4("u_ViewProjection", viewProj);
+
+    }
+
     void PBRPipeline::EndScene()
     {
         //m_Framebuffers[PID(GBuffer)]->Unbind();

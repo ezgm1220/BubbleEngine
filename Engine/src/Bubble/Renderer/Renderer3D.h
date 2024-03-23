@@ -4,7 +4,7 @@
 
 #include "Bubble/Renderer/Texture.h"
 
-#include "Bubble/Camera/Camera.h"
+#include "Bubble/Camera/SceneCamera.h"
 #include "Bubble/Camera/EditorCamera.h"
 
 #include "Bubble/Scene/Components.h"
@@ -20,9 +20,8 @@ namespace Bubble
         static void Init(Ref<Pipeline>pipeline);
         static void Shutdown();
 
-        static void BeginScene(const Camera& camera, const glm::mat4& transform, Ref<Pipeline>pipeline);
+        static void BeginScene(const SceneCamera& camera, const glm::mat4& transform, Ref<Pipeline>pipeline);
         static void BeginScene(const EditorCamera& camera, Ref<Pipeline>pipeline);
-        static void BeginScene(const OrthographicCamera& camera); // TODO: Remove
         static void EndScene(Ref<Pipeline>pipeline);
         static void Flush(Ref<Pipeline>pipeline);
 

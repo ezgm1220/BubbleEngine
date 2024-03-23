@@ -64,7 +64,7 @@ namespace Bubble
         }
 
         // Render
-        //Renderer2D::ResetStats();
+        Renderer3D::ResetStats();
         m_Framebuffer->Bind();
         RenderCommand::SetClearColor({0.1f, 0.1f, 0.1f, 1});
         RenderCommand::Clear();
@@ -87,7 +87,7 @@ namespace Bubble
             }
             case SceneState::Play:
             {
-                m_ActiveScene->OnUpdateRuntime(ts);
+                m_ActiveScene->OnUpdateRuntime(ts,m_pipeline);
                 break;
             }
         }

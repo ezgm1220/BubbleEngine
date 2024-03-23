@@ -158,8 +158,11 @@ namespace Bubble
     {
     }
     
-    void Renderer3D::BeginScene(const Camera& camera, const glm::mat4& transform, Ref<Pipeline>pipeline)
+    void Renderer3D::BeginScene(const SceneCamera& camera, const glm::mat4& transform, Ref<Pipeline>pipeline)
     {
+        //BB_CORE_INFO("mincamera: {}",camera.GetProjection());
+        pipeline->BeginScene(camera,transform);
+        StartBatch();
     }
     
     void Renderer3D::BeginScene(const EditorCamera& camera, Ref<Pipeline>pipeline)
@@ -172,10 +175,6 @@ namespace Bubble
         s_Data.TextureShader->SetMat4("u_ViewProjection", viewProj);*/
 
         StartBatch();
-    }
-    
-    void Renderer3D::BeginScene(const OrthographicCamera& camera)
-    {
     }
     
     void Renderer3D::EndScene(Ref<Pipeline>pipeline)
