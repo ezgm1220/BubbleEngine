@@ -283,10 +283,60 @@ namespace Bubble
 
     }
 
+    void Renderer3D::DrawCube(Ref<Pipeline>pipeline, const glm::mat4& transform, const Ref<Texture2D>* textures, int TexturesSize, float tilingFactor /*= 1.0f*/, const glm::vec4& tintColor /*= glm::vec4(1.0f)*/, int entityID /*= -1*/)
+    {
+        /*constexpr size_t quadVertexCount = 16;
+        constexpr glm::vec2 textureCoords[] = {{ 0.0f, 0.0f }, { 1.0f, 0.0f }, { 1.0f, 1.0f }, { 0.0f, 1.0f },
+                                               { 1.0f, 0.0f }, { 0.0f, 0.0f }, { 0.0f, 1.0f }, { 1.0f, 1.0f },
+                                               { 0.0f, 0.0f }, { 1.0f, 0.0f }, { 1.0f, 0.0f }, { 0.0f, 0.0f },
+                                               { 0.0f, 1.0f }, { 1.0f, 1.0f }, { 1.0f, 1.0f }, { 0.0f, 1.0f }};
+
+        if(s_Data.CubeIndexCount >= Renderer3DData::MaxIndices)
+            NextBatch(pipeline);
+
+        float textureIndex = 0.0f;
+        for(uint32_t i = 1; i < s_Data.TextureSlotIndex; i++)
+        {
+            if(*s_Data.TextureSlots[i] == *texture)
+            {
+                textureIndex = (float)i;
+                break;
+            }
+        }
+
+        if(textureIndex == 0.0f)
+        {
+            if(s_Data.TextureSlotIndex >= Renderer3DData::MaxTextureSlots)
+                NextBatch(pipeline);
+
+            textureIndex = (float)s_Data.TextureSlotIndex;
+            s_Data.TextureSlots[s_Data.TextureSlotIndex] = texture;
+            s_Data.TextureSlotIndex++;
+        }
+
+        for(size_t i = 0; i < quadVertexCount; i++)
+        {
+            s_Data.CubeVertexBufferPtr->Position = transform * s_Data.CubeVertexPositions[i];
+            s_Data.CubeVertexBufferPtr->Color = tintColor;
+            s_Data.CubeVertexBufferPtr->TexCoord = textureCoords[i];
+            s_Data.CubeVertexBufferPtr->TexIndex = textureIndex;
+            s_Data.CubeVertexBufferPtr->TilingFactor = tilingFactor;
+            s_Data.CubeVertexBufferPtr->EntityID = entityID;
+            s_Data.CubeVertexBufferPtr++;
+        }
+
+        s_Data.CubeIndexCount += 36;
+
+        s_Data.Stats.CubeCount++;*/
+    }
+
     void Renderer3D::DrawSprite(Ref<Pipeline>pipeline, const glm::mat4& transform, SpriteRendererComponent& src, int entityID/*=-1*/)
     {
-        if(src.Texture)
-            DrawCube(pipeline,transform, src.Texture, src.TilingFactor, src.Color, entityID);
+        if(src.UseTexture)
+        {
+            //DrawCube(pipeline,transform, src.Textures,4, src.TilingFactor, src.Color, entityID);
+            DrawCube(pipeline,transform, src.Textures[2],src.TilingFactor, src.Color, entityID);
+        }
         else
             DrawCube(pipeline,transform, src.Color, entityID);
     }

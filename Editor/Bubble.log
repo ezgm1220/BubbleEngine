@@ -1,9 +1,7 @@
-[20:51:49] [info] BUBBLE: Creating window Bubble Editor (1600, 900)
-[20:51:52] [trace] BUBBLE: Deserializing scene 'Untitled'
-[20:51:52] [trace] BUBBLE: Deserialized entity with ID = 5848681991563351995, name = Camera
-[20:51:52] [trace] BUBBLE: Deserialized entity with ID = 14631839275510599010, name = A
-[20:51:52] [trace] BUBBLE: Deserialized entity with ID = 9868432192625713214, name = B
-[20:51:52] [trace] BUBBLE: Deserialized entity with ID = 15354071937906916318, name = C
-[20:51:52] [trace] BUBBLE: Deserialized entity with ID = 15040056750909643832, name = D
-[20:52:03] [warning] APP: Could not load container2.png - not a scene file
-[20:52:10] [warning] APP: Could not load awesomeface.png - not a scene file
+[22:50:58] [info] BUBBLE: Creating window Bubble Editor (1600, 900)
+[22:51:01] [trace] BUBBLE: Deserializing scene 'Untitled'
+[22:51:01] [trace] BUBBLE: Deserialized entity with ID = 5848681991563351995, name = Camera
+[22:51:01] [trace] BUBBLE: Deserialized entity with ID = 14631839275510599010, name = A
+[22:51:01] [trace] BUBBLE: Deserialized entity with ID = 9868432192625713214, name = B
+[22:51:01] [trace] BUBBLE: Deserialized entity with ID = 15354071937906916318, name = C
+[22:51:01] [trace] BUBBLE: Deserialized entity with ID = 15040056750909643832, name = D

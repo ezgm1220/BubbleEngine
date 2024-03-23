@@ -16,7 +16,6 @@
 
 namespace Bubble
 {
-
     struct IDComponent
     {
         UUID ID;
@@ -63,10 +62,20 @@ namespace Bubble
     struct SpriteRendererComponent
     {
         glm::vec4 Color{ 1.0f, 1.0f, 1.0f, 1.0f };
-        Ref<Texture2D> Texture;
+        Ref<Texture2D> Textures[4];
         float TilingFactor = 1.0f;
+        bool UseTexture = false;
 
-        SpriteRendererComponent() = default;
+        SpriteRendererComponent()
+        {
+            Ref<Texture2D> WHITETEXTURE = Texture2D::Create(1, 1);
+            uint32_t whiteTextureData = 0xffffffff;
+            WHITETEXTURE->SetData(&whiteTextureData, sizeof(uint32_t));
+            Textures[0] = WHITETEXTURE;
+            Textures[1] = WHITETEXTURE;
+            Textures[2] = WHITETEXTURE;
+            Textures[3] = WHITETEXTURE;
+        }
         SpriteRendererComponent(const SpriteRendererComponent&) = default;
         SpriteRendererComponent(const glm::vec4& color)
             : Color(color)
