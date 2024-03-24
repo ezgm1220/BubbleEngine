@@ -5,6 +5,7 @@
 #include "Bubble/Scene/ScriptableEntity.h"
 #include "Bubble/Renderer/Renderer2D.h"
 #include "Bubble/Renderer/Renderer3D.h"
+#include "Bubble/Renderer/Renderer3D_NoBatch.h"
 
 #include <glm/glm.hpp>
 
@@ -117,17 +118,20 @@ namespace Bubble
         Renderer2D::EndScene();*/
 
         {
-            Renderer3D::BeginScene(camera,pipeline);
+            //Renderer3D::BeginScene(camera,pipeline);
+            Renderer3D_NoBatch::BeginScene(camera,pipeline);
 
             auto group = m_Registry.group<TransformComponent>(entt::get<SpriteRendererComponent>);
             for(auto entity : group)
             {
                 auto [transform, sprite] = group.get<TransformComponent, SpriteRendererComponent>(entity);
 
-                Renderer3D::DrawSprite(pipeline, transform.GetTransform(), sprite, (int)entity);
+                //Renderer3D::DrawSprite(pipeline, transform.GetTransform(), sprite, (int)entity);
+                Renderer3D_NoBatch::DrawSprite(pipeline, transform.GetTransform(), sprite, (int)entity);
             }
 
-            Renderer3D::EndScene(pipeline);
+            //Renderer3D::EndScene(pipeline);
+            Renderer3D_NoBatch::EndScene(pipeline);
         }
     }
 

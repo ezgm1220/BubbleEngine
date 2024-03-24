@@ -62,7 +62,7 @@ namespace Bubble
     struct SpriteRendererComponent
     {
         glm::vec4 Color{ 1.0f, 1.0f, 1.0f, 1.0f };
-        Ref<Texture2D> Textures[4];
+        Ref<Texture2D> Textures[5];
         float TilingFactor = 1.0f;
         bool UseTexture = false;
 
@@ -75,6 +75,7 @@ namespace Bubble
             Textures[1] = WHITETEXTURE;
             Textures[2] = WHITETEXTURE;
             Textures[3] = WHITETEXTURE;
+            Textures[4] = WHITETEXTURE;
         }
         SpriteRendererComponent(const SpriteRendererComponent&) = default;
         SpriteRendererComponent(const glm::vec4& color)

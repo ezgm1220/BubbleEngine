@@ -199,8 +199,6 @@ namespace Bubble {
 
 	void OpenGLShader::SetInt(const std::string& name, int value)
 	{
-		  
-
 		UploadUniformInt(name, value);
 	}
 

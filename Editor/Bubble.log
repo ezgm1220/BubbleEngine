@@ -1,7 +1,7 @@
-[22:50:58] [info] BUBBLE: Creating window Bubble Editor (1600, 900)
-[22:51:01] [trace] BUBBLE: Deserializing scene 'Untitled'
-[22:51:01] [trace] BUBBLE: Deserialized entity with ID = 5848681991563351995, name = Camera
-[22:51:01] [trace] BUBBLE: Deserialized entity with ID = 14631839275510599010, name = A
-[22:51:01] [trace] BUBBLE: Deserialized entity with ID = 9868432192625713214, name = B
-[22:51:01] [trace] BUBBLE: Deserialized entity with ID = 15354071937906916318, name = C
-[22:51:01] [trace] BUBBLE: Deserialized entity with ID = 15040056750909643832, name = D
+[14:57:36] [info] BUBBLE: Creating window Bubble Editor (1600, 900)
+[14:57:39] [trace] BUBBLE: Deserializing scene 'Untitled'
+[14:57:39] [trace] BUBBLE: Deserialized entity with ID = 5848681991563351995, name = Camera
+[14:57:39] [trace] BUBBLE: Deserialized entity with ID = 14631839275510599010, name = A
+[14:57:39] [trace] BUBBLE: Deserialized entity with ID = 9868432192625713214, name = B
+[14:57:39] [trace] BUBBLE: Deserialized entity with ID = 15354071937906916318, name = C
+[14:57:39] [trace] BUBBLE: Deserialized entity with ID = 15040056750909643832, name = D

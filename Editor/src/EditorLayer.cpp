@@ -65,6 +65,7 @@ namespace Bubble
 
         // Render
         Renderer3D::ResetStats();
+        Renderer3D_NoBatch::ResetStats();
         m_Framebuffer->Bind();
         RenderCommand::SetClearColor({0.1f, 0.1f, 0.1f, 1});
         RenderCommand::Clear();

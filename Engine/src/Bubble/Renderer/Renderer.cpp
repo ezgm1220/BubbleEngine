@@ -2,6 +2,7 @@
 #include "Bubble/Renderer/Renderer.h"
 #include "Bubble/Renderer/Renderer2D.h"
 #include "Bubble/Renderer/Renderer3D.h"
+#include "Bubble/Renderer/Renderer3D_NoBatch.h"
 
 namespace Bubble {
 
@@ -11,7 +12,8 @@ namespace Bubble {
 	{
 		RenderCommand::Init();
 		//Renderer2D::Init();
-        Renderer3D::Init(pipeline);
+        //Renderer3D::Init(pipeline);
+        Renderer3D_NoBatch::Init(pipeline);
 	}
 
 	void Renderer::Shutdown()

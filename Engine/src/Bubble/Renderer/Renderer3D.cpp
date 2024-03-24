@@ -9,49 +9,53 @@
 
 namespace Bubble
 {
-    struct CubeVertex
+    namespace Render3DUseBatch
     {
-        glm::vec3 Position;
-        glm::vec4 Color;
-        glm::vec2 TexCoord;
-        float TexIndex;
-        float TilingFactor;
+        struct CubeVertex
+        {
+            glm::vec3 Position;
+            glm::vec4 Color;
+            glm::vec2 TexCoord;
+            float TexIndex;
+            float TilingFactor;
 
-        // Editor-only
-        int EntityID;
-    };
+            // Editor-only
+            int EntityID;
+        };
 
-    struct Renderer3DData
-    {
-        static const uint32_t MaxCubes = 500;
-        static const uint32_t MaxVertices = MaxCubes * 16;
-        static const uint32_t MaxIndices = MaxCubes * 36;
-        static const uint32_t MaxTextureSlots = 32; // TODO: RenderCaps
+        struct Renderer3DData
+        {
+            static const uint32_t MaxCubes = 500;
+            static const uint32_t MaxVertices = MaxCubes * 16;
+            static const uint32_t MaxIndices = MaxCubes * 36;
+            static const uint32_t MaxTextureSlots = 32; // TODO: RenderCaps
 
-        Ref<VertexArray> CubeVertexArray;
-        Ref<VertexBuffer> CubeVertexBuffer;
-        //Ref<Shader> TextureShader;
-        Ref<Texture2D> WhiteTexture;
+            Ref<VertexArray> CubeVertexArray;
+            Ref<VertexBuffer> CubeVertexBuffer;
+            //Ref<Shader> TextureShader;
+            Ref<Texture2D> WhiteTexture;
 
-        uint32_t CubeIndexCount = 0;
-        CubeVertex* CubeVertexBufferBase = nullptr;
-        CubeVertex* CubeVertexBufferPtr = nullptr;
+            uint32_t CubeIndexCount = 0;
+            CubeVertex* CubeVertexBufferBase = nullptr;
+            CubeVertex* CubeVertexBufferPtr = nullptr;
 
-        std::array<Ref<Texture2D>, MaxTextureSlots> TextureSlots;
-        uint32_t TextureSlotIndex = 1; // 0 = white texture
+            std::array<Ref<Texture2D>, MaxTextureSlots> TextureSlots;
+            uint32_t TextureSlotIndex = 1; // 0 = white texture
 
-        glm::vec4 CubeVertexPositions[16];
+            glm::vec4 CubeVertexPositions[16];
 
-        Renderer3D::Statistics Stats;
-    };
+            Renderer3D::Statistics Stats;
+        };
+    }
+    
 
-    static Renderer3DData s_Data;
+    static Render3DUseBatch::Renderer3DData s_Data;
 
     void Renderer3D::Init(Ref<Pipeline>pipeline)
     {
         s_Data.CubeVertexArray = VertexArray::Create();
 
-        s_Data.CubeVertexBuffer = VertexBuffer::Create(s_Data.MaxVertices * sizeof(CubeVertex));
+        s_Data.CubeVertexBuffer = VertexBuffer::Create(s_Data.MaxVertices * sizeof(Render3DUseBatch::CubeVertex));
         s_Data.CubeVertexBuffer->SetLayout({
                 { ShaderDataType::Float3, "a_Position"     },
                 { ShaderDataType::Float4, "a_Color"        },
@@ -62,7 +66,7 @@ namespace Bubble
             });
         s_Data.CubeVertexArray->AddVertexBuffer(s_Data.CubeVertexBuffer);
 
-        s_Data.CubeVertexBufferBase = new CubeVertex[s_Data.MaxVertices];
+        s_Data.CubeVertexBufferBase = new Render3DUseBatch::CubeVertex[s_Data.MaxVertices];
 
         uint32_t* quadIndices = new uint32_t[s_Data.MaxIndices];
 
@@ -216,7 +220,7 @@ namespace Bubble
                                                { 0.0f, 1.0f }, { 1.0f, 1.0f }, { 1.0f, 1.0f }, { 0.0f, 1.0f }};
         const float tilingFactor = 1.0f;
 
-        if(s_Data.CubeIndexCount >= Renderer3DData::MaxIndices)
+        if(s_Data.CubeIndexCount >= Render3DUseBatch::Renderer3DData::MaxIndices)
             NextBatch(pipeline);
 
         for(size_t i = 0; i < quadVertexCount; i++)
@@ -243,7 +247,7 @@ namespace Bubble
                                                { 0.0f, 0.0f }, { 1.0f, 0.0f }, { 1.0f, 0.0f }, { 0.0f, 0.0f },
                                                { 0.0f, 1.0f }, { 1.0f, 1.0f }, { 1.0f, 1.0f }, { 0.0f, 1.0f }};
 
-        if(s_Data.CubeIndexCount >= Renderer3DData::MaxIndices)
+        if(s_Data.CubeIndexCount >= Render3DUseBatch::Renderer3DData::MaxIndices)
             NextBatch(pipeline);
 
         float textureIndex = 0.0f;
@@ -258,7 +262,7 @@ namespace Bubble
 
         if(textureIndex == 0.0f)
         {
-            if(s_Data.TextureSlotIndex >= Renderer3DData::MaxTextureSlots)
+            if(s_Data.TextureSlotIndex >= Render3DUseBatch::Renderer3DData::MaxTextureSlots)
                 NextBatch(pipeline);
 
             textureIndex = (float)s_Data.TextureSlotIndex;
