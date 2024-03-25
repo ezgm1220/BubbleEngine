@@ -11,6 +11,8 @@ namespace Bubble {
 		// Color
 		RGBA8,
 		RED_INTEGER,
+        RGBA16F,
+        RGBA32I,
 
 		// Depth/stencil
 		DEPTH24STENCIL8,

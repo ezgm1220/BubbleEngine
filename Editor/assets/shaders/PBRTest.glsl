@@ -48,5 +48,5 @@ void main()
     color *= texture(Roughness, v_TexCoord);
     color *= texture(AO, v_TexCoord);
 
-	color2 = v_EntityID;
+	color2=v_EntityID;
 }

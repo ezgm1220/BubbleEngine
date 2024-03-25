@@ -438,3 +438,14 @@ Render3D的Init中
 
 正常的逻辑更新
 
+# G-Buffer布局
+
+![image-20240324153637646](A%E6%9D%82%E8%AE%B0.assets/image-20240324153637646.png)
+除此之外还应有个ID,这个也占一个位置
+
+Framebuffer布局:
+
+- 颜色- RGBA8
+- 位置-RGB16
+- Normal + Metallic - RGBA
+- Roughness + AO + ID - RGB
