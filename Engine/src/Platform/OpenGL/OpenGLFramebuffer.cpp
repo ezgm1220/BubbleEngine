@@ -83,7 +83,7 @@ namespace Bubble {
 			case FramebufferTextureFormat::RGBA8:       return GL_RGBA8;
 			case FramebufferTextureFormat::RED_INTEGER: return GL_RED_INTEGER;
 			case FramebufferTextureFormat::RGBA16F: return GL_RGBA16F;
-			case FramebufferTextureFormat::RGBA32I: return GL_RGBA32I;
+			case FramebufferTextureFormat::RGBA32I: return GL_RGBA_INTEGER;
 			}
 
 			BB_CORE_ASSERT(false);
@@ -139,21 +139,21 @@ namespace Bubble {
 			for (size_t i = 0; i < m_ColorAttachments.size(); i++)
 			{
 				Utils::BindTexture(multisample, m_ColorAttachments[i]);
-				switch (m_ColorAttachmentSpecifications[i].TextureFormat)
-				{
-				case FramebufferTextureFormat::RGBA8:
-					Utils::AttachColorTexture(m_ColorAttachments[i], m_Specification.Samples, GL_RGBA8, GL_RGBA, GL_UNSIGNED_BYTE, m_Specification.Width, m_Specification.Height, i);
-					break;
-                case FramebufferTextureFormat::RGBA16F:
-                    Utils::AttachColorTexture(m_ColorAttachments[i], m_Specification.Samples, GL_RGBA8, GL_RGBA, GL_FLOAT,m_Specification.Width, m_Specification.Height, i);
-                    break;
-                case FramebufferTextureFormat::RGBA32I:
-                    Utils::AttachColorTexture(m_ColorAttachments[i], m_Specification.Samples, GL_RGBA32I, GL_RGBA_INTEGER, GL_INT, m_Specification.Width, m_Specification.Height, i);
-                    break;
-				case FramebufferTextureFormat::RED_INTEGER:
-					Utils::AttachColorTexture(m_ColorAttachments[i], m_Specification.Samples, GL_R32I, GL_RED_INTEGER, GL_UNSIGNED_BYTE, m_Specification.Width, m_Specification.Height, i);
-					break;
-				}
+                switch(m_ColorAttachmentSpecifications[i].TextureFormat)
+                {
+                    case FramebufferTextureFormat::RGBA8:
+                        Utils::AttachColorTexture(m_ColorAttachments[i], m_Specification.Samples, GL_RGBA8, GL_RGBA, GL_UNSIGNED_BYTE, m_Specification.Width, m_Specification.Height, i);
+                        break;
+                    case FramebufferTextureFormat::RGBA16F:
+                        Utils::AttachColorTexture(m_ColorAttachments[i], m_Specification.Samples, GL_RGBA8, GL_RGBA, GL_FLOAT, m_Specification.Width, m_Specification.Height, i);
+                        break;
+                    case FramebufferTextureFormat::RGBA32I:
+                        Utils::AttachColorTexture(m_ColorAttachments[i], m_Specification.Samples, GL_RGBA32I, GL_RGBA_INTEGER, GL_INT, m_Specification.Width, m_Specification.Height, i);
+                        break;
+                    case FramebufferTextureFormat::RED_INTEGER:
+                        Utils::AttachColorTexture(m_ColorAttachments[i], m_Specification.Samples, GL_R32I, GL_RED_INTEGER, GL_UNSIGNED_BYTE, m_Specification.Width, m_Specification.Height, i);
+                        break;
+                }
 			}
 		}
 
@@ -213,21 +213,63 @@ namespace Bubble {
 	int OpenGLFramebuffer::ReadPixel(uint32_t attachmentIndex, int x, int y)
 	{
 		BB_CORE_ASSERT(attachmentIndex < m_ColorAttachments.size());
-
-		glReadBuffer(GL_COLOR_ATTACHMENT0 + attachmentIndex);
-		int pixelData;
-		glReadPixels(x, y, 1, 1, GL_RED_INTEGER, GL_INT, &pixelData);
-		return pixelData;
-
+        glReadBuffer(GL_COLOR_ATTACHMENT0 + attachmentIndex);
+        return ReadPixel(m_ColorAttachmentSpecifications[attachmentIndex].TextureFormat, x, y);
 	}
 
-	void OpenGLFramebuffer::ClearAttachment(uint32_t attachmentIndex, int value)
+    int OpenGLFramebuffer::ReadPixel(FramebufferTextureFormat TextureType, int x, int y)
+    {
+        
+        switch(TextureType)
+        {
+            case FramebufferTextureFormat::RGBA8:
+                BB_CORE_ERROR("FramebufferTextureFormat::RGBA8 No Define");
+                break;
+            case FramebufferTextureFormat::RGBA16F:
+                BB_CORE_ERROR("FramebufferTextureFormat::RGBA16F No Define");
+                break;
+            case FramebufferTextureFormat::RGBA32I:  
+                glm::ivec4 pixelData_RGBA32I;
+                glReadPixels(x, y, 1, 1, GL_RGBA_INTEGER, GL_INT, &pixelData_RGBA32I);
+                BB_CORE_INFO(pixelData_RGBA32I);
+                return pixelData_RGBA32I.x;
+                break;
+            case FramebufferTextureFormat::RED_INTEGER:
+                int pixelData_RED_INTEGER = -1;
+                glReadPixels(x, y, 1, 1, GL_RED_INTEGER, GL_INT, &pixelData_RED_INTEGER);
+                return pixelData_RED_INTEGER;
+                break;
+        }
+    }
+
+    void OpenGLFramebuffer::ClearAttachment(uint32_t attachmentIndex, int value)
 	{
 		BB_CORE_ASSERT(attachmentIndex < m_ColorAttachments.size());
 
-		auto& spec = m_ColorAttachmentSpecifications[attachmentIndex];
-		glClearTexImage(m_ColorAttachments[attachmentIndex], 0,
-			Utils::BubbleFBTextureFormatToGL(spec.TextureFormat), GL_INT, &value);
+        auto& spec = m_ColorAttachmentSpecifications[attachmentIndex];
+
+        switch(m_ColorAttachmentSpecifications[attachmentIndex].TextureFormat)
+        {
+            case FramebufferTextureFormat::RGBA8:
+                BB_CORE_ERROR("FramebufferTextureFormat::RGBA8 No Define");
+                break;
+            case FramebufferTextureFormat::RGBA16F:
+                BB_CORE_ERROR("FramebufferTextureFormat::RGBA16F No Define");
+                break;
+            case FramebufferTextureFormat::RGBA32I:
+                glm::ivec4 value_RGBA32I(value,value,value,value);
+                glClearTexImage(m_ColorAttachments[attachmentIndex], 0,
+                    Utils::BubbleFBTextureFormatToGL(spec.TextureFormat), GL_INT, &value_RGBA32I);
+                break;
+            case FramebufferTextureFormat::RED_INTEGER:
+                int value_RED_INTEGER = value;
+                glClearTexImage(m_ColorAttachments[attachmentIndex], 0,
+                    Utils::BubbleFBTextureFormatToGL(spec.TextureFormat), GL_INT, &value_RED_INTEGER);
+                break;
+        }
+
+		
+		
 	}
 
 }

@@ -17,6 +17,7 @@ namespace Bubble {
 
 		virtual void Resize(uint32_t width, uint32_t height) override;
 		virtual int ReadPixel(uint32_t attachmentIndex, int x, int y) override;
+        int ReadPixel(FramebufferTextureFormat TextureType, int x, int y);
 
 		virtual void ClearAttachment(uint32_t attachmentIndex, int value) override;
 

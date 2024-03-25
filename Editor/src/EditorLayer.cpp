@@ -29,7 +29,7 @@ namespace Bubble
         m_IconStop = Texture2D::Create("Resources/Icons/StopButton.png");
 
         FramebufferSpecification fbSpec;
-        fbSpec.Attachments = {FramebufferTextureFormat::RGBA16F, FramebufferTextureFormat::RED_INTEGER,FramebufferTextureFormat::RGBA32I, FramebufferTextureFormat::Depth};
+        fbSpec.Attachments = {FramebufferTextureFormat::RGBA16F, FramebufferTextureFormat::RGBA32I,FramebufferTextureFormat::RGBA32I, FramebufferTextureFormat::Depth};
         fbSpec.Width = 1280;
         fbSpec.Height = 720;
 
@@ -237,7 +237,7 @@ namespace Bubble
         m_ViewportSize = {viewportPanelSize.x, viewportPanelSize.y};
 
 
-        uint64_t textureID = m_pipeline->Get_Framebuffer(PID(GBuffer))->GetColorAttachmentRendererID();
+        uint64_t textureID = m_pipeline->Get_Framebuffer(PID(GBuffer))->GetColorAttachmentRendererID(0);
         //uint64_t textureID = m_Framebuffer->GetColorAttachmentRendererID();
         ImGui::Image(reinterpret_cast<void*>(textureID), ImVec2{m_ViewportSize.x, m_ViewportSize.y}, ImVec2{0, 1}, ImVec2{1, 0});
 
