@@ -17,7 +17,7 @@ namespace Bubble
     class Renderer3D_NoBatch
     {
     public:
-        static void Init(Ref<Pipeline>pipeline);
+        static void Init();
         static void Shutdown();
 
         static void BeginScene(const SceneCamera& camera, const glm::mat4& transform, Ref<Pipeline>pipeline);

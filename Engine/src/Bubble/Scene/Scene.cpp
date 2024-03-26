@@ -116,6 +116,7 @@ namespace Bubble
         }
 
         Renderer2D::EndScene();*/
+        Renderer3D_NoBatch::ResetStats();
 
         {
             //Renderer3D::BeginScene(camera,pipeline);

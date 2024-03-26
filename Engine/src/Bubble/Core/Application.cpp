@@ -24,7 +24,7 @@ namespace Bubble
         // 初始化Pipeline(默认Pipeline为PBR)
         m_Pipeline = CreateRef<PBRPipeline>();
 
-        Renderer::Init(m_Pipeline);
+        Renderer::Init();
 
         m_ImGuiLayer = new ImGuiLayer();
 

@@ -34,7 +34,7 @@ namespace Bubble
 
     static Render3DNoBatch::Renderer3DData s_Data;
 
-    void Renderer3D_NoBatch::Init(Ref<Pipeline>pipeline)
+    void Renderer3D_NoBatch::Init()
     {
         s_Data.CubeVertexArray = VertexArray::Create();
 
@@ -107,16 +107,7 @@ namespace Bubble
         Ref<IndexBuffer> quadIB = IndexBuffer::Create(quadIndices, s_Data.IndicesSize);
         s_Data.CubeVertexArray->SetIndexBuffer(quadIB);
         delete[] quadIndices;
-
-        pipeline->Set_Shader("assets/shaders/PBRTest.glsl", 0);
-        auto shader = pipeline->Get_Shader(0);
-        shader->Bind();
-        // 绑定纹理
-        shader->SetInt("Albedo", 0);
-        shader->SetInt("Normal", 1);
-        shader->SetInt("Metallic", 2);
-        shader->SetInt("Roughness", 3);
-        shader->SetInt("AO", 4);
+       
 
         s_Data.CubeVertexPositions[0] = {-0.5f, -0.5f,  0.5f, 1.0f};
         s_Data.CubeVertexPositions[1] = {0.5f, -0.5f,  0.5f, 1.0f};
@@ -166,6 +157,10 @@ namespace Bubble
 
     void Renderer3D_NoBatch::BeginScene(const EditorCamera& camera, Ref<Pipeline>pipeline)
     {
+        pipeline->Get_Framebuffer(PID(GBuffer))->Bind();
+        RenderCommand::SetClearColor({0.1f, 0.1f, 0.1f, 1});
+        RenderCommand::Clear();
+        pipeline->Get_Framebuffer(PID(GBuffer))->ClearAttachment(1, -1);
         pipeline->BeginScene(camera);
     }
 

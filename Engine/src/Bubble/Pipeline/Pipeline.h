@@ -24,7 +24,9 @@ namespace Bubble
             GBuffer = 0, Deferred = 1
         };
 
-        virtual void Init(int SlotsSize = 0) = 0;
+        virtual void LoadShaders(const std::unordered_map<int,std::string>& ShaderInformations) = 0;
+        virtual void BindTextureIndex(const std::unordered_map<int, std::vector<std::pair<int, std::string>>>& indexs) = 0;
+
         virtual void BeginScene(const EditorCamera& camera) = 0;
         virtual void BeginScene(const SceneCamera& camera,const glm::mat4& transform) = 0;
         virtual void EndScene() = 0;
@@ -32,6 +34,7 @@ namespace Bubble
         virtual void Draw_Deferred() = 0;// 离线渲染
         virtual int Get_IDValue(int x, int y) = 0;
         virtual uint32_t GetColorAttachmentRendererID() = 0;
+        virtual int GetEntityID(int FramebufferID, int AttachmentIndex, int mouseX, int mouseY) = 0;
 
         void Set_Framebuffer(FramebufferSpecification& fbSpec, int id = -1);// 创建Framebuffer
 
@@ -41,6 +44,11 @@ namespace Bubble
         //void Bind_BaseTexture(Texture& texture);// 物体最基本的Texture
         Ref<Framebuffer> Get_Framebuffer(int id = 0);// 返回Framebuffer的引用
         void Resize_FrameBuffer(uint32_t x, uint32_t y);
+
+        std::vector<Ref<Framebuffer>> GetFramebufferVector();
+
+        void UnbindFramebuffer();
+
 
     protected:
         std::unordered_map<int,Ref<Framebuffer>>m_Framebuffers;

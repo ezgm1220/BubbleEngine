@@ -35,13 +35,23 @@ namespace Bubble
 
         m_pipeline->Set_Framebuffer(fbSpec, PID(GBuffer));
 
-        //m_Framebuffer = Framebuffer::Create(fbSpec);
+        std::unordered_map<int, std::string > shadersmap;
+        shadersmap.insert({PID(GBuffer),"assets/shaders/PBRTest.glsl"});
+        m_pipeline->LoadShaders(shadersmap);
+
+        std::unordered_map<int, std::vector<std::pair<int, std::string>>> shaderinformation;
+        std::vector<std::pair<int, std::string>> textureinformation = {
+                        {0,"Albedo"},{1,"Normal"},{2,"Metallic"},{3,"Roughness"},{4,"AO"}};
+        shaderinformation.insert({PID(GBuffer),textureinformation});
+        m_pipeline->BindTextureIndex(shaderinformation);
+
 
         m_ActiveScene = CreateRef<Scene>();
 
         m_EditorCamera = EditorCamera(30.0f, 1.778f, 0.1f, 1000.0f);
 
         m_SceneHierarchyPanel.SetContext(m_ActiveScene);// 相当于设置场景
+
     }
 
     void EditorLayer::OnDetach()
@@ -52,12 +62,20 @@ namespace Bubble
     void EditorLayer::OnUpdate(Timestep ts)
     {
         // Resize,当视图尺寸发生变换时更新信息
-        auto m_Framebuffer = m_pipeline->Get_Framebuffer(PID(GBuffer));
-        if(FramebufferSpecification spec = m_Framebuffer->GetSpecification();
-            m_ViewportSize.x > 0.0f && m_ViewportSize.y > 0.0f && // zero sized framebuffer is invalid
-            (spec.Width != m_ViewportSize.x || spec.Height != m_ViewportSize.y))
+        std::vector<Ref<Framebuffer>> framebuffers = m_pipeline->GetFramebufferVector();
+        bool ViewoirtSizeChange = false;
+        for(auto m_Framebuffer : framebuffers)
         {
-            m_Framebuffer->Resize((uint32_t)m_ViewportSize.x, (uint32_t)m_ViewportSize.y);
+            if(FramebufferSpecification spec = m_Framebuffer->GetSpecification();
+                m_ViewportSize.x > 0.0f && m_ViewportSize.y > 0.0f && // zero sized framebuffer is invalid
+                (spec.Width != m_ViewportSize.x || spec.Height != m_ViewportSize.y))
+            {
+                m_Framebuffer->Resize((uint32_t)m_ViewportSize.x, (uint32_t)m_ViewportSize.y);
+                ViewoirtSizeChange = true;
+            }
+        }
+        if(ViewoirtSizeChange)
+        {
             m_CameraController.OnResize(m_ViewportSize.x, m_ViewportSize.y);
             m_EditorCamera.SetViewportSize(m_ViewportSize.x, m_ViewportSize.y);
             m_ActiveScene->OnViewportResize((uint32_t)m_ViewportSize.x, (uint32_t)m_ViewportSize.y);
@@ -65,13 +83,10 @@ namespace Bubble
 
         // Render
         Renderer3D::ResetStats();
-        Renderer3D_NoBatch::ResetStats();
-        m_Framebuffer->Bind();
-        RenderCommand::SetClearColor({0.1f, 0.1f, 0.1f, 1});
-        RenderCommand::Clear();
+        
 
         // 将id为1的附件值设为-1.随后用来渲染id
-        m_Framebuffer->ClearAttachment(1, -1);
+        
 
         switch(m_SceneState)
         {
@@ -105,12 +120,11 @@ namespace Bubble
         // 读取坐标下的id,获得该id下的悬停实体
         if(mouseX >= 0 && mouseY >= 0 && mouseX < (int)viewportSize.x && mouseY < (int)viewportSize.y)
         {
-            int pixelData = m_Framebuffer->ReadPixel(1, mouseX, mouseY);
+            int pixelData = m_pipeline->GetEntityID(PID(GBuffer), 1, mouseX, mouseY);
             m_HoveredEntity = pixelData == -1 ? Entity() : Entity((entt::entity)pixelData, m_ActiveScene.get());
         }
 
-        // 解绑Framebuffer
-        m_Framebuffer->Unbind();
+        m_pipeline->UnbindFramebuffer();
     }
 
     void EditorLayer::OnImGuiRender()

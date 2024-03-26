@@ -35,4 +35,24 @@ namespace Bubble
         }
     }
 
+    std::vector<Bubble::Ref<Bubble::Framebuffer>> Pipeline::GetFramebufferVector()
+    {
+        std::vector<Bubble::Ref<Bubble::Framebuffer>> v;
+        for(auto buffer : m_Framebuffers)
+        {
+            v.emplace_back(buffer.second);
+        }
+        return v;
+    }
+
+    void Pipeline::UnbindFramebuffer()
+    {
+        for(auto buffer : m_Framebuffers)
+        {
+            buffer.second->Unbind();
+            return;
+        }
+        BB_CORE_WARN("Bo framebuffer for you to unbind!!!!!!");
+    }
+
 }

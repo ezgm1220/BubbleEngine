@@ -4,21 +4,28 @@
 namespace Bubble
 {
 
-    void PBRPipeline::Init(const int SlotsSize)
+    void PBRPipeline::LoadShaders(const std::unordered_map<int, std::string>& ShaderInformations)
     {
-        // GBufferShader
-        int32_t* samplers = new int32_t[SlotsSize];
-        for(uint32_t i = 0; i < SlotsSize; i++)
-            samplers[i] = i;
-        GBufferShader = Shader::Create("assets/shaders/Texture.glsl");
-        GBufferShader->Bind();
-        GBufferShader->SetIntArray("u_Textures", samplers, SlotsSize);
+        // 初始化Shader
+        for(auto map : ShaderInformations)
+        {
+            m_Shader.insert({map.first,Shader::Create(map.second)});
+        }        
+    }
 
-        IDFB_ID = PID(GBuffer);
-        IDTexture_id = 1;
+    void PBRPipeline::BindTextureIndex(const std::unordered_map<int, std::vector<std::pair<int, std::string>>>& indexs)
+    {
+        for(auto ShaderInformation : indexs)
+        {
+            auto& shader = m_Shader[ShaderInformation.first];
+            shader->Bind();
+            for(auto texture : ShaderInformation.second)
+            {
+                shader->SetInt(texture.second, texture.first);
+            }
+            shader->Unbind();
+        }
 
-        ViewportFB_ID = PID(GBuffer);
-        ViewportTexture_id = 0;
     }
 
     void PBRPipeline::BeginScene(const EditorCamera& camera)
@@ -59,6 +66,12 @@ namespace Bubble
     uint32_t PBRPipeline::GetColorAttachmentRendererID()
     {
         return m_Framebuffers[ViewportFB_ID]->GetColorAttachmentRendererID(ViewportTexture_id);
+    }
+
+    int PBRPipeline::GetEntityID(int FramebufferID, int AttachmentIndex, int mouseX, int mouseY)
+    {
+        m_Framebuffers[FramebufferID]->Bind();
+        return  m_Framebuffers[FramebufferID]->ReadPixel(AttachmentIndex, mouseX, mouseY);
     }
 
 }
