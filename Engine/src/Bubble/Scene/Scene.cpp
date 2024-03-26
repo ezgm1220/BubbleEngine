@@ -117,7 +117,7 @@ namespace Bubble
                 auto [transform, sprite] = group.get<TransformComponent, SpriteRendererComponent>(entity);
 
                 //Renderer3D::DrawSprite(pipeline, transform.GetTransform(), sprite, (int)entity);
-                Renderer3D_NoBatch::DrawSprite(pipeline, transform.GetTransform(), sprite, (int)entity);
+                Renderer3D_NoBatch::DrawSprite(pipeline,PID(GBuffer), transform.GetTransform(), sprite, (int)entity);
             }
 
             //Renderer3D::EndScene(pipeline);

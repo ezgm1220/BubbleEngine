@@ -38,8 +38,6 @@ namespace Bubble {
 
 	void OpenGLVertexArray::Bind() const
 	{
-		  
-
 		glBindVertexArray(m_RendererID);
 	}
 
@@ -52,8 +50,6 @@ namespace Bubble {
 
 	void OpenGLVertexArray::AddVertexBuffer(const Ref<VertexBuffer>& vertexBuffer)
 	{
-		  
-
 		BB_CORE_ASSERT(vertexBuffer->GetLayout().GetElements().size(), "Vertex Buffer has no layout!");
 
 		glBindVertexArray(m_RendererID);
@@ -122,8 +118,6 @@ namespace Bubble {
 
 	void OpenGLVertexArray::SetIndexBuffer(const Ref<IndexBuffer>& indexBuffer)
 	{
-		  
-
 		glBindVertexArray(m_RendererID);
 		indexBuffer->Bind();
 

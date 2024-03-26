@@ -29,7 +29,7 @@ namespace Bubble
         m_IconStop = Texture2D::Create("Resources/Icons/StopButton.png");
 
         FramebufferSpecification fbSpec;
-        fbSpec.Attachments = {FramebufferTextureFormat::RGBA16F, FramebufferTextureFormat::RGBA32I,FramebufferTextureFormat::RGBA32I, FramebufferTextureFormat::Depth};
+        fbSpec.Attachments = {FramebufferTextureFormat::RGBA16F, FramebufferTextureFormat::RGBA16F,FramebufferTextureFormat::RGBA16F, FramebufferTextureFormat::RGBA32I,FramebufferTextureFormat::Depth};
         fbSpec.Width = 1280;
         fbSpec.Height = 720;
 
@@ -118,7 +118,7 @@ namespace Bubble
         // 读取坐标下的id,获得该id下的悬停实体
         if(mouseX >= 0 && mouseY >= 0 && mouseX < (int)viewportSize.x && mouseY < (int)viewportSize.y)
         {
-            int pixelData = m_pipeline->GetEntityID(PID(GBuffer), 1, mouseX, mouseY);
+            int pixelData = m_pipeline->GetEntityID(PID(GBuffer), 3, mouseX, mouseY);
             m_HoveredEntity = pixelData == -1 ? Entity() : Entity((entt::entity)pixelData, m_ActiveScene.get());
         }
 

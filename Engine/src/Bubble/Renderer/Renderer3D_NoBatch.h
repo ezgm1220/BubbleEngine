@@ -24,10 +24,10 @@ namespace Bubble
         static void BeginScene(const EditorCamera& camera, Ref<Pipeline>pipeline);
         static void EndScene(Ref<Pipeline>pipeline);
 
-        static void DrawCube(Ref<Pipeline>pipeline, const glm::mat4& transform, const glm::vec4& color, int entityID = -1);
-        static void DrawCube(Ref<Pipeline>pipeline, const glm::mat4& transform, const Ref<Texture2D>* textures, int TexturesSize, const glm::vec4& tintColor = glm::vec4(1.0f), int entityID = -1);
+        static void DrawCube(Ref<Pipeline>pipeline, int ShaderID, const glm::mat4& transform, const glm::vec4& color, int entityID = -1);
+        static void DrawCube(Ref<Pipeline>pipeline, int ShaderID, const glm::mat4& transform, const Ref<Texture2D>* textures, int TexturesSize, const glm::vec4& tintColor = glm::vec4(1.0f), int entityID = -1);
 
-        static void DrawSprite(Ref<Pipeline>pipeline, const glm::mat4& transform, SpriteRendererComponent& src, int entityID = -1);
+        static void DrawSprite(Ref<Pipeline>pipeline, int ShaderID, const glm::mat4& transform, SpriteRendererComponent& src, int entityID = -1);
 
         // Stats
         struct Statistics

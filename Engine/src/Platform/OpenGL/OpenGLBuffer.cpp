@@ -11,8 +11,6 @@ namespace Bubble {
 
 	OpenGLVertexBuffer::OpenGLVertexBuffer(uint32_t size)
 	{
-		  
-
 		glCreateBuffers(1, &m_RendererID);
 		glBindBuffer(GL_ARRAY_BUFFER, m_RendererID);
 		glBufferData(GL_ARRAY_BUFFER, size, nullptr, GL_DYNAMIC_DRAW);
@@ -61,12 +59,10 @@ namespace Bubble {
 	OpenGLIndexBuffer::OpenGLIndexBuffer(uint32_t* indices, uint32_t count)
 		: m_Count(count)
 	{
-		  
-
 		glCreateBuffers(1, &m_RendererID);
 		
-		// GL_ELEMENT_ARRAY_BUFFER is not valid without an actively bound VAO
-		// Binding with GL_ARRAY_BUFFER allows the data to be loaded regardless of VAO state. 
+		// 如果没有主动绑定的 VAO，GL_ELEMENT_ARRAY_BUFFER 无效。
+		// 与 GL_ARRAY_BUFFER 绑定后，无论 VAO 状态如何，都可以加载数据。
 		glBindBuffer(GL_ARRAY_BUFFER, m_RendererID);
 		glBufferData(GL_ARRAY_BUFFER, count * sizeof(uint32_t), indices, GL_STATIC_DRAW);
 	}

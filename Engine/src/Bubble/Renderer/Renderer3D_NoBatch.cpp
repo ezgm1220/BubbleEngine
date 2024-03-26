@@ -6,27 +6,19 @@ namespace Bubble
 
     namespace Render3DNoBatch
     {
-        struct CubeVertex
+        struct VertexData
         {
             glm::vec3 Position;
-            glm::vec4 Color;
             glm::vec2 TexCoord;
-            // Editor-only
-            int EntityID;
         };
 
         struct Renderer3DData
         {
-            static const uint32_t VerticesSize = 16;
-            static const uint32_t IndicesSize = 36;
+            Ref<VertexArray>CubeVAO = nullptr;
+            Ref<VertexArray>QuadVAO = nullptr;
 
-            Ref<VertexArray> CubeVertexArray;
-            Ref<VertexBuffer> CubeVertexBuffer;
-
-            std::array< CubeVertex, 16>CubeVertexBufferData;
-
-            glm::vec4 CubeVertexPositions[16];
-            glm::vec2 CubeTextureCoords[16];
+            Ref<VertexBuffer>CubeVBO = nullptr;
+            Ref<VertexBuffer>QuadVBO = nullptr;
 
             Renderer3D_NoBatch::Statistics Stats;
         };
@@ -36,112 +28,118 @@ namespace Bubble
 
     void Renderer3D_NoBatch::Init()
     {
-        s_Data.CubeVertexArray = VertexArray::Create();
+        s_Data.CubeVAO = VertexArray::Create();
+        //glCreateVertexArrays(1, &m_RendererID);
 
-        s_Data.CubeVertexBuffer = VertexBuffer::Create(s_Data.VerticesSize * sizeof(Render3DNoBatch::CubeVertex));
-        s_Data.CubeVertexBuffer->SetLayout({
+        s_Data.CubeVBO = VertexBuffer::Create(16 * sizeof(Render3DNoBatch::VertexData));
+        /*glCreateBuffers(1, &m_RendererID);
+        glBindBuffer(GL_ARRAY_BUFFER, m_RendererID);
+        glBufferData(GL_ARRAY_BUFFER, size, nullptr, GL_DYNAMIC_DRAW);*/
+
+        s_Data.CubeVBO->SetLayout({
                 { ShaderDataType::Float3, "a_Position"     },
-                { ShaderDataType::Float4, "a_Color"        },
-                { ShaderDataType::Float2, "a_TexCoord"     },
-                { ShaderDataType::Int,    "a_EntityID"     }
+                { ShaderDataType::Float2, "a_TexCoord"     }
             });
-        s_Data.CubeVertexArray->AddVertexBuffer(s_Data.CubeVertexBuffer);
+        s_Data.CubeVAO->AddVertexBuffer(s_Data.CubeVBO);
 
-        uint32_t* quadIndices = new uint32_t[s_Data.IndicesSize];
-
-        uint32_t offset = 0;
-        // 将所有的Index都预先填充上
-        for(uint32_t i = 0; i < s_Data.IndicesSize; i += 36)
+        Render3DNoBatch::VertexData Cubevertexdata[16];
+        uint32_t cubeIndices[36];
         {
+            Cubevertexdata[0].Position = {-0.5f, -0.5f,  0.5f};
+            Cubevertexdata[1].Position = {0.5f, -0.5f,   0.5f};
+            Cubevertexdata[2].Position = {0.5f,  0.5f,   0.5f};
+            Cubevertexdata[3].Position = {-0.5f,  0.5f,  0.5f};
+            Cubevertexdata[4].Position = {-0.5f, -0.5f, -0.5f};
+            Cubevertexdata[5].Position = {0.5f, -0.5f,  -0.5f};
+            Cubevertexdata[6].Position = {0.5f,  0.5f,  -0.5f};
+            Cubevertexdata[7].Position = {-0.5f,  0.5f, -0.5f};
+            Cubevertexdata[8].Position = {-0.5f, -0.5f,  0.5f};
+            Cubevertexdata[9].Position = {0.5f, -0.5f,  0.5f};
+            Cubevertexdata[10].Position = {0.5f,  0.5f,  0.5f};
+            Cubevertexdata[11].Position = {-0.5f,  0.5f,  0.5f};
+            Cubevertexdata[12].Position = {-0.5f, -0.5f, -0.5f};
+            Cubevertexdata[13].Position = {0.5f, -0.5f, -0.5f};
+            Cubevertexdata[14].Position = {0.5f,  0.5f, -0.5f};
+            Cubevertexdata[15].Position = {-0.5f,  0.5f, -0.5f};
+
+            Cubevertexdata[0].TexCoord = {0.0f, 0.0f};
+            Cubevertexdata[1].TexCoord = {1.0f, 0.0f};
+            Cubevertexdata[2].TexCoord = {1.0f, 1.0f};
+            Cubevertexdata[3].TexCoord = {0.0f, 1.0f};
+            Cubevertexdata[4].TexCoord = {1.0f, 0.0f};
+            Cubevertexdata[5].TexCoord = {0.0f, 0.0f};
+            Cubevertexdata[6].TexCoord = {0.0f, 1.0f};
+            Cubevertexdata[7].TexCoord = {1.0f, 1.0f};
+            Cubevertexdata[8].TexCoord = {0.0f, 0.0f};
+            Cubevertexdata[9].TexCoord = {1.0f, 0.0f};
+            Cubevertexdata[10].TexCoord = {1.0f, 0.0f};
+            Cubevertexdata[11].TexCoord = {0.0f, 0.0f};
+            Cubevertexdata[12].TexCoord = {0.0f, 1.0f};
+            Cubevertexdata[13].TexCoord = {1.0f, 1.0f};
+            Cubevertexdata[14].TexCoord = {1.0f, 1.0f};
+            Cubevertexdata[15].TexCoord = {0.0f, 1.0f};
+
             // 前面
-            quadIndices[i + 0] = offset + 0;
-            quadIndices[i + 1] = offset + 1;
-            quadIndices[i + 2] = offset + 2;
-            quadIndices[i + 3] = offset + 0;
-            quadIndices[i + 4] = offset + 2;
-            quadIndices[i + 5] = offset + 3;
+            cubeIndices[0] = 0;
+            cubeIndices[1] = 1;
+            cubeIndices[2] = 2;
+            cubeIndices[3] = 0;
+            cubeIndices[4] = 2;
+            cubeIndices[5] = 3;
 
             //后面
-            quadIndices[i + 6] = offset + 5;
-            quadIndices[i + 7] = offset + 4;
-            quadIndices[i + 8] = offset + 7;
-            quadIndices[i + 9] = offset + 5;
-            quadIndices[i + 10] = offset + 7;
-            quadIndices[i + 11] = offset + 6;
+            cubeIndices[6] = 5;
+            cubeIndices[7] = 4;
+            cubeIndices[8] = 7;
+            cubeIndices[9] = 5;
+            cubeIndices[10] = 7;
+            cubeIndices[11] = 6;
 
                 //左面
-            quadIndices[i + 12] = offset + 4;
-            quadIndices[i + 13] = offset + 0;
-            quadIndices[i + 14] = offset + 3;
-            quadIndices[i + 15] = offset + 4;
-            quadIndices[i + 16] = offset + 3;
-            quadIndices[i + 17] = offset + 7;
+            cubeIndices[12] = 4;
+            cubeIndices[13] = 0;
+            cubeIndices[14] = 3;
+            cubeIndices[15] = 4;
+            cubeIndices[16] = 3;
+            cubeIndices[17] = 7;
 
             // 右面
-            quadIndices[i + 18] = offset + 1;
-            quadIndices[i + 19] = offset + 5;
-            quadIndices[i + 20] = offset + 6;
-            quadIndices[i + 21] = offset + 1;
-            quadIndices[i + 22] = offset + 6;
-            quadIndices[i + 23] = offset + 2;
+            cubeIndices[18] = 1;
+            cubeIndices[19] = 5;
+            cubeIndices[20] = 6;
+            cubeIndices[21] = 1;
+            cubeIndices[22] = 6;
+            cubeIndices[23] = 2;
 
             // 上面
-            quadIndices[i + 24] = offset + 11;
-            quadIndices[i + 25] = offset + 10;
-            quadIndices[i + 26] = offset + 14;
-            quadIndices[i + 27] = offset + 11;
-            quadIndices[i + 28] = offset + 14;
-            quadIndices[i + 29] = offset + 15;
+            cubeIndices[24] = 11;
+            cubeIndices[25] = 10;
+            cubeIndices[26] = 14;
+            cubeIndices[27] = 11;
+            cubeIndices[28] = 14;
+            cubeIndices[29] = 15;
 
              // 下面
-            quadIndices[i + 30] = offset + 8;
-            quadIndices[i + 31] = offset + 9;
-            quadIndices[i + 32] = offset + 13;
-            quadIndices[i + 33] = offset + 8;
-            quadIndices[i + 34] = offset + 13;
-            quadIndices[i + 35] = offset + 12;
-
-            offset += 16;
+            cubeIndices[30] = 8;
+            cubeIndices[31] = 9;
+            cubeIndices[32] = 13;
+            cubeIndices[33] = 8;
+            cubeIndices[34] = 13;
+            cubeIndices[35] = 12;
         }
 
-        Ref<IndexBuffer> quadIB = IndexBuffer::Create(quadIndices, s_Data.IndicesSize);
-        s_Data.CubeVertexArray->SetIndexBuffer(quadIB);
-        delete[] quadIndices;
-       
+        s_Data.CubeVAO->Bind();
+        Ref<IndexBuffer> quadIB = IndexBuffer::Create(cubeIndices, 36);// 创建EBO并绑定EBO数据
+        s_Data.CubeVAO->SetIndexBuffer(quadIB);// 让VAO记录EBO的索引
+        s_Data.CubeVBO->SetData(Cubevertexdata, 16 * sizeof(Render3DNoBatch::VertexData));// 为VBO填充数据
 
-        s_Data.CubeVertexPositions[0] = {-0.5f, -0.5f,  0.5f, 1.0f};
-        s_Data.CubeVertexPositions[1] = {0.5f, -0.5f,  0.5f, 1.0f};
-        s_Data.CubeVertexPositions[2] = {0.5f,  0.5f,  0.5f, 1.0f};
-        s_Data.CubeVertexPositions[3] = {-0.5f,  0.5f,  0.5f, 1.0f};
-        s_Data.CubeVertexPositions[4] = {-0.5f, -0.5f, -0.5f, 1.0f};
-        s_Data.CubeVertexPositions[5] = {0.5f, -0.5f, -0.5f, 1.0f};
-        s_Data.CubeVertexPositions[6] = {0.5f,  0.5f, -0.5f, 1.0f};
-        s_Data.CubeVertexPositions[7] = {-0.5f,  0.5f, -0.5f, 1.0f};
-        s_Data.CubeVertexPositions[8] = {-0.5f, -0.5f,  0.5f, 1.0f};
-        s_Data.CubeVertexPositions[9] = {0.5f, -0.5f,  0.5f, 1.0f};
-        s_Data.CubeVertexPositions[10] = {0.5f,  0.5f,  0.5f, 1.0f};
-        s_Data.CubeVertexPositions[11] = {-0.5f,  0.5f,  0.5f, 1.0f};
-        s_Data.CubeVertexPositions[12] = {-0.5f, -0.5f, -0.5f, 1.0f};
-        s_Data.CubeVertexPositions[13] = {0.5f, -0.5f, -0.5f, 1.0f};
-        s_Data.CubeVertexPositions[14] = {0.5f,  0.5f, -0.5f, 1.0f};
-        s_Data.CubeVertexPositions[15] = {-0.5f,  0.5f, -0.5f, 1.0f};
+        // 解绑
+        s_Data.CubeVAO->Unbind();
+        s_Data.CubeVBO->Unbind();
+        quadIB->Unbind();
 
-        s_Data.CubeTextureCoords[0] = {0.0f, 0.0f};
-        s_Data.CubeTextureCoords[1] = {1.0f, 0.0f};
-        s_Data.CubeTextureCoords[2] = {1.0f, 1.0f};
-        s_Data.CubeTextureCoords[3] = {0.0f, 1.0f};
-        s_Data.CubeTextureCoords[4] = {1.0f, 0.0f};
-        s_Data.CubeTextureCoords[5] = {0.0f, 0.0f};
-        s_Data.CubeTextureCoords[6] = {0.0f, 1.0f};
-        s_Data.CubeTextureCoords[7] = {1.0f, 1.0f};
-        s_Data.CubeTextureCoords[8] = {0.0f, 0.0f};
-        s_Data.CubeTextureCoords[9] = {1.0f, 0.0f};
-        s_Data.CubeTextureCoords[10] = {1.0f, 0.0f};
-        s_Data.CubeTextureCoords[11] = {0.0f, 0.0f};
-        s_Data.CubeTextureCoords[12] = {0.0f, 1.0f};
-        s_Data.CubeTextureCoords[13] = {1.0f, 1.0f};
-        s_Data.CubeTextureCoords[14] = {1.0f, 1.0f};
-        s_Data.CubeTextureCoords[15] = {0.0f, 1.0f};
+
+
 
     }
 
@@ -160,7 +158,7 @@ namespace Bubble
         pipeline->Get_Framebuffer(PID(GBuffer))->Bind();
         RenderCommand::SetClearColor({0.1f, 0.1f, 0.1f, 1});
         RenderCommand::Clear();
-        pipeline->Get_Framebuffer(PID(GBuffer))->ClearAttachment(1, -1);
+        pipeline->Get_Framebuffer(PID(GBuffer))->ClearAttachment(3, -1);
         pipeline->BeginScene(camera);
     }
 
@@ -169,50 +167,34 @@ namespace Bubble
         pipeline->UnbindFramebuffer();
     }
 
-    void Renderer3D_NoBatch::DrawCube(Ref<Pipeline>pipeline, const glm::mat4& transform, const glm::vec4& color, int entityID /*= -1*/)
+    void Renderer3D_NoBatch::DrawCube(Ref<Pipeline>pipeline, int ShaderID, const glm::mat4& transform, const glm::vec4& color, int entityID /*= -1*/)
     {
-        for(size_t i = 0; i < s_Data.VerticesSize; i++)
-        {
-            s_Data.CubeVertexBufferData[i].Position = transform * s_Data.CubeVertexPositions[i];
-            s_Data.CubeVertexBufferData[i].Color = color;
-            s_Data.CubeVertexBufferData[i].TexCoord = s_Data.CubeTextureCoords[i];
-            s_Data.CubeVertexBufferData[i].EntityID = entityID;
-        }
-        s_Data.Stats.CubeCount++;
+        pipeline->Get_Shader(ShaderID)->SetMat4("Transform", transform);
+        pipeline->Get_Shader(ShaderID)->SetFloat4("BaseColor", color);
+        pipeline->Get_Shader(ShaderID)->SetInt("EntityID", entityID);
 
-        uint32_t dataSize = (uint32_t)(sizeof(Render3DNoBatch::CubeVertex)*s_Data.VerticesSize);
-        s_Data.CubeVertexBuffer->SetData(s_Data.CubeVertexBufferData.data(), dataSize);
-
-        RenderCommand::DrawIndexed(s_Data.CubeVertexArray, s_Data.IndicesSize);
+        RenderCommand::DrawIndexed(s_Data.CubeVAO, 36);
         s_Data.Stats.DrawCalls++;
     }
 
-    void Renderer3D_NoBatch::DrawCube(Ref<Pipeline>pipeline, const glm::mat4& transform, const Ref<Texture2D>* textures, int TexturesSize, const glm::vec4& tintColor /*= glm::vec4(1.0f)*/, int entityID /*= -1*/)
+    void Renderer3D_NoBatch::DrawCube(Ref<Pipeline>pipeline, int ShaderID, const glm::mat4& transform, const Ref<Texture2D>* textures, int TexturesSize, const glm::vec4& tintColor /*= glm::vec4(1.0f)*/, int entityID /*= -1*/)
     {
-        for(size_t i = 0; i < s_Data.VerticesSize; i++)
-        {
-            s_Data.CubeVertexBufferData[i].Position = transform * s_Data.CubeVertexPositions[i];
-            s_Data.CubeVertexBufferData[i].Color = tintColor;
-            s_Data.CubeVertexBufferData[i].TexCoord = s_Data.CubeTextureCoords[i];
-            s_Data.CubeVertexBufferData[i].EntityID = entityID;
-        }
-        s_Data.Stats.CubeCount++;
+        pipeline->Get_Shader(ShaderID)->SetMat4("Transform", transform);
+        pipeline->Get_Shader(ShaderID)->SetFloat4("BaseColor", tintColor);
+        pipeline->Get_Shader(ShaderID)->SetInt("EntityID", entityID);
 
         for(int i = 0; i < TexturesSize; i++)
         {
             textures[i]->Bind(i);
         }
 
-        uint32_t dataSize = (uint32_t)(sizeof(Render3DNoBatch::CubeVertex) * s_Data.VerticesSize);
-        s_Data.CubeVertexBuffer->SetData(s_Data.CubeVertexBufferData.data(), dataSize);
-
-        RenderCommand::DrawIndexed(s_Data.CubeVertexArray, s_Data.IndicesSize);
+        RenderCommand::DrawIndexed(s_Data.CubeVAO, 36);
         s_Data.Stats.DrawCalls++;
     }
 
-    void Renderer3D_NoBatch::DrawSprite(Ref<Pipeline>pipeline, const glm::mat4& transform, SpriteRendererComponent& src, int entityID /*= -1*/)
+    void Renderer3D_NoBatch::DrawSprite(Ref<Pipeline>pipeline, int ShaderID, const glm::mat4& transform, SpriteRendererComponent& src, int entityID /*= -1*/)
     {
-        DrawCube(pipeline, transform, src.Textures,5, src.Color, entityID);
+        DrawCube(pipeline, ShaderID, transform, src.Textures, 5, src.Color, entityID);
     }
 
     void Renderer3D_NoBatch::ResetStats()
