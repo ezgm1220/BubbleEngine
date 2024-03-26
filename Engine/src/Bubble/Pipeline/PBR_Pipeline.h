@@ -17,12 +17,14 @@ namespace Bubble
         virtual void EndScene()override final;
         virtual void Draw_Forward(Ref<VertexArray> vertex, uint32_t count)override final;
         virtual void Draw_Deferred()override final;// 离线渲染
-        virtual int Get_IDValue(int x, int y)override final; // 获取鼠标下的实体ID
-        virtual uint32_t GetColorAttachmentRendererID()override final;
+
 
         virtual int GetEntityID(int FramebufferID, int AttachmentIndex, int mouseX, int mouseY)override final;
 
+        virtual uint64_t Texture_DispalyViewport()override final;
+
     private:
         Ref<Shader> GBufferShader;
+        
     };
 }

@@ -32,9 +32,11 @@ namespace Bubble
         virtual void EndScene() = 0;
         virtual void Draw_Forward(Ref<VertexArray> vertex, uint32_t count) = 0;// 前向渲染的接口
         virtual void Draw_Deferred() = 0;// 离线渲染
-        virtual int Get_IDValue(int x, int y) = 0;
-        virtual uint32_t GetColorAttachmentRendererID() = 0;
+
         virtual int GetEntityID(int FramebufferID, int AttachmentIndex, int mouseX, int mouseY) = 0;
+        virtual uint64_t Texture_DispalyViewport() = 0;
+
+        void SetViewportInformation(int FrambufferID, int AttachmentIndex);
 
         void Set_Framebuffer(FramebufferSpecification& fbSpec, int id = -1);// 创建Framebuffer
 
@@ -53,11 +55,8 @@ namespace Bubble
     protected:
         std::unordered_map<int,Ref<Framebuffer>>m_Framebuffers;
         std::unordered_map<int,Ref<Shader>>m_Shader;
-        std::vector<Texture*>BaseTexture;
-        int ViewportFB_ID = -1;
-        int ViewportTexture_id = -1;
-        int IDFB_ID=-1;
-        int IDTexture_id=-1;
+        int ViewportTexture_FramebufferID = -1;
+        int ViewportTexture_AttachmentIndex = -1;
     };
 
 }

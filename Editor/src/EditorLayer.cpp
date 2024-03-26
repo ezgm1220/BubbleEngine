@@ -45,6 +45,8 @@ namespace Bubble
         shaderinformation.insert({PID(GBuffer),textureinformation});
         m_pipeline->BindTextureIndex(shaderinformation);
 
+        m_pipeline->SetViewportInformation(PID(GBuffer), 0);
+
 
         m_ActiveScene = CreateRef<Scene>();
 
@@ -82,11 +84,7 @@ namespace Bubble
         }
 
         // Render
-        Renderer3D::ResetStats();
-        
-
-        // 将id为1的附件值设为-1.随后用来渲染id
-        
+        Renderer3D::ResetStats();    
 
         switch(m_SceneState)
         {
@@ -251,7 +249,7 @@ namespace Bubble
         m_ViewportSize = {viewportPanelSize.x, viewportPanelSize.y};
 
 
-        uint64_t textureID = m_pipeline->Get_Framebuffer(PID(GBuffer))->GetColorAttachmentRendererID(0);
+        uint64_t textureID = m_pipeline->Texture_DispalyViewport();
         //uint64_t textureID = m_Framebuffer->GetColorAttachmentRendererID();
         ImGui::Image(reinterpret_cast<void*>(textureID), ImVec2{m_ViewportSize.x, m_ViewportSize.y}, ImVec2{0, 1}, ImVec2{1, 0});
 

@@ -166,7 +166,7 @@ namespace Bubble
 
     void Renderer3D_NoBatch::EndScene(Ref<Pipeline>pipeline)
     {
-        
+        pipeline->UnbindFramebuffer();
     }
 
     void Renderer3D_NoBatch::DrawCube(Ref<Pipeline>pipeline, const glm::mat4& transform, const glm::vec4& color, int entityID /*= -1*/)

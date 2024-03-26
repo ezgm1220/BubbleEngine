@@ -4,6 +4,12 @@
 namespace Bubble
 {
 
+    void Pipeline::SetViewportInformation(int FrambufferID, int AttachmentIndex)
+    {
+        ViewportTexture_FramebufferID = FrambufferID;
+        ViewportTexture_AttachmentIndex = AttachmentIndex;
+    }
+
     void Pipeline::Set_Framebuffer(FramebufferSpecification& fbSpec, int id)
     {
         BB_CORE_ASSERT(id != -1, "Pipeline->Framebuffer->id no value");

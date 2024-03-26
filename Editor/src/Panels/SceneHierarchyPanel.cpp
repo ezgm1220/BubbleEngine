@@ -412,7 +412,7 @@ namespace Bubble
                     //component.Texture = Texture2D::Create(texturePath.string());
                     Ref<Texture2D> texture = Texture2D::Create(texturePath.string());
                     if(texture->IsLoaded())
-                        component.Textures[3] = texture;
+                        component.Textures[4] = texture;
                     else
                         BB_WARN("Could not load texture {0}", texturePath.filename().string());
                     component.UseTexture = true;

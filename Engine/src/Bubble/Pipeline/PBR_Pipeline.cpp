@@ -58,20 +58,21 @@ namespace Bubble
 
     }
 
-    int PBRPipeline::Get_IDValue(int x, int y)
-    {
-       return m_Framebuffers[IDFB_ID]->ReadPixel(IDTexture_id, x, y);
-    }
-
-    uint32_t PBRPipeline::GetColorAttachmentRendererID()
-    {
-        return m_Framebuffers[ViewportFB_ID]->GetColorAttachmentRendererID(ViewportTexture_id);
-    }
 
     int PBRPipeline::GetEntityID(int FramebufferID, int AttachmentIndex, int mouseX, int mouseY)
     {
         m_Framebuffers[FramebufferID]->Bind();
         return  m_Framebuffers[FramebufferID]->ReadPixel(AttachmentIndex, mouseX, mouseY);
+        m_Framebuffers[FramebufferID]->Unbind();
+    }
+
+    uint64_t PBRPipeline::Texture_DispalyViewport()
+    {
+        if(ViewportTexture_AttachmentIndex == -1 || ViewportTexture_AttachmentIndex == -1)
+        {
+            BB_CORE_WARN("PBRPipeline: No set Viewport Texture Information!!!!!!");
+        }
+        return m_Framebuffers[ViewportTexture_AttachmentIndex]->GetColorAttachmentRendererID(ViewportTexture_AttachmentIndex);
     }
 
 }
