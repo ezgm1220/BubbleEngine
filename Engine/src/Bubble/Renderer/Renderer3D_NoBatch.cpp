@@ -134,9 +134,9 @@ namespace Bubble
         s_Data.CubeVBO->SetData(Cubevertexdata, 16 * sizeof(Render3DNoBatch::VertexData));// 为VBO填充数据
 
         // 解绑
-        s_Data.CubeVAO->Unbind();
-        s_Data.CubeVBO->Unbind();
-        quadIB->Unbind();
+        //s_Data.CubeVAO->Unbind();
+        //s_Data.CubeVBO->Unbind();
+        //quadIB->Unbind();
 
 
 
