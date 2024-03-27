@@ -31,22 +31,22 @@ namespace Bubble
         Render3DNoBatch::VertexData Cubevertexdata[16];
         uint32_t CubeIndices[36];
         {
-            Cubevertexdata[0].Position = {-0.5f, -0.5f,  0.5f};
-            Cubevertexdata[1].Position = {0.5f, -0.5f,   0.5f};
-            Cubevertexdata[2].Position = {0.5f,  0.5f,   0.5f};
-            Cubevertexdata[3].Position = {-0.5f,  0.5f,  0.5f};
-            Cubevertexdata[4].Position = {-0.5f, -0.5f, -0.5f};
-            Cubevertexdata[5].Position = {0.5f, -0.5f,  -0.5f};
-            Cubevertexdata[6].Position = {0.5f,  0.5f,  -0.5f};
-            Cubevertexdata[7].Position = {-0.5f,  0.5f, -0.5f};
-            Cubevertexdata[8].Position = {-0.5f, -0.5f,  0.5f};
-            Cubevertexdata[9].Position = {0.5f, -0.5f,  0.5f};
-            Cubevertexdata[10].Position = {0.5f,  0.5f,  0.5f};
-            Cubevertexdata[11].Position = {-0.5f,  0.5f,  0.5f};
-            Cubevertexdata[12].Position = {-0.5f, -0.5f, -0.5f};
-            Cubevertexdata[13].Position = {0.5f, -0.5f, -0.5f};
-            Cubevertexdata[14].Position = {0.5f,  0.5f, -0.5f};
-            Cubevertexdata[15].Position = {-0.5f,  0.5f, -0.5f};
+            Cubevertexdata[0].Position = {-1.0f, -1.0f,  1.0f};
+            Cubevertexdata[1].Position = {1.0f, -1.0f,   1.0f};
+            Cubevertexdata[2].Position = {1.0f,  1.0f,   1.0f};
+            Cubevertexdata[3].Position = {-1.0f,  1.0f,  1.0f};
+            Cubevertexdata[4].Position = {-1.0f, -1.0f, -1.0f};
+            Cubevertexdata[5].Position = {1.0f, -1.0f,  -1.0f};
+            Cubevertexdata[6].Position = {1.0f,  1.0f,  -1.0f};
+            Cubevertexdata[7].Position = {-1.0f,  1.0f, -1.0f};
+            Cubevertexdata[8].Position = {-1.0f, -1.0f,  1.0f};
+            Cubevertexdata[9].Position = {1.0f, -1.0f,  1.0f};
+            Cubevertexdata[10].Position = {1.0f,  1.0f,  1.0f};
+            Cubevertexdata[11].Position = {-1.0f,  1.0f,  1.0f};
+            Cubevertexdata[12].Position = {-1.0f, -1.0f, -1.0f};
+            Cubevertexdata[13].Position = {1.0f, -1.0f, -1.0f};
+            Cubevertexdata[14].Position = {1.0f,  1.0f, -1.0f};
+            Cubevertexdata[15].Position = {-1.0f,  1.0f, -1.0f};
 
             Cubevertexdata[0].TexCoord = {0.0f, 0.0f};
             Cubevertexdata[1].TexCoord = {1.0f, 0.0f};
@@ -116,7 +116,7 @@ namespace Bubble
 
         s_Data.CubeVAO = VertexArray::Create();
 
-        s_Data.CubeVBO = VertexBuffer::Create(Cubevertexdata, 16 * sizeof(Render3DNoBatch::VertexData));
+        s_Data.CubeVBO = VertexBuffer::Create(Cubevertexdata,16 * sizeof(Render3DNoBatch::VertexData));
 
         s_Data.CubeVBO->SetLayout({
                 { ShaderDataType::Float3, "a_Position"     },
@@ -136,8 +136,8 @@ namespace Bubble
         uint32_t QuadIndices[6];
         {
             Quadvertexdata[0].Position = {-1.f,-1.f,0.f};
-            Quadvertexdata[1].Position = {1.f,-1.f,0.f};
-            Quadvertexdata[2].Position = {1.f, 1.f,0.f};
+            Quadvertexdata[1].Position = { 1.f,-1.f,0.f};
+            Quadvertexdata[2].Position = { 1.f, 1.f,0.f};
             Quadvertexdata[3].Position = {-1.f, 1.f,0.f};
 
             Quadvertexdata[0].TexCoord = {0.f,0.f};
