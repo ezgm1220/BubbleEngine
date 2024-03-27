@@ -29,6 +29,8 @@ namespace Bubble
 
         static void DrawSprite(Ref<Pipeline>pipeline, int ShaderID, const glm::mat4& transform, SpriteRendererComponent& src, int entityID = -1);
 
+        static void Calculatelighting(Ref<Pipeline>pipeline);
+
         // Stats
         struct Statistics
         {

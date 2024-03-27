@@ -53,11 +53,36 @@ namespace Bubble
         RenderCommand::DrawIndexed(vertex, count);
     }
 
-    void PBRPipeline::Draw_Deferred()
+    void PBRPipeline::Calculatelighting_Begin()
     {
+        if(!m_Framebuffers.count(PID(Light)))
+        {
+            BB_CORE_WARN("No set Light Framebuffer !!!!!");
+            BB_ASSERT(1, "No set Light Framebuffer !!!!!");
+        }
+        m_Framebuffers[PID(Light)]->Bind();
 
+        if(!m_Shader.count(PID(Light)))
+        {
+            BB_CORE_WARN("No set Light Shader !!!!!");
+            BB_ASSERT(1, "No set Light Shader !!!!!");
+        }
+        m_Shader[PID(Light)]->Bind();
     }
 
+    Ref<Shader> PBRPipeline::Calculatelighting()
+    {
+        auto texid = m_Framebuffers[PID(GBuffer)]->GetColorAttachmentRendererID(0);
+        m_Shader[PID(Light)]->BindTexture(0, texid);
+
+        return m_Shader[PID(Light)];
+    }
+
+    void PBRPipeline::Calculatelighting_End()
+    {
+        m_Shader[PID(Light)]->Unbind();
+        m_Framebuffers[PID(Light)]->Unbind();
+    }
 
     int PBRPipeline::GetEntityID(int FramebufferID, int AttachmentIndex, int mouseX, int mouseY)
     {
@@ -68,11 +93,11 @@ namespace Bubble
 
     uint64_t PBRPipeline::Texture_DispalyViewport()
     {
-        if(ViewportTexture_AttachmentIndex == -1 || ViewportTexture_AttachmentIndex == -1)
+        if(ViewportTexture_FramebufferID == -1 || ViewportTexture_AttachmentIndex == -1)
         {
             BB_CORE_WARN("PBRPipeline: No set Viewport Texture Information!!!!!!");
         }
-        return m_Framebuffers[ViewportTexture_AttachmentIndex]->GetColorAttachmentRendererID(ViewportTexture_AttachmentIndex);
+        return m_Framebuffers[ViewportTexture_FramebufferID]->GetColorAttachmentRendererID(ViewportTexture_AttachmentIndex);
     }
 
 }

@@ -242,7 +242,12 @@ namespace Bubble {
 		UploadUniformMat4(name, value);
 	}
 
-	void OpenGLShader::UploadUniformInt(const std::string& name, int value)
+    void OpenGLShader::BindTexture(const uint32_t slot, const uint32_t TextureID)
+    {
+        glBindTextureUnit(slot, TextureID);
+    }
+
+    void OpenGLShader::UploadUniformInt(const std::string& name, int value)
 	{
 		GLint location = glGetUniformLocation(m_RendererID, name.c_str());
 		glUniform1i(location, value);

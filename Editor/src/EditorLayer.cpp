@@ -28,24 +28,39 @@ namespace Bubble
         m_IconPlay = Texture2D::Create("Resources/Icons/PlayButton.png");
         m_IconStop = Texture2D::Create("Resources/Icons/StopButton.png");
 
-        FramebufferSpecification fbSpec;
-        fbSpec.Attachments = {FramebufferTextureFormat::RGBA16F, FramebufferTextureFormat::RGBA16F,FramebufferTextureFormat::RGBA16F, FramebufferTextureFormat::RGBA32I,FramebufferTextureFormat::Depth};
-        fbSpec.Width = 1280;
-        fbSpec.Height = 720;
+        // 设置帧缓冲信息以及Shader信息
+        {
+            FramebufferSpecification fbSpec_GBuffer;
+            fbSpec_GBuffer.Attachments = {FramebufferTextureFormat::RGBA16F, FramebufferTextureFormat::RGBA16F,FramebufferTextureFormat::RGBA16F, FramebufferTextureFormat::RGBA32I,FramebufferTextureFormat::Depth};
+            fbSpec_GBuffer.Width = 1280;
+            fbSpec_GBuffer.Height = 720;
 
-        m_pipeline->Set_Framebuffer(fbSpec, PID(GBuffer));
+            m_pipeline->Set_Framebuffer(fbSpec_GBuffer, PID(GBuffer));
 
-        std::unordered_map<int, std::string > shadersmap;
-        shadersmap.insert({PID(GBuffer),"assets/shaders/PBRTest.glsl"});
-        m_pipeline->LoadShaders(shadersmap);
+            FramebufferSpecification fbSpec_Light;
+            fbSpec_Light.Attachments = {FramebufferTextureFormat::RGBA16F};
+            fbSpec_Light.Width = 1280;
+            fbSpec_Light.Height = 720;
+            m_pipeline->Set_Framebuffer(fbSpec_Light, PID(Light));
 
-        std::unordered_map<int, std::vector<std::pair<int, std::string>>> shaderinformation;
-        std::vector<std::pair<int, std::string>> textureinformation = {
-                        {0,"Albedo"},{1,"Normal"},{2,"Metallic"},{3,"Roughness"},{4,"AO"}};
-        shaderinformation.insert({PID(GBuffer),textureinformation});
-        m_pipeline->BindTextureIndex(shaderinformation);
+            std::unordered_map<int, std::string > shadersmap;
+            shadersmap.insert({PID(GBuffer),"assets/shaders/PBRTest.glsl"});
+            shadersmap.insert({PID(Light),"assets/shaders/Show2D.glsl"});
+            m_pipeline->LoadShaders(shadersmap);
 
-        m_pipeline->SetViewportInformation(PID(GBuffer), 0);
+            std::unordered_map<int, std::vector<std::pair<int, std::string>>> shaderinformation;
+            std::vector<std::pair<int, std::string>> textureinformation_GBuffer = {
+                            {0,"Albedo"},{1,"Normal"},{2,"Metallic"},{3,"Roughness"},{4,"AO"}};
+            shaderinformation.insert({PID(GBuffer),textureinformation_GBuffer});
+
+            std::vector<std::pair<int, std::string>> textureinformation_Light = {
+                            {0,"Tex2D"}};
+            shaderinformation.insert({PID(Light),textureinformation_Light});
+
+            m_pipeline->BindTextureIndex(shaderinformation);
+        }
+
+        m_pipeline->SetViewportInformation(PID(Light), 0);
 
 
         m_ActiveScene = CreateRef<Scene>();

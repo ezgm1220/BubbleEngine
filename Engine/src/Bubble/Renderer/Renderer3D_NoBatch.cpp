@@ -28,22 +28,8 @@ namespace Bubble
 
     void Renderer3D_NoBatch::Init()
     {
-        s_Data.CubeVAO = VertexArray::Create();
-        //glCreateVertexArrays(1, &m_RendererID);
-
-        s_Data.CubeVBO = VertexBuffer::Create(16 * sizeof(Render3DNoBatch::VertexData));
-        /*glCreateBuffers(1, &m_RendererID);
-        glBindBuffer(GL_ARRAY_BUFFER, m_RendererID);
-        glBufferData(GL_ARRAY_BUFFER, size, nullptr, GL_DYNAMIC_DRAW);*/
-
-        s_Data.CubeVBO->SetLayout({
-                { ShaderDataType::Float3, "a_Position"     },
-                { ShaderDataType::Float2, "a_TexCoord"     }
-            });
-        s_Data.CubeVAO->AddVertexBuffer(s_Data.CubeVBO);
-
         Render3DNoBatch::VertexData Cubevertexdata[16];
-        uint32_t cubeIndices[36];
+        uint32_t CubeIndices[36];
         {
             Cubevertexdata[0].Position = {-0.5f, -0.5f,  0.5f};
             Cubevertexdata[1].Position = {0.5f, -0.5f,   0.5f};
@@ -80,67 +66,110 @@ namespace Bubble
             Cubevertexdata[15].TexCoord = {0.0f, 1.0f};
 
             // 前面
-            cubeIndices[0] = 0;
-            cubeIndices[1] = 1;
-            cubeIndices[2] = 2;
-            cubeIndices[3] = 0;
-            cubeIndices[4] = 2;
-            cubeIndices[5] = 3;
+            CubeIndices[0] = 0;
+            CubeIndices[1] = 1;
+            CubeIndices[2] = 2;
+            CubeIndices[3] = 0;
+            CubeIndices[4] = 2;
+            CubeIndices[5] = 3;
 
             //后面
-            cubeIndices[6] = 5;
-            cubeIndices[7] = 4;
-            cubeIndices[8] = 7;
-            cubeIndices[9] = 5;
-            cubeIndices[10] = 7;
-            cubeIndices[11] = 6;
+            CubeIndices[6] = 5;
+            CubeIndices[7] = 4;
+            CubeIndices[8] = 7;
+            CubeIndices[9] = 5;
+            CubeIndices[10] = 7;
+            CubeIndices[11] = 6;
 
                 //左面
-            cubeIndices[12] = 4;
-            cubeIndices[13] = 0;
-            cubeIndices[14] = 3;
-            cubeIndices[15] = 4;
-            cubeIndices[16] = 3;
-            cubeIndices[17] = 7;
+            CubeIndices[12] = 4;
+            CubeIndices[13] = 0;
+            CubeIndices[14] = 3;
+            CubeIndices[15] = 4;
+            CubeIndices[16] = 3;
+            CubeIndices[17] = 7;
 
             // 右面
-            cubeIndices[18] = 1;
-            cubeIndices[19] = 5;
-            cubeIndices[20] = 6;
-            cubeIndices[21] = 1;
-            cubeIndices[22] = 6;
-            cubeIndices[23] = 2;
+            CubeIndices[18] = 1;
+            CubeIndices[19] = 5;
+            CubeIndices[20] = 6;
+            CubeIndices[21] = 1;
+            CubeIndices[22] = 6;
+            CubeIndices[23] = 2;
 
             // 上面
-            cubeIndices[24] = 11;
-            cubeIndices[25] = 10;
-            cubeIndices[26] = 14;
-            cubeIndices[27] = 11;
-            cubeIndices[28] = 14;
-            cubeIndices[29] = 15;
+            CubeIndices[24] = 11;
+            CubeIndices[25] = 10;
+            CubeIndices[26] = 14;
+            CubeIndices[27] = 11;
+            CubeIndices[28] = 14;
+            CubeIndices[29] = 15;
 
              // 下面
-            cubeIndices[30] = 8;
-            cubeIndices[31] = 9;
-            cubeIndices[32] = 13;
-            cubeIndices[33] = 8;
-            cubeIndices[34] = 13;
-            cubeIndices[35] = 12;
+            CubeIndices[30] = 8;
+            CubeIndices[31] = 9;
+            CubeIndices[32] = 13;
+            CubeIndices[33] = 8;
+            CubeIndices[34] = 13;
+            CubeIndices[35] = 12;
         }
 
-        s_Data.CubeVAO->Bind();
-        Ref<IndexBuffer> quadIB = IndexBuffer::Create(cubeIndices, 36);// 创建EBO并绑定EBO数据
-        s_Data.CubeVAO->SetIndexBuffer(quadIB);// 让VAO记录EBO的索引
-        s_Data.CubeVBO->SetData(Cubevertexdata, 16 * sizeof(Render3DNoBatch::VertexData));// 为VBO填充数据
+        s_Data.CubeVAO = VertexArray::Create();
+
+        s_Data.CubeVBO = VertexBuffer::Create(Cubevertexdata,16 * sizeof(Render3DNoBatch::VertexData));
+
+        s_Data.CubeVBO->SetLayout({
+                { ShaderDataType::Float3, "a_Position"     },
+                { ShaderDataType::Float2, "a_TexCoord"     }
+            });
+        s_Data.CubeVAO->AddVertexBuffer(s_Data.CubeVBO);
+
+        Ref<IndexBuffer> cubeIB = IndexBuffer::Create(CubeIndices, 36);// 创建EBO并绑定EBO数据
+        s_Data.CubeVAO->SetIndexBuffer(cubeIB);// 让VAO记录EBO的索引
 
         // 解绑
         s_Data.CubeVAO->Unbind();
         s_Data.CubeVBO->Unbind();
+        cubeIB->Unbind();
+
+        Render3DNoBatch::VertexData Quadvertexdata[4];
+        uint32_t QuadIndices[6];
+        {
+            Quadvertexdata[0].Position = {-1.f,-1.f,0.f};
+            Quadvertexdata[1].Position = { 1.f,-1.f,0.f};
+            Quadvertexdata[2].Position = { 1.f, 1.f,0.f};
+            Quadvertexdata[3].Position = {-1.f, 1.f,0.f};
+
+            Quadvertexdata[0].TexCoord = {0.f,0.f};
+            Quadvertexdata[1].TexCoord = {1.f,0.f};
+            Quadvertexdata[2].TexCoord = {1.f,1.f};
+            Quadvertexdata[3].TexCoord = {0.f,1.f};
+
+            QuadIndices[0] = 0;
+            QuadIndices[1] = 1;
+            QuadIndices[2] = 3;
+            QuadIndices[3] = 1;
+            QuadIndices[4] = 2;
+            QuadIndices[5] = 3;
+        }
+
+        s_Data.QuadVAO = VertexArray::Create();
+
+        s_Data.QuadVBO = VertexBuffer::Create(Quadvertexdata, 4 * sizeof(Render3DNoBatch::VertexData));
+
+        s_Data.QuadVBO->SetLayout({
+                { ShaderDataType::Float3, "a_Position"     },
+                { ShaderDataType::Float2, "a_TexCoord"     }
+            });
+        s_Data.QuadVAO->AddVertexBuffer(s_Data.QuadVBO);
+
+        Ref<IndexBuffer> quadIB = IndexBuffer::Create(QuadIndices, 6);// 创建EBO并绑定EBO数据
+        s_Data.QuadVAO->SetIndexBuffer(quadIB);// 让VAO记录EBO的索引
+
+        // 解绑
+        s_Data.QuadVAO->Unbind();
+        s_Data.QuadVBO->Unbind();
         quadIB->Unbind();
-
-
-
-
     }
 
     void Renderer3D_NoBatch::Shutdown()
@@ -196,6 +225,16 @@ namespace Bubble
     void Renderer3D_NoBatch::DrawSprite(Ref<Pipeline>pipeline, int ShaderID, const glm::mat4& transform, SpriteRendererComponent& src, int entityID /*= -1*/)
     {
         DrawCube(pipeline, ShaderID, transform, src.Textures, 5, src.Color, entityID);
+    }
+
+    void Renderer3D_NoBatch::Calculatelighting(Ref<Pipeline>pipeline)
+    {
+        pipeline->Calculatelighting_Begin();
+        auto shader = pipeline->Calculatelighting();
+
+        RenderCommand::DrawIndexed(s_Data.QuadVAO, 6);
+
+        pipeline->Calculatelighting_End();
     }
 
     void Renderer3D_NoBatch::ResetStats()

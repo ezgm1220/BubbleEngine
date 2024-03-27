@@ -107,6 +107,7 @@ namespace Bubble
     {
         Renderer3D_NoBatch::ResetStats();
 
+        // 获取场景GBuffer信息
         {
             //Renderer3D::BeginScene(camera,pipeline);
             Renderer3D_NoBatch::BeginScene(camera,pipeline);
@@ -123,6 +124,8 @@ namespace Bubble
             //Renderer3D::EndScene(pipeline);
             Renderer3D_NoBatch::EndScene(pipeline);
         }
+
+        Renderer3D_NoBatch::Calculatelighting(pipeline);
     }
 
     void Scene::OnViewportResize(uint32_t width, uint32_t height)
