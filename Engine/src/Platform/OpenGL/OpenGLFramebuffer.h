@@ -35,4 +35,17 @@ namespace Bubble {
 		uint32_t m_DepthAttachment = 0;
 	};
 
+    class OpenGLCubeMapFramebuffer :public CubeMapFramebuffer
+    {
+    public:
+        OpenGLCubeMapFramebuffer(int size);
+        virtual ~OpenGLCubeMapFramebuffer();
+        virtual void Bind() override;
+        virtual void Unbind() override;
+        virtual void SetCubeFace(int Faceid, uint32_t CubeMapID) override;
+    private:
+        uint32_t m_FBOID = 0;
+        uint32_t m_RBOID = 0;
+        int CubeMapSize = 0;
+    };
 }

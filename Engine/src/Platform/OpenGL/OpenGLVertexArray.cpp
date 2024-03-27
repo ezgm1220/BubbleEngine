@@ -43,8 +43,6 @@ namespace Bubble {
 
 	void OpenGLVertexArray::Unbind() const
 	{
-		  
-
 		glBindVertexArray(0);
 	}
 

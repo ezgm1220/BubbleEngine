@@ -69,6 +69,10 @@ namespace Bubble
 
         m_SceneHierarchyPanel.SetContext(m_ActiveScene);// 相当于设置场景
 
+        m_SkyBox = SkyBox(512);
+        m_SkyBox.LoadHdrMap("assets/SkyBox/spree_bank_4k.hdr");
+        m_SkyBox.SetShader("assets/shaders/GetCubeMap.glsl");
+        m_SkyBox.GetSkyBox();
     }
 
     void EditorLayer::OnDetach()
@@ -241,6 +245,10 @@ namespace Bubble
         ImGui::Text("Quads: %d", stats.QuadCount);
         ImGui::Text("Vertices: %d", stats.GetTotalVertexCount());
         ImGui::Text("Indices: %d", stats.GetTotalIndexCount());*/
+
+        ImGui::End();
+
+        ImGui::Begin("Settings");
 
         ImGui::End();
 

@@ -31,4 +31,16 @@ namespace Bubble {
 		static Ref<Texture2D> Create(const std::string& path);
 	};
 
+    class CubeMap : public Texture
+    {
+    public:
+        static Ref<CubeMap> Create(uint32_t width, uint32_t height);
+        //static Ref<CubeMap> Create(const std::string& path);
+    };
+
+    class HDRTexture2D : public Texture
+    {
+    public:
+        static Ref<HDRTexture2D> Create(const std::string& path);
+    };
 }

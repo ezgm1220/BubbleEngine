@@ -116,7 +116,7 @@ namespace Bubble
 
         s_Data.CubeVAO = VertexArray::Create();
 
-        s_Data.CubeVBO = VertexBuffer::Create(Cubevertexdata,16 * sizeof(Render3DNoBatch::VertexData));
+        s_Data.CubeVBO = VertexBuffer::Create(Cubevertexdata, 16 * sizeof(Render3DNoBatch::VertexData));
 
         s_Data.CubeVBO->SetLayout({
                 { ShaderDataType::Float3, "a_Position"     },
@@ -136,8 +136,8 @@ namespace Bubble
         uint32_t QuadIndices[6];
         {
             Quadvertexdata[0].Position = {-1.f,-1.f,0.f};
-            Quadvertexdata[1].Position = { 1.f,-1.f,0.f};
-            Quadvertexdata[2].Position = { 1.f, 1.f,0.f};
+            Quadvertexdata[1].Position = {1.f,-1.f,0.f};
+            Quadvertexdata[2].Position = {1.f, 1.f,0.f};
             Quadvertexdata[3].Position = {-1.f, 1.f,0.f};
 
             Quadvertexdata[0].TexCoord = {0.f,0.f};
@@ -220,6 +220,11 @@ namespace Bubble
 
         RenderCommand::DrawIndexed(s_Data.CubeVAO, 36);
         s_Data.Stats.DrawCalls++;
+    }
+
+    void Renderer3D_NoBatch::DrawCube()
+    {
+        RenderCommand::DrawIndexed(s_Data.CubeVAO, 36);
     }
 
     void Renderer3D_NoBatch::DrawSprite(Ref<Pipeline>pipeline, int ShaderID, const glm::mat4& transform, SpriteRendererComponent& src, int entityID /*= -1*/)

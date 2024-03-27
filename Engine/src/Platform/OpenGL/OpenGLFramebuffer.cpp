@@ -14,9 +14,28 @@ namespace Bubble {
 			return multisampled ? GL_TEXTURE_2D_MULTISAMPLE : GL_TEXTURE_2D;
 		}
 
-		static void CreateTextures(bool multisampled, uint32_t* outID, uint32_t count)
+		static void CreateTextures(std::vector<FramebufferTextureSpecification>& Attachments,bool multisampled, uint32_t* outID, uint32_t count)
 		{
-			glCreateTextures(TextureTarget(multisampled), count, outID);
+            for(int i = 0; i < count; ++i)
+            {
+                switch(Attachments[i].TextureFormat)
+                {
+                    case FramebufferTextureFormat::RGBA8:
+                    case FramebufferTextureFormat::RED_INTEGER:
+                    case FramebufferTextureFormat::RGBA16F:
+                    case FramebufferTextureFormat::RGBA32I:
+                    {
+                        glCreateTextures(TextureTarget(multisampled), 1, &(outID[i]));
+                        break;
+                    }
+                    case FramebufferTextureFormat::CUBEMAP_RGB16F:
+                    {
+                        glCreateTextures(GL_TEXTURE_CUBE_MAP, 1, &(outID[i]));
+                        break;
+                    }
+                }
+            }
+
 		}
 
 		static void BindTexture(bool multisampled, uint32_t id)
@@ -44,6 +63,32 @@ namespace Bubble {
 
 			glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0 + index, TextureTarget(multisampled), id, 0);
 		}
+
+        static void AttachCubeMap(uint32_t id, int samples, GLenum internalFormat, GLenum format, GLenum Type, uint32_t width, uint32_t height, int index)
+        {// 计算天空盒不用这样处理
+            bool multisampled = samples > 1;
+            if(multisampled)
+            {
+                //glTexImage2DMultisample(GL_TEXTURE_2D_MULTISAMPLE, samples, internalFormat, width, height, GL_FALSE);
+            }
+            else
+            {
+                //glTexImage2D(GL_TEXTURE_2D, 0, internalFormat, width, height, 0, format, Type, nullptr);
+
+                for(unsigned int i = 0; i < 6; ++i)
+                {
+                    glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, internalFormat, width, height, 0, format, Type, nullptr);
+                }
+
+                glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+                glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+                glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
+                glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+                glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+            }
+
+            //glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0 + index, TextureTarget(multisampled), id, 0);
+        }
 
 		static void AttachDepthTexture(uint32_t id, int samples, GLenum format, GLenum attachmentType, uint32_t width, uint32_t height)
 		{
@@ -134,7 +179,7 @@ namespace Bubble {
 		if (m_ColorAttachmentSpecifications.size())
 		{
 			m_ColorAttachments.resize(m_ColorAttachmentSpecifications.size());
-			Utils::CreateTextures(multisample, m_ColorAttachments.data(), m_ColorAttachments.size());
+			Utils::CreateTextures(m_ColorAttachmentSpecifications,multisample, m_ColorAttachments.data(), m_ColorAttachments.size());
 
 			for (size_t i = 0; i < m_ColorAttachments.size(); i++)
 			{
@@ -142,24 +187,37 @@ namespace Bubble {
                 switch(m_ColorAttachmentSpecifications[i].TextureFormat)
                 {
                     case FramebufferTextureFormat::RGBA8:
+                    {
                         Utils::AttachColorTexture(m_ColorAttachments[i], m_Specification.Samples, GL_RGBA8, GL_RGBA, GL_UNSIGNED_BYTE, m_Specification.Width, m_Specification.Height, i);
                         break;
+                    }
                     case FramebufferTextureFormat::RGBA16F:
+                    {
                         Utils::AttachColorTexture(m_ColorAttachments[i], m_Specification.Samples, GL_RGBA8, GL_RGBA, GL_FLOAT, m_Specification.Width, m_Specification.Height, i);
                         break;
+                    }
                     case FramebufferTextureFormat::RGBA32I:
+                    {
                         Utils::AttachColorTexture(m_ColorAttachments[i], m_Specification.Samples, GL_RGBA32I, GL_RGBA_INTEGER, GL_INT, m_Specification.Width, m_Specification.Height, i);
                         break;
+                    }
                     case FramebufferTextureFormat::RED_INTEGER:
+                    {
                         Utils::AttachColorTexture(m_ColorAttachments[i], m_Specification.Samples, GL_R32I, GL_RED_INTEGER, GL_UNSIGNED_BYTE, m_Specification.Width, m_Specification.Height, i);
                         break;
+                    }
+                    case FramebufferTextureFormat::CUBEMAP_RGB16F:
+                    {
+                        //Utils::AttachColorTexture(m_ColorAttachments[i], m_Specification.Samples, GL_R32I, GL_RED_INTEGER, GL_UNSIGNED_BYTE, m_Specification.Width, m_Specification.Height, i);
+                        break;
+                    }
                 }
 			}
 		}
 
 		if (m_DepthAttachmentSpecification.TextureFormat != FramebufferTextureFormat::None)
 		{
-			Utils::CreateTextures(multisample, &m_DepthAttachment, 1);
+            glCreateTextures(Utils::TextureTarget(multisample), 1, &m_DepthAttachment);
 			Utils::BindTexture(multisample, m_DepthAttachment);
 			switch (m_DepthAttachmentSpecification.TextureFormat)
 			{
@@ -223,22 +281,34 @@ namespace Bubble {
         switch(TextureType)
         {
             case FramebufferTextureFormat::RGBA8:
-                BB_CORE_ERROR("FramebufferTextureFormat::RGBA8 No Define");
+            {
+                BB_CORE_ERROR("ReadPixel->FramebufferTextureFormat::RGBA8 No Define");
                 break;
+            }
             case FramebufferTextureFormat::RGBA16F:
-                BB_CORE_ERROR("FramebufferTextureFormat::RGBA16F No Define");
+            {
+                BB_CORE_ERROR("ReadPixel->FramebufferTextureFormat::RGBA16F No Define");
                 break;
+            }
             case FramebufferTextureFormat::RGBA32I:  
+            {
                 glm::ivec4 pixelData_RGBA32I;
                 glReadPixels(x, y, 1, 1, GL_RGBA_INTEGER, GL_INT, &pixelData_RGBA32I);
                 BB_CORE_INFO(pixelData_RGBA32I);
                 return pixelData_RGBA32I.x;
                 break;
+            }
             case FramebufferTextureFormat::RED_INTEGER:
+            {
                 int pixelData_RED_INTEGER = -1;
                 glReadPixels(x, y, 1, 1, GL_RED_INTEGER, GL_INT, &pixelData_RED_INTEGER);
                 return pixelData_RED_INTEGER;
                 break;
+            }
+            case FramebufferTextureFormat::CUBEMAP_RGB16F:
+            {
+                BB_CORE_ERROR("ReadPixel->FramebufferTextureFormat::CUBEMAP_RGB16F No Define");
+            }
         }
     }
 
@@ -251,25 +321,72 @@ namespace Bubble {
         switch(m_ColorAttachmentSpecifications[attachmentIndex].TextureFormat)
         {
             case FramebufferTextureFormat::RGBA8:
-                BB_CORE_ERROR("FramebufferTextureFormat::RGBA8 No Define");
+            {
+                BB_CORE_ERROR("ClearAttachment->FramebufferTextureFormat::RGBA8 No Define");
                 break;
+            }
             case FramebufferTextureFormat::RGBA16F:
-                BB_CORE_ERROR("FramebufferTextureFormat::RGBA16F No Define");
+            {
+                BB_CORE_ERROR("ClearAttachment->FramebufferTextureFormat::RGBA16F No Define");
                 break;
+            }
             case FramebufferTextureFormat::RGBA32I:
-                glm::ivec4 value_RGBA32I(value,value,value,value);
+            {
+                glm::ivec4 value_RGBA32I(value, value, value, value);
                 glClearTexImage(m_ColorAttachments[attachmentIndex], 0,
                     Utils::BubbleFBTextureFormatToGL(spec.TextureFormat), GL_INT, &value_RGBA32I);
                 break;
+            }
             case FramebufferTextureFormat::RED_INTEGER:
+            {
                 int value_RED_INTEGER = value;
                 glClearTexImage(m_ColorAttachments[attachmentIndex], 0,
                     Utils::BubbleFBTextureFormatToGL(spec.TextureFormat), GL_INT, &value_RED_INTEGER);
                 break;
+            }
+            case FramebufferTextureFormat::CUBEMAP_RGB16F:
+            {
+                BB_CORE_ERROR("ClearAttachment->FramebufferTextureFormat::CUBEMAP_RGB16F No Define");
+                break;
+            }
         }
 
 		
 		
 	}
+
+    OpenGLCubeMapFramebuffer::OpenGLCubeMapFramebuffer(int size)
+        :CubeMapSize(size)
+    {
+        glGenFramebuffers(1, &m_FBOID);
+        glGenRenderbuffers(1, &m_RBOID);
+
+        glBindFramebuffer(GL_FRAMEBUFFER, m_FBOID);
+        glBindRenderbuffer(GL_RENDERBUFFER, m_RBOID);
+        glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT24, size, size);
+        glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, m_RBOID);
+    }
+
+    OpenGLCubeMapFramebuffer::~OpenGLCubeMapFramebuffer()
+    {
+        glDeleteFramebuffers(1, &m_FBOID);
+        glDeleteRenderbuffers(1, &m_RBOID);
+    }
+
+    void OpenGLCubeMapFramebuffer::Bind()
+    {
+        glBindFramebuffer(GL_FRAMEBUFFER, m_FBOID);
+        glViewport(0, 0, CubeMapSize, CubeMapSize);
+    }
+
+    void OpenGLCubeMapFramebuffer::Unbind()
+    {
+        glBindFramebuffer(GL_FRAMEBUFFER, 0);
+    }
+
+    void OpenGLCubeMapFramebuffer::SetCubeFace(int Faceid, uint32_t CubeMapID)
+    {
+        glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_CUBE_MAP_POSITIVE_X + Faceid, CubeMapID, 0);
+    }
 
 }

@@ -14,6 +14,9 @@ namespace Bubble {
         RGBA16F,
         RGBA32I,
 
+        // CubeMap
+        CUBEMAP_RGB16F,
+
 		// Depth/stencil
 		DEPTH24STENCIL8,
 
@@ -69,5 +72,17 @@ namespace Bubble {
 		static Ref<Framebuffer> Create(const FramebufferSpecification& spec);
 	};
 
+    class CubeMapFramebuffer
+    {
+    public:
+        virtual ~CubeMapFramebuffer() = default;
+
+        virtual void Bind() = 0;
+        virtual void Unbind() = 0;
+
+        virtual void SetCubeFace(int Faceid, uint32_t CubeMapID) = 0;
+
+        static Ref<CubeMapFramebuffer> Create(int size);
+    };
 
 }
