@@ -45,7 +45,7 @@ namespace Bubble
 
     void PBRPipeline::EndScene()
     {
-        //m_Framebuffers[PID(GBuffer)]->Unbind();
+        m_Shader[PID(GBuffer)]->Unbind();
     }
 
     void PBRPipeline::Draw_Forward(Ref<VertexArray> vertex, uint32_t count)

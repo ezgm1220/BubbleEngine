@@ -134,9 +134,9 @@ namespace Bubble
         s_Data.CubeVBO->SetData(Cubevertexdata, 16 * sizeof(Render3DNoBatch::VertexData));// 为VBO填充数据
 
         // 解绑
-        //s_Data.CubeVAO->Unbind();
-        //s_Data.CubeVBO->Unbind();
-        //quadIB->Unbind();
+        s_Data.CubeVAO->Unbind();
+        s_Data.CubeVBO->Unbind();
+        quadIB->Unbind();
 
 
 
@@ -165,6 +165,7 @@ namespace Bubble
     void Renderer3D_NoBatch::EndScene(Ref<Pipeline>pipeline)
     {
         pipeline->UnbindFramebuffer();
+        pipeline->EndScene();
     }
 
     void Renderer3D_NoBatch::DrawCube(Ref<Pipeline>pipeline, int ShaderID, const glm::mat4& transform, const glm::vec4& color, int entityID /*= -1*/)
