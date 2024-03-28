@@ -1,6 +1,8 @@
 #pragma once
 
 #include "Bubble/Core/Window.h"
+#include "Bubble/Renderer/GraphicsContext.h"
+
 #include <GLFW/glfw3.h>
 
 namespace Bubble
@@ -28,6 +30,7 @@ namespace Bubble
         virtual void Shutdown();
     private:
         GLFWwindow* m_Window;
+        Scope<GraphicsContext> m_Context;
 
         struct WindowData// 用于从glfw中获取信息
         {

@@ -14,8 +14,6 @@ namespace Bubble {
 
 	void OpenGLContext::Init()
 	{
-		  
-
 		glfwMakeContextCurrent(m_WindowHandle);
 		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 		BB_CORE_ASSERT(status, "Failed to initialize Glad!");

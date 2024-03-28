@@ -7,7 +7,9 @@
 #include "Bubble/Events/MouseEvent.h"
 #include "Bubble/Events/KeyEvent.h"
 
-#include <glad/glad.h>
+#include "Bubble/Renderer/Renderer.h"
+
+#include "Platform/OpenGL/OpenGLContext.h"
 
 namespace Bubble
 {
@@ -46,21 +48,27 @@ namespace Bubble
             glfwSetErrorCallback(GLFWErrorCallback);
         }
 
+        glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4); //主版本号设为3
+        glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 5); //副版本号设置为3，最终是OpenGL3.3版本
+        glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);  //OpenGL模式设置为核心模式
+
         {
-            /*#if defined(BB_DEBUG)
+            #if defined(BB_DEBUG)
             if(Renderer::GetAPI() == RendererAPI::API::OpenGL)
                 glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GLFW_TRUE);
-            #endif*/
+            #endif
 
             m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
             ++s_GLFWWindowCount;
         }
 
-        // 设置上下文
-        glfwMakeContextCurrent(m_Window);
-        // 初始化glad
-        int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
-        BB_CORE_ASSERT(status, "Failed to initialize Glad");
+        //// 设置上下文
+        //glfwMakeContextCurrent(m_Window);
+        //// 初始化glad
+        //int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+        //BB_CORE_ASSERT(status, "Failed to initialize Glad");
+        m_Context = GraphicsContext::Create(m_Window);
+        m_Context->Init();
 
 
         glfwSetWindowUserPointer(m_Window, &m_Data);

@@ -58,8 +58,8 @@ namespace Bubble
 
             m_Shader->SetMat4("view", captureViews[i]);
             m_Framebuffer->SetCubeFace(i, m_CubeMap->GetRendererID());
-            //RenderCommand::Clear();
             Renderer3D_NoBatch::DrawCube();
+            RenderCommand::Clear();
         }
 
         m_Shader->Unbind();

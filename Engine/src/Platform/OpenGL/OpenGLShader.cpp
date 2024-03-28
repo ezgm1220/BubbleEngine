@@ -192,8 +192,6 @@ namespace Bubble {
 
 	void OpenGLShader::Unbind() const
 	{
-		  
-
 		glUseProgram(0);
 	}
 
