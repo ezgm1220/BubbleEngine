@@ -18,8 +18,12 @@ namespace Bubble
         virtual void Draw_Forward(Ref<VertexArray> vertex, uint32_t count)override final;
 
         virtual void Calculatelighting_Begin() override final;
-        virtual Ref<Shader> Calculatelighting() override final;
+        virtual Ref<Shader> Calculatelighting(SkyBox& skybox) override final;
         virtual void Calculatelighting_End() override final;
+
+        virtual void ShowSkyBox_Begin() override final;
+        virtual Ref<Shader> ShowSkyBox(SkyBox& skybox)override final;
+        virtual void ShowSkyBox_End()override final;
 
         virtual int GetEntityID(int FramebufferID, int AttachmentIndex, int mouseX, int mouseY)override final;
 
@@ -27,6 +31,6 @@ namespace Bubble
 
     private:
         Ref<Shader> GBufferShader;
-        
+
     };
 }

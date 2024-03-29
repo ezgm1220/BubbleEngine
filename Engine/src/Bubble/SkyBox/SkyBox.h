@@ -15,6 +15,7 @@ namespace Bubble
         void SetShader(std::string path);
         void LoadHdrMap(std::string path);
         void GetSkyBox();
+        uint32_t GetCubeMapID() { return m_CubeMap->GetRendererID(); }
 
         Ref<CubeMapFramebuffer> m_Framebuffer;
     private:

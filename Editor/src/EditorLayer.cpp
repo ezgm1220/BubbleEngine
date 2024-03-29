@@ -34,33 +34,45 @@ namespace Bubble
             fbSpec_GBuffer.Attachments = {FramebufferTextureFormat::RGBA16F, FramebufferTextureFormat::RGBA16F,FramebufferTextureFormat::RGBA16F, FramebufferTextureFormat::RGBA32I,FramebufferTextureFormat::Depth};
             fbSpec_GBuffer.Width = 1280;
             fbSpec_GBuffer.Height = 720;
-
-            m_pipeline->Set_Framebuffer(fbSpec_GBuffer, PID(GBuffer));
+            m_pipeline->Set_Framebuffer(fbSpec_GBuffer, PID(GBufferFB));
 
             FramebufferSpecification fbSpec_Light;
             fbSpec_Light.Attachments = {FramebufferTextureFormat::RGBA16F};
             fbSpec_Light.Width = 1280;
             fbSpec_Light.Height = 720;
-            m_pipeline->Set_Framebuffer(fbSpec_Light, PID(Light));
+            m_pipeline->Set_Framebuffer(fbSpec_Light, PID(LightFB));
+
+            FramebufferSpecification fbSpec_SkyBox;
+            fbSpec_SkyBox.Attachments = {FramebufferTextureFormat::RGBA16F};
+            fbSpec_SkyBox.Width = 1280;
+            fbSpec_SkyBox.Height = 720;
+            m_pipeline->Set_Framebuffer(fbSpec_SkyBox, PID(SkyBoxFB));
 
             std::unordered_map<int, std::string > shadersmap;
-            shadersmap.insert({PID(GBuffer),"assets/shaders/PBRTest.glsl"});
-            shadersmap.insert({PID(Light),"assets/shaders/Show2D.glsl"});
+            shadersmap.insert({PID(GBufferFB),"assets/shaders/PBRTest.glsl"});
+            shadersmap.insert({PID(LightFB),"assets/shaders/Lighting.glsl"});
+            shadersmap.insert({PID(SkyBoxFB),"assets/shaders/Skybox.glsl"});
             m_pipeline->LoadShaders(shadersmap);
 
             std::unordered_map<int, std::vector<std::pair<int, std::string>>> shaderinformation;
             std::vector<std::pair<int, std::string>> textureinformation_GBuffer = {
                             {0,"Albedo"},{1,"Normal"},{2,"Metallic"},{3,"Roughness"},{4,"AO"}};
-            shaderinformation.insert({PID(GBuffer),textureinformation_GBuffer});
+            shaderinformation.insert({PID(GBufferFB),textureinformation_GBuffer});
 
             std::vector<std::pair<int, std::string>> textureinformation_Light = {
                             {0,"Tex2D"}};
-            shaderinformation.insert({PID(Light),textureinformation_Light});
+            shaderinformation.insert({PID(LightFB),textureinformation_Light});
+
+            std::vector<std::pair<int, std::string>> textureinformation_SkyBox = {
+                            {0,"RenderMap"},{1,"Skybox"}};
+            shaderinformation.insert({PID(SkyBoxFB),textureinformation_SkyBox});
+
 
             m_pipeline->BindTextureIndex(shaderinformation);
         }
 
-        m_pipeline->SetViewportInformation(PID(Light), 0);
+        //m_pipeline->SetViewportInformation(PID(SkyBoxFB), 0);
+        m_pipeline->SetViewportInformation(PID(LightFB), 0);
 
 
         m_ActiveScene = CreateRef<Scene>();
@@ -115,7 +127,7 @@ namespace Bubble
                 m_EditorCamera.OnUpdate(ts);
 
                 // 更新场景,通过遍历场景中的实体进行渲染
-                m_ActiveScene->OnUpdateEditor(ts, m_EditorCamera, m_pipeline);
+                m_ActiveScene->OnUpdateEditor(ts, m_EditorCamera, m_pipeline,m_SkyBox);
                 break;
             }
             case SceneState::Play:
@@ -137,7 +149,7 @@ namespace Bubble
         // 读取坐标下的id,获得该id下的悬停实体
         if(mouseX >= 0 && mouseY >= 0 && mouseX < (int)viewportSize.x && mouseY < (int)viewportSize.y)
         {
-            int pixelData = m_pipeline->GetEntityID(PID(GBuffer), 3, mouseX, mouseY);
+            int pixelData = m_pipeline->GetEntityID(PID(GBufferFB), 3, mouseX, mouseY);
             m_HoveredEntity = pixelData == -1 ? Entity() : Entity((entt::entity)pixelData, m_ActiveScene.get());
         }
 
@@ -273,6 +285,7 @@ namespace Bubble
 
 
         uint64_t textureID = m_pipeline->Texture_DispalyViewport();
+        /*textureID = m_SkyBox.m_Framebuffer->g*/
         //uint64_t textureID = m_Framebuffer->GetColorAttachmentRendererID();
         ImGui::Image(reinterpret_cast<void*>(textureID), ImVec2{m_ViewportSize.x, m_ViewportSize.y}, ImVec2{0, 1}, ImVec2{1, 0});
 

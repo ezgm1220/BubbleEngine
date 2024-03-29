@@ -103,7 +103,7 @@ namespace Bubble
 
     }
 
-    void Scene::OnUpdateEditor(Timestep ts, EditorCamera& camera, Ref<Pipeline> pipeline)
+    void Scene::OnUpdateEditor(Timestep ts, EditorCamera& camera, Ref<Pipeline> pipeline, SkyBox& skybox)
     {
         Renderer3D_NoBatch::ResetStats();
 
@@ -118,14 +118,16 @@ namespace Bubble
                 auto [transform, sprite] = group.get<TransformComponent, SpriteRendererComponent>(entity);
 
                 //Renderer3D::DrawSprite(pipeline, transform.GetTransform(), sprite, (int)entity);
-                Renderer3D_NoBatch::DrawSprite(pipeline,PID(GBuffer), transform.GetTransform(), sprite, (int)entity);
+                Renderer3D_NoBatch::DrawSprite(pipeline,PID(GBufferFB), transform.GetTransform(), sprite, (int)entity);
             }
 
             //Renderer3D::EndScene(pipeline);
             Renderer3D_NoBatch::EndScene(pipeline);
         }
 
-        Renderer3D_NoBatch::Calculatelighting(pipeline);
+        Renderer3D_NoBatch::Calculatelighting(pipeline,skybox);
+
+        Renderer3D_NoBatch::ShowSkyBox(pipeline, skybox,camera.GetViewProjection());
     }
 
     void Scene::OnViewportResize(uint32_t width, uint32_t height)

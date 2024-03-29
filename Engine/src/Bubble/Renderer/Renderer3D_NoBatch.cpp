@@ -184,10 +184,10 @@ namespace Bubble
 
     void Renderer3D_NoBatch::BeginScene(const EditorCamera& camera, Ref<Pipeline>pipeline)
     {
-        pipeline->Get_Framebuffer(PID(GBuffer))->Bind();
+        pipeline->Get_Framebuffer(PID(GBufferFB))->Bind();
         RenderCommand::SetClearColor({0.1f, 0.1f, 0.1f, 1});
         RenderCommand::Clear();
-        pipeline->Get_Framebuffer(PID(GBuffer))->ClearAttachment(3, -1);
+        pipeline->Get_Framebuffer(PID(GBufferFB))->ClearAttachment(3, -1);
         pipeline->BeginScene(camera);
     }
 
@@ -232,14 +232,25 @@ namespace Bubble
         DrawCube(pipeline, ShaderID, transform, src.Textures, 5, src.Color, entityID);
     }
 
-    void Renderer3D_NoBatch::Calculatelighting(Ref<Pipeline>pipeline)
+    void Renderer3D_NoBatch::Calculatelighting(Ref<Pipeline>pipeline, SkyBox& skybox)
     {
         pipeline->Calculatelighting_Begin();
-        auto shader = pipeline->Calculatelighting();
+        auto shader = pipeline->Calculatelighting(skybox);
 
         RenderCommand::DrawIndexed(s_Data.QuadVAO, 6);
 
         pipeline->Calculatelighting_End();
+    }
+
+    void Renderer3D_NoBatch::ShowSkyBox(Ref<Pipeline>pipeline, SkyBox& skybox,glm::mat4& ViewProjection)
+    {
+        pipeline->ShowSkyBox_Begin();
+        auto shader = pipeline->ShowSkyBox(skybox);
+        shader->SetMat4("ViewProjection", ViewProjection);
+
+        RenderCommand::DrawIndexed(s_Data.CubeVAO,36);
+
+        pipeline->ShowSkyBox_End();
     }
 
     void Renderer3D_NoBatch::ResetStats()

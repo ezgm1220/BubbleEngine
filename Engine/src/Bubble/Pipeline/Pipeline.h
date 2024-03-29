@@ -8,6 +8,7 @@
 #include "Bubble/Camera/EditorCamera.h"
 #include "Bubble/Camera/SceneCamera.h"
 #include "Bubble/Renderer/RenderCommand.h"
+#include "Bubble/SkyBox/SkyBox.h"
 
 #define PID(x) static_cast<int>(Pipeline::Type::x)
 
@@ -21,7 +22,7 @@ namespace Bubble
 
         enum class Type
         {
-            Default = -1, GBuffer = 1, Light = 2, SkyBox = 3
+            DefaultFB = 0, GBufferFB = 1, LightFB = 2, SkyBoxFB = 3
         };
 
         virtual void LoadShaders(const std::unordered_map<int,std::string>& ShaderInformations) = 0;
@@ -33,8 +34,12 @@ namespace Bubble
         virtual void Draw_Forward(Ref<VertexArray> vertex, uint32_t count) = 0;// 前向渲染的接口
 
         virtual void Calculatelighting_Begin()=0;
-        virtual Ref<Shader> Calculatelighting() = 0;
-        virtual void Calculatelighting_End() = 0;
+        virtual Ref<Shader> Calculatelighting(SkyBox& skybox) = 0;
+        virtual void Calculatelighting_End() = 0; 
+        virtual void ShowSkyBox_Begin() = 0;
+        virtual Ref<Shader> ShowSkyBox(SkyBox& skybox) = 0;
+        virtual void ShowSkyBox_End() = 0;
+        
 
         virtual int GetEntityID(int FramebufferID, int AttachmentIndex, int mouseX, int mouseY) = 0;
         virtual uint64_t Texture_DispalyViewport() = 0;

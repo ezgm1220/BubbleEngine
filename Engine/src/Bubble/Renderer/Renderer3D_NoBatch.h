@@ -11,6 +11,8 @@
 
 #include "Bubble/Pipeline/Pipeline.h"
 
+#include "Bubble/SkyBox/SkyBox.h"
+
 namespace Bubble
 {
 
@@ -31,7 +33,9 @@ namespace Bubble
 
         static void DrawSprite(Ref<Pipeline>pipeline, int ShaderID, const glm::mat4& transform, SpriteRendererComponent& src, int entityID = -1);
 
-        static void Calculatelighting(Ref<Pipeline>pipeline);
+        static void Calculatelighting(Ref<Pipeline>pipeline,SkyBox& skybox);
+
+        static void ShowSkyBox(Ref<Pipeline>pipeline,SkyBox& skybox, glm::mat4& ViewProjection);
 
         // Stats
         struct Statistics
