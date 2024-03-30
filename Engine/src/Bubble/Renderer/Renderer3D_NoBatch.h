@@ -25,6 +25,7 @@ namespace Bubble
         static void BeginScene(const SceneCamera& camera, const glm::mat4& transform, Ref<Pipeline>pipeline);
         static void BeginScene(const EditorCamera& camera, Ref<Pipeline>pipeline);
         static void EndScene(Ref<Pipeline>pipeline);
+        static void ClearEntityID(Ref<Pipeline>pipeline);
 
 
         static void DrawCube();
@@ -35,7 +36,7 @@ namespace Bubble
 
         static void Calculatelighting(Ref<Pipeline>pipeline,SkyBox& skybox);
 
-        static void ShowSkyBox(Ref<Pipeline>pipeline,SkyBox& skybox, glm::mat4& ViewProjection);
+        static void ShowSkyBox(Ref<Pipeline>pipeline,SkyBox& skybox, const glm::mat4& View, const glm::mat4& projection);
 
         // Stats
         struct Statistics

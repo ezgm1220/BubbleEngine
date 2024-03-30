@@ -294,7 +294,7 @@ namespace Bubble {
             {
                 glm::ivec4 pixelData_RGBA32I;
                 glReadPixels(x, y, 1, 1, GL_RGBA_INTEGER, GL_INT, &pixelData_RGBA32I);
-                BB_CORE_INFO(pixelData_RGBA32I);
+                //BB_CORE_INFO(pixelData_RGBA32I);
                 return pixelData_RGBA32I.x;
                 break;
             }

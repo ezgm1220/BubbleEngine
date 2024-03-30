@@ -32,6 +32,7 @@ namespace Bubble
         virtual void BeginScene(const SceneCamera& camera,const glm::mat4& transform) = 0;
         virtual void EndScene() = 0;
         virtual void Draw_Forward(Ref<VertexArray> vertex, uint32_t count) = 0;// 前向渲染的接口
+        virtual void ClearEntityID() = 0;
 
         virtual void Calculatelighting_Begin()=0;
         virtual Ref<Shader> Calculatelighting(SkyBox& skybox) = 0;

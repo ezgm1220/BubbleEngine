@@ -5,7 +5,8 @@
 	staticruntime "on"
 
 	-- 设置编译后二进制目标的目标目录
-	targetdir ("%{wks.location}/bin/" .. outputdir .. "/%{prj.name}")
+	-- targetdir ("%{wks.location}/bin/" .. outputdir .. "/%{prj.name}")
+	targetdir ("%{wks.location}/bin/" .. outputdir )
 	-- 设置构建项目时放置对象和其他中间文件的目录
 	objdir ("%{wks.location}/bin-int/" .. outputdir .. "/%{prj.name}")
 

@@ -155,7 +155,9 @@ namespace Bubble {
 
     void OpenGLHDRTexture2D::Bind(uint32_t slot /*= 0*/) const
     {
-        glBindTextureUnit(slot, m_RendererID);
+        //glBindTextureUnit(slot, m_RendererID);
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, m_RendererID);
     }
 
 }

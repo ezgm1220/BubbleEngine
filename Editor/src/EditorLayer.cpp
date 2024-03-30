@@ -43,6 +43,7 @@ namespace Bubble
             m_pipeline->Set_Framebuffer(fbSpec_Light, PID(LightFB));
 
             FramebufferSpecification fbSpec_SkyBox;
+            //fbSpec_SkyBox.Attachments = {FramebufferTextureFormat::RGBA16F, FramebufferTextureFormat::Depth};
             fbSpec_SkyBox.Attachments = {FramebufferTextureFormat::RGBA16F};
             fbSpec_SkyBox.Width = 1280;
             fbSpec_SkyBox.Height = 720;
@@ -72,7 +73,7 @@ namespace Bubble
         }
 
         //m_pipeline->SetViewportInformation(PID(SkyBoxFB), 0);
-        m_pipeline->SetViewportInformation(PID(LightFB), 0);
+        m_pipeline->SetViewportInformation(PID(SkyBoxFB), 0);
 
 
         m_ActiveScene = CreateRef<Scene>();
@@ -81,10 +82,11 @@ namespace Bubble
 
         m_SceneHierarchyPanel.SetContext(m_ActiveScene);// 相当于设置场景
 
-        m_SkyBox = SkyBox(512);
+
+       /* m_SkyBox = SkyBox(512);
         m_SkyBox.LoadHdrMap("assets/SkyBox/spree_bank_4k.hdr");
         m_SkyBox.SetShader("assets/shaders/GetCubeMap.glsl");
-        m_SkyBox.GetSkyBox();
+        m_SkyBox.GetSkyBox();*/
     }
 
     void EditorLayer::OnDetach()
@@ -348,7 +350,7 @@ namespace Bubble
                 tc.Translation = translation;
                 tc.Rotation += deltaRotation;
                 tc.Scale = scale;
-                BB_CORE_INFO("translation {0}", translation);
+                //BB_CORE_INFO("translation {0}", translation);
             }
         }
 

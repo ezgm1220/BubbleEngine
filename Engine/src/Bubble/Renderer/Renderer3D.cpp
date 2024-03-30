@@ -237,6 +237,8 @@ namespace Bubble
         s_Data.CubeIndexCount += 36;
 
         s_Data.Stats.CubeCount++;
+
+        BB_CORE_INFO("Renderer3D::DrawCube");
     } 
 
     void Renderer3D::DrawCube(Ref<Pipeline>pipeline, const glm::mat4& transform, const Ref<Texture2D>& texture, float tilingFactor /*= 1.0f*/, const glm::vec4& tintColor /*= glm::vec4(1.0f)*/, int entityID /*= -1*/)
@@ -336,6 +338,7 @@ namespace Bubble
 
     void Renderer3D::DrawSprite(Ref<Pipeline>pipeline, const glm::mat4& transform, SpriteRendererComponent& src, int entityID/*=-1*/)
     {
+        BB_CORE_INFO("Renderer3D::DrawCube");
         if(src.UseTexture)
         {
             //DrawCube(pipeline,transform, src.Textures,4, src.TilingFactor, src.Color, entityID);

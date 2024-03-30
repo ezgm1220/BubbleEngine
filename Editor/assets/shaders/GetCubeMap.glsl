@@ -37,5 +37,6 @@ vec2 SampleSphericalMap(vec3 v)
 void main()
 {		
     vec2 uv = SampleSphericalMap(normalize(WorldPos));
-    vec3 color = texture(OriginalMap, uv).rgb;
+    // vec3 color = texture(OriginalMap, uv).rgb;
+    vec3 color = vec3(0.1,0.8,0.1);
 }

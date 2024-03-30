@@ -6,7 +6,9 @@
 layout(location = 0) in vec3 a_Position;
 layout(location = 1) in vec2 a_TexCoord;
 
-uniform mat4 ViewProjection;
+uniform mat4 projection;
+uniform mat4 view;
+
 out vec3 WorldPos;
 out vec2 Tcd;
 
@@ -14,9 +16,12 @@ void main()
 {
     WorldPos = a_Position;
     Tcd = a_TexCoord;
-    vec4 clipPos = ViewProjection* vec4(WorldPos, 1.0);
+
+    mat4 rotView = mat4(mat3(view));
+	vec4 clipPos = projection * rotView * vec4(WorldPos, 1.0);
+
 	//gl_Position = vec4(a_Position, 1.0);
-	gl_Position = clipPos;
+	gl_Position = clipPos.xyww;
 }
 
 #type fragment
@@ -33,6 +38,6 @@ uniform samplerCube Skybox;
 void main()
 {
 	//color = texture(Skybox, WorldPos);
-	color = texture(RenderMap, Tcd);
-	//color = vec4(0.12,0.3,0.4,1.0);
+	//color = texture(RenderMap, Tcd);
+	color = vec4(0.12,0.3,0.4,1.0);
 }

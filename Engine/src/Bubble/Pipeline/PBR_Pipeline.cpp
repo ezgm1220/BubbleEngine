@@ -53,6 +53,11 @@ namespace Bubble
         RenderCommand::DrawIndexed(vertex, count);
     }
 
+    void PBRPipeline::ClearEntityID()
+    {
+        m_Framebuffers[PID(GBufferFB)]->ClearAttachment(3, -1);
+    }
+
     void PBRPipeline::Calculatelighting_Begin()
     {
         if(!m_Framebuffers.count(PID(LightFB)))
@@ -103,12 +108,12 @@ namespace Bubble
 
     Bubble::Ref<Bubble::Shader> PBRPipeline::ShowSkyBox(SkyBox& skybox)
     {
-        auto texid0 = m_Framebuffers[PID(LightFB)]->GetColorAttachmentRendererID(0);
-        m_Shader[PID(LightFB)]->BindTexture(0, texid0);
+        auto texid0 = m_Framebuffers[PID(SkyBoxFB)]->GetColorAttachmentRendererID(0);
+        m_Shader[PID(SkyBoxFB)]->BindTexture(0, texid0);
         
-        m_Shader[PID(LightFB)]->BindTexture(1, skybox.GetCubeMapID());
+        // m_Shader[PID(SkyBoxFB)]->BindTexture(1, skybox.GetCubeMapID());
 
-        return m_Shader[PID(LightFB)];
+        return m_Shader[PID(SkyBoxFB)];
     }
 
     void PBRPipeline::ShowSkyBox_End()

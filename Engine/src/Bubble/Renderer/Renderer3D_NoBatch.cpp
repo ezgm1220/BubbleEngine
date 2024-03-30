@@ -183,11 +183,7 @@ namespace Bubble
     }
 
     void Renderer3D_NoBatch::BeginScene(const EditorCamera& camera, Ref<Pipeline>pipeline)
-    {
-        pipeline->Get_Framebuffer(PID(GBufferFB))->Bind();
-        RenderCommand::SetClearColor({0.1f, 0.1f, 0.1f, 1});
-        RenderCommand::Clear();
-        pipeline->Get_Framebuffer(PID(GBufferFB))->ClearAttachment(3, -1);
+    { 
         pipeline->BeginScene(camera);
     }
 
@@ -197,8 +193,17 @@ namespace Bubble
         pipeline->EndScene();
     }
 
+    void Renderer3D_NoBatch::ClearEntityID(Ref<Pipeline>pipeline)
+    {
+        pipeline->Get_Framebuffer(PID(GBufferFB))->Bind();
+        RenderCommand::SetClearColor({0.1f, 0.1f, 0.1f, 1});
+        RenderCommand::Clear();
+        pipeline->ClearEntityID();
+    }
+
     void Renderer3D_NoBatch::DrawCube(Ref<Pipeline>pipeline, int ShaderID, const glm::mat4& transform, const glm::vec4& color, int entityID /*= -1*/)
     {
+        //BB_CORE_INFO("Renderer3D_NoBatch::DrawCube()");
         pipeline->Get_Shader(ShaderID)->SetMat4("Transform", transform);
         pipeline->Get_Shader(ShaderID)->SetFloat4("BaseColor", color);
         pipeline->Get_Shader(ShaderID)->SetInt("EntityID", entityID);
@@ -209,6 +214,7 @@ namespace Bubble
 
     void Renderer3D_NoBatch::DrawCube(Ref<Pipeline>pipeline, int ShaderID, const glm::mat4& transform, const Ref<Texture2D>* textures, int TexturesSize, const glm::vec4& tintColor /*= glm::vec4(1.0f)*/, int entityID /*= -1*/)
     {
+        //BB_CORE_INFO("Renderer3D_NoBatch::DrawCube()");
         pipeline->Get_Shader(ShaderID)->SetMat4("Transform", transform);
         pipeline->Get_Shader(ShaderID)->SetFloat4("BaseColor", tintColor);
         pipeline->Get_Shader(ShaderID)->SetInt("EntityID", entityID);
@@ -224,11 +230,13 @@ namespace Bubble
 
     void Renderer3D_NoBatch::DrawCube()
     {
+        //BB_CORE_INFO("Renderer3D_NoBatch::DrawCube()");
         RenderCommand::DrawIndexed(s_Data.CubeVAO, 36);
     }
 
     void Renderer3D_NoBatch::DrawSprite(Ref<Pipeline>pipeline, int ShaderID, const glm::mat4& transform, SpriteRendererComponent& src, int entityID /*= -1*/)
     {
+        //BB_CORE_INFO("Renderer3D_NoBatch::DrawSprite");
         DrawCube(pipeline, ShaderID, transform, src.Textures, 5, src.Color, entityID);
     }
 
@@ -242,15 +250,17 @@ namespace Bubble
         pipeline->Calculatelighting_End();
     }
 
-    void Renderer3D_NoBatch::ShowSkyBox(Ref<Pipeline>pipeline, SkyBox& skybox,glm::mat4& ViewProjection)
+    void Renderer3D_NoBatch::ShowSkyBox(Ref<Pipeline>pipeline, SkyBox& skybox, const glm::mat4& View, const glm::mat4& projection)
     {
         pipeline->ShowSkyBox_Begin();
         auto shader = pipeline->ShowSkyBox(skybox);
-        shader->SetMat4("ViewProjection", ViewProjection);
+        shader->SetMat4("view", View);
+        shader->SetMat4("projection", projection);
 
         RenderCommand::DrawIndexed(s_Data.CubeVAO,36);
 
         pipeline->ShowSkyBox_End();
+        RenderCommand::Clear();
     }
 
     void Renderer3D_NoBatch::ResetStats()

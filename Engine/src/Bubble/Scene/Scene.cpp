@@ -4,7 +4,7 @@
 #include "Bubble/Scene/Components.h"
 #include "Bubble/Scene/ScriptableEntity.h"
 #include "Bubble/Renderer/Renderer2D.h"
-#include "Bubble/Renderer/Renderer3D.h"
+//#include "Bubble/Renderer/Renderer3D.h"
 #include "Bubble/Renderer/Renderer3D_NoBatch.h"
 
 #include <glm/glm.hpp>
@@ -27,7 +27,7 @@ namespace Bubble
         return CreateEntityWithUUID(UUID(), name);
     }
 
-    Entity Scene::CreateEntityWithUUID(UUID uuid, const std::string & name)
+    Entity Scene::CreateEntityWithUUID(UUID uuid, const std::string& name)
     {
         Entity entity = {m_Registry.create(), this};
         entity.AddComponent<IDComponent>(uuid);
@@ -81,19 +81,19 @@ namespace Bubble
         if(mainCamera)
         {
             //Renderer2D::BeginScene(*mainCamera, cameraTransform);
-            
-            Renderer3D::BeginScene(*mainCamera, cameraTransform, pipeline);
 
-            auto group = m_Registry.group<TransformComponent>(entt::get<SpriteRendererComponent>);
-            for(auto entity : group)
-            {
-                auto [transform, sprite] = group.get<TransformComponent, SpriteRendererComponent>(entity);
+            //Renderer3D::BeginScene(*mainCamera, cameraTransform, pipeline);
 
-                //Renderer2D::DrawSprite(transform.GetTransform(), sprite, (int)entity);
-                Renderer3D::DrawSprite(pipeline, transform.GetTransform(), sprite, (int)entity);
-            }
+            //auto group = m_Registry.group<TransformComponent>(entt::get<SpriteRendererComponent>);
+            //for(auto entity : group)
+            //{
+            //    auto [transform, sprite] = group.get<TransformComponent, SpriteRendererComponent>(entity);
 
-            Renderer3D::EndScene(pipeline);
+            //    //Renderer2D::DrawSprite(transform.GetTransform(), sprite, (int)entity);
+            //    Renderer3D::DrawSprite(pipeline, transform.GetTransform(), sprite, (int)entity);
+            //}
+
+            //Renderer3D::EndScene(pipeline);
            // Renderer2D::EndScene();
         }
         else
@@ -105,29 +105,35 @@ namespace Bubble
 
     void Scene::OnUpdateEditor(Timestep ts, EditorCamera& camera, Ref<Pipeline> pipeline, SkyBox& skybox)
     {
-        Renderer3D_NoBatch::ResetStats();
-
-        // 获取场景GBuffer信息
+        auto group = m_Registry.group<TransformComponent>(entt::get<SpriteRendererComponent>);
+        Renderer3D_NoBatch::ClearEntityID(pipeline);
+        if(group.size())
         {
-            //Renderer3D::BeginScene(camera,pipeline);
-            Renderer3D_NoBatch::BeginScene(camera,pipeline);
+            Renderer3D_NoBatch::ResetStats();
 
-            auto group = m_Registry.group<TransformComponent>(entt::get<SpriteRendererComponent>);
-            for(auto entity : group)
+            // 获取场景GBuffer信息
             {
-                auto [transform, sprite] = group.get<TransformComponent, SpriteRendererComponent>(entity);
+                //Renderer3D::BeginScene(camera,pipeline);
+                Renderer3D_NoBatch::BeginScene(camera, pipeline);
 
-                //Renderer3D::DrawSprite(pipeline, transform.GetTransform(), sprite, (int)entity);
-                Renderer3D_NoBatch::DrawSprite(pipeline,PID(GBufferFB), transform.GetTransform(), sprite, (int)entity);
+                auto group = m_Registry.group<TransformComponent>(entt::get<SpriteRendererComponent>);
+                for(auto entity : group)
+                {
+                    auto [transform, sprite] = group.get<TransformComponent, SpriteRendererComponent>(entity);
+
+                    //Renderer3D::DrawSprite(pipeline, transform.GetTransform(), sprite, (int)entity);
+                    Renderer3D_NoBatch::DrawSprite(pipeline, PID(GBufferFB), transform.GetTransform(), sprite, (int)entity);
+                }
+
+                //Renderer3D::EndScene(pipeline);
+                Renderer3D_NoBatch::EndScene(pipeline);
             }
 
-            //Renderer3D::EndScene(pipeline);
-            Renderer3D_NoBatch::EndScene(pipeline);
+            Renderer3D_NoBatch::Calculatelighting(pipeline, skybox);  
         }
 
-        Renderer3D_NoBatch::Calculatelighting(pipeline,skybox);
-
-        Renderer3D_NoBatch::ShowSkyBox(pipeline, skybox,camera.GetViewProjection());
+        //pipeline->UnbindFramebuffer();
+        Renderer3D_NoBatch::ShowSkyBox(pipeline, skybox, camera.GetViewMatrix(),camera.GetProjection());
     }
 
     void Scene::OnViewportResize(uint32_t width, uint32_t height)

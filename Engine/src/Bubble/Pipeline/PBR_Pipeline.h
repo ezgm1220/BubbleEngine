@@ -16,6 +16,7 @@ namespace Bubble
         virtual void BeginScene(const SceneCamera& camera, const glm::mat4& transform)override final;
         virtual void EndScene()override final;
         virtual void Draw_Forward(Ref<VertexArray> vertex, uint32_t count)override final;
+        virtual void ClearEntityID()override final;
 
         virtual void Calculatelighting_Begin() override final;
         virtual Ref<Shader> Calculatelighting(SkyBox& skybox) override final;
