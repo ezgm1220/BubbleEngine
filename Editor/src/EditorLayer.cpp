@@ -81,12 +81,6 @@ namespace Bubble
         m_EditorCamera = EditorCamera(30.0f, 1.778f, 0.1f, 1000.0f);
 
         m_SceneHierarchyPanel.SetContext(m_ActiveScene);// 相当于设置场景
-
-
-       /* m_SkyBox = SkyBox(512);
-        m_SkyBox.LoadHdrMap("assets/SkyBox/spree_bank_4k.hdr");
-        m_SkyBox.SetShader("assets/shaders/GetCubeMap.glsl");
-        m_SkyBox.GetSkyBox();*/
     }
 
     void EditorLayer::OnDetach()
@@ -129,7 +123,7 @@ namespace Bubble
                 m_EditorCamera.OnUpdate(ts);
 
                 // 更新场景,通过遍历场景中的实体进行渲染
-                m_ActiveScene->OnUpdateEditor(ts, m_EditorCamera, m_pipeline,m_SkyBox);
+                m_ActiveScene->OnUpdateEditor(ts, m_EditorCamera, m_pipeline);
                 break;
             }
             case SceneState::Play:

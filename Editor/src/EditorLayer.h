@@ -7,7 +7,6 @@
 #include "Bubble/Camera/EditorCamera.h"
 
 #include "Bubble/Pipeline/Pipeline.h"
-#include "Bubble/SkyBox/SkyBox.h"
 
 namespace Bubble
 {
@@ -46,8 +45,6 @@ namespace Bubble
         Ref<VertexArray> m_SquareVA;
         //Ref<Shader> m_FlatColorShader;
         //Ref<Framebuffer> m_Framebuffer;
-
-        SkyBox m_SkyBox;
 
         Ref<Scene> m_ActiveScene;
         Entity m_SquareEntity;

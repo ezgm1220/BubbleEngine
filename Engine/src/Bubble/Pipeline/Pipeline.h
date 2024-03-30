@@ -8,7 +8,6 @@
 #include "Bubble/Camera/EditorCamera.h"
 #include "Bubble/Camera/SceneCamera.h"
 #include "Bubble/Renderer/RenderCommand.h"
-#include "Bubble/SkyBox/SkyBox.h"
 
 #define PID(x) static_cast<int>(Pipeline::Type::x)
 
@@ -35,10 +34,10 @@ namespace Bubble
         virtual void ClearEntityID() = 0;
 
         virtual void Calculatelighting_Begin()=0;
-        virtual Ref<Shader> Calculatelighting(SkyBox& skybox) = 0;
+        virtual Ref<Shader> Calculatelighting() = 0;
         virtual void Calculatelighting_End() = 0; 
         virtual void ShowSkyBox_Begin() = 0;
-        virtual Ref<Shader> ShowSkyBox(SkyBox& skybox) = 0;
+        virtual Ref<Shader> ShowSkyBox() = 0;
         virtual void ShowSkyBox_End() = 0;
         
 

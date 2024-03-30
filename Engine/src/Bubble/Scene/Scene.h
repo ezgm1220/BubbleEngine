@@ -5,7 +5,6 @@
 #include "Bubble/Camera/EditorCamera.h"
 
 #include "Bubble/Pipeline/Pipeline.h"
-#include "Bubble/SkyBox/SkyBox.h"
 #include "entt.hpp"
 
 namespace Bubble
@@ -24,7 +23,7 @@ namespace Bubble
         void DestroyEntity(Entity entity);
 
         void OnUpdateRuntime(Timestep ts, Ref<Pipeline> pipeline);
-        void OnUpdateEditor(Timestep ts, EditorCamera& camera,Ref<Pipeline> pipeline, SkyBox& skybox);
+        void OnUpdateEditor(Timestep ts, EditorCamera& camera,Ref<Pipeline> pipeline);
         void OnViewportResize(uint32_t width, uint32_t height);
 
         Entity GetPrimaryCameraEntity();

@@ -26,6 +26,8 @@ namespace Bubble
 
     static Render3DNoBatch::Renderer3DData s_Data;
 
+    unsigned int mmap;
+
     void Renderer3D_NoBatch::Init()
     {
         Render3DNoBatch::VertexData Cubevertexdata[16];
@@ -240,20 +242,20 @@ namespace Bubble
         DrawCube(pipeline, ShaderID, transform, src.Textures, 5, src.Color, entityID);
     }
 
-    void Renderer3D_NoBatch::Calculatelighting(Ref<Pipeline>pipeline, SkyBox& skybox)
+    void Renderer3D_NoBatch::Calculatelighting(Ref<Pipeline>pipeline)
     {
         pipeline->Calculatelighting_Begin();
-        auto shader = pipeline->Calculatelighting(skybox);
+        auto shader = pipeline->Calculatelighting();
 
         RenderCommand::DrawIndexed(s_Data.QuadVAO, 6);
 
         pipeline->Calculatelighting_End();
     }
 
-    void Renderer3D_NoBatch::ShowSkyBox(Ref<Pipeline>pipeline, SkyBox& skybox, const glm::mat4& View, const glm::mat4& projection)
+    void Renderer3D_NoBatch::ShowSkyBox(Ref<Pipeline>pipeline, const glm::mat4& View, const glm::mat4& projection)
     {
         pipeline->ShowSkyBox_Begin();
-        auto shader = pipeline->ShowSkyBox(skybox);
+        auto shader = pipeline->ShowSkyBox();
         shader->SetMat4("view", View);
         shader->SetMat4("projection", projection);
 

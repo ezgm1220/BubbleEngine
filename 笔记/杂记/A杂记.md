@@ -449,3 +449,8 @@ Framebuffer布局:
 - 位置-RGB16
 - Normal + Metallic - RGBA
 - Roughness + AO + ID - RGB
+
+# PBR流程
+
+## 渲染循环
+
