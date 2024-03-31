@@ -34,7 +34,7 @@ namespace Bubble {
     class CubeMap : public Texture
     {
     public:
-        static Ref<CubeMap> Create(uint32_t width, uint32_t height);
+        static Ref<CubeMap> Create(const std::string& path);
         //static Ref<CubeMap> Create(const std::string& path);
     };
 

@@ -86,24 +86,63 @@ namespace Bubble {
 		glBindTextureUnit(slot, m_RendererID);
 	}
 
-    OpenGLCubeMap::OpenGLCubeMap(uint32_t width, uint32_t height)
-        :m_Width(width),m_Height(height)
+    OpenGLCubeMap::OpenGLCubeMap(uint32_t MapSize)
+        :m_CubeSize(MapSize)
     {
-        m_InternalFormat = GL_RGB16F;
-        m_DataFormat = GL_RGB;
+        //m_InternalFormat = GL_RGB16F;
+        //m_DataFormat = GL_RGB;
 
-        glCreateTextures(GL_TEXTURE_CUBE_MAP, 1, &m_RendererID);
+        //glCreateTextures(GL_TEXTURE_CUBE_MAP, 1, &m_RendererID);
        
-        for(unsigned int i = 0; i < 6; ++i)
+        //for(unsigned int i = 0; i < 6; ++i)
+        //{
+        //    glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, m_InternalFormat, width, width, 0, m_DataFormat, GL_FLOAT, nullptr);
+        //}
+        //glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+        //glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+        //glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
+        //glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR); // enable pre-filter mipmap sampling (combatting visible dots artifact)
+        //glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+    }
+
+    static std::vector<std::string> faces
+    {
+        "/right.jpg",
+        "/left.jpg",
+        "/top.jpg",
+        "/bottom.jpg",
+        "/front.jpg",
+        "/back.jpg"
+    };
+
+    OpenGLCubeMap::OpenGLCubeMap(const std::string& path)
+    {
+        glGenTextures(1, &m_RendererID);
+        glBindTexture(GL_TEXTURE_CUBE_MAP, m_RendererID);
+
+        stbi_set_flip_vertically_on_load(0);
+        int width, height, nrChannels;
+        for(unsigned int i = 0; i < faces.size(); i++)
         {
-            glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, m_InternalFormat, width, width, 0, m_DataFormat, GL_FLOAT, nullptr);
+            auto p_path = path + faces[i];
+            unsigned char* data = stbi_load(p_path.c_str(), &width, &height, &nrChannels, 0);
+            if(data)
+            {
+                glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+                stbi_image_free(data);
+            }
+            else
+            {
+                BB_CORE_WARN("Cubemap texture failed to load at path: {}", p_path);
+                stbi_image_free(data);
+            }
         }
+        glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+        glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
         glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
         glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
         glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
-        glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR); // enable pre-filter mipmap sampling (combatting visible dots artifact)
-        glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-
     }
 
     OpenGLCubeMap::~OpenGLCubeMap()

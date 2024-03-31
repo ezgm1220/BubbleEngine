@@ -38,11 +38,12 @@ namespace Bubble {
     class OpenGLCubeMap : public CubeMap
     {
     public:
-        OpenGLCubeMap(uint32_t width, uint32_t height);
+        OpenGLCubeMap(uint32_t MapSize);
+        OpenGLCubeMap(const std::string& path);
         virtual ~OpenGLCubeMap();
 
-        virtual uint32_t GetWidth() const override { return m_Width; }
-        virtual uint32_t GetHeight() const override { return m_Height; }
+        virtual uint32_t GetWidth() const override { return m_CubeSize; }
+        virtual uint32_t GetHeight() const override { return m_CubeSize; }
         virtual uint32_t GetRendererID() const override { return m_RendererID; }
 
         virtual void SetData(void* data, uint32_t size) override{}
@@ -58,7 +59,7 @@ namespace Bubble {
     private:
         std::string m_Path;
         bool m_IsLoaded = false;
-        uint32_t m_Width, m_Height;
+        uint32_t m_CubeSize;
         uint32_t m_RendererID;
         GLenum m_InternalFormat, m_DataFormat;
     };

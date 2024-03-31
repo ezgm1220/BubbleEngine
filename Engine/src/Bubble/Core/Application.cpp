@@ -35,14 +35,7 @@ namespace Bubble
 
         PushOverlay(m_ImGuiLayer);
 
-        #ifdef RENDERAPI_DEBUG
-        {
-            auto [VerAry, Verbuf, EleBuf] = RenderAPIState::GetVertexState();
-            auto [DrawF, ReadF] = RenderAPIState::GetFramebufferState();
-            int a;
-            a = 2;
-        }
-        #endif
+  
     }
 
 

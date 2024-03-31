@@ -30,6 +30,7 @@ namespace Bubble
 
     void PBRPipeline::BeginScene(const EditorCamera& camera)
     {
+        m_Framebuffers[PID(GBufferFB)]->Bind();
         m_Shader[PID(GBufferFB)]->Bind();
         m_Shader[PID(GBufferFB)]->SetMat4("u_ViewProjection", camera.GetViewProjection());
     }
@@ -111,7 +112,7 @@ namespace Bubble
         auto texid0 = m_Framebuffers[PID(SkyBoxFB)]->GetColorAttachmentRendererID(0);
         m_Shader[PID(SkyBoxFB)]->BindTexture(0, texid0);
         
-        //m_Shader[PID(SkyBoxFB)]->BindTexture(1, );
+        m_Shader[PID(SkyBoxFB)]->BindTexture(1, m_Skybox.GetCubeMapID());
 
         return m_Shader[PID(SkyBoxFB)];
     }

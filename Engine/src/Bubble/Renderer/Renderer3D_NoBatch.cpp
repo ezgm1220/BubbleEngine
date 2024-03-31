@@ -201,6 +201,8 @@ namespace Bubble
         RenderCommand::SetClearColor({0.1f, 0.1f, 0.1f, 1});
         RenderCommand::Clear();
         pipeline->ClearEntityID();
+        pipeline->UnbindFramebuffer();
+
     }
 
     void Renderer3D_NoBatch::DrawCube(Ref<Pipeline>pipeline, int ShaderID, const glm::mat4& transform, const glm::vec4& color, int entityID /*= -1*/)
@@ -239,7 +241,9 @@ namespace Bubble
     void Renderer3D_NoBatch::DrawSprite(Ref<Pipeline>pipeline, int ShaderID, const glm::mat4& transform, SpriteRendererComponent& src, int entityID /*= -1*/)
     {
         //BB_CORE_INFO("Renderer3D_NoBatch::DrawSprite");
+        
         DrawCube(pipeline, ShaderID, transform, src.Textures, 5, src.Color, entityID);
+        
     }
 
     void Renderer3D_NoBatch::Calculatelighting(Ref<Pipeline>pipeline)
@@ -258,11 +262,10 @@ namespace Bubble
         auto shader = pipeline->ShowSkyBox();
         shader->SetMat4("view", View);
         shader->SetMat4("projection", projection);
-
+        //RenderCommand::Clear();
         RenderCommand::DrawIndexed(s_Data.CubeVAO,36);
 
         pipeline->ShowSkyBox_End();
-        RenderCommand::Clear();
     }
 
     void Renderer3D_NoBatch::ResetStats()

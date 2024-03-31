@@ -8,6 +8,7 @@
 #include "Bubble/Camera/EditorCamera.h"
 #include "Bubble/Camera/SceneCamera.h"
 #include "Bubble/Renderer/RenderCommand.h"
+#include "Bubble/Pipeline/SkyBox.h"
 
 #define PID(x) static_cast<int>(Pipeline::Type::x)
 
@@ -59,10 +60,13 @@ namespace Bubble
 
         void UnbindFramebuffer();
 
+        void SetSkybox_SixFaces(const std::string path);
+
 
     protected:
         std::unordered_map<int,Ref<Framebuffer>>m_Framebuffers;
         std::unordered_map<int,Ref<Shader>>m_Shader;
+        SkyBox m_Skybox;
         int ViewportTexture_FramebufferID = -1;
         int ViewportTexture_AttachmentIndex = -1;
     };

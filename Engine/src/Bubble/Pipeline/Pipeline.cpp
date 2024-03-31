@@ -61,4 +61,10 @@ namespace Bubble
         BB_CORE_WARN("Bo framebuffer for you to unbind!!!!!!");
     }
 
+    void Pipeline::SetSkybox_SixFaces(const std::string path)
+    {
+        m_Skybox.SetHdrSixFacesPath(path);
+        m_Skybox.GetCubeMap_SixFaces();
+    }
+
 }

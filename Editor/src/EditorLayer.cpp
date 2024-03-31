@@ -75,6 +75,8 @@ namespace Bubble
         //m_pipeline->SetViewportInformation(PID(SkyBoxFB), 0);
         m_pipeline->SetViewportInformation(PID(SkyBoxFB), 0);
 
+        m_pipeline->SetSkybox_SixFaces("assets/SkyBox/Sky");
+
 
         m_ActiveScene = CreateRef<Scene>();
 
