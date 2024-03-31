@@ -10,6 +10,7 @@
 #include <glm/glm.hpp>
 
 #include "Bubble/Scene/Entity.h"
+#include "Bubble/Tools/RenderApiState.h"
 
 namespace Bubble
 {
@@ -105,6 +106,16 @@ namespace Bubble
 
     void Scene::OnUpdateEditor(Timestep ts, EditorCamera& camera, Ref<Pipeline> pipeline)
     {
+
+        #ifdef RENDERAPI_DEBUG
+        {
+            auto [VerAry, Verbuf, EleBuf] = RenderAPIState::GetVertexState();
+            auto [DrawF, ReadF] = RenderAPIState::GetFramebufferState();
+            int a;
+            a = 2;
+        }
+        #endif
+
         auto group = m_Registry.group<TransformComponent>(entt::get<SpriteRendererComponent>);
         Renderer3D_NoBatch::ClearEntityID(pipeline);
         if(group.size())

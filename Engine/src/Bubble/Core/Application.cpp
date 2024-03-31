@@ -7,7 +7,12 @@
 
 #include "Bubble/Pipeline/PBR_Pipeline.h"
 
+#include "Bubble/Tools/RenderApiState.h"
+
+#include "Bubble/Tools/RenderApiState.h"
+
 #include <GLFW/glfw3.h>
+
 
 namespace Bubble
 {
@@ -29,6 +34,15 @@ namespace Bubble
         m_ImGuiLayer = new ImGuiLayer();
 
         PushOverlay(m_ImGuiLayer);
+
+        #ifdef RENDERAPI_DEBUG
+        {
+            auto [VerAry, Verbuf, EleBuf] = RenderAPIState::GetVertexState();
+            auto [DrawF, ReadF] = RenderAPIState::GetFramebufferState();
+            int a;
+            a = 2;
+        }
+        #endif
     }
 
 

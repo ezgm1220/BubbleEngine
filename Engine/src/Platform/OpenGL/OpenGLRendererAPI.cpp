@@ -63,7 +63,7 @@ namespace Bubble {
 	{
 		uint32_t count = indexCount ? indexCount : vertexArray->GetIndexBuffer()->GetCount();
         vertexArray->Bind();
-        BB_CORE_INFO("OpenGLRendererAPI::DrawIndexed");
+        //BB_CORE_INFO("OpenGLRendererAPI::DrawIndexed");
 		glDrawElements(GL_TRIANGLES, count, GL_UNSIGNED_INT, nullptr);
 	}
 

@@ -16,6 +16,12 @@
 		"src/**.cpp"
 	}
 
+    defines
+    {
+        "RENDERAPI_DEBUG",
+        "OPENGL_DEBUG"
+    }
+
 	includedirs
 	{
         "%{wks.location}/Engine/thirdparty/spdlog/include",
@@ -35,7 +41,7 @@
 		systemversion "latest"
 
 	filter "configurations:Debug"
-		defines "BB_DEBUG"
+        defines "BB_DEBUG"
 		runtime "Debug"
 		symbols "on"
 

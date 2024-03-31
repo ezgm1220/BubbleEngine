@@ -18,7 +18,8 @@ namespace Bubble {
 
 	void Renderer::Shutdown()
 	{
-		Renderer2D::Shutdown();
+		//Renderer2D::Shutdown();
+        Renderer3D_NoBatch::Shutdown();
 	}
 
 	void Renderer::OnWindowResize(uint32_t width, uint32_t height)

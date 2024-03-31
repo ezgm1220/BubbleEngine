@@ -28,7 +28,10 @@ project "Engine"
 	defines
 	{
         "_CRT_SECURE_NO_WARNINGS",
-		"GLFW_INCLUDE_NONE"
+		"GLFW_INCLUDE_NONE",
+
+        "RENDERAPI_DEBUG",
+        "OPENGL_DEBUG"
 	}
 
 	includedirs
@@ -61,7 +64,7 @@ project "Engine"
 		systemversion "latest"
 
 	filter "configurations:Debug"
-		defines "BB_DEBUG"
+        defines "BB_DEBUG"
 		runtime "Debug"
 		symbols "on"
 

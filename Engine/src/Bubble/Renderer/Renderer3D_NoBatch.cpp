@@ -1,6 +1,6 @@
 #include "bubblepch.h"
 #include "Renderer3D_NoBatch.h"
-
+#include "Bubble/Tools/RenderApiState.h"
 namespace Bubble
 {
 
@@ -131,8 +131,8 @@ namespace Bubble
 
         // 解绑
         s_Data.CubeVAO->Unbind();
-        //s_Data.CubeVBO->Unbind();
-        //cubeIB->Unbind();
+        s_Data.CubeVBO->Unbind();
+        cubeIB->Unbind();
 
         Render3DNoBatch::VertexData Quadvertexdata[4];
         uint32_t QuadIndices[6];
@@ -170,8 +170,8 @@ namespace Bubble
 
         // 解绑
         s_Data.QuadVAO->Unbind();
-        //s_Data.QuadVBO->Unbind();
-        //quadIB->Unbind();
+        s_Data.QuadVBO->Unbind();
+        quadIB->Unbind();
     }
 
     void Renderer3D_NoBatch::Shutdown()

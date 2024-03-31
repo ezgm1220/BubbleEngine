@@ -111,7 +111,7 @@ namespace Bubble
         }
 
         // Render
-        Renderer3D::ResetStats();    
+        //Renderer3D::ResetStats();    
 
         switch(m_SceneState)
         {
@@ -241,7 +241,7 @@ namespace Bubble
             name = m_HoveredEntity.GetComponent<TagComponent>().Tag;
         ImGui::Text("Hovered Entity: %s", name.c_str());
 
-        auto stats = Renderer3D::GetStats();
+        auto stats = Renderer3D_NoBatch::GetStats();
         ImGui::Text("Renderer3D Stats:");
         ImGui::Text("Draw Calls: %d", stats.DrawCalls);
         ImGui::Text("Quads: %d", stats.CubeCount);
