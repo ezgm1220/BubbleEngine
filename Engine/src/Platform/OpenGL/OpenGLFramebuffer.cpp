@@ -360,6 +360,34 @@ namespace Bubble {
         glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0 + OriIndex, multisampled, NowID, 0);
     }
 
+    void OpenGLFramebuffer::CopyFrameBufferAttachment(uint32_t FBID, int AttachmentIndex)
+    {
+        switch(AttachmentIndex)
+        {
+            case 0:
+            {
+                glBindFramebuffer(GL_READ_FRAMEBUFFER, FBID);
+                glBindFramebuffer(GL_DRAW_FRAMEBUFFER, m_RendererID);
+                glBlitFramebuffer(0, 0, m_Specification.Width, m_Specification.Height, 0, 0,
+                    m_Specification.Width, m_Specification.Height, GL_COLOR_BUFFER_BIT, GL_NEAREST);
+                break;
+            }
+            case 1:
+            {
+                glBindFramebuffer(GL_READ_FRAMEBUFFER, FBID);
+                glBindFramebuffer(GL_DRAW_FRAMEBUFFER, m_RendererID);
+                glBlitFramebuffer(0, 0, m_Specification.Width, m_Specification.Height, 0, 0,
+                    m_Specification.Width, m_Specification.Height, GL_DEPTH_BUFFER_BIT, GL_NEAREST);
+                break;
+            }
+            case -1:
+            {
+                BB_CORE_WARN("OpenGLFramebuffer::CopyFrameBufferAttachment -> No set AttachmentIndex");
+                break;
+            }
+        }
+    }
+
     OpenGLCubeMapFramebuffer::OpenGLCubeMapFramebuffer(int size)
         :CubeMapSize(size)
     {

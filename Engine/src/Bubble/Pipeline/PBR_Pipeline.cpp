@@ -94,15 +94,17 @@ namespace Bubble
     void PBRPipeline::ShowSkyBox_Begin()
     {
 
-        glBindFramebuffer(GL_READ_FRAMEBUFFER, m_Framebuffers[PID(LightFB)]->GetID());
-        glBindFramebuffer(GL_DRAW_FRAMEBUFFER, m_Framebuffers[PID(SkyBoxFB)]->GetID());
-        glBlitFramebuffer(0, 0, m_Framebuffers[PID(LightFB)]->GetSpecification().Width, m_Framebuffers[PID(LightFB)]->GetSpecification().Height, 0, 0, 
-            m_Framebuffers[PID(SkyBoxFB)]->GetSpecification().Width, m_Framebuffers[PID(SkyBoxFB)]->GetSpecification().Height, GL_COLOR_BUFFER_BIT, GL_NEAREST);
+        //glBindFramebuffer(GL_READ_FRAMEBUFFER, m_Framebuffers[PID(LightFB)]->GetID());
+        //glBindFramebuffer(GL_DRAW_FRAMEBUFFER, m_Framebuffers[PID(SkyBoxFB)]->GetID());
+        //glBlitFramebuffer(0, 0, m_Framebuffers[PID(LightFB)]->GetSpecification().Width, m_Framebuffers[PID(LightFB)]->GetSpecification().Height, 0, 0, 
+        //    m_Framebuffers[PID(SkyBoxFB)]->GetSpecification().Width, m_Framebuffers[PID(SkyBoxFB)]->GetSpecification().Height, GL_COLOR_BUFFER_BIT, GL_NEAREST);
+        m_Framebuffers[PID(SkyBoxFB)]->CopyFrameBufferAttachment(m_Framebuffers[PID(LightFB)]->GetID(),(int)Framebuffer::FBAttachmentBufferType::COLORBuffer);
+        m_Framebuffers[PID(SkyBoxFB)]->CopyFrameBufferAttachment(m_Framebuffers[PID(GBufferFB)]->GetID(),(int)Framebuffer::FBAttachmentBufferType::DEPTHBuffer);
 
-        glBindFramebuffer(GL_READ_FRAMEBUFFER, m_Framebuffers[PID(GBufferFB)]->GetID());
+       /* glBindFramebuffer(GL_READ_FRAMEBUFFER, m_Framebuffers[PID(GBufferFB)]->GetID());
         glBindFramebuffer(GL_DRAW_FRAMEBUFFER, m_Framebuffers[PID(SkyBoxFB)]->GetID());
         glBlitFramebuffer(0, 0, m_Framebuffers[PID(GBufferFB)]->GetSpecification().Width, m_Framebuffers[PID(GBufferFB)]->GetSpecification().Height, 0, 0,
-            m_Framebuffers[PID(SkyBoxFB)]->GetSpecification().Width, m_Framebuffers[PID(SkyBoxFB)]->GetSpecification().Height, GL_DEPTH_BUFFER_BIT, GL_NEAREST);
+            m_Framebuffers[PID(SkyBoxFB)]->GetSpecification().Width, m_Framebuffers[PID(SkyBoxFB)]->GetSpecification().Height, GL_DEPTH_BUFFER_BIT, GL_NEAREST);*/
 
         if(!m_Framebuffers.count(PID(SkyBoxFB)))
         {

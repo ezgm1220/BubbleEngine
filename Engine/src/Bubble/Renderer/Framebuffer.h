@@ -55,6 +55,10 @@ namespace Bubble {
 	class Framebuffer
 	{
 	public:
+        enum class FBAttachmentBufferType
+        {
+            COLORBuffer=0,DEPTHBuffer=1
+        };
 		virtual ~Framebuffer() = default;
 
 		virtual void Bind() = 0;
@@ -74,6 +78,8 @@ namespace Bubble {
 		static Ref<Framebuffer> Create(const FramebufferSpecification& spec);
 
         virtual uint32_t GetID() const = 0;
+
+        virtual void CopyFrameBufferAttachment(uint32_t FBID = -1, int AttachmentIndex = -1) = 0;
 	};
 
     class CubeMapFramebuffer
