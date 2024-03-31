@@ -21,6 +21,8 @@ namespace Bubble {
 
         virtual bool IsLoaded() const = 0;
 
+        virtual std::string GetPath() = 0;
+
 		virtual bool operator==(const Texture& other) const = 0;
 	};
 

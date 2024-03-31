@@ -1,6 +1,8 @@
 #include "bubblepch.h"
 #include "PBR_Pipeline.h"
 
+#include <glad/glad.h>
+
 namespace Bubble
 {
 
@@ -25,7 +27,6 @@ namespace Bubble
             }
             shader->Unbind();
         }
-
     }
 
     void PBRPipeline::BeginScene(const EditorCamera& camera)
@@ -92,6 +93,17 @@ namespace Bubble
 
     void PBRPipeline::ShowSkyBox_Begin()
     {
+
+        glBindFramebuffer(GL_READ_FRAMEBUFFER, m_Framebuffers[PID(LightFB)]->GetID());
+        glBindFramebuffer(GL_DRAW_FRAMEBUFFER, m_Framebuffers[PID(SkyBoxFB)]->GetID());
+        glBlitFramebuffer(0, 0, m_Framebuffers[PID(LightFB)]->GetSpecification().Width, m_Framebuffers[PID(LightFB)]->GetSpecification().Height, 0, 0, 
+            m_Framebuffers[PID(SkyBoxFB)]->GetSpecification().Width, m_Framebuffers[PID(SkyBoxFB)]->GetSpecification().Height, GL_COLOR_BUFFER_BIT, GL_NEAREST);
+
+        glBindFramebuffer(GL_READ_FRAMEBUFFER, m_Framebuffers[PID(GBufferFB)]->GetID());
+        glBindFramebuffer(GL_DRAW_FRAMEBUFFER, m_Framebuffers[PID(SkyBoxFB)]->GetID());
+        glBlitFramebuffer(0, 0, m_Framebuffers[PID(GBufferFB)]->GetSpecification().Width, m_Framebuffers[PID(GBufferFB)]->GetSpecification().Height, 0, 0,
+            m_Framebuffers[PID(SkyBoxFB)]->GetSpecification().Width, m_Framebuffers[PID(SkyBoxFB)]->GetSpecification().Height, GL_DEPTH_BUFFER_BIT, GL_NEAREST);
+
         if(!m_Framebuffers.count(PID(SkyBoxFB)))
         {
             BB_CORE_WARN("No set LightFB Framebuffer !!!!!");

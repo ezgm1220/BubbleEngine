@@ -20,6 +20,10 @@ namespace Bubble {
 
 	Ref<Texture2D> Texture2D::Create(const std::string& path)
 	{
+        if(path.empty())
+        {
+            return nullptr;
+        }
 		switch (Renderer::GetAPI())
 		{
 			case RendererAPI::API::None:    BB_CORE_ASSERT(false, "RendererAPI::None is currently not supported!"); return nullptr;

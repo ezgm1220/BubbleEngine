@@ -27,6 +27,11 @@ Entities:
       Scale: [1, 1, 1]
     SpriteRendererComponent:
       Color: [0.6795367, 0.0865819156, 0.0865819156, 1]
+      Albedo: assets\textures\awesomeface.png
+      Normal: ""
+      Metallic: ""
+      Roughness: ""
+      AO: ""
   - Entity: 9868432192625713214
     TagComponent:
       Tag: B
@@ -36,6 +41,11 @@ Entities:
       Scale: [0.999976575, 0.99999994, 1.00000262]
     SpriteRendererComponent:
       Color: [0.0676197261, 0.729729772, 0.0778453797, 1]
+      Albedo: assets\textures\Checkerboard.png
+      Normal: ""
+      Metallic: ""
+      Roughness: ""
+      AO: ""
   - Entity: 15354071937906916318
     TagComponent:
       Tag: C
@@ -45,6 +55,11 @@ Entities:
       Scale: [1, 1, 1]
     SpriteRendererComponent:
       Color: [0.05411366, 0.843675494, 0.934362948, 1]
+      Albedo: assets\textures\container.jpg
+      Normal: ""
+      Metallic: ""
+      Roughness: ""
+      AO: ""
   - Entity: 15040056750909643832
     TagComponent:
       Tag: D
@@ -54,3 +69,8 @@ Entities:
       Scale: [1, 1, 1]
     SpriteRendererComponent:
       Color: [0.888030887, 0.863642037, 0.0685738176, 1]
+      Albedo: assets\textures\container2.png
+      Normal: ""
+      Metallic: ""
+      Roughness: ""
+      AO: ""

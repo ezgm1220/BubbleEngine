@@ -21,9 +21,13 @@ namespace Bubble {
 
 		virtual void ClearAttachment(uint32_t attachmentIndex, int value) override;
 
+        virtual void ChangeColorAttachment(uint32_t OriIndex = 0, uint32_t NowID = 0, bool multisampled = false)override;
+
 		virtual uint32_t GetColorAttachmentRendererID(uint32_t index = 0) const override { BB_CORE_ASSERT(index < m_ColorAttachments.size()); return m_ColorAttachments[index]; }
 
 		virtual const FramebufferSpecification& GetSpecification() const override { return m_Specification; }
+
+        virtual uint32_t GetID() const override { return m_RendererID; }
 	private:
 		uint32_t m_RendererID = 0;
 		FramebufferSpecification m_Specification;

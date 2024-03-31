@@ -149,7 +149,11 @@ namespace Bubble
 
             auto& spriteRendererComponent = entity.GetComponent<SpriteRendererComponent>();
             out << YAML::Key << "Color" << YAML::Value << spriteRendererComponent.Color;
-
+            out << YAML::Key << "Albedo" << YAML::Value << spriteRendererComponent.Textures[0]->GetPath();
+            out << YAML::Key << "Normal" << YAML::Value << spriteRendererComponent.Textures[1]->GetPath();
+            out << YAML::Key << "Metallic" << YAML::Value << spriteRendererComponent.Textures[2]->GetPath();
+            out << YAML::Key << "Roughness" << YAML::Value << spriteRendererComponent.Textures[3]->GetPath();
+            out << YAML::Key << "AO" << YAML::Value << spriteRendererComponent.Textures[4]->GetPath();
             out << YAML::EndMap; // SpriteRendererComponent
         }
 
@@ -252,11 +256,23 @@ namespace Bubble
                 {
                     auto& src = deserializedEntity.AddComponent<SpriteRendererComponent>();
                     src.Color = spriteRendererComponent["Color"].as<glm::vec4>();
+                    std::vector<std::string> TexName = {"Albedo","Normal","Metallic","Roughness","AO"};
+                    for(int i = 0; i < 5; ++i)
+                    {
+                        auto str = spriteRendererComponent[TexName[i]].as<std::string>();
+                        if(!str.empty())
+                        {
+                            src.Textures[i] = Texture2D::Create(str);
+                        }
+                    }
+                    /*src.Textures[0] = Texture2D::Create(spriteRendererComponent["Albedo"].as<std::string>());
+                    src.Textures[1] = Texture2D::Create(spriteRendererComponent["Normal"].as<std::string>());
+                    src.Textures[2] = Texture2D::Create(spriteRendererComponent["Metallic"].as<std::string>());
+                    src.Textures[3] = Texture2D::Create(spriteRendererComponent["Roughness"].as<std::string>());
+                    src.Textures[4] = Texture2D::Create(spriteRendererComponent["AO"].as<std::string>());*/
                 }
             }
         }
-
-        return true;
     }
 
     bool SceneSerializer::DeserializeRuntime(const std::string& filepath)

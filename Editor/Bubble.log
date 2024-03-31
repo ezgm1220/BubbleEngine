@@ -1,5 +1,11 @@
-[15:17:07] [info] BUBBLE: Creating window Bubble Editor (1600, 900)
-[15:17:08] [info] BUBBLE: OpenGL Info:
-[15:17:08] [info] BUBBLE:   Vendor: NVIDIA Corporation
-[15:17:08] [info] BUBBLE:   Renderer: NVIDIA GeForce RTX 2060/PCIe/SSE2
-[15:17:08] [info] BUBBLE:   Version: 4.5.0 NVIDIA 551.86
+[17:14:41] [info] BUBBLE: Creating window Bubble Editor (1600, 900)
+[17:14:42] [info] BUBBLE: OpenGL Info:
+[17:14:42] [info] BUBBLE:   Vendor: NVIDIA Corporation
+[17:14:42] [info] BUBBLE:   Renderer: NVIDIA GeForce RTX 2060/PCIe/SSE2
+[17:14:42] [info] BUBBLE:   Version: 4.5.0 NVIDIA 551.86
+[17:14:45] [trace] BUBBLE: Deserializing scene 'Untitled'
+[17:14:45] [trace] BUBBLE: Deserialized entity with ID = 5848681991563351995, name = Camera
+[17:14:45] [trace] BUBBLE: Deserialized entity with ID = 14631839275510599010, name = A
+[17:14:45] [trace] BUBBLE: Deserialized entity with ID = 9868432192625713214, name = B
+[17:14:45] [trace] BUBBLE: Deserialized entity with ID = 15354071937906916318, name = C
+[17:14:45] [trace] BUBBLE: Deserialized entity with ID = 15040056750909643832, name = D

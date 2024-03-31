@@ -43,8 +43,8 @@ namespace Bubble
             m_pipeline->Set_Framebuffer(fbSpec_Light, PID(LightFB));
 
             FramebufferSpecification fbSpec_SkyBox;
-            //fbSpec_SkyBox.Attachments = {FramebufferTextureFormat::RGBA16F, FramebufferTextureFormat::Depth};
-            fbSpec_SkyBox.Attachments = {FramebufferTextureFormat::RGBA16F};
+            fbSpec_SkyBox.Attachments = {FramebufferTextureFormat::RGBA16F, FramebufferTextureFormat::Depth};
+            //fbSpec_SkyBox.Attachments = {FramebufferTextureFormat::RGBA16F};
             fbSpec_SkyBox.Width = 1280;
             fbSpec_SkyBox.Height = 720;
             m_pipeline->Set_Framebuffer(fbSpec_SkyBox, PID(SkyBoxFB));
@@ -73,7 +73,9 @@ namespace Bubble
         }
 
         //m_pipeline->SetViewportInformation(PID(SkyBoxFB), 0);
+
         m_pipeline->SetViewportInformation(PID(SkyBoxFB), 0);
+        //m_pipeline->SetViewportInformation(PID(LightFB), 0);
 
         m_pipeline->SetSkybox_SixFaces("assets/SkyBox/Sky");
 

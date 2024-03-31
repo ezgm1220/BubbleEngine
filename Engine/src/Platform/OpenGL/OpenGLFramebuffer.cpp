@@ -355,6 +355,11 @@ namespace Bubble {
 		
 	}
 
+    void OpenGLFramebuffer::ChangeColorAttachment(uint32_t OriIndex /*= 0*/, uint32_t NowID /*= 0*/, bool multisampled /*= false*/)
+    {
+        glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0 + OriIndex, multisampled, NowID, 0);
+    }
+
     OpenGLCubeMapFramebuffer::OpenGLCubeMapFramebuffer(int size)
         :CubeMapSize(size)
     {

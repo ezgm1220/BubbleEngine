@@ -69,7 +69,11 @@ namespace Bubble {
 
 		virtual const FramebufferSpecification& GetSpecification() const = 0;
 
+        virtual void ChangeColorAttachment(uint32_t OriIndex = 0, uint32_t NowID = 0,bool multisampled = false) = 0;
+
 		static Ref<Framebuffer> Create(const FramebufferSpecification& spec);
+
+        virtual uint32_t GetID() const = 0;
 	};
 
     class CubeMapFramebuffer
