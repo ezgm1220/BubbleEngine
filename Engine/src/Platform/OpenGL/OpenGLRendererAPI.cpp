@@ -67,6 +67,14 @@ namespace Bubble {
         vertexArray->Bind();
         //BB_CORE_INFO("OpenGLRendererAPI::DrawIndexed");
 		glDrawElements(GL_TRIANGLES, count, GL_UNSIGNED_INT, nullptr);
+        vertexArray->Unbind();
 	}
+
+    void OpenGLRendererAPI::DrawArrays(const Ref<VertexArray>& vertexArray, uint32_t vertexCount /*= 0*/)
+    {
+        vertexArray->Bind();
+        glDrawArrays(GL_TRIANGLES, 0, vertexCount);
+        glBindVertexArray(0);
+    }
 
 }

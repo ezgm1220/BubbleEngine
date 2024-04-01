@@ -1,13 +1,13 @@
-[13:49:58] [info] BUBBLE: Creating window Bubble Editor (1600, 900)
-[13:50:00] [info] BUBBLE: OpenGL Info:
-[13:50:00] [info] BUBBLE:   Vendor: NVIDIA Corporation
-[13:50:00] [info] BUBBLE:   Renderer: NVIDIA GeForce RTX 2060/PCIe/SSE2
-[13:50:00] [info] BUBBLE:   Version: 4.5.0 NVIDIA 551.86
-[13:50:01] [error] BUBBLE: Program/shader state performance warning: Vertex shader in program 4 is being recompiled based on GL state.
-[13:50:01] [error] BUBBLE: Program/shader state performance warning: Vertex shader in program 4 is being recompiled based on GL state.
-[13:50:06] [trace] BUBBLE: Deserializing scene 'Untitled'
-[13:50:06] [trace] BUBBLE: Deserialized entity with ID = 15040056750909643832, name = D
-[13:50:06] [trace] BUBBLE: Deserialized entity with ID = 15354071937906916318, name = C
-[13:50:06] [trace] BUBBLE: Deserialized entity with ID = 9868432192625713214, name = B
-[13:50:06] [trace] BUBBLE: Deserialized entity with ID = 14631839275510599010, name = A
-[13:50:06] [trace] BUBBLE: Deserialized entity with ID = 5848681991563351995, name = Camera
+[16:41:38] [info] BUBBLE: Creating window Bubble Editor (1600, 900)
+[16:41:39] [info] BUBBLE: OpenGL Info:
+[16:41:39] [info] BUBBLE:   Vendor: NVIDIA Corporation
+[16:41:39] [info] BUBBLE:   Renderer: NVIDIA GeForce RTX 2060/PCIe/SSE2
+[16:41:39] [info] BUBBLE:   Version: 4.5.0 NVIDIA 551.86
+[16:41:40] [error] BUBBLE: Program/shader state performance warning: Vertex shader in program 4 is being recompiled based on GL state.
+[16:41:40] [error] BUBBLE: Program/shader state performance warning: Vertex shader in program 4 is being recompiled based on GL state.
+[16:41:42] [trace] BUBBLE: Deserializing scene 'Untitled'
+[16:41:42] [trace] BUBBLE: Deserialized entity with ID = 15040056750909643832, name = D
+[16:41:42] [trace] BUBBLE: Deserialized entity with ID = 15354071937906916318, name = C
+[16:41:42] [trace] BUBBLE: Deserialized entity with ID = 9868432192625713214, name = B
+[16:41:42] [trace] BUBBLE: Deserialized entity with ID = 14631839275510599010, name = A
+[16:41:42] [trace] BUBBLE: Deserialized entity with ID = 5848681991563351995, name = Camera

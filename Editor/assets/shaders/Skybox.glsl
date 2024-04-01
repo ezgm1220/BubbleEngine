@@ -4,18 +4,15 @@
 #version 450
 
 layout(location = 0) in vec3 a_Position;
-layout(location = 1) in vec2 a_TexCoord;
 
 uniform mat4 projection;
 uniform mat4 view;
 
 out vec3 WorldPos;
-out vec2 Tcd;
 
 void main()
 {
     WorldPos = a_Position;
-    Tcd = a_TexCoord;
 
     mat4 rotView = mat4(mat3(view));
 	vec4 clipPos = projection * rotView * vec4(WorldPos, 1.0);
@@ -30,7 +27,6 @@ void main()
 layout(location = 0) out vec4 outcolor;
 
 in vec3 WorldPos;
-in vec2 Tcd;
 
 uniform sampler2D RenderMap;
 uniform samplerCube Skybox;

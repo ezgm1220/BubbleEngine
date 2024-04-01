@@ -31,6 +31,11 @@ namespace Bubble {
 		{
 			s_RendererAPI->DrawIndexed(vertexArray, count);
 		}
+
+        static void DrawArrays(const Ref<VertexArray>& vertexArray, uint32_t count = 0)
+        {
+            s_RendererAPI->DrawArrays(vertexArray, count);
+        }
 	private:
 		static Scope<RendererAPI> s_RendererAPI;
 	};

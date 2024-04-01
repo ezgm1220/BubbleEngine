@@ -9,6 +9,12 @@ namespace Bubble
         struct VertexData
         {
             glm::vec3 Position;
+            glm::vec3 Normal;
+            glm::vec2 TexCoord;
+        }; 
+        struct QuadVertexData
+        {
+            glm::vec3 Position;
             glm::vec2 TexCoord;
         };
 
@@ -30,111 +36,159 @@ namespace Bubble
 
     void Renderer3D_NoBatch::Init()
     {
-        Render3DNoBatch::VertexData Cubevertexdata[16];
-        uint32_t CubeIndices[36];
+        Render3DNoBatch::VertexData Cubevertexdata[36];
         {
-            Cubevertexdata[0].Position = {-1.0f, -1.0f,  1.0f};
-            Cubevertexdata[1].Position = {1.0f, -1.0f,   1.0f};
-            Cubevertexdata[2].Position = {1.0f,  1.0f,   1.0f};
-            Cubevertexdata[3].Position = {-1.0f,  1.0f,  1.0f};
+            // back face
+            Cubevertexdata[0].Position = {-1.0f, -1.0f, -1.0f};
+            Cubevertexdata[1].Position = { 1.0f,  1.0f, -1.0f};
+            Cubevertexdata[2].Position = { 1.0f, -1.0f, -1.0f};
+            Cubevertexdata[3].Position = { 1.0f,  1.0f, -1.0f};
             Cubevertexdata[4].Position = {-1.0f, -1.0f, -1.0f};
-            Cubevertexdata[5].Position = {1.0f, -1.0f,  -1.0f};
-            Cubevertexdata[6].Position = {1.0f,  1.0f,  -1.0f};
-            Cubevertexdata[7].Position = {-1.0f,  1.0f, -1.0f};
-            Cubevertexdata[8].Position = {-1.0f, -1.0f,  1.0f};
-            Cubevertexdata[9].Position = {1.0f, -1.0f,  1.0f};
-            Cubevertexdata[10].Position = {1.0f,  1.0f,  1.0f};
-            Cubevertexdata[11].Position = {-1.0f,  1.0f,  1.0f};
-            Cubevertexdata[12].Position = {-1.0f, -1.0f, -1.0f};
-            Cubevertexdata[13].Position = {1.0f, -1.0f, -1.0f};
-            Cubevertexdata[14].Position = {1.0f,  1.0f, -1.0f};
-            Cubevertexdata[15].Position = {-1.0f,  1.0f, -1.0f};
+            Cubevertexdata[5].Position = {-1.0f,  1.0f, -1.0f};
+            // front face
+            Cubevertexdata[6].Position =  {-1.0f, -1.0f,  1.0f};
+            Cubevertexdata[7].Position =  { 1.0f, -1.0f,  1.0f};
+            Cubevertexdata[8].Position =  { 1.0f,  1.0f,  1.0f};
+            Cubevertexdata[9].Position =  { 1.0f,  1.0f,  1.0f};
+            Cubevertexdata[10].Position = {-1.0f,  1.0f,  1.0f};
+            Cubevertexdata[11].Position = {-1.0f, -1.0f,  1.0f};
+            // left face
+            Cubevertexdata[12].Position = {-1.0f,  1.0f,  1.0f};
+            Cubevertexdata[13].Position = {-1.0f,  1.0f, -1.0f};
+            Cubevertexdata[14].Position = {-1.0f, -1.0f, -1.0f};
+            Cubevertexdata[15].Position = {-1.0f, -1.0f, -1.0f};
+            Cubevertexdata[16].Position = {-1.0f, -1.0f,  1.0f};
+            Cubevertexdata[17].Position = {-1.0f,  1.0f,  1.0f};
+            // right face
+            Cubevertexdata[18].Position = {1.0f,  1.0f,  1.0f};
+            Cubevertexdata[19].Position = {1.0f, -1.0f, -1.0f}; 
+            Cubevertexdata[20].Position = {1.0f,  1.0f, -1.0f};
+            Cubevertexdata[21].Position = {1.0f, -1.0f, -1.0f};
+            Cubevertexdata[22].Position = {1.0f,  1.0f,  1.0f};
+            Cubevertexdata[23].Position = {1.0f, -1.0f,  1.0f};
+            // bottom face
+            Cubevertexdata[24].Position = {-1.0f, -1.0f, -1.0f};
+            Cubevertexdata[25].Position = { 1.0f, -1.0f, -1.0f};
+            Cubevertexdata[26].Position = { 1.0f, -1.0f,  1.0f};
+            Cubevertexdata[27].Position = { 1.0f, -1.0f,  1.0f};
+            Cubevertexdata[28].Position = {-1.0f, -1.0f,  1.0f};
+            Cubevertexdata[29].Position = {-1.0f, -1.0f, -1.0f};
+            // top face
+            Cubevertexdata[30].Position = {-1.0f,  1.0f, -1.0f};
+            Cubevertexdata[31].Position = { 1.0f,  1.0f , 1.0f};
+            Cubevertexdata[32].Position = { 1.0f,  1.0f, -1.0f};
+            Cubevertexdata[33].Position = { 1.0f,  1.0f,  1.0f};
+            Cubevertexdata[34].Position = {-1.0f,  1.0f, -1.0f};
+            Cubevertexdata[35].Position = {-1.0f,  1.0f,  1.0f};
 
+            // Normal
+            // back face
+            Cubevertexdata[0]. Normal = { 0.0f,  0.0f, -1.0f};
+            Cubevertexdata[1]. Normal = { 0.0f,  0.0f, -1.0f};
+            Cubevertexdata[2]. Normal = { 0.0f,  0.0f, -1.0f};
+            Cubevertexdata[3]. Normal = { 0.0f,  0.0f, -1.0f};
+            Cubevertexdata[4]. Normal = { 0.0f,  0.0f, -1.0f};
+            Cubevertexdata[5]. Normal = { 0.0f,  0.0f, -1.0f};
+            // front face      Normal
+            Cubevertexdata[6]. Normal = { 0.0f,  0.0f,  1.0f};
+            Cubevertexdata[7]. Normal = { 0.0f,  0.0f,  1.0f};
+            Cubevertexdata[8]. Normal = { 0.0f,  0.0f,  1.0f};
+            Cubevertexdata[9]. Normal = { 0.0f,  0.0f,  1.0f};
+            Cubevertexdata[10].Normal = { 0.0f,  0.0f,  1.0f};
+            Cubevertexdata[11].Normal = { 0.0f,  0.0f,  1.0f};
+            // left face       Normal
+            Cubevertexdata[12].Normal = {-1.0f,  0.0f,  0.0f};
+            Cubevertexdata[13].Normal = {-1.0f,  0.0f,  0.0f};
+            Cubevertexdata[14].Normal = {-1.0f,  0.0f,  0.0f};
+            Cubevertexdata[15].Normal = {-1.0f,  0.0f,  0.0f};
+            Cubevertexdata[16].Normal = {-1.0f,  0.0f,  0.0f};
+            Cubevertexdata[17].Normal = {-1.0f,  0.0f,  0.0f};
+            // right face      Normal
+            Cubevertexdata[18].Normal = { 1.0f,  0.0f,  0.0f};
+            Cubevertexdata[19].Normal = { 1.0f,  0.0f,  0.0f};
+            Cubevertexdata[20].Normal = { 1.0f,  0.0f,  0.0f};
+            Cubevertexdata[21].Normal = { 1.0f,  0.0f,  0.0f};
+            Cubevertexdata[22].Normal = { 1.0f,  0.0f,  0.0f};
+            Cubevertexdata[23].Normal = { 1.0f,  0.0f,  0.0f};
+            // bottom face     Normal
+            Cubevertexdata[24].Normal = { 0.0f, -1.0f,  0.0f};
+            Cubevertexdata[25].Normal = { 0.0f, -1.0f,  0.0f};
+            Cubevertexdata[26].Normal = { 0.0f, -1.0f,  0.0f};
+            Cubevertexdata[27].Normal = { 0.0f, -1.0f,  0.0f};
+            Cubevertexdata[28].Normal = { 0.0f, -1.0f,  0.0f};
+            Cubevertexdata[29].Normal = { 0.0f, -1.0f,  0.0f};
+            // top face        Normal
+            Cubevertexdata[30].Normal = { 0.0f,  1.0f,  0.0f};
+            Cubevertexdata[31].Normal = { 0.0f,  1.0f,  0.0f};
+            Cubevertexdata[32].Normal = { 0.0f,  1.0f,  0.0f};
+            Cubevertexdata[33].Normal = { 0.0f,  1.0f,  0.0f};
+            Cubevertexdata[34].Normal = { 0.0f,  1.0f,  0.0f};
+            Cubevertexdata[35].Normal = { 0.0f,  1.0f,  0.0f};
+
+            // Tex
+            // back face
             Cubevertexdata[0].TexCoord = {0.0f, 0.0f};
-            Cubevertexdata[1].TexCoord = {1.0f, 0.0f};
-            Cubevertexdata[2].TexCoord = {1.0f, 1.0f};
-            Cubevertexdata[3].TexCoord = {0.0f, 1.0f};
-            Cubevertexdata[4].TexCoord = {1.0f, 0.0f};
-            Cubevertexdata[5].TexCoord = {0.0f, 0.0f};
-            Cubevertexdata[6].TexCoord = {0.0f, 1.0f};
-            Cubevertexdata[7].TexCoord = {1.0f, 1.0f};
-            Cubevertexdata[8].TexCoord = {0.0f, 0.0f};
-            Cubevertexdata[9].TexCoord = {1.0f, 0.0f};
-            Cubevertexdata[10].TexCoord = {1.0f, 0.0f};
+            Cubevertexdata[1].TexCoord = {1.0f, 1.0f};
+            Cubevertexdata[2].TexCoord = {1.0f, 0.0f};
+            Cubevertexdata[3].TexCoord = {1.0f, 1.0f};
+            Cubevertexdata[4].TexCoord = {0.0f, 0.0f};
+            Cubevertexdata[5].TexCoord = {0.0f, 1.0f};
+            // front face      TexCoord     
+            Cubevertexdata[6].TexCoord = {0.0f, 0.0f};
+            Cubevertexdata[7].TexCoord = {1.0f, 0.0f};
+            Cubevertexdata[8].TexCoord = {1.0f, 1.0f};
+            Cubevertexdata[9].TexCoord = {1.0f, 1.0f};
+            Cubevertexdata[10].TexCoord = {0.0f, 1.0f};
             Cubevertexdata[11].TexCoord = {0.0f, 0.0f};
-            Cubevertexdata[12].TexCoord = {0.0f, 1.0f};
+            // left face       TexCoord     
+            Cubevertexdata[12].TexCoord = {1.0f, 0.0f};
             Cubevertexdata[13].TexCoord = {1.0f, 1.0f};
-            Cubevertexdata[14].TexCoord = {1.0f, 1.0f};
+            Cubevertexdata[14].TexCoord = {0.0f, 1.0f};
             Cubevertexdata[15].TexCoord = {0.0f, 1.0f};
-
-            // 前面
-            CubeIndices[0] = 0;
-            CubeIndices[1] = 1;
-            CubeIndices[2] = 2;
-            CubeIndices[3] = 0;
-            CubeIndices[4] = 2;
-            CubeIndices[5] = 3;
-
-            //后面
-            CubeIndices[6] = 5;
-            CubeIndices[7] = 4;
-            CubeIndices[8] = 7;
-            CubeIndices[9] = 5;
-            CubeIndices[10] = 7;
-            CubeIndices[11] = 6;
-
-                //左面
-            CubeIndices[12] = 4;
-            CubeIndices[13] = 0;
-            CubeIndices[14] = 3;
-            CubeIndices[15] = 4;
-            CubeIndices[16] = 3;
-            CubeIndices[17] = 7;
-
-            // 右面
-            CubeIndices[18] = 1;
-            CubeIndices[19] = 5;
-            CubeIndices[20] = 6;
-            CubeIndices[21] = 1;
-            CubeIndices[22] = 6;
-            CubeIndices[23] = 2;
-
-            // 上面
-            CubeIndices[24] = 11;
-            CubeIndices[25] = 10;
-            CubeIndices[26] = 14;
-            CubeIndices[27] = 11;
-            CubeIndices[28] = 14;
-            CubeIndices[29] = 15;
-
-             // 下面
-            CubeIndices[30] = 8;
-            CubeIndices[31] = 9;
-            CubeIndices[32] = 13;
-            CubeIndices[33] = 8;
-            CubeIndices[34] = 13;
-            CubeIndices[35] = 12;
+            Cubevertexdata[16].TexCoord = {0.0f, 0.0f};
+            Cubevertexdata[17].TexCoord = {1.0f, 0.0f};
+            // right face      TexCoord     
+            Cubevertexdata[18].TexCoord = {1.0f, 0.0f};
+            Cubevertexdata[19].TexCoord = {0.0f, 1.0f};
+            Cubevertexdata[20].TexCoord = {1.0f, 1.0f};
+            Cubevertexdata[21].TexCoord = {0.0f, 1.0f};
+            Cubevertexdata[22].TexCoord = {1.0f, 0.0f};
+            Cubevertexdata[23].TexCoord = {0.0f, 0.0f};
+            // bottom face     TexCoord     
+            Cubevertexdata[24].TexCoord = {0.0f, 1.0f};
+            Cubevertexdata[25].TexCoord = {1.0f, 1.0f};
+            Cubevertexdata[26].TexCoord = {1.0f, 0.0f};
+            Cubevertexdata[27].TexCoord = {1.0f, 0.0f};
+            Cubevertexdata[28].TexCoord = {0.0f, 0.0f};
+            Cubevertexdata[29].TexCoord = {0.0f, 1.0f};
+            // top face        TexCoord     
+            Cubevertexdata[30].TexCoord = {0.0f, 1.0f};
+            Cubevertexdata[31].TexCoord = {1.0f, 0.0f};
+            Cubevertexdata[32].TexCoord = {1.0f, 1.0f};
+            Cubevertexdata[33].TexCoord = {1.0f, 0.0f};
+            Cubevertexdata[34].TexCoord = {0.0f, 1.0f};
+            Cubevertexdata[35].TexCoord = {0.0f, 0.0f};
         }
 
         s_Data.CubeVAO = VertexArray::Create();
 
-        s_Data.CubeVBO = VertexBuffer::Create(Cubevertexdata,16 * sizeof(Render3DNoBatch::VertexData));
+        s_Data.CubeVBO = VertexBuffer::Create(Cubevertexdata,36 * sizeof(Render3DNoBatch::VertexData));
 
         s_Data.CubeVBO->SetLayout({
-                { ShaderDataType::Float3, "a_Position"     },
-                { ShaderDataType::Float2, "a_TexCoord"     }
+                { ShaderDataType::Float3, "a_Position"  },
+                { ShaderDataType::Float3, "a_Normal"    },
+                { ShaderDataType::Float2, "a_TexCoord"  }
             });
         s_Data.CubeVAO->AddVertexBuffer(s_Data.CubeVBO);
 
-        Ref<IndexBuffer> cubeIB = IndexBuffer::Create(CubeIndices, 36);// 创建EBO并绑定EBO数据
-        s_Data.CubeVAO->SetIndexBuffer(cubeIB);// 让VAO记录EBO的索引
+        //Ref<IndexBuffer> cubeIB = IndexBuffer::Create(CubeIndices, 36);// 创建EBO并绑定EBO数据
+        //s_Data.CubeVAO->SetIndexBuffer(cubeIB);// 让VAO记录EBO的索引
 
         // 解绑
         s_Data.CubeVAO->Unbind();
-        s_Data.CubeVBO->Unbind();
-        cubeIB->Unbind();
+        s_Data.CubeVBO->Unbind();;
 
-        Render3DNoBatch::VertexData Quadvertexdata[4];
+        Render3DNoBatch::QuadVertexData Quadvertexdata[4];
         uint32_t QuadIndices[6];
         {
             Quadvertexdata[0].Position = {-1.f,-1.f,0.f};
@@ -157,7 +211,7 @@ namespace Bubble
 
         s_Data.QuadVAO = VertexArray::Create();
 
-        s_Data.QuadVBO = VertexBuffer::Create(Quadvertexdata, 4 * sizeof(Render3DNoBatch::VertexData));
+        s_Data.QuadVBO = VertexBuffer::Create(Quadvertexdata, 4 * sizeof(Render3DNoBatch::QuadVertexData));
 
         s_Data.QuadVBO->SetLayout({
                 { ShaderDataType::Float3, "a_Position"     },
@@ -212,7 +266,8 @@ namespace Bubble
         pipeline->Get_Shader(ShaderID)->SetFloat4("BaseColor", color);
         pipeline->Get_Shader(ShaderID)->SetInt("EntityID", entityID);
 
-        RenderCommand::DrawIndexed(s_Data.CubeVAO, 36);
+        //RenderCommand::DrawIndexed(s_Data.CubeVAO, 36);
+        RenderCommand::DrawArrays(s_Data.CubeVAO, 36);
         s_Data.Stats.DrawCalls++;
     }
 
@@ -228,14 +283,16 @@ namespace Bubble
             textures[i]->Bind(i);
         }
 
-        RenderCommand::DrawIndexed(s_Data.CubeVAO, 36);
+        //RenderCommand::DrawIndexed(s_Data.CubeVAO, 36);
+        RenderCommand::DrawArrays(s_Data.CubeVAO, 36);
         s_Data.Stats.DrawCalls++;
     }
 
     void Renderer3D_NoBatch::DrawCube()
     {
         //BB_CORE_INFO("Renderer3D_NoBatch::DrawCube()");
-        RenderCommand::DrawIndexed(s_Data.CubeVAO, 36);
+        //RenderCommand::DrawIndexed(s_Data.CubeVAO, 36);
+        RenderCommand::DrawArrays(s_Data.CubeVAO, 36);
     }
 
     void Renderer3D_NoBatch::DrawSprite(Ref<Pipeline>pipeline, int ShaderID, const glm::mat4& transform, SpriteRendererComponent& src, int entityID /*= -1*/)
@@ -263,7 +320,8 @@ namespace Bubble
         shader->SetMat4("view", View);
         shader->SetMat4("projection", projection);
         //RenderCommand::Clear();
-        RenderCommand::DrawIndexed(s_Data.CubeVAO,36);
+        //RenderCommand::DrawIndexed(s_Data.CubeVAO,36);
+        RenderCommand::DrawArrays(s_Data.CubeVAO, 36);
 
         pipeline->ShowSkyBox_End();
     }
