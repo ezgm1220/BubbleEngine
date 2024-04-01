@@ -22,6 +22,8 @@ namespace Bubble {
 
 		virtual void Bind(uint32_t slot = 0) const override;
 
+        virtual void SetMipMap()const override {}
+
         virtual bool IsLoaded() const override { return m_IsLoaded; }
 
 		virtual bool operator==(const Texture& other) const override
@@ -54,6 +56,8 @@ namespace Bubble {
 
         virtual bool IsLoaded() const override { return m_IsLoaded; }
 
+        virtual void SetMipMap()const override;
+
         virtual bool operator==(const Texture& other) const override
         {
             return m_RendererID == ((OpenGLCubeMap&)other).m_RendererID;
@@ -80,6 +84,8 @@ namespace Bubble {
         virtual void SetData(void* data, uint32_t size) override {}
 
         virtual void Bind(uint32_t slot = 0) const override;
+
+        virtual void SetMipMap()const override {}
 
         virtual bool IsLoaded() const override { return m_IsLoaded; }
 

@@ -39,6 +39,7 @@ namespace Bubble
         // UI Panels
         void UI_Toolbar();
     private:
+
         Bubble::OrthographicCameraController m_CameraController;
 
         // Temp

@@ -46,6 +46,18 @@ namespace Bubble {
         return nullptr;
     }
 
+    Bubble::Ref<Bubble::CubeMap> CubeMap::Create(const uint32_t mapsize)
+    {
+        switch(Renderer::GetAPI())
+        {
+            case RendererAPI::API::None:    BB_CORE_ASSERT(false, "RendererAPI::None is currently not supported!"); return nullptr;
+            case RendererAPI::API::OpenGL:  return CreateRef<OpenGLCubeMap>(mapsize);
+        }
+
+        BB_CORE_ASSERT(false, "Unknown RendererAPI!");
+        return nullptr;
+    }
+
     Bubble::Ref<Bubble::HDRTexture2D> HDRTexture2D::Create(const std::string& path)
     {
         switch(Renderer::GetAPI())

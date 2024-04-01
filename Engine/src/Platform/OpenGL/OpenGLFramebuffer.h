@@ -52,6 +52,7 @@ namespace Bubble {
     private:
         uint32_t m_FBOID = 0;
         uint32_t m_RBOID = 0;
+        uint32_t m_RendererID = 0;
         int CubeMapSize = 0;
     };
 }

@@ -19,7 +19,7 @@ void main()
 #type fragment
 #version 450
 
-layout(location = 0) out vec4 color;
+layout(location = 0) out vec4 outcolor;
 
 in vec3 WorldPos;
 
@@ -37,6 +37,6 @@ vec2 SampleSphericalMap(vec3 v)
 void main()
 {		
     vec2 uv = SampleSphericalMap(normalize(WorldPos));
-    // vec3 color = texture(OriginalMap, uv).rgb;
-    vec3 color = vec3(0.1,0.8,0.1);
+    outcolor = vec4(texture(OriginalMap, uv).rgb,1.0);
+    //outcolor = vec4(0.8,0.2,0.1,1.0);
 }

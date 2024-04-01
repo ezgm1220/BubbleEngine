@@ -391,13 +391,17 @@ namespace Bubble {
     OpenGLCubeMapFramebuffer::OpenGLCubeMapFramebuffer(int size)
         :CubeMapSize(size)
     {
-        glGenFramebuffers(1, &m_FBOID);
-        glGenRenderbuffers(1, &m_RBOID);
+        glCreateFramebuffers(1, &m_RendererID);
+        glBindFramebuffer(GL_FRAMEBUFFER, m_RendererID);
 
-        glBindFramebuffer(GL_FRAMEBUFFER, m_FBOID);
-        glBindRenderbuffer(GL_RENDERBUFFER, m_RBOID);
-        glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT24, size, size);
-        glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, m_RBOID);
+        /*unsigned int captureRBO;
+        glGenFramebuffers(1, &m_RendererID);
+        glGenRenderbuffers(1, &captureRBO);
+
+        glBindFramebuffer(GL_FRAMEBUFFER, m_RendererID);
+        glBindRenderbuffer(GL_RENDERBUFFER, captureRBO);
+        glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT24, 512, 512);
+        glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, captureRBO);*/
     }
 
     OpenGLCubeMapFramebuffer::~OpenGLCubeMapFramebuffer()
@@ -408,7 +412,7 @@ namespace Bubble {
 
     void OpenGLCubeMapFramebuffer::Bind()
     {
-        glBindFramebuffer(GL_FRAMEBUFFER, m_FBOID);
+        glBindFramebuffer(GL_FRAMEBUFFER, m_RendererID);
         glViewport(0, 0, CubeMapSize, CubeMapSize);
     }
 

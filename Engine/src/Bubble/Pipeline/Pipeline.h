@@ -60,13 +60,15 @@ namespace Bubble
 
         void UnbindFramebuffer();
 
-        void SetSkybox_SixFaces(const std::string path);
+        void GetSkybox_SixFaces(const std::string path);
+
+        void GetSkybox_Hdr(const std::string Shaderpath,const std::string HdrTexpath,const uint32_t Mapsize);
 
 
     protected:
+        SkyBox m_Skybox;
         std::unordered_map<int,Ref<Framebuffer>>m_Framebuffers;
         std::unordered_map<int,Ref<Shader>>m_Shader;
-        SkyBox m_Skybox;
         int ViewportTexture_FramebufferID = -1;
         int ViewportTexture_AttachmentIndex = -1;
     };

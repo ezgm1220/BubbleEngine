@@ -77,14 +77,16 @@ namespace Bubble
         m_pipeline->SetViewportInformation(PID(SkyBoxFB), 0);
         //m_pipeline->SetViewportInformation(PID(LightFB), 0);
 
-        m_pipeline->SetSkybox_SixFaces("assets/SkyBox/Sky");
-
+        //m_pipeline->GetSkybox_SixFaces("assets/SkyBox/Sky");
+        //m_pipeline->GetSkybox_Hdr("assets/shaders/GetCubeMap.glsl", "assets/SkyBox/spree_bank_4k.hdr", 512);
+        m_pipeline->GetSkybox_Hdr("assets/shaders/GetCubeMap.glsl", "assets/SkyBox/spree_bank_4k.hdr", 2048);
 
         m_ActiveScene = CreateRef<Scene>();
 
         m_EditorCamera = EditorCamera(30.0f, 1.778f, 0.1f, 1000.0f);
 
         m_SceneHierarchyPanel.SetContext(m_ActiveScene);// 相当于设置场景
+
     }
 
     void EditorLayer::OnDetach()
@@ -94,6 +96,17 @@ namespace Bubble
 
     void EditorLayer::OnUpdate(Timestep ts)
     {
+        /*if(frameCount)
+        {
+            ++frameCount;
+            if(frameCount == 3)
+            {
+                m_pipeline->GetSkybox_Hdr("assets/shaders/GetCubeMap.glsl", "assets/SkyBox/spree_bank_4k.hdr", 512);
+                frameCount = 0;
+            }
+        }*/
+        //m_pipeline->GetSkybox_Hdr("assets/shaders/GetCubeMap.glsl", "assets/SkyBox/spree_bank_4k.hdr", 512);
+        
         // Resize,当视图尺寸发生变换时更新信息
         std::vector<Ref<Framebuffer>> framebuffers = m_pipeline->GetFramebufferVector();
         bool ViewoirtSizeChange = false;

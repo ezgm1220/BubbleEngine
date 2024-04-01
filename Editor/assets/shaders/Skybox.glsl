@@ -27,7 +27,7 @@ void main()
 #type fragment
 #version 450
 
-layout(location = 0) out vec4 color;
+layout(location = 0) out vec4 outcolor;
 
 in vec3 WorldPos;
 in vec2 Tcd;
@@ -37,7 +37,9 @@ uniform samplerCube Skybox;
 
 void main()
 {
-	color = texture(Skybox, WorldPos);
+    vec3 envColor = textureLod(Skybox, WorldPos, 0.0).rgb;
+    outcolor = vec4(envColor,1.0);
+	//color = texture(Skybox, WorldPos);
 	//color = texture(RenderMap, Tcd);
-	//color = vec4(0.12,0.3,0.4,1.0);
+	//color = vec4(1.0,0.0,0.0,1.0);
 }

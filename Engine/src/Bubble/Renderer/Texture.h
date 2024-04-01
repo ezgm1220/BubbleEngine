@@ -21,6 +21,8 @@ namespace Bubble {
 
         virtual bool IsLoaded() const = 0;
 
+        virtual void SetMipMap()const = 0;
+
         virtual std::string GetPath() = 0;
 
 		virtual bool operator==(const Texture& other) const = 0;
@@ -37,7 +39,7 @@ namespace Bubble {
     {
     public:
         static Ref<CubeMap> Create(const std::string& path);
-        //static Ref<CubeMap> Create(const std::string& path);
+        static Ref<CubeMap> Create(const uint32_t mapsize);
     };
 
     class HDRTexture2D : public Texture

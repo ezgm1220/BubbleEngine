@@ -9,11 +9,13 @@ namespace Bubble
     public:
         SkyBox() = default;
 
-        void SetHdrTexPath(const std::string path) { HdrTex_path = path; }
+        void SetHdrTexPath(const std::string path);
         void SetHdrSixFacesPath(const std::string path) { SixFaces_path = path; }
 
         void SetShader(const std::string path);
         void SetFrameBuffer(int CubeSize);
+
+        void GetEmptyCubeMap(const uint32_t mapsize);
 
         void GetCubeMap_Hdr();
         void GetCubeMap_SixFaces();

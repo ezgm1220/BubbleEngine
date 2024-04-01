@@ -89,20 +89,32 @@ namespace Bubble {
     OpenGLCubeMap::OpenGLCubeMap(uint32_t MapSize)
         :m_CubeSize(MapSize)
     {
-        //m_InternalFormat = GL_RGB16F;
-        //m_DataFormat = GL_RGB;
+        m_InternalFormat = GL_RGB16F;
+        m_DataFormat = GL_RGB;
 
         //glCreateTextures(GL_TEXTURE_CUBE_MAP, 1, &m_RendererID);
        
         //for(unsigned int i = 0; i < 6; ++i)
         //{
-        //    glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, m_InternalFormat, width, width, 0, m_DataFormat, GL_FLOAT, nullptr);
+        //    glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, m_InternalFormat, MapSize, MapSize, 0, m_DataFormat, GL_FLOAT, nullptr);
         //}
         //glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
         //glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
         //glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
         //glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR); // enable pre-filter mipmap sampling (combatting visible dots artifact)
         //glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+        glCreateTextures(GL_TEXTURE_CUBE_MAP, 1, &m_RendererID);
+        glBindTexture(GL_TEXTURE_CUBE_MAP, m_RendererID);
+        for(unsigned int i = 0; i < 6; ++i)
+        {
+            glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, m_InternalFormat, MapSize, MapSize, 0, m_DataFormat, GL_FLOAT, nullptr);
+        }
+        glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+        glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+        glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
+        glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR); // enable pre-filter mipmap sampling (combatting visible dots artifact)
+        glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
     }
 
@@ -138,6 +150,9 @@ namespace Bubble {
                 stbi_image_free(data);
             }
         }
+        m_CubeSize = width;
+        m_InternalFormat = GL_RGB;
+        m_DataFormat = GL_RGB;
         glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
         glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
         glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
@@ -153,6 +168,12 @@ namespace Bubble {
     void OpenGLCubeMap::Bind(uint32_t slot /*= 0*/) const
     {
         glBindTextureUnit(slot, m_RendererID);
+    }
+
+    void OpenGLCubeMap::SetMipMap()const
+    {
+        glBindTexture(GL_TEXTURE_CUBE_MAP, m_RendererID);
+        glGenerateMipmap(GL_TEXTURE_CUBE_MAP);
     }
 
     OpenGLHDRTexture2D::OpenGLHDRTexture2D(const std::string& path)
@@ -198,9 +219,7 @@ namespace Bubble {
 
     void OpenGLHDRTexture2D::Bind(uint32_t slot /*= 0*/) const
     {
-        //glBindTextureUnit(slot, m_RendererID);
-        glActiveTexture(GL_TEXTURE0);
-        glBindTexture(GL_TEXTURE_2D, m_RendererID);
+        glBindTextureUnit(slot, m_RendererID);
     }
 
 }
