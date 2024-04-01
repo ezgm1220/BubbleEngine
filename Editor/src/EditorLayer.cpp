@@ -31,7 +31,7 @@ namespace Bubble
         // 设置帧缓冲信息以及Shader信息
         {
             FramebufferSpecification fbSpec_GBuffer;
-            fbSpec_GBuffer.Attachments = {FramebufferTextureFormat::RGBA16F, FramebufferTextureFormat::RGBA16F,FramebufferTextureFormat::RGBA16F, FramebufferTextureFormat::RGBA32I,FramebufferTextureFormat::Depth};
+            fbSpec_GBuffer.Attachments = {FramebufferTextureFormat::RGBA8, FramebufferTextureFormat::RGBA16F,FramebufferTextureFormat::RGBA16F, FramebufferTextureFormat::RGBA16F, FramebufferTextureFormat::RED_INTEGER, FramebufferTextureFormat::Depth};
             fbSpec_GBuffer.Width = 1280;
             fbSpec_GBuffer.Height = 720;
             m_pipeline->Set_Framebuffer(fbSpec_GBuffer, PID(GBufferFB));
@@ -61,7 +61,7 @@ namespace Bubble
             shaderinformation.insert({PID(GBufferFB),textureinformation_GBuffer});
 
             std::vector<std::pair<int, std::string>> textureinformation_Light = {
-                            {0,"Color"},{1,"Position"},{2,"NormMeatlic"},{3,"RouAOID"},
+                            {0,"Color"},{1,"Position"},{2,"Normal"},{3,"MRA"},
                             { 4,"IrradianceMap" },{5,"PrefilterMap"},{6,"BrdfLUT"}};
             shaderinformation.insert({PID(LightFB),textureinformation_Light});
 
@@ -164,7 +164,7 @@ namespace Bubble
         // 读取坐标下的id,获得该id下的悬停实体
         if(mouseX >= 0 && mouseY >= 0 && mouseX < (int)viewportSize.x && mouseY < (int)viewportSize.y)
         {
-            int pixelData = m_pipeline->GetEntityID(PID(GBufferFB), 3, mouseX, mouseY);
+            int pixelData = m_pipeline->GetEntityID(PID(GBufferFB), 4, mouseX, mouseY);
             m_HoveredEntity = pixelData == -1 ? Entity() : Entity((entt::entity)pixelData, m_ActiveScene.get());
         }
 

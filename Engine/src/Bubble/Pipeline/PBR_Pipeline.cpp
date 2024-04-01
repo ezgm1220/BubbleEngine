@@ -57,7 +57,7 @@ namespace Bubble
 
     void PBRPipeline::ClearEntityID()
     {
-        m_Framebuffers[PID(GBufferFB)]->ClearAttachment(3, -1);
+        m_Framebuffers[PID(GBufferFB)]->ClearAttachment(4, -1);
     }
 
     void PBRPipeline::Calculatelighting_Begin()
@@ -155,8 +155,9 @@ namespace Bubble
     int PBRPipeline::GetEntityID(int FramebufferID, int AttachmentIndex, int mouseX, int mouseY)
     {
         m_Framebuffers[FramebufferID]->Bind();
-        return  m_Framebuffers[FramebufferID]->ReadPixel(AttachmentIndex, mouseX, mouseY);
+        auto res =  m_Framebuffers[FramebufferID]->ReadPixel(AttachmentIndex, mouseX, mouseY);
         m_Framebuffers[FramebufferID]->Unbind();
+        return res;
     }
 
     uint64_t PBRPipeline::Texture_DispalyViewport()

@@ -24,8 +24,8 @@ in vec2 v_TexCoord;
 // PBR
 uniform sampler2D Color;
 uniform sampler2D Position;
-uniform sampler2D NormMeatlic;
-uniform sampler2D RouAOID;
+uniform sampler2D Normal;
+uniform sampler2D MRA;
 
 // IBL
 uniform samplerCube IrradianceMap;
@@ -86,14 +86,10 @@ void main()
 {
     vec3 Albedo = texture(Color,v_TexCoord).rgb;
     vec3 WorldPos = texture(Position,v_TexCoord).rgb;
-    vec3 Normal = texture(NormMeatlic,v_TexCoord).rgb;
-    float Metallic = texture(NormMeatlic,v_TexCoord).a;
-
-    float iRoughness = texture(RouAOID,v_TexCoord).g;
-    float Roughness = 0.00000001 * iRoughness;
-    float iAO = texture(RouAOID,v_TexCoord).b;
-    
-    float AO = 0.00000001 * iAO;
+    vec3 Normal = texture(Normal,v_TexCoord).rgb;
+    float Metallic = texture(MRA,v_TexCoord).r;
+    float Roughness = texture(MRA,v_TexCoord).g;
+    float AO = texture(MRA,v_TexCoord).b;
 
     // input lighting data
     vec3 N = Normal;
@@ -134,5 +130,5 @@ void main()
     // gamma correct
     color = pow(color, vec3(1.0/2.2)); 
 
-	outcolor = vec4(iAO,iRoughness,0.0, 1.0);
+	outcolor = vec4(color, 1.0);
 }

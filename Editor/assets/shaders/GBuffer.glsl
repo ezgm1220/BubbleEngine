@@ -34,8 +34,9 @@ void main()
 
 layout(location = 0) out vec4 color;
 layout(location = 1) out vec4 Position;
-layout(location = 2) out vec4 NormMeatlic;
-layout(location = 3) out ivec4 RouAOID;
+layout(location = 2) out vec4 NORMAL;
+layout(location = 3) out vec4 MRA;
+layout(location = 4) out int ID;
 
 in vec4 v_Color;
 in vec2 v_TexCoord;
@@ -70,12 +71,7 @@ void main()
 {
     color = v_Color * texture(Albedo, v_TexCoord);
     Position = v_WorldPos;
-    NormMeatlic = vec4(getNormalFromMap() ,texture(Metallic, v_TexCoord).r);
-
-    float roughness = texture(Roughness, v_TexCoord).r;
-    float ao = texture(AO, v_TexCoord).r;
-    roughness*=100000000;
-    ao *= 100000000;
-
-	RouAOID=ivec4(v_EntityID,roughness,ao,-1);
+    NORMAL = vec4(getNormalFromMap(),0.0);
+    MRA = vec4(texture(Metallic, v_TexCoord).r,texture(Roughness, v_TexCoord).r,texture(AO, v_TexCoord).r,0.0);
+	ID=v_EntityID;
 }
