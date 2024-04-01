@@ -274,9 +274,10 @@ namespace Bubble
     void Renderer3D_NoBatch::DrawCube(Ref<Pipeline>pipeline, int ShaderID, const glm::mat4& transform, const Ref<Texture2D>* textures, int TexturesSize, const glm::vec4& tintColor /*= glm::vec4(1.0f)*/, int entityID /*= -1*/)
     {
         //BB_CORE_INFO("Renderer3D_NoBatch::DrawCube()");
-        pipeline->Get_Shader(ShaderID)->SetMat4("Transform", transform);
+        pipeline->Get_Shader(ShaderID)->SetMat4("Model", transform);
         pipeline->Get_Shader(ShaderID)->SetFloat4("BaseColor", tintColor);
         pipeline->Get_Shader(ShaderID)->SetInt("EntityID", entityID);
+        pipeline->Get_Shader(ShaderID)->SetMat3("NormalMatrix", glm::transpose(glm::inverse(glm::mat3(transform))));
 
         for(int i = 0; i < TexturesSize; i++)
         {

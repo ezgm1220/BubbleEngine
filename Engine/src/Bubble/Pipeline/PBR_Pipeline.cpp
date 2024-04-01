@@ -33,7 +33,7 @@ namespace Bubble
     {
         m_Framebuffers[PID(GBufferFB)]->Bind();
         m_Shader[PID(GBufferFB)]->Bind();
-        m_Shader[PID(GBufferFB)]->SetMat4("u_ViewProjection", camera.GetViewProjection());
+        m_Shader[PID(GBufferFB)]->SetMat4("ViewProjection", camera.GetViewProjection());
     }
 
     void PBRPipeline::BeginScene(const SceneCamera& camera, const glm::mat4& transform)
@@ -79,8 +79,14 @@ namespace Bubble
 
     Ref<Shader> PBRPipeline::Calculatelighting()
     {
-        auto texid = m_Framebuffers[PID(GBufferFB)]->GetColorAttachmentRendererID(0);
-        m_Shader[PID(LightFB)]->BindTexture(0, texid);
+        auto texid0 = m_Framebuffers[PID(GBufferFB)]->GetColorAttachmentRendererID(0);
+        auto texid1 = m_Framebuffers[PID(GBufferFB)]->GetColorAttachmentRendererID(1);
+        auto texid2 = m_Framebuffers[PID(GBufferFB)]->GetColorAttachmentRendererID(2);
+        auto texid3 = m_Framebuffers[PID(GBufferFB)]->GetColorAttachmentRendererID(3);
+        m_Shader[PID(LightFB)]->BindTexture(0, texid0);
+        m_Shader[PID(LightFB)]->BindTexture(1, texid1);
+        m_Shader[PID(LightFB)]->BindTexture(2, texid2);
+        m_Shader[PID(LightFB)]->BindTexture(3, texid3);
 
         return m_Shader[PID(LightFB)];
     }

@@ -17,13 +17,16 @@ void main()
 #type fragment
 #version 450
 
-layout(location = 0) out vec4 color;
+layout(location = 0) out vec4 outcolor;
 
 in vec2 v_TexCoord;
 
-uniform sampler2D Tex2D;
+uniform sampler2D Color;
+uniform sampler2D Position;
+uniform sampler2D NormMeatlic;
+uniform sampler2D RouAOID;
 
 void main()
 {
-	color = texture(Tex2D,v_TexCoord);
+	outcolor = texture(Color,v_TexCoord);
 }

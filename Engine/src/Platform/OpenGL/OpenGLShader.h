@@ -25,6 +25,7 @@ namespace Bubble {
 		virtual void SetFloat3(const std::string& name, const glm::vec3& value) override;
 		virtual void SetFloat4(const std::string& name, const glm::vec4& value) override;
 		virtual void SetMat4(const std::string& name, const glm::mat4& value) override;
+        virtual void SetMat3(const std::string& name, const glm::mat3& value) override;
 
         virtual void BindTexture(const uint32_t slot, const uint32_t TextureID)override;
 

@@ -50,7 +50,7 @@ namespace Bubble
             m_pipeline->Set_Framebuffer(fbSpec_SkyBox, PID(SkyBoxFB));
 
             std::unordered_map<int, std::string > shadersmap;
-            shadersmap.insert({PID(GBufferFB),"assets/shaders/PBRTest.glsl"});
+            shadersmap.insert({PID(GBufferFB),"assets/shaders/GBuffer.glsl"});
             shadersmap.insert({PID(LightFB),"assets/shaders/Lighting.glsl"});
             shadersmap.insert({PID(SkyBoxFB),"assets/shaders/Skybox.glsl"});
             m_pipeline->LoadShaders(shadersmap);
@@ -61,7 +61,7 @@ namespace Bubble
             shaderinformation.insert({PID(GBufferFB),textureinformation_GBuffer});
 
             std::vector<std::pair<int, std::string>> textureinformation_Light = {
-                            {0,"Tex2D"}};
+                            {0,"Color"},{1,"Position"},{2,"NormMeatlic"},{3,"RouAOID"}};
             shaderinformation.insert({PID(LightFB),textureinformation_Light});
 
             std::vector<std::pair<int, std::string>> textureinformation_SkyBox = {
