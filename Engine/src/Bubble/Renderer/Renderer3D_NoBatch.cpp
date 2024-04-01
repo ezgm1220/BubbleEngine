@@ -259,6 +259,11 @@ namespace Bubble
 
     }
 
+    void Renderer3D_NoBatch::DrawQude()
+    {
+        RenderCommand::DrawIndexed(s_Data.QuadVAO, 6);
+    }
+
     void Renderer3D_NoBatch::DrawCube(Ref<Pipeline>pipeline, int ShaderID, const glm::mat4& transform, const glm::vec4& color, int entityID /*= -1*/)
     {
         //BB_CORE_INFO("Renderer3D_NoBatch::DrawCube()");
@@ -304,10 +309,10 @@ namespace Bubble
         
     }
 
-    void Renderer3D_NoBatch::Calculatelighting(Ref<Pipeline>pipeline)
+    void Renderer3D_NoBatch::Calculatelighting(const glm::vec3&CameraPos, Ref<Pipeline>pipeline)
     {
         pipeline->Calculatelighting_Begin();
-        auto shader = pipeline->Calculatelighting();
+        auto shader = pipeline->Calculatelighting(CameraPos);
 
         RenderCommand::DrawIndexed(s_Data.QuadVAO, 6);
 

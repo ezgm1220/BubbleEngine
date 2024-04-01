@@ -93,6 +93,7 @@ namespace Bubble {
         virtual void Resize(int newsize) = 0;
 
         virtual void SetCubeFace(int Faceid, uint32_t CubeMapID, int mip = 0) = 0;
+        virtual void SetTexture(uint32_t TexID) = 0;
 
         static Ref<CubeMapFramebuffer> Create(int size);
     };

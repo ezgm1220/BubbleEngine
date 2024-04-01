@@ -19,7 +19,7 @@ namespace Bubble
         virtual void ClearEntityID()override final;
 
         virtual void Calculatelighting_Begin() override final;
-        virtual Ref<Shader> Calculatelighting() override final;
+        virtual Ref<Shader> Calculatelighting(const glm::vec3& CameraPos) override final;
         virtual void Calculatelighting_End() override final;
 
         virtual void ShowSkyBox_Begin() override final;

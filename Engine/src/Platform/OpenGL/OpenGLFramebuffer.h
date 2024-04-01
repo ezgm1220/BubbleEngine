@@ -55,6 +55,7 @@ namespace Bubble {
         virtual void Resize(int newsize)override;
 
         virtual void SetCubeFace(int Faceid, uint32_t CubeMapID, int mip = 0) override;
+        virtual void SetTexture(uint32_t TexID)override;
     private:
         uint32_t m_FBOID = 0;
         uint32_t m_RBOID = 0;

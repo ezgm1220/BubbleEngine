@@ -77,7 +77,7 @@ namespace Bubble
         m_Shader[PID(LightFB)]->Bind();
     }
 
-    Ref<Shader> PBRPipeline::Calculatelighting()
+    Ref<Shader> PBRPipeline::Calculatelighting(const glm::vec3& CameraPos)
     {
         auto texid0 = m_Framebuffers[PID(GBufferFB)]->GetColorAttachmentRendererID(0);
         auto texid1 = m_Framebuffers[PID(GBufferFB)]->GetColorAttachmentRendererID(1);
@@ -87,6 +87,13 @@ namespace Bubble
         m_Shader[PID(LightFB)]->BindTexture(1, texid1);
         m_Shader[PID(LightFB)]->BindTexture(2, texid2);
         m_Shader[PID(LightFB)]->BindTexture(3, texid3);
+
+        m_Shader[PID(LightFB)]->BindTexture(4, m_Skybox.GetIrradianceMapID());
+        m_Shader[PID(LightFB)]->BindTexture(5, m_Skybox.GetPrefilterMapID());
+        m_Shader[PID(LightFB)]->BindTexture(6, m_Skybox.GetLUTID());
+
+
+        m_Shader[PID(LightFB)]->SetFloat3("CameraPos", CameraPos);
 
         return m_Shader[PID(LightFB)];
     }

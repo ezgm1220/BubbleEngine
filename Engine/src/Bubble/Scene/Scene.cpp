@@ -132,7 +132,7 @@ namespace Bubble
                 Renderer3D_NoBatch::EndScene(pipeline);
             }
 
-            Renderer3D_NoBatch::Calculatelighting(pipeline);  
+            Renderer3D_NoBatch::Calculatelighting(camera.GetPosition(),pipeline);  
         }
 
         Renderer3D_NoBatch::ShowSkyBox(pipeline,camera.GetViewMatrix(),camera.GetProjection());

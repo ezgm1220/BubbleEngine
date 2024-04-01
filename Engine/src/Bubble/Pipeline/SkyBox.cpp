@@ -81,7 +81,7 @@ namespace Bubble
 
         m_IrradianceMap = CubeMap::Create(IiaSize,false);
         m_PrefilterMap = CubeMap::Create(PrfSize,true);
-        m_LUT = Texture2D::Create(LUTSize,LUTSize, TexDataType::RG16F, TexDataType::RG);
+        //m_LUT = Texture2D::Create(LUTSize,LUTSize, TexDataType::RG16F, TexDataType::RG);
 
         m_IrradianceShader = Shader::Create("assets/shaders/IBL/Irradiance.glsl");
         m_PrefilterShader = Shader::Create("assets/shaders/IBL/Prefilter.glsl");
@@ -132,11 +132,18 @@ namespace Bubble
         m_Framebuffer->Unbind();
 
         // LUT
-        m_Framebuffer->Resize(LUTSize);
+        /*m_Framebuffer->Resize(LUTSize);
         m_Framebuffer->Bind();
+        m_Framebuffer->SetTexture(m_LUT->GetRendererID());*/
+        /*uint32_t m_RendererID;
+        glCreateFramebuffers(1, &m_RendererID);
+        glBindFramebuffer(GL_FRAMEBUFFER, m_RendererID);
+        glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, m_LUT->GetRendererID(), 0);
         m_LUTShader->Bind();
         RenderCommand::Clear();
-        m_Framebuffer->Unbind();
+        Renderer3D_NoBatch::DrawQude();
+        m_Framebuffer->Unbind();*/
+        m_LUT = Texture2D::Create("assets/textures/LUT.jpg");
     }
 
     uint32_t SkyBox::GetCubeMapID()

@@ -8,7 +8,7 @@ Entities:
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
     SpriteRendererComponent:
-      Color: [0.888030887, 0.863642037, 0.0685738176, 1]
+      Color: [0.98455596, 0.984555662, 0.984546125, 1]
       Albedo: assets\textures\container2.png
       Normal: ""
       Metallic: ""
@@ -22,7 +22,7 @@ Entities:
       Rotation: [2.15135697e-06, 0.524049163, -0.565667152]
       Scale: [1, 1, 1]
     SpriteRendererComponent:
-      Color: [0.05411366, 0.843675494, 0.934362948, 1]
+      Color: [0.996129036, 0.996137977, 0.99613899, 1]
       Albedo: assets\textures\container.jpg
       Normal: ""
       Metallic: ""
@@ -36,12 +36,12 @@ Entities:
       Rotation: [-2.34205294, -0.0394880772, 3.14159179]
       Scale: [0.999976575, 0.99999994, 1.00000262]
     SpriteRendererComponent:
-      Color: [0.0676197261, 0.729729772, 0.0778453797, 1]
-      Albedo: assets\textures\Checkerboard.png
-      Normal: ""
-      Metallic: ""
-      Roughness: ""
-      AO: ""
+      Color: [0.988407075, 0.98841697, 0.988407135, 1]
+      Albedo: assets\textures\gold\albedo.png
+      Normal: assets\textures\gold\normal.png
+      Metallic: assets\textures\gold\metallic.png
+      Roughness: assets\textures\gold\roughness.png
+      AO: assets\textures\gold\ao.png
   - Entity: 14631839275510599010
     TagComponent:
       Tag: A
@@ -51,11 +51,11 @@ Entities:
       Scale: [1, 1, 1]
     SpriteRendererComponent:
       Color: [1, 0.999989986, 0.999989986, 1]
-      Albedo: assets\textures\container2.png
-      Normal: ""
-      Metallic: ""
-      Roughness: ""
-      AO: ""
+      Albedo: assets\textures\wall\albedo.png
+      Normal: assets\textures\wall\normal.png
+      Metallic: assets\textures\wall\metallic.png
+      Roughness: assets\textures\wall\roughness.png
+      AO: assets\textures\wall\ao.png
   - Entity: 5848681991563351995
     TagComponent:
       Tag: Camera

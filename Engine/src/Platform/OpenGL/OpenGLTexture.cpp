@@ -57,15 +57,32 @@ namespace Bubble {
             m_Height = height;
 
             GLenum internalFormat = 0, dataFormat = 0;
-            if(channels == 4)
+            switch(channels)
             {
-                internalFormat = GL_RGBA8;
-                dataFormat = GL_RGBA;
-            }
-            else if(channels == 3)
-            {
-                internalFormat = GL_RGB8;
-                dataFormat = GL_RGB;
+                case 4:
+                {
+                    internalFormat = GL_RGBA8;
+                    dataFormat = GL_RGBA;
+                    break;
+                }
+                case 3:
+                {
+                    internalFormat = GL_RGB8;
+                    dataFormat = GL_RGB;
+                    break;
+                }
+                case 2:
+                {
+                    internalFormat = GL_RG8;
+                    dataFormat = GL_RG;
+                    break;
+                }
+                case 1:
+                {
+                    internalFormat = GL_R8;
+                    dataFormat = GL_RED;
+                    break;
+                }
             }
 
             m_InternalFormat = internalFormat;

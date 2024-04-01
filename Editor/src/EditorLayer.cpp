@@ -61,7 +61,8 @@ namespace Bubble
             shaderinformation.insert({PID(GBufferFB),textureinformation_GBuffer});
 
             std::vector<std::pair<int, std::string>> textureinformation_Light = {
-                            {0,"Color"},{1,"Position"},{2,"NormMeatlic"},{3,"RouAOID"}};
+                            {0,"Color"},{1,"Position"},{2,"NormMeatlic"},{3,"RouAOID"},
+                            { 4,"IrradianceMap" },{5,"PrefilterMap"},{6,"BrdfLUT"}};
             shaderinformation.insert({PID(LightFB),textureinformation_Light});
 
             std::vector<std::pair<int, std::string>> textureinformation_SkyBox = {
@@ -299,6 +300,7 @@ namespace Bubble
 
 
         uint64_t textureID = m_pipeline->Texture_DispalyViewport();
+        //uint64_t textureID = m_pipeline->m_Skybox.GetLUTID();
         /*textureID = m_SkyBox.m_Framebuffer->g*/
         //uint64_t textureID = m_Framebuffer->GetColorAttachmentRendererID();
         ImGui::Image(reinterpret_cast<void*>(textureID), ImVec2{m_ViewportSize.x, m_ViewportSize.y}, ImVec2{0, 1}, ImVec2{1, 0});

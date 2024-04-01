@@ -35,7 +35,7 @@ namespace Bubble
         virtual void ClearEntityID() = 0;
 
         virtual void Calculatelighting_Begin()=0;
-        virtual Ref<Shader> Calculatelighting() = 0;
+        virtual Ref<Shader> Calculatelighting(const glm::vec3& CameraPos) = 0;
         virtual void Calculatelighting_End() = 0; 
         virtual void ShowSkyBox_Begin() = 0;
         virtual Ref<Shader> ShowSkyBox() = 0;
@@ -67,8 +67,8 @@ namespace Bubble
         void GetIBL(int IiaSize = 32, int PrfSize = 128, int PrfMipNum = 5, int LUTSize = 512);
 
 
-    protected:
         SkyBox m_Skybox;
+    protected:
         std::unordered_map<int,Ref<Framebuffer>>m_Framebuffers;
         std::unordered_map<int,Ref<Shader>>m_Shader;
         int ViewportTexture_FramebufferID = -1;
