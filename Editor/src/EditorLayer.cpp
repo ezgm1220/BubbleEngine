@@ -79,7 +79,8 @@ namespace Bubble
 
         //m_pipeline->GetSkybox_SixFaces("assets/SkyBox/Sky");
         //m_pipeline->GetSkybox_Hdr("assets/shaders/GetCubeMap.glsl", "assets/SkyBox/spree_bank_4k.hdr", 512);
-        m_pipeline->GetSkybox_Hdr("assets/shaders/GetCubeMap.glsl", "assets/SkyBox/spree_bank_4k.hdr", 2048);
+        m_pipeline->GetSkybox_Hdr("assets/shaders/GetCubeMap.glsl", "assets/SkyBox/peppermint_powerplant_2_4k.hdr", 2048);
+        m_pipeline->GetIBL(32, 128, 5, 512);
 
         m_ActiveScene = CreateRef<Scene>();
 

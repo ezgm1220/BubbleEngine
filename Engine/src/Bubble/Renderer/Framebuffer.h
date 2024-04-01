@@ -90,7 +90,9 @@ namespace Bubble {
         virtual void Bind() = 0;
         virtual void Unbind() = 0;
 
-        virtual void SetCubeFace(int Faceid, uint32_t CubeMapID) = 0;
+        virtual void Resize(int newsize) = 0;
+
+        virtual void SetCubeFace(int Faceid, uint32_t CubeMapID, int mip = 0) = 0;
 
         static Ref<CubeMapFramebuffer> Create(int size);
     };

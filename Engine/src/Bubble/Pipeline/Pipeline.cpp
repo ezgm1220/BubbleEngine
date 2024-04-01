@@ -76,4 +76,10 @@ namespace Bubble
         m_Skybox.GetCubeMap_Hdr();
     }
 
+    void Pipeline::GetIBL(int IiaSize /*= 32*/, int PrfSize /*= 128*/, int PrfMipNum /*= 5*/, int LUTSize /*= 512*/)
+    {
+        m_Skybox.InitIBL(IiaSize, PrfSize, PrfMipNum, LUTSize);
+        m_Skybox.GetIBL();
+    }
+
 }

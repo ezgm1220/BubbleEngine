@@ -406,8 +406,16 @@ namespace Bubble {
 
     OpenGLCubeMapFramebuffer::~OpenGLCubeMapFramebuffer()
     {
-        glDeleteFramebuffers(1, &m_FBOID);
-        glDeleteRenderbuffers(1, &m_RBOID);
+        glDeleteFramebuffers(1, &m_RendererID);
+    }
+
+    void OpenGLCubeMapFramebuffer::Invalidate()
+    {
+        if(m_RendererID)
+        {
+            glDeleteFramebuffers(1, &m_RendererID);
+        }
+        glCreateFramebuffers(1, &m_RendererID);
     }
 
     void OpenGLCubeMapFramebuffer::Bind()
@@ -421,9 +429,15 @@ namespace Bubble {
         glBindFramebuffer(GL_FRAMEBUFFER, 0);
     }
 
-    void OpenGLCubeMapFramebuffer::SetCubeFace(int Faceid, uint32_t CubeMapID)
+    void OpenGLCubeMapFramebuffer::Resize(int newsize)
     {
-        glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_CUBE_MAP_POSITIVE_X + Faceid, CubeMapID, 0);
+        CubeMapSize = newsize;
+        //Invalidate();
+    }
+
+    void OpenGLCubeMapFramebuffer::SetCubeFace(int Faceid, uint32_t CubeMapID, int mip)
+    {
+        glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_CUBE_MAP_POSITIVE_X + Faceid, CubeMapID, mip);
     }
 
 }

@@ -133,6 +133,8 @@ namespace Bubble
         m_Shader[PID(SkyBoxFB)]->BindTexture(0, texid0);
         
         m_Shader[PID(SkyBoxFB)]->BindTexture(1, m_Skybox.GetCubeMapID());
+        //m_Shader[PID(SkyBoxFB)]->BindTexture(1, m_Skybox.GetIrradianceMapID());
+        //m_Shader[PID(SkyBoxFB)]->BindTexture(1, m_Skybox.GetPrefilterMapID());
 
         return m_Shader[PID(SkyBoxFB)];
     }

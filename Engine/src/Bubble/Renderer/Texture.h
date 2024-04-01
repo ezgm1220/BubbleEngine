@@ -6,6 +6,12 @@
 
 namespace Bubble {
 
+    enum class TexDataType
+    {
+        RGB8 = 0, RGBA8, RGB16F, RGBA16F, RG16F,
+        RGB, RGBA, RG
+    };
+
 	class Texture
 	{
 	public:
@@ -31,7 +37,7 @@ namespace Bubble {
 	class Texture2D : public Texture
 	{
 	public:
-		static Ref<Texture2D> Create(uint32_t width, uint32_t height);
+		static Ref<Texture2D> Create(uint32_t width, uint32_t height, TexDataType InternalFormat = TexDataType::RGBA8, TexDataType DataFormat = TexDataType::RGBA);
 		static Ref<Texture2D> Create(const std::string& path);
 	};
 
@@ -39,7 +45,7 @@ namespace Bubble {
     {
     public:
         static Ref<CubeMap> Create(const std::string& path);
-        static Ref<CubeMap> Create(const uint32_t mapsize);
+        static Ref<CubeMap> Create(const uint32_t mapsize,bool MipMap = false);
     };
 
     class HDRTexture2D : public Texture

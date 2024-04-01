@@ -64,6 +64,8 @@ namespace Bubble
 
         void GetSkybox_Hdr(const std::string Shaderpath,const std::string HdrTexpath,const uint32_t Mapsize);
 
+        void GetIBL(int IiaSize = 32, int PrfSize = 128, int PrfMipNum = 5, int LUTSize = 512);
+
 
     protected:
         SkyBox m_Skybox;

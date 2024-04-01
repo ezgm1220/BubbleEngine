@@ -26,6 +26,7 @@
 #include <vector>
 #include <unordered_map>
 #include <unordered_set>
+#include <tuple>
 
 #include "Bubble/Core/Base.h"
 

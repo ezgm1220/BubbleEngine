@@ -38,7 +38,8 @@ namespace Bubble
 
     void SkyBox::GetEmptyCubeMap(const uint32_t mapsize)
     {
-        m_CubeMap = CubeMap::Create(mapsize);
+        CubeMapSize = mapsize;
+        m_CubeMap = CubeMap::Create(mapsize,true);
     }
 
     void SkyBox::GetCubeMap_Hdr()
@@ -71,6 +72,73 @@ namespace Bubble
     }
 
     
+    void SkyBox::InitIBL(int IiaSize /*= 32*/, int PrfSize /*= 128*/, int PrfMipNum/*=5*/, int LUTSize /*= 512*/)
+    {
+        IrradianceSize = IiaSize;
+        PrefilterSize = PrfSize;
+        PrefilterMipMapNums = PrfMipNum;
+        this->LUTSize = LUTSize;
+
+        m_IrradianceMap = CubeMap::Create(IiaSize,false);
+        m_PrefilterMap = CubeMap::Create(PrfSize,true);
+        m_LUT = Texture2D::Create(LUTSize,LUTSize, TexDataType::RG16F, TexDataType::RG);
+
+        m_IrradianceShader = Shader::Create("assets/shaders/IBL/Irradiance.glsl");
+        m_PrefilterShader = Shader::Create("assets/shaders/IBL/Prefilter.glsl");
+        m_LUTShader = Shader::Create("assets/shaders/IBL/LUT.glsl");
+    }
+
+    void SkyBox::GetIBL()
+    {
+        // Irradiance
+        m_Framebuffer->Resize(IrradianceSize);
+        m_IrradianceShader->Bind();
+        m_IrradianceShader->SetInt("environmentMap", 0);
+        m_IrradianceShader->SetMat4("projection", captureProjection);
+        m_CubeMap->Bind();
+        m_Framebuffer->Bind();
+        for(unsigned int i = 0; i < 6; ++i)
+        {
+            m_IrradianceShader->SetMat4("view", captureViews[i]);
+            m_Framebuffer->SetCubeFace(i, m_IrradianceMap->GetRendererID());
+            RenderCommand::Clear();
+            Renderer3D_NoBatch::DrawCube();
+        }
+        m_Framebuffer->Unbind();
+        
+        // Prefilter
+        m_PrefilterMap->SetMipMap();
+        m_Framebuffer->Resize(PrefilterSize);
+        m_PrefilterShader->Bind();
+        m_PrefilterShader->SetInt("environmentMap", 0);
+        m_PrefilterShader->SetMat4("projection", captureProjection);
+        m_CubeMap->Bind();
+        for(unsigned int mip = 0; mip < PrefilterMipMapNums; ++mip)
+        {
+            // reisze framebuffer according to mip-level size.
+            unsigned int newsize = static_cast<unsigned int>(PrefilterSize * std::pow(0.5, mip));
+            m_Framebuffer->Resize(newsize);
+            m_Framebuffer->Bind();
+            float roughness = (float)mip / (float)(PrefilterMipMapNums - 1);
+            m_PrefilterShader->SetFloat("roughness", roughness);
+            for(unsigned int i = 0; i < 6; ++i)
+            {
+                m_PrefilterShader->SetMat4("view", captureViews[i]);
+                m_Framebuffer->SetCubeFace(i, m_PrefilterMap->GetRendererID(),mip);
+                RenderCommand::Clear();
+                Renderer3D_NoBatch::DrawCube();
+            }
+        }
+        m_Framebuffer->Unbind();
+
+        // LUT
+        m_Framebuffer->Resize(LUTSize);
+        m_Framebuffer->Bind();
+        m_LUTShader->Bind();
+        RenderCommand::Clear();
+        m_Framebuffer->Unbind();
+    }
+
     uint32_t SkyBox::GetCubeMapID()
     {
         if(!m_CubeMap)
@@ -79,6 +147,21 @@ namespace Bubble
             return -1;
         }
         return m_CubeMap->GetRendererID();
+    }
+
+    uint32_t SkyBox::GetIrradianceMapID()
+    {
+        return m_IrradianceMap->GetRendererID();
+    }
+
+    uint32_t SkyBox::GetPrefilterMapID()
+    {
+        return m_PrefilterMap->GetRendererID();
+    }
+
+    uint32_t SkyBox::GetLUTID()
+    {
+        return m_LUT->GetRendererID();
     }
 
 }

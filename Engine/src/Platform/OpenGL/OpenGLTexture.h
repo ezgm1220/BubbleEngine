@@ -9,7 +9,7 @@ namespace Bubble {
 	class OpenGLTexture2D : public Texture2D
 	{
 	public:
-		OpenGLTexture2D(uint32_t width, uint32_t height);
+		OpenGLTexture2D(uint32_t width, uint32_t height, TexDataType InternalFormat = TexDataType::RGBA8, TexDataType DataFormat = TexDataType::RGBA);
 		OpenGLTexture2D(const std::string& path);
 		virtual ~OpenGLTexture2D();
 
@@ -41,7 +41,7 @@ namespace Bubble {
     class OpenGLCubeMap : public CubeMap
     {
     public:
-        OpenGLCubeMap(uint32_t MapSize);
+        OpenGLCubeMap(uint32_t MapSize,bool MipMap);
         OpenGLCubeMap(const std::string& path);
         virtual ~OpenGLCubeMap();
 

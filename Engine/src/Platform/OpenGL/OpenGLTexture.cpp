@@ -5,11 +5,30 @@
 
 namespace Bubble {
 
-	OpenGLTexture2D::OpenGLTexture2D(uint32_t width, uint32_t height)
+    static std::tuple< GLenum, GLenum>TexDataGetType(TexDataType InternalFormat, TexDataType DataFormat)
+    {
+        GLenum fir, sec;
+        switch(InternalFormat)
+        {
+            case TexDataType::RGB8:fir = GL_RGB8; break;
+            case TexDataType::RGBA8:fir = GL_RGBA8; break;
+            case TexDataType::RGB16F:fir = GL_RGB16F; break;
+            case TexDataType::RGBA16F:fir = GL_RGBA16F; break;
+            case TexDataType::RG16F:fir = GL_RG16F; break;
+        }
+        switch(DataFormat)
+        {
+            case TexDataType::RGB:sec = GL_RGB; break;
+            case TexDataType::RGBA:sec = GL_RGBA; break;
+            case TexDataType::RG:sec = GL_RG; break;
+        }
+        return {fir,sec};
+    }
+
+	OpenGLTexture2D::OpenGLTexture2D(uint32_t width, uint32_t height, TexDataType InternalFormat, TexDataType DataFormat)
 		: m_Width(width), m_Height(height)
 	{
-		m_InternalFormat = GL_RGBA8;
-		m_DataFormat = GL_RGBA;
+        std::tie(m_InternalFormat, m_DataFormat)  = TexDataGetType(InternalFormat, DataFormat);
 
 		glCreateTextures(GL_TEXTURE_2D, 1, &m_RendererID);
 		glTextureStorage2D(m_RendererID, 1, m_InternalFormat, m_Width, m_Height);
@@ -86,7 +105,7 @@ namespace Bubble {
 		glBindTextureUnit(slot, m_RendererID);
 	}
 
-    OpenGLCubeMap::OpenGLCubeMap(uint32_t MapSize)
+    OpenGLCubeMap::OpenGLCubeMap(uint32_t MapSize, bool MipMap)
         :m_CubeSize(MapSize)
     {
         m_InternalFormat = GL_RGB16F;
@@ -110,11 +129,22 @@ namespace Bubble {
         {
             glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, m_InternalFormat, MapSize, MapSize, 0, m_DataFormat, GL_FLOAT, nullptr);
         }
-        glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-        glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-        glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
-        glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR); // enable pre-filter mipmap sampling (combatting visible dots artifact)
-        glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+        if(MipMap)
+        {
+            glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+            glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+            glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
+            glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR); // enable pre-filter mipmap sampling (combatting visible dots artifact)
+            glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+        }
+        else
+        {
+            glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+            glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+            glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
+            glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+            glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+        }
 
     }
 

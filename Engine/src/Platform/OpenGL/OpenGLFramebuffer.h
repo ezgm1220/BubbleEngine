@@ -46,9 +46,15 @@ namespace Bubble {
     public:
         OpenGLCubeMapFramebuffer(int size);
         virtual ~OpenGLCubeMapFramebuffer();
+
+        void Invalidate();
+
         virtual void Bind() override;
         virtual void Unbind() override;
-        virtual void SetCubeFace(int Faceid, uint32_t CubeMapID) override;
+
+        virtual void Resize(int newsize)override;
+
+        virtual void SetCubeFace(int Faceid, uint32_t CubeMapID, int mip = 0) override;
     private:
         uint32_t m_FBOID = 0;
         uint32_t m_RBOID = 0;
