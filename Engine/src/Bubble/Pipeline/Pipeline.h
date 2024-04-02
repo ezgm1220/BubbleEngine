@@ -66,9 +66,14 @@ namespace Bubble
 
         void GetIBL(int IiaSize = 32, int PrfSize = 128, int PrfMipNum = 5, int LUTSize = 512);
 
+        void RealTimeShader()
+        {
+            m_Shader[PID(LightFB)] = Shader::Create("assets/shaders/Lighting.glsl");
+        }
 
-        SkyBox m_Skybox;
+
     protected:
+        SkyBox m_Skybox;
         std::unordered_map<int,Ref<Framebuffer>>m_Framebuffers;
         std::unordered_map<int,Ref<Shader>>m_Shader;
         int ViewportTexture_FramebufferID = -1;

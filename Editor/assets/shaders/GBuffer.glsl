@@ -24,6 +24,7 @@ void main()
 	v_Color = BaseColor;
 	v_TexCoord = a_TexCoord;
     v_WorldPos =  Model * vec4(a_Position, 1.0);
+    v_WorldPos =  Model * vec4(a_Position, 1.0);
     v_Normal = NormalMatrix * a_Normal;
 	v_EntityID = EntityID;
 	gl_Position = ViewProjection * v_WorldPos;
@@ -32,11 +33,11 @@ void main()
 #type fragment
 #version 450
 
-layout(location = 0) out vec4 color;
-layout(location = 1) out vec4 Position;
-layout(location = 2) out vec4 NORMAL;
-layout(location = 3) out vec4 MRA;
-layout(location = 4) out int ID;
+layout(location = 0) out vec4 out_Color;
+layout(location = 1) out vec4 out_Position;
+layout(location = 2) out vec4 out_Normal;
+layout(location = 3) out vec4 out_MRA;
+layout(location = 4) out int out_ID;
 
 in vec4 v_Color;
 in vec2 v_TexCoord;
@@ -69,9 +70,9 @@ vec3 getNormalFromMap()
 
 void main()
 {
-    color = v_Color * texture(Albedo, v_TexCoord);
-    Position = v_WorldPos;
-    NORMAL = vec4(getNormalFromMap(),0.0);
-    MRA = vec4(texture(Metallic, v_TexCoord).r,texture(Roughness, v_TexCoord).r,texture(AO, v_TexCoord).r,0.0);
-	ID=v_EntityID;
+    out_Color = v_Color * texture(Albedo, v_TexCoord);
+    out_Position = v_WorldPos;
+    out_Normal = vec4(getNormalFromMap(),1.0);
+    out_MRA = vec4(texture(Metallic, v_TexCoord).r,texture(Roughness, v_TexCoord).r,texture(AO, v_TexCoord).r,1.0);
+	out_ID=v_EntityID;
 }

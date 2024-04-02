@@ -61,8 +61,8 @@ namespace Bubble {
 		
 		// 如果没有主动绑定的 VAO，GL_ELEMENT_ARRAY_BUFFER 无效。
 		// 与 GL_ARRAY_BUFFER 绑定后，无论 VAO 状态如何，都可以加载数据。
-		glBindBuffer(GL_ARRAY_BUFFER, m_RendererID);
-		glBufferData(GL_ARRAY_BUFFER, count * sizeof(uint32_t), indices, GL_STATIC_DRAW);
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_RendererID);
+		glBufferData(GL_ELEMENT_ARRAY_BUFFER, count * sizeof(uint32_t), indices, GL_STATIC_DRAW);
 	}
 
 	OpenGLIndexBuffer::~OpenGLIndexBuffer()

@@ -34,7 +34,12 @@ uniform samplerCube Skybox;
 void main()
 {
     vec3 envColor = textureLod(Skybox, WorldPos, 0.0).rgb;
-    outcolor = vec4(envColor,1.0);
+    vec3 color = envColor;
+    // HDR tonemapping
+    color = color / (color + vec3(1.0));
+    // gamma correct
+    color = pow(color, vec3(1.0/2.2)); 
+    outcolor = vec4(color,1.0);
 	//color = texture(Skybox, WorldPos);
 	//color = texture(RenderMap, Tcd);
 	//color = vec4(1.0,0.0,0.0,1.0);

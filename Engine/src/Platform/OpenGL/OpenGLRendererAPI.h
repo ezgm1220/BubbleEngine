@@ -14,6 +14,7 @@ namespace Bubble {
 		virtual void Clear() override;
 
 		virtual void DrawIndexed(const Ref<VertexArray>& vertexArray, uint32_t indexCount = 0) override;
+		virtual void DrawIndexed_STRIP(const Ref<VertexArray>& vertexArray, uint32_t indexCount = 0) override;
         virtual void DrawArrays(const Ref<VertexArray>& vertexArray, uint32_t vertexCount = 0) override;
 	};
 

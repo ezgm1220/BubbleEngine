@@ -193,7 +193,7 @@ namespace Bubble {
                     }
                     case FramebufferTextureFormat::RGBA16F:
                     {
-                        Utils::AttachColorTexture(m_ColorAttachments[i], m_Specification.Samples, GL_RGBA8, GL_RGBA, GL_FLOAT, m_Specification.Width, m_Specification.Height, i);
+                        Utils::AttachColorTexture(m_ColorAttachments[i], m_Specification.Samples, GL_RGBA16, GL_RGBA, GL_FLOAT, m_Specification.Width, m_Specification.Height, i);
                         break;
                     }
                     case FramebufferTextureFormat::RGBA32I:

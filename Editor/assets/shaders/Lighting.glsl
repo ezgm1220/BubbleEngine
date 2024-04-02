@@ -22,10 +22,10 @@ layout(location = 0) out vec4 outcolor;
 in vec2 v_TexCoord;
 
 // PBR
-uniform sampler2D Color;
-uniform sampler2D Position;
-uniform sampler2D Normal;
-uniform sampler2D MRA;
+uniform sampler2D ColorMap;
+uniform sampler2D PositionMap;
+uniform sampler2D NormalMap;
+uniform sampler2D MRAMap;
 
 // IBL
 uniform samplerCube IrradianceMap;
@@ -84,12 +84,12 @@ vec3 fresnelSchlickRoughness(float cosTheta, vec3 F0, float roughness)
 
 void main()
 {
-    vec3 Albedo = texture(Color,v_TexCoord).rgb;
-    vec3 WorldPos = texture(Position,v_TexCoord).rgb;
-    vec3 Normal = texture(Normal,v_TexCoord).rgb;
-    float Metallic = texture(MRA,v_TexCoord).r;
-    float Roughness = texture(MRA,v_TexCoord).g;
-    float AO = texture(MRA,v_TexCoord).b;
+    vec3 Albedo = texture(ColorMap,v_TexCoord).rgb;
+    vec3 WorldPos = texture(PositionMap,v_TexCoord).rgb;
+    vec3 Normal = texture(NormalMap,v_TexCoord).rgb;
+    float Metallic = texture(MRAMap,v_TexCoord).r;
+    float Roughness = texture(MRAMap,v_TexCoord).g;
+    float AO = texture(MRAMap,v_TexCoord).b;
 
     // input lighting data
     vec3 N = Normal;
@@ -107,6 +107,11 @@ void main()
 
     }
 
+    // 环境光照:
+
+    // 这里面的F是为将kd提出时简化过的
+    // float NoV = clamp(dot(N, V), 0.0, 1.0);
+    // vec3 F = fresnelSchlickRoughness(F0, NoV,Roughness);
     vec3 F = fresnelSchlickRoughness(max(dot(N, V), 0.0), F0, Roughness);
 
     vec3 kS = F;
@@ -118,7 +123,15 @@ void main()
 
     // sample both the pre-filter map and the BRDF lut and combine them together as per the Split-Sum approximation to get the IBL specular part.
     const float MAX_REFLECTION_LOD = 4.0;
-    vec3 prefilteredColor = textureLod(PrefilterMap, R,  Roughness * MAX_REFLECTION_LOD).rgb;    
+    vec3 prefilteredColor = textureLod(PrefilterMap, R,  Roughness * MAX_REFLECTION_LOD).rgb;     
+    //vec3 prefilteredColor = textureLod(PrefilterMap, R,  0).rgb;  
+
+
+
+    //vec3 prefilteredColor = textureLod(PrefilterMap, WorldPos,  0).rgb;   
+
+
+
     vec2 brdf  = texture(BrdfLUT, vec2(max(dot(N, V), 0.0), Roughness)).rg;
     vec3 specular = prefilteredColor * (F * brdf.x + brdf.y);
 
@@ -130,5 +143,7 @@ void main()
     // gamma correct
     color = pow(color, vec3(1.0/2.2)); 
 
-	outcolor = vec4(color, 1.0);
+	outcolor = vec4(R, 1.0);
+	//outcolor = vec4(texture(MRAMap,v_TexCoord).rgb, 1.0);
+	//outcolor = vec4(0.1,0.3,0.4, 1.0);
 }

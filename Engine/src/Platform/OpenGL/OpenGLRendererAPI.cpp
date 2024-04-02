@@ -70,6 +70,15 @@ namespace Bubble {
         vertexArray->Unbind();
 	}
 
+    void OpenGLRendererAPI::DrawIndexed_STRIP(const Ref<VertexArray>& vertexArray, uint32_t indexCount /*= 0*/)
+    {
+        uint32_t count = indexCount ? indexCount : vertexArray->GetIndexBuffer()->GetCount();
+        vertexArray->Bind();
+        //BB_CORE_INFO("OpenGLRendererAPI::DrawIndexed");
+        glDrawElements(GL_TRIANGLE_STRIP, count, GL_UNSIGNED_INT, nullptr);
+        vertexArray->Unbind();
+    }
+
     void OpenGLRendererAPI::DrawArrays(const Ref<VertexArray>& vertexArray, uint32_t vertexCount /*= 0*/)
     {
         vertexArray->Bind();

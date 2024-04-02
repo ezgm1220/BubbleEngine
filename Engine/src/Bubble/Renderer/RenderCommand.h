@@ -30,7 +30,12 @@ namespace Bubble {
 		static void DrawIndexed(const Ref<VertexArray>& vertexArray, uint32_t count = 0)
 		{
 			s_RendererAPI->DrawIndexed(vertexArray, count);
-		}
+        }
+        
+        static void DrawIndexed_STRIP(const Ref<VertexArray>& vertexArray, uint32_t count = 0)
+        {
+            s_RendererAPI->DrawIndexed_STRIP(vertexArray, count);
+        }
 
         static void DrawArrays(const Ref<VertexArray>& vertexArray, uint32_t count = 0)
         {

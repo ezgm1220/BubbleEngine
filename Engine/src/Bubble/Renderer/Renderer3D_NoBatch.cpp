@@ -6,12 +6,18 @@ namespace Bubble
 
     namespace Render3DNoBatch
     {
-        struct VertexData
+        struct CubeVertexData
         {
             glm::vec3 Position;
             glm::vec3 Normal;
             glm::vec2 TexCoord;
         }; 
+        struct SphereVertexData
+        {
+            glm::vec3 Position;
+            glm::vec3 Normal;
+            glm::vec2 TexCoord;
+        };
         struct QuadVertexData
         {
             glm::vec3 Position;
@@ -22,9 +28,13 @@ namespace Bubble
         {
             Ref<VertexArray>CubeVAO = nullptr;
             Ref<VertexArray>QuadVAO = nullptr;
+            Ref<VertexArray>SphereVAO = nullptr;
 
             Ref<VertexBuffer>CubeVBO = nullptr;
-            Ref<VertexBuffer>QuadVBO = nullptr;
+            Ref<VertexBuffer>QuadVBO = nullptr; 
+            Ref<VertexBuffer>SphereVBO = nullptr;
+
+            unsigned int sphereIndexCount = 0;
 
             Renderer3D_NoBatch::Statistics Stats;
         };
@@ -36,7 +46,7 @@ namespace Bubble
 
     void Renderer3D_NoBatch::Init()
     {
-        Render3DNoBatch::VertexData Cubevertexdata[36];
+        Render3DNoBatch::CubeVertexData Cubevertexdata[36];
         {
             // back face
             Cubevertexdata[0].Position = {-1.0f, -1.0f, -1.0f};
@@ -172,7 +182,7 @@ namespace Bubble
 
         s_Data.CubeVAO = VertexArray::Create();
 
-        s_Data.CubeVBO = VertexBuffer::Create(Cubevertexdata,36 * sizeof(Render3DNoBatch::VertexData));
+        s_Data.CubeVBO = VertexBuffer::Create(Cubevertexdata,36 * sizeof(Render3DNoBatch::CubeVertexData));
 
         s_Data.CubeVBO->SetLayout({
                 { ShaderDataType::Float3, "a_Position"  },
@@ -226,6 +236,87 @@ namespace Bubble
         s_Data.QuadVAO->Unbind();
         s_Data.QuadVBO->Unbind();
         quadIB->Unbind();
+
+
+        std::vector<glm::vec3> positions;
+        std::vector<glm::vec2> uv;
+        std::vector<glm::vec3> normals;
+        std::vector<uint32_t> indices;
+
+        const unsigned int X_SEGMENTS = 64;
+        const unsigned int Y_SEGMENTS = 64;
+        const float PI = 3.14159265359f;
+        for(unsigned int x = 0; x <= X_SEGMENTS; ++x)
+        {
+            for(unsigned int y = 0; y <= Y_SEGMENTS; ++y)
+            {
+                float xSegment = (float)x / (float)X_SEGMENTS;
+                float ySegment = (float)y / (float)Y_SEGMENTS;
+                float xPos = std::cos(xSegment * 2.0f * PI) * std::sin(ySegment * PI);
+                float yPos = std::cos(ySegment * PI);
+                float zPos = std::sin(xSegment * 2.0f * PI) * std::sin(ySegment * PI);
+
+                positions.push_back(glm::vec3(xPos, yPos, zPos));
+                uv.push_back(glm::vec2(xSegment, ySegment));
+                normals.push_back(glm::vec3(xPos, yPos, zPos));
+            }
+        }
+
+        bool oddRow = false;
+        for(unsigned int y = 0; y < Y_SEGMENTS; ++y)
+        {
+            if(!oddRow) // even rows: y == 0, y == 2; and so on
+            {
+                for(unsigned int x = 0; x <= X_SEGMENTS; ++x)
+                {
+                    indices.push_back(y * (X_SEGMENTS + 1) + x);
+                    indices.push_back((y + 1) * (X_SEGMENTS + 1) + x);
+                }
+            }
+            else
+            {
+                for(int x = X_SEGMENTS; x >= 0; --x)
+                {
+                    indices.push_back((y + 1) * (X_SEGMENTS + 1) + x);
+                    indices.push_back(y * (X_SEGMENTS + 1) + x);
+                }
+            }
+            oddRow = !oddRow;
+        }
+        s_Data.sphereIndexCount = indices.size();
+
+        std::vector<float> data;
+        for(unsigned int i = 0; i < positions.size(); ++i)
+        {
+            data.push_back(positions[i].x);
+            data.push_back(positions[i].y);
+            data.push_back(positions[i].z);
+            if(normals.size() > 0)
+            {
+                data.push_back(normals[i].x);
+                data.push_back(normals[i].y);
+                data.push_back(normals[i].z);
+            }
+            if(uv.size() > 0)
+            {
+                data.push_back(uv[i].x);
+                data.push_back(uv[i].y);
+            }
+        }
+        s_Data.SphereVAO = VertexArray::Create();
+        s_Data.SphereVBO = VertexBuffer::Create(&data[0], data.size() * sizeof(float));
+        s_Data.SphereVBO->SetLayout({
+                { ShaderDataType::Float3, "a_Position"  },
+                { ShaderDataType::Float3, "a_Normal"    },
+                { ShaderDataType::Float2, "a_TexCoord"  }
+            });
+        s_Data.SphereVAO->AddVertexBuffer(s_Data.SphereVBO);
+        Ref<IndexBuffer> sphIB = IndexBuffer::Create(&indices[0], indices.size());
+        s_Data.SphereVAO->SetIndexBuffer(sphIB);
+
+        s_Data.SphereVAO->Unbind();
+        s_Data.SphereVBO->Unbind();
+        sphIB->Unbind();
     }
 
     void Renderer3D_NoBatch::Shutdown()
@@ -301,11 +392,29 @@ namespace Bubble
         RenderCommand::DrawArrays(s_Data.CubeVAO, 36);
     }
 
+    void Renderer3D_NoBatch::DrawSphere(Ref<Pipeline>pipeline, int ShaderID, const glm::mat4& transform, const Ref<Texture2D>* textures, int TexturesSize, const glm::vec4& tintColor /*= glm::vec4(1.0f)*/, int entityID /*= -1*/)
+    {
+        pipeline->Get_Shader(ShaderID)->SetMat4("Model", transform);
+        pipeline->Get_Shader(ShaderID)->SetFloat4("BaseColor", tintColor);
+        pipeline->Get_Shader(ShaderID)->SetInt("EntityID", entityID);
+        pipeline->Get_Shader(ShaderID)->SetMat3("NormalMatrix", glm::transpose(glm::inverse(glm::mat3(transform))));
+
+        for(int i = 0; i < TexturesSize; i++)
+        {
+            textures[i]->Bind(i);
+        }
+
+        RenderCommand::DrawIndexed_STRIP(s_Data.SphereVAO, s_Data.sphereIndexCount);
+        //RenderCommand::DrawArrays(s_Data.SphereVAO, s_Data.sphereIndexCount);
+        s_Data.Stats.DrawCalls++;
+    }
+
     void Renderer3D_NoBatch::DrawSprite(Ref<Pipeline>pipeline, int ShaderID, const glm::mat4& transform, SpriteRendererComponent& src, int entityID /*= -1*/)
     {
         //BB_CORE_INFO("Renderer3D_NoBatch::DrawSprite");
         
-        DrawCube(pipeline, ShaderID, transform, src.Textures, 5, src.Color, entityID);
+        //DrawCube(pipeline, ShaderID, transform, src.Textures, 5, src.Color, entityID);
+        DrawSphere(pipeline, ShaderID, transform, src.Textures, 5, src.Color, entityID);
         
     }
 

@@ -1,61 +1,5 @@
 Scene: Untitled
 Entities:
-  - Entity: 15040056750909643832
-    TagComponent:
-      Tag: D
-    TransformComponent:
-      Translation: [-2.91110992, -1.0606041, 1.95553017]
-      Rotation: [0, 0, 0]
-      Scale: [1, 1, 1]
-    SpriteRendererComponent:
-      Color: [0.98455596, 0.984555662, 0.984546125, 1]
-      Albedo: assets\textures\container2.png
-      Normal: ""
-      Metallic: ""
-      Roughness: ""
-      AO: ""
-  - Entity: 15354071937906916318
-    TagComponent:
-      Tag: C
-    TransformComponent:
-      Translation: [-1.79874587, 3.0140686, 1.47620475]
-      Rotation: [2.15135697e-06, 0.524049163, -0.565667152]
-      Scale: [1, 1, 1]
-    SpriteRendererComponent:
-      Color: [0.996129036, 0.996137977, 0.99613899, 1]
-      Albedo: assets\textures\container.jpg
-      Normal: ""
-      Metallic: ""
-      Roughness: ""
-      AO: ""
-  - Entity: 9868432192625713214
-    TagComponent:
-      Tag: B
-    TransformComponent:
-      Translation: [1.6130414, 1.8903358, -0.35773927]
-      Rotation: [-2.34205294, -0.0394880772, 3.14159179]
-      Scale: [0.999976575, 0.99999994, 1.00000262]
-    SpriteRendererComponent:
-      Color: [0.988407075, 0.98841697, 0.988407135, 1]
-      Albedo: assets\textures\gold\albedo.png
-      Normal: assets\textures\gold\normal.png
-      Metallic: assets\textures\gold\metallic.png
-      Roughness: assets\textures\gold\roughness.png
-      AO: assets\textures\gold\ao.png
-  - Entity: 14631839275510599010
-    TagComponent:
-      Tag: A
-    TransformComponent:
-      Translation: [-0.913371921, -0.58165288, -4.63641834]
-      Rotation: [0, 0, 0]
-      Scale: [1, 1, 1]
-    SpriteRendererComponent:
-      Color: [1, 0.999989986, 0.999989986, 1]
-      Albedo: assets\textures\wall\albedo.png
-      Normal: assets\textures\wall\normal.png
-      Metallic: assets\textures\wall\metallic.png
-      Roughness: assets\textures\wall\roughness.png
-      AO: assets\textures\wall\ao.png
   - Entity: 5848681991563351995
     TagComponent:
       Tag: Camera
@@ -74,3 +18,59 @@ Entities:
         OrthographicFar: 1
       Primary: true
       FixedAspectRatio: false
+  - Entity: 14631839275510599010
+    TagComponent:
+      Tag: A
+    TransformComponent:
+      Translation: [0.199395463, -0.920912027, -4.63641834]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    SpriteRendererComponent:
+      Color: [1, 0.999989986, 0.999989986, 1]
+      Albedo: assets\textures\wall\albedo.png
+      Normal: assets\textures\wall\normal.png
+      Metallic: assets\textures\wall\metallic.png
+      Roughness: assets\textures\wall\roughness.png
+      AO: assets\textures\wall\ao.png
+  - Entity: 9868432192625713214
+    TagComponent:
+      Tag: B
+    TransformComponent:
+      Translation: [3.10408759, 0.757142961, -0.372257024]
+      Rotation: [-1.60405242, -0.0394885316, 3.14159179]
+      Scale: [0.999967217, 1.00000012, 1.00000012]
+    SpriteRendererComponent:
+      Color: [0.988407075, 0.98841697, 0.988407135, 1]
+      Albedo: assets\textures\gold\albedo.png
+      Normal: assets\textures\gold\normal.png
+      Metallic: assets\textures\gold\metallic.png
+      Roughness: assets\textures\gold\roughness.png
+      AO: assets\textures\gold\ao.png
+  - Entity: 15354071937906916318
+    TagComponent:
+      Tag: C
+    TransformComponent:
+      Translation: [-1.79874587, 3.0140686, 1.47620475]
+      Rotation: [2.15135697e-06, 0.524049163, -0.565667152]
+      Scale: [1, 1, 1]
+    SpriteRendererComponent:
+      Color: [0.996129036, 0.996137977, 0.99613899, 1]
+      Albedo: assets\textures\gold\albedo.png
+      Normal: assets\textures\gold\normal.png
+      Metallic: assets\textures\gold\metallic.png
+      Roughness: assets\textures\gold\roughness.png
+      AO: assets\textures\gold\ao.png
+  - Entity: 15040056750909643832
+    TagComponent:
+      Tag: D
+    TransformComponent:
+      Translation: [0.35110122, 0.709902346, -53.9680862]
+      Rotation: [0, 0, 0]
+      Scale: [18.3058128, 18.3058128, 18.3058128]
+    SpriteRendererComponent:
+      Color: [0.98455596, 0.984555662, 0.984546125, 1]
+      Albedo: assets\textures\gold\albedo.png
+      Normal: assets\textures\gold\normal.png
+      Metallic: assets\textures\gold\metallic.png
+      Roughness: assets\textures\gold\roughness.png
+      AO: assets\textures\gold\ao.png

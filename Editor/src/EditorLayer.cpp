@@ -61,7 +61,7 @@ namespace Bubble
             shaderinformation.insert({PID(GBufferFB),textureinformation_GBuffer});
 
             std::vector<std::pair<int, std::string>> textureinformation_Light = {
-                            {0,"Color"},{1,"Position"},{2,"Normal"},{3,"MRA"},
+                            {0,"ColorMap"},{1,"PositionMap"},{2,"NormalMap"},{3,"MRAMap"},
                             { 4,"IrradianceMap" },{5,"PrefilterMap"},{6,"BrdfLUT"}};
             shaderinformation.insert({PID(LightFB),textureinformation_Light});
 
@@ -80,8 +80,8 @@ namespace Bubble
 
         //m_pipeline->GetSkybox_SixFaces("assets/SkyBox/Sky");
         //m_pipeline->GetSkybox_Hdr("assets/shaders/GetCubeMap.glsl", "assets/SkyBox/spree_bank_4k.hdr", 512);
-        m_pipeline->GetSkybox_Hdr("assets/shaders/GetCubeMap.glsl", "assets/SkyBox/peppermint_powerplant_2_4k.hdr", 2048);
-        m_pipeline->GetIBL(32, 128, 5, 512);
+        m_pipeline->GetSkybox_Hdr("assets/shaders/GetCubeMap.glsl", "assets/SkyBox/spree_bank_4k.hdr", 2048);
+        m_pipeline->GetIBL(128, 512, 5, 512);
 
         m_ActiveScene = CreateRef<Scene>();
 
@@ -110,6 +110,7 @@ namespace Bubble
         //m_pipeline->GetSkybox_Hdr("assets/shaders/GetCubeMap.glsl", "assets/SkyBox/spree_bank_4k.hdr", 512);
         
         // Resize,当视图尺寸发生变换时更新信息
+
         std::vector<Ref<Framebuffer>> framebuffers = m_pipeline->GetFramebufferVector();
         bool ViewoirtSizeChange = false;
         for(auto m_Framebuffer : framebuffers)

@@ -89,11 +89,13 @@ namespace Bubble
         m_Shader[PID(LightFB)]->BindTexture(3, texid3);
 
         m_Shader[PID(LightFB)]->BindTexture(4, m_Skybox.GetIrradianceMapID());
-        m_Shader[PID(LightFB)]->BindTexture(5, m_Skybox.GetPrefilterMapID());
+        //m_Shader[PID(LightFB)]->BindTexture(5, m_Skybox.GetPrefilterMapID());
+        m_Shader[PID(LightFB)]->BindTexture(5, m_Skybox.GetCubeMapID());
         m_Shader[PID(LightFB)]->BindTexture(6, m_Skybox.GetLUTID());
 
 
         m_Shader[PID(LightFB)]->SetFloat3("CameraPos", CameraPos);
+        BB_CORE_INFO(CameraPos);
 
         return m_Shader[PID(LightFB)];
     }
@@ -139,9 +141,9 @@ namespace Bubble
         auto texid0 = m_Framebuffers[PID(SkyBoxFB)]->GetColorAttachmentRendererID(0);
         m_Shader[PID(SkyBoxFB)]->BindTexture(0, texid0);
         
-        m_Shader[PID(SkyBoxFB)]->BindTexture(1, m_Skybox.GetCubeMapID());
+        //m_Shader[PID(SkyBoxFB)]->BindTexture(1, m_Skybox.GetCubeMapID());
         //m_Shader[PID(SkyBoxFB)]->BindTexture(1, m_Skybox.GetIrradianceMapID());
-        //m_Shader[PID(SkyBoxFB)]->BindTexture(1, m_Skybox.GetPrefilterMapID());
+        m_Shader[PID(SkyBoxFB)]->BindTexture(1, m_Skybox.GetPrefilterMapID());
 
         return m_Shader[PID(SkyBoxFB)];
     }
