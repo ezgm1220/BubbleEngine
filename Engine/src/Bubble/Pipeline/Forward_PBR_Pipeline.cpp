@@ -51,6 +51,7 @@ namespace Bubble
         m_Framebuffers[PID(ForwardPBRFB)]->Bind();
         m_Shader[PID(ForwardPBRFB)]->Bind();
         m_Shader[PID(ForwardPBRFB)]->SetMat4("ViewProjection", camera.GetViewProjection());
+        m_Shader[PID(ForwardPBRFB)]->SetFloat3("camPos", camera.GetPosition());
     }
     void FPBR_Pipeline::BeginScene(const SceneCamera& camera, const glm::mat4& transform)
     {

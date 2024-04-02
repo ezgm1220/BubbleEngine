@@ -1,15 +1,11 @@
-[23:06:27] [info] BUBBLE: Creating window Bubble Editor (1600, 900)
-[23:06:27] [info] BUBBLE: OpenGL Info:
-[23:06:27] [info] BUBBLE:   Vendor: NVIDIA Corporation
-[23:06:27] [info] BUBBLE:   Renderer: NVIDIA GeForce RTX 2060/PCIe/SSE2
-[23:06:27] [info] BUBBLE:   Version: 4.5.0 NVIDIA 551.86
-[23:06:27] [error] BUBBLE: Program/shader state performance warning: Vertex shader in program 3 is being recompiled based on GL state.
-[23:06:28] [error] BUBBLE: Program/shader state performance warning: Vertex shader in program 4 is being recompiled based on GL state.
-[23:06:28] [error] BUBBLE: Program/shader state performance warning: Vertex shader in program 5 is being recompiled based on GL state.
-[23:06:28] [error] BUBBLE: Program/shader state performance warning: Vertex shader in program 5 is being recompiled based on GL state.
-[23:06:30] [trace] BUBBLE: Deserializing scene 'Untitled'
-[23:06:30] [trace] BUBBLE: Deserialized entity with ID = 608441564598621349, name = wall
-[23:06:32] [trace] BUBBLE: Deserialized entity with ID = 5751728619673797090, name = plastic
-[23:06:33] [trace] BUBBLE: Deserialized entity with ID = 14666236401959362122, name = grass
-[23:06:34] [trace] BUBBLE: Deserialized entity with ID = 14597299304727981751, name = gold
-[23:06:35] [trace] BUBBLE: Deserialized entity with ID = 12738193814166956915, name = rusted iron
+[23:53:32] [info] BUBBLE: Creating window Bubble Editor (1600, 900)
+[23:53:32] [info] BUBBLE: OpenGL Info:
+[23:53:32] [info] BUBBLE:   Vendor: NVIDIA Corporation
+[23:53:32] [info] BUBBLE:   Renderer: NVIDIA GeForce RTX 2060/PCIe/SSE2
+[23:53:32] [info] BUBBLE:   Version: 4.5.0 NVIDIA 551.86
+[23:53:35] [trace] BUBBLE: Deserializing scene 'Untitled'
+[23:53:35] [trace] BUBBLE: Deserialized entity with ID = 608441564598621349, name = wall
+[23:53:35] [trace] BUBBLE: Deserialized entity with ID = 5751728619673797090, name = plastic
+[23:53:35] [trace] BUBBLE: Deserialized entity with ID = 14666236401959362122, name = grass
+[23:53:36] [trace] BUBBLE: Deserialized entity with ID = 14597299304727981751, name = gold
+[23:53:36] [trace] BUBBLE: Deserialized entity with ID = 12738193814166956915, name = rusted iron
