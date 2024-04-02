@@ -29,7 +29,9 @@ namespace Bubble {
 
         virtual uint32_t GetID() const override { return m_RendererID; }
 
-        virtual void CopyFrameBufferAttachment(uint32_t FBID = -1,int AttachmentIndex = -1)override;
+        virtual void CopyFrameBufferAttachment_All(uint32_t FBID = -1,int AttachmentIndex = -1)override;
+
+        virtual void CopyFrameBufferAttachment_One(uint32_t FBID = -1, int AttachmentIndex = -1)override;
 	private:
 		uint32_t m_RendererID = 0;
 		FramebufferSpecification m_Specification;

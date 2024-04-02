@@ -11,6 +11,8 @@
 #include "ImGuizmo.h"
 
 #include "Bubble/Math/Math.h"
+#include "Bubble/Pipeline/PBR_Pipeline.h"
+#include "Bubble/Pipeline/Forward_PBR_Pipeline.h"
 
 namespace Bubble
 {
@@ -24,64 +26,14 @@ namespace Bubble
     void EditorLayer::OnAttach()
     {
         
+
         //m_CheckerboardTexture = Texture2D::Create("assets/textures/Checkerboard.png");
         m_IconPlay = Texture2D::Create("Resources/Icons/PlayButton.png");
         m_IconStop = Texture2D::Create("Resources/Icons/StopButton.png");
 
-        // 设置帧缓冲信息以及Shader信息
-        {
-            FramebufferSpecification fbSpec_GBuffer;
-            fbSpec_GBuffer.Attachments = {FramebufferTextureFormat::RGBA8, FramebufferTextureFormat::RGBA16F,FramebufferTextureFormat::RGBA16F, FramebufferTextureFormat::RGBA16F, FramebufferTextureFormat::RED_INTEGER, FramebufferTextureFormat::Depth};
-            fbSpec_GBuffer.Width = 1280;
-            fbSpec_GBuffer.Height = 720;
-            m_pipeline->Set_Framebuffer(fbSpec_GBuffer, PID(GBufferFB));
-
-            FramebufferSpecification fbSpec_Light;
-            fbSpec_Light.Attachments = {FramebufferTextureFormat::RGBA16F};
-            fbSpec_Light.Width = 1280;
-            fbSpec_Light.Height = 720;
-            m_pipeline->Set_Framebuffer(fbSpec_Light, PID(LightFB));
-
-            FramebufferSpecification fbSpec_SkyBox;
-            fbSpec_SkyBox.Attachments = {FramebufferTextureFormat::RGBA16F, FramebufferTextureFormat::Depth};
-            //fbSpec_SkyBox.Attachments = {FramebufferTextureFormat::RGBA16F};
-            fbSpec_SkyBox.Width = 1280;
-            fbSpec_SkyBox.Height = 720;
-            m_pipeline->Set_Framebuffer(fbSpec_SkyBox, PID(SkyBoxFB));
-
-            std::unordered_map<int, std::string > shadersmap;
-            shadersmap.insert({PID(GBufferFB),"assets/shaders/GBuffer.glsl"});
-            shadersmap.insert({PID(LightFB),"assets/shaders/Lighting.glsl"});
-            shadersmap.insert({PID(SkyBoxFB),"assets/shaders/Skybox.glsl"});
-            m_pipeline->LoadShaders(shadersmap);
-
-            std::unordered_map<int, std::vector<std::pair<int, std::string>>> shaderinformation;
-            std::vector<std::pair<int, std::string>> textureinformation_GBuffer = {
-                            {0,"Albedo"},{1,"Normal"},{2,"Metallic"},{3,"Roughness"},{4,"AO"}};
-            shaderinformation.insert({PID(GBufferFB),textureinformation_GBuffer});
-
-            std::vector<std::pair<int, std::string>> textureinformation_Light = {
-                            {0,"ColorMap"},{1,"PositionMap"},{2,"NormalMap"},{3,"MRAMap"},
-                            { 4,"IrradianceMap" },{5,"PrefilterMap"},{6,"BrdfLUT"}};
-            shaderinformation.insert({PID(LightFB),textureinformation_Light});
-
-            std::vector<std::pair<int, std::string>> textureinformation_SkyBox = {
-                            {0,"RenderMap"},{1,"Skybox"}};
-            shaderinformation.insert({PID(SkyBoxFB),textureinformation_SkyBox});
-
-
-            m_pipeline->BindTextureIndex(shaderinformation);
-        }
-
-        //m_pipeline->SetViewportInformation(PID(SkyBoxFB), 0);
-
-        m_pipeline->SetViewportInformation(PID(SkyBoxFB), 0);
-        //m_pipeline->SetViewportInformation(PID(LightFB), 0);
-
-        //m_pipeline->GetSkybox_SixFaces("assets/SkyBox/Sky");
-        //m_pipeline->GetSkybox_Hdr("assets/shaders/GetCubeMap.glsl", "assets/SkyBox/spree_bank_4k.hdr", 512);
-        m_pipeline->GetSkybox_Hdr("assets/shaders/GetCubeMap.glsl", "assets/SkyBox/newport_loft.hdr", 2048);
-        m_pipeline->GetIBL(128, 512, 5, 512);
+        //m_pipeline = CreateRef<PBRPipeline>();
+        m_pipeline = CreateRef<FPBR_Pipeline>();
+        m_pipeline->Init();
 
         m_ActiveScene = CreateRef<Scene>();
 
@@ -165,7 +117,7 @@ namespace Bubble
         // 读取坐标下的id,获得该id下的悬停实体
         if(mouseX >= 0 && mouseY >= 0 && mouseX < (int)viewportSize.x && mouseY < (int)viewportSize.y)
         {
-            int pixelData = m_pipeline->GetEntityID(PID(GBufferFB), 4, mouseX, mouseY);
+            int pixelData = m_pipeline->GetEntityID(mouseX, mouseY);
             m_HoveredEntity = pixelData == -1 ? Entity() : Entity((entt::entity)pixelData, m_ActiveScene.get());
         }
 

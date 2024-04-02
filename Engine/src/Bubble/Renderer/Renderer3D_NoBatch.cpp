@@ -342,9 +342,7 @@ namespace Bubble
 
     void Renderer3D_NoBatch::ClearEntityID(Ref<Pipeline>pipeline)
     {
-        pipeline->Get_Framebuffer(PID(GBufferFB))->Bind();
-        RenderCommand::SetClearColor({0.1f, 0.1f, 0.1f, 1});
-        RenderCommand::Clear();
+        
         pipeline->ClearEntityID();
         pipeline->UnbindFramebuffer();
 
@@ -394,10 +392,10 @@ namespace Bubble
 
     void Renderer3D_NoBatch::DrawSphere(Ref<Pipeline>pipeline, int ShaderID, const glm::mat4& transform, const Ref<Texture2D>* textures, int TexturesSize, const glm::vec4& tintColor /*= glm::vec4(1.0f)*/, int entityID /*= -1*/)
     {
-        pipeline->Get_Shader(ShaderID)->SetMat4("Model", transform);
+       /* pipeline->Get_Shader(ShaderID)->SetMat4("Model", transform);
         pipeline->Get_Shader(ShaderID)->SetFloat4("BaseColor", tintColor);
         pipeline->Get_Shader(ShaderID)->SetInt("EntityID", entityID);
-        pipeline->Get_Shader(ShaderID)->SetMat3("NormalMatrix", glm::transpose(glm::inverse(glm::mat3(transform))));
+        pipeline->Get_Shader(ShaderID)->SetMat3("NormalMatrix", glm::transpose(glm::inverse(glm::mat3(transform))));*/
 
         for(int i = 0; i < TexturesSize; i++)
         {
@@ -409,33 +407,34 @@ namespace Bubble
         s_Data.Stats.DrawCalls++;
     }
 
-    void Renderer3D_NoBatch::DrawSprite(Ref<Pipeline>pipeline, int ShaderID, const glm::mat4& transform, SpriteRendererComponent& src, int entityID /*= -1*/)
+    void Renderer3D_NoBatch::DrawSprite(Ref<Pipeline>pipeline,const glm::mat4& transform, SpriteRendererComponent& src, int entityID /*= -1*/)
     {
         //BB_CORE_INFO("Renderer3D_NoBatch::DrawSprite");
         
         //DrawCube(pipeline, ShaderID, transform, src.Textures, 5, src.Color, entityID);
-        DrawSphere(pipeline, ShaderID, transform, src.Textures, 5, src.Color, entityID);
+        auto id = pipeline->DrawScene(transform, src.Color, entityID);
+        DrawSphere(pipeline, id, transform, src.Textures, 5, src.Color, entityID);
         
     }
 
     void Renderer3D_NoBatch::Calculatelighting(const glm::vec3&CameraPos, Ref<Pipeline>pipeline)
     {
-        pipeline->Calculatelighting_Begin();
-        auto shader = pipeline->Calculatelighting(CameraPos);
+        auto mstate = pipeline->Calculatelighting_Begin();
+        if(mstate)
+        {
+            auto shader = pipeline->Calculatelighting(CameraPos);
 
-        RenderCommand::DrawIndexed(s_Data.QuadVAO, 6);
+            RenderCommand::DrawIndexed(s_Data.QuadVAO, 6);
 
-        pipeline->Calculatelighting_End();
+            pipeline->Calculatelighting_End();
+        } 
     }
 
     void Renderer3D_NoBatch::ShowSkyBox(Ref<Pipeline>pipeline, const glm::mat4& View, const glm::mat4& projection)
     {
         pipeline->ShowSkyBox_Begin();
-        auto shader = pipeline->ShowSkyBox();
-        shader->SetMat4("view", View);
-        shader->SetMat4("projection", projection);
-        //RenderCommand::Clear();
-        //RenderCommand::DrawIndexed(s_Data.CubeVAO,36);
+        auto shader = pipeline->ShowSkyBox(View, projection);
+        
         RenderCommand::DrawArrays(s_Data.CubeVAO, 36);
 
         pipeline->ShowSkyBox_End();

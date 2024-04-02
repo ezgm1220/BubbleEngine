@@ -79,7 +79,8 @@ namespace Bubble {
 
         virtual uint32_t GetID() const = 0;
 
-        virtual void CopyFrameBufferAttachment(uint32_t FBID = -1, int AttachmentIndex = -1) = 0;
+        virtual void CopyFrameBufferAttachment_All(uint32_t FBID = -1, int AttachmentType = -1) = 0;
+        virtual void CopyFrameBufferAttachment_One(uint32_t FBID = -1, int AttachmentIndex = -1) = 0;
 	};
 
     class CubeMapFramebuffer

@@ -5,8 +5,6 @@
 #include "Bubble/Renderer/Renderer.h"
 #include "Bubble/Core/Input.h"
 
-#include "Bubble/Pipeline/PBR_Pipeline.h"
-
 #include "Bubble/Tools/RenderApiState.h"
 
 #include "Bubble/Tools/RenderApiState.h"
@@ -27,7 +25,7 @@ namespace Bubble
         m_Window->SetEventCallback(BB_BIND_EVENT_FN(Application::OnEvent));// 设置回调函数
 
         // 初始化Pipeline(默认Pipeline为PBR)
-        m_Pipeline = CreateRef<PBRPipeline>();
+        m_Pipeline = nullptr;
 
         Renderer::Init();
 

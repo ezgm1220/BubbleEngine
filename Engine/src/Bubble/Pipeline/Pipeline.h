@@ -22,30 +22,35 @@ namespace Bubble
 
         enum class Type
         {
-            DefaultFB = 0, GBufferFB = 1, LightFB = 2, SkyBoxFB = 3
+            DefaultFB = 0, GBufferFB = 1, LightFB = 2, SkyBoxFB = 3,
+            ForwardPBRFB,
         };
 
-        virtual void LoadShaders(const std::unordered_map<int,std::string>& ShaderInformations) = 0;
-        virtual void BindTextureIndex(const std::unordered_map<int, std::vector<std::pair<int, std::string>>>& indexs) = 0;
+        void LoadShaders(const std::unordered_map<int, std::string>& ShaderInformations) ;
+        void BindTextureIndex(const std::unordered_map<int, std::vector<std::pair<int, std::string>>>& indexs);
+
+        virtual void Init() = 0;
 
         virtual void BeginScene(const EditorCamera& camera) = 0;
         virtual void BeginScene(const SceneCamera& camera,const glm::mat4& transform) = 0;
+        virtual int DrawScene(const glm::mat4& transform, const glm::vec4& tintColor = glm::vec4(1.0f), int entityID = -1) = 0;
         virtual void EndScene() = 0;
         virtual void Draw_Forward(Ref<VertexArray> vertex, uint32_t count) = 0;// 前向渲染的接口
         virtual void ClearEntityID() = 0;
 
-        virtual void Calculatelighting_Begin()=0;
+        virtual bool Calculatelighting_Begin()=0;
         virtual Ref<Shader> Calculatelighting(const glm::vec3& CameraPos) = 0;
         virtual void Calculatelighting_End() = 0; 
         virtual void ShowSkyBox_Begin() = 0;
-        virtual Ref<Shader> ShowSkyBox() = 0;
+        virtual Ref<Shader> ShowSkyBox(const glm::mat4& View, const glm::mat4& projection) = 0;
         virtual void ShowSkyBox_End() = 0;
         
 
-        virtual int GetEntityID(int FramebufferID, int AttachmentIndex, int mouseX, int mouseY) = 0;
+        virtual int GetEntityID(int mouseX, int mouseY) = 0;
         virtual uint64_t Texture_DispalyViewport() = 0;
 
         void SetViewportInformation(int FrambufferID, int AttachmentIndex);
+        void SetEntityIDInformation(int FrambufferID, int AttachmentIndex);
 
         void Set_Framebuffer(FramebufferSpecification& fbSpec, int id = -1);// 创建Framebuffer
 
@@ -78,6 +83,8 @@ namespace Bubble
         std::unordered_map<int,Ref<Shader>>m_Shader;
         int ViewportTexture_FramebufferID = -1;
         int ViewportTexture_AttachmentIndex = -1;
+        int Entity_FramebufferID = -1;
+        int Entity_AttachmentIndex = -1;
     };
 
 }

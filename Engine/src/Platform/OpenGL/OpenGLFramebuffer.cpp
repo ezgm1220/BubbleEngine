@@ -360,9 +360,9 @@ namespace Bubble {
         glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0 + OriIndex, multisampled, NowID, 0);
     }
 
-    void OpenGLFramebuffer::CopyFrameBufferAttachment(uint32_t FBID, int AttachmentIndex)
+    void OpenGLFramebuffer::CopyFrameBufferAttachment_All(uint32_t FBID, int AttachmentType)
     {
-        switch(AttachmentIndex)
+        switch(AttachmentType)
         {
             case 0:
             {
@@ -386,6 +386,15 @@ namespace Bubble {
                 break;
             }
         }
+    }
+
+
+    void OpenGLFramebuffer::CopyFrameBufferAttachment_One(uint32_t FBID /*= -1*/, int AttachmentIndex /*= -1*/)
+    {
+        glBindFramebuffer(GL_READ_FRAMEBUFFER, FBID);
+        glReadBuffer(GL_COLOR_ATTACHMENT0 + AttachmentIndex);
+        glBindTexture(GL_TEXTURE_2D, this->GetColorAttachmentRendererID(0));
+        glCopyTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, 0, 0, m_Specification.Width, m_Specification.Height);
     }
 
     OpenGLCubeMapFramebuffer::OpenGLCubeMapFramebuffer(int size)

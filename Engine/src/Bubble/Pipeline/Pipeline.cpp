@@ -4,10 +4,39 @@
 namespace Bubble
 {
 
+    void Pipeline::LoadShaders(const std::unordered_map<int, std::string>& ShaderInformations)
+    {
+         // 初始化Shader
+        for(auto map : ShaderInformations)
+        {
+            m_Shader.insert({map.first,Shader::Create(map.second)});
+        }
+    }
+
+    void Pipeline::BindTextureIndex(const std::unordered_map<int, std::vector<std::pair<int, std::string>>>& indexs)
+    {
+        for(auto ShaderInformation : indexs)
+        {
+            auto& shader = m_Shader[ShaderInformation.first];
+            shader->Bind();
+            for(auto texture : ShaderInformation.second)
+            {
+                shader->SetInt(texture.second, texture.first);
+            }
+            shader->Unbind();
+        }
+    }
+
     void Pipeline::SetViewportInformation(int FrambufferID, int AttachmentIndex)
     {
         ViewportTexture_FramebufferID = FrambufferID;
         ViewportTexture_AttachmentIndex = AttachmentIndex;
+    }
+
+    void Pipeline::SetEntityIDInformation(int FrambufferID, int AttachmentIndex)
+    {
+        Entity_FramebufferID = FrambufferID;
+        Entity_AttachmentIndex = AttachmentIndex;
     }
 
     void Pipeline::Set_Framebuffer(FramebufferSpecification& fbSpec, int id)

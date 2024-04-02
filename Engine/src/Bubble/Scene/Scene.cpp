@@ -125,7 +125,7 @@ namespace Bubble
                     auto [transform, sprite] = group.get<TransformComponent, SpriteRendererComponent>(entity);
 
                     //Renderer3D::DrawSprite(pipeline, transform.GetTransform(), sprite, (int)entity);
-                    Renderer3D_NoBatch::DrawSprite(pipeline, PID(GBufferFB), transform.GetTransform(), sprite, (int)entity);
+                    Renderer3D_NoBatch::DrawSprite(pipeline, transform.GetTransform(), sprite, (int)entity);
                 }
 
                 //Renderer3D::EndScene(pipeline);
@@ -136,7 +136,7 @@ namespace Bubble
         }
 
         Renderer3D_NoBatch::ShowSkyBox(pipeline,camera.GetViewMatrix(),camera.GetProjection());
-        //pipeline->UnbindFramebuffer();
+        pipeline->UnbindFramebuffer();
     }
 
     void Scene::OnViewportResize(uint32_t width, uint32_t height)
