@@ -92,7 +92,7 @@ void main()
     float AO = texture(MRAMap,v_TexCoord).b;
 
     // input lighting data
-    vec3 N = Normal;
+    vec3 N = normalize(Normal);
     vec3 V = normalize(CameraPos - WorldPos);
     vec3 R = reflect(-V, N); 
 
@@ -123,8 +123,8 @@ void main()
 
     // sample both the pre-filter map and the BRDF lut and combine them together as per the Split-Sum approximation to get the IBL specular part.
     const float MAX_REFLECTION_LOD = 4.0;
-    vec3 prefilteredColor = textureLod(PrefilterMap, R,  Roughness * MAX_REFLECTION_LOD).rgb;     
-    //vec3 prefilteredColor = textureLod(PrefilterMap, R,  0).rgb;  
+    // vec3 prefilteredColor = textureLod(PrefilterMap, R,  Roughness * MAX_REFLECTION_LOD).rgb;     
+    vec3 prefilteredColor = textureLod(PrefilterMap, WorldPos,  0).rgb;  
 
 
 
@@ -143,7 +143,7 @@ void main()
     // gamma correct
     color = pow(color, vec3(1.0/2.2)); 
 
-	outcolor = vec4(R, 1.0);
+	outcolor = vec4(prefilteredColor, 1.0);
 	//outcolor = vec4(texture(MRAMap,v_TexCoord).rgb, 1.0);
 	//outcolor = vec4(0.1,0.3,0.4, 1.0);
 }

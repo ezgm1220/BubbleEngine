@@ -27,5 +27,5 @@ namespace Bubble
         Ref<Scene> m_Context;
         Entity m_SelectionContext;
     };
-
+    void DrawVec3Control(const std::string& label, glm::vec3& values, float resetValue = 0.0f, float columnWidth = 100.0f);
 }

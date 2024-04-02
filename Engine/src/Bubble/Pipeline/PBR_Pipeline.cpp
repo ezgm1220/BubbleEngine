@@ -95,7 +95,7 @@ namespace Bubble
 
 
         m_Shader[PID(LightFB)]->SetFloat3("CameraPos", CameraPos);
-        BB_CORE_INFO(CameraPos);
+        //BB_CORE_INFO(CameraPos);
 
         return m_Shader[PID(LightFB)];
     }

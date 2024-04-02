@@ -80,7 +80,7 @@ namespace Bubble
 
         //m_pipeline->GetSkybox_SixFaces("assets/SkyBox/Sky");
         //m_pipeline->GetSkybox_Hdr("assets/shaders/GetCubeMap.glsl", "assets/SkyBox/spree_bank_4k.hdr", 512);
-        m_pipeline->GetSkybox_Hdr("assets/shaders/GetCubeMap.glsl", "assets/SkyBox/spree_bank_4k.hdr", 2048);
+        m_pipeline->GetSkybox_Hdr("assets/shaders/GetCubeMap.glsl", "assets/SkyBox/newport_loft.hdr", 2048);
         m_pipeline->GetIBL(128, 512, 5, 512);
 
         m_ActiveScene = CreateRef<Scene>();
@@ -277,6 +277,10 @@ namespace Bubble
         ImGui::End();
 
         ImGui::Begin("Settings");
+
+        DrawVec3Control("Translation", m_EditorCamera.m_Position);
+        m_EditorCamera.UpdateView();
+        
 
         ImGui::End();
 
