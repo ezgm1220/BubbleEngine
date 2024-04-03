@@ -6,7 +6,7 @@
 namespace Bubble
 {
 
-    void FPBR_Pipeline::Init()
+    void FPBR_Pipeline::Init() 
     {
         FramebufferSpecification fbSpec_Forward;
         fbSpec_Forward.Attachments = {FramebufferTextureFormat::RGBA8, FramebufferTextureFormat::RED_INTEGER, FramebufferTextureFormat::Depth};
@@ -42,7 +42,7 @@ namespace Bubble
 
         this->SetEntityIDInformation(PID(ForwardPBRFB), 1);
 
-        this->GetSkybox_Hdr("assets/shaders/GetCubeMap.glsl", "assets/SkyBox/metro_noord_4k.hdr", 2048);
+        this->GetSkybox_Hdr("assets/shaders/GetCubeMap.glsl", "assets/SkyBox/newport_loft.hdr", 2048);
         this->GetIBL(128, 512, 5, 512);
     }
 
