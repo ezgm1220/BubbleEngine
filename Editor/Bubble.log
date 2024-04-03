@@ -1,11 +1,11 @@
-[23:53:32] [info] BUBBLE: Creating window Bubble Editor (1600, 900)
-[23:53:32] [info] BUBBLE: OpenGL Info:
-[23:53:32] [info] BUBBLE:   Vendor: NVIDIA Corporation
-[23:53:32] [info] BUBBLE:   Renderer: NVIDIA GeForce RTX 2060/PCIe/SSE2
-[23:53:32] [info] BUBBLE:   Version: 4.5.0 NVIDIA 551.86
-[23:53:35] [trace] BUBBLE: Deserializing scene 'Untitled'
-[23:53:35] [trace] BUBBLE: Deserialized entity with ID = 608441564598621349, name = wall
-[23:53:35] [trace] BUBBLE: Deserialized entity with ID = 5751728619673797090, name = plastic
-[23:53:35] [trace] BUBBLE: Deserialized entity with ID = 14666236401959362122, name = grass
-[23:53:36] [trace] BUBBLE: Deserialized entity with ID = 14597299304727981751, name = gold
-[23:53:36] [trace] BUBBLE: Deserialized entity with ID = 12738193814166956915, name = rusted iron
+[10:18:38] [info] BUBBLE: Creating window Bubble Editor (1600, 900)
+[10:18:39] [info] BUBBLE: OpenGL Info:
+[10:18:39] [info] BUBBLE:   Vendor: NVIDIA Corporation
+[10:18:39] [info] BUBBLE:   Renderer: NVIDIA GeForce RTX 2060/PCIe/SSE2
+[10:18:39] [info] BUBBLE:   Version: 4.5.0 NVIDIA 551.86
+[10:18:43] [trace] BUBBLE: Deserializing scene 'Untitled'
+[10:18:43] [trace] BUBBLE: Deserialized entity with ID = 608441564598621349, name = wall
+[10:18:43] [trace] BUBBLE: Deserialized entity with ID = 5751728619673797090, name = plastic
+[10:18:43] [trace] BUBBLE: Deserialized entity with ID = 14666236401959362122, name = grass
+[10:18:44] [trace] BUBBLE: Deserialized entity with ID = 14597299304727981751, name = gold
+[10:18:44] [trace] BUBBLE: Deserialized entity with ID = 12738193814166956915, name = rusted iron

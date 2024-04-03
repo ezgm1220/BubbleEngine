@@ -336,7 +336,7 @@ namespace Bubble
 
     void Renderer3D_NoBatch::EndScene(Ref<Pipeline>pipeline)
     {
-        pipeline->UnbindFramebuffer();
+        //pipeline->UnbindFramebuffer();
         pipeline->EndScene();
     }
 
