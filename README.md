@@ -16,5 +16,5 @@
 
 ## 功能展示
 
-![Bubble -original-original](README.assets/Bubble%20-original-original.gif)
+<video src="README.assets/Bubble%E6%BC%94%E7%A4%BA%E8%A7%86%E9%A2%913x.mp4"></video>
 

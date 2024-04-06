@@ -31,8 +31,8 @@ namespace Bubble
         m_IconPlay = Texture2D::Create("Resources/Icons/PlayButton.png");
         m_IconStop = Texture2D::Create("Resources/Icons/StopButton.png");
 
-        m_pipeline = CreateRef<PBRPipeline>();
-        //m_pipeline = CreateRef<FPBR_Pipeline>();
+       //m_pipeline = CreateRef<PBRPipeline>();
+        m_pipeline = CreateRef<FPBR_Pipeline>();
         m_pipeline->Init();
 
         m_ActiveScene = CreateRef<Scene>();
