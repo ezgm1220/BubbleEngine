@@ -1,0 +1,86 @@
+Scene: Untitled
+Entities:
+  - Entity: 4487477148224086278
+    TagComponent:
+      Tag: aaa
+    TransformComponent:
+      Translation: [0, 0, 6.80000019]
+      Rotation: [0, 0, 0]
+      Scale: [3.21000004, 3.21000004, 3.21000004]
+    SpriteRendererComponent:
+      Color: [1, 1, 1, 1]
+      Albedo: assets\textures\gold\albedo.png
+      Normal: assets\textures\gold\normal.png
+      Metallic: assets\textures\gold\metallic.png
+      Roughness: assets\textures\gold\roughness.png
+      AO: assets\textures\gold\ao.png
+  - Entity: 12738193814166956915
+    TagComponent:
+      Tag: rusted iron
+    TransformComponent:
+      Translation: [-5, 0, 2]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    SpriteRendererComponent:
+      Color: [1, 1, 1, 1]
+      Albedo: assets\textures\rusted_iron\albedo.png
+      Normal: assets\textures\rusted_iron\normal.png
+      Metallic: assets\textures\rusted_iron\metallic.png
+      Roughness: assets\textures\rusted_iron\roughness.png
+      AO: assets\textures\rusted_iron\ao.png
+  - Entity: 14597299304727981751
+    TagComponent:
+      Tag: gold
+    TransformComponent:
+      Translation: [-3, 0, 2]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    SpriteRendererComponent:
+      Color: [1, 1, 1, 1]
+      Albedo: assets\textures\gold\albedo.png
+      Normal: assets\textures\gold\normal.png
+      Metallic: assets\textures\gold\metallic.png
+      Roughness: assets\textures\gold\roughness.png
+      AO: assets\textures\gold\ao.png
+  - Entity: 14666236401959362122
+    TagComponent:
+      Tag: grass
+    TransformComponent:
+      Translation: [-1, 0, 2]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    SpriteRendererComponent:
+      Color: [1, 1, 1, 1]
+      Albedo: assets\textures\grass\albedo.png
+      Normal: assets\textures\grass\normal.png
+      Metallic: assets\textures\grass\metallic.png
+      Roughness: assets\textures\grass\roughness.png
+      AO: assets\textures\grass\ao.png
+  - Entity: 5751728619673797090
+    TagComponent:
+      Tag: plastic
+    TransformComponent:
+      Translation: [1, 0, 2]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    SpriteRendererComponent:
+      Color: [1, 1, 1, 1]
+      Albedo: assets\textures\plastic\albedo.png
+      Normal: assets\textures\plastic\normal.png
+      Metallic: assets\textures\plastic\metallic.png
+      Roughness: assets\textures\plastic\roughness.png
+      AO: assets\textures\plastic\ao.png
+  - Entity: 608441564598621349
+    TagComponent:
+      Tag: wall
+    TransformComponent:
+      Translation: [3, 0, 2]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    SpriteRendererComponent:
+      Color: [1, 1, 1, 1]
+      Albedo: assets\textures\wall\albedo.png
+      Normal: assets\textures\wall\normal.png
+      Metallic: assets\textures\wall\metallic.png
+      Roughness: assets\textures\wall\roughness.png
+      AO: assets\textures\wall\ao.png
