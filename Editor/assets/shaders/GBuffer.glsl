@@ -24,7 +24,7 @@ void main()
 	v_Color = BaseColor;
 	v_TexCoord = a_TexCoord;
     v_WorldPos =  Model * vec4(a_Position, 1.0);
-    v_WorldPos =  Model * vec4(a_Position, 1.0);
+    //v_WorldPos =  Model * vec4(a_Position, 1.0);
     v_Normal = NormalMatrix * a_Normal;
 	v_EntityID = EntityID;
 	gl_Position = ViewProjection * v_WorldPos;

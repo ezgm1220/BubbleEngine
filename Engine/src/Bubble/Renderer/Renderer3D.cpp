@@ -1,374 +1,453 @@
 #include "bubblepch.h"
-//#include "Bubble/Renderer/Renderer3D.h"
-//
-//#include "Bubble/Renderer/VertexArray.h"
-//#include "Bubble/Renderer/Shader.h"
-//#include "Bubble/Renderer/RenderCommand.h"
-//
-//#include <glm/gtc/matrix_transform.hpp>
-//
-//namespace Bubble
-//{
-//    namespace Render3DUseBatch
-//    {
-//        struct CubeVertex
-//        {
-//            glm::vec3 Position;
-//            glm::vec4 Color;
-//            glm::vec2 TexCoord;
-//            float TexIndex;
-//            float TilingFactor;
-//
-//            // Editor-only
-//            int EntityID;
-//        };
-//
-//        struct Renderer3DData
-//        {
-//            static const uint32_t MaxCubes = 500;
-//            static const uint32_t MaxVertices = MaxCubes * 16;
-//            static const uint32_t MaxIndices = MaxCubes * 36;
-//            static const uint32_t MaxTextureSlots = 32; // TODO: RenderCaps
-//
-//            Ref<VertexArray> CubeVertexArray;
-//            Ref<VertexBuffer> CubeVertexBuffer;
-//            //Ref<Shader> TextureShader;
-//            Ref<Texture2D> WhiteTexture;
-//
-//            uint32_t CubeIndexCount = 0;
-//            CubeVertex* CubeVertexBufferBase = nullptr;
-//            CubeVertex* CubeVertexBufferPtr = nullptr;
-//
-//            std::array<Ref<Texture2D>, MaxTextureSlots> TextureSlots;
-//            uint32_t TextureSlotIndex = 1; // 0 = white texture
-//
-//            glm::vec4 CubeVertexPositions[16];
-//
-//            Renderer3D::Statistics Stats;
-//        };
-//    }
-//    
-//
-//    static Render3DUseBatch::Renderer3DData s_Data;
-//
-//    void Renderer3D::Init(Ref<Pipeline>pipeline)
-//    {
-//        s_Data.CubeVertexArray = VertexArray::Create();
-//
-//        s_Data.CubeVertexBuffer = VertexBuffer::Create(s_Data.MaxVertices * sizeof(Render3DUseBatch::CubeVertex));
-//        s_Data.CubeVertexBuffer->SetLayout({
-//                { ShaderDataType::Float3, "a_Position"     },
-//                { ShaderDataType::Float4, "a_Color"        },
-//                { ShaderDataType::Float2, "a_TexCoord"     },
-//                { ShaderDataType::Float,  "a_TexIndex"     },
-//                { ShaderDataType::Float,  "a_TilingFactor" },
-//                { ShaderDataType::Int,    "a_EntityID"     }
-//            });
-//        s_Data.CubeVertexArray->AddVertexBuffer(s_Data.CubeVertexBuffer);
-//
-//        s_Data.CubeVertexBufferBase = new Render3DUseBatch::CubeVertex[s_Data.MaxVertices];
-//
-//        uint32_t* quadIndices = new uint32_t[s_Data.MaxIndices];
-//
-//        uint32_t offset = 0;
-//        // 将所有的Index都预先填充上
-//        for(uint32_t i = 0; i < s_Data.MaxIndices; i += 36)
-//        {
-//            // 前面
-//            quadIndices[i + 0] = offset + 0;
-//            quadIndices[i + 1] = offset + 1;
-//            quadIndices[i + 2] = offset + 2;
-//            quadIndices[i + 3] = offset + 0;
-//            quadIndices[i + 4] = offset + 2;
-//            quadIndices[i + 5] = offset + 3;
-//
-//            //后面
-//            quadIndices[i + 6 ] = offset + 5;
-//            quadIndices[i + 7 ] = offset + 4;
-//            quadIndices[i + 8 ] = offset + 7;
-//            quadIndices[i + 9 ] = offset + 5;
-//            quadIndices[i + 10] = offset + 7;
-//            quadIndices[i + 11] = offset + 6;
-//
-//                //左面
-//            quadIndices[i + 12] = offset + 4;
-//            quadIndices[i + 13] = offset + 0;
-//            quadIndices[i + 14] = offset + 3;
-//            quadIndices[i + 15] = offset + 4;
-//            quadIndices[i + 16] = offset + 3;
-//            quadIndices[i + 17] = offset + 7;
-//
-//            // 右面
-//            quadIndices[i +  18] = offset + 1;
-//            quadIndices[i +  19] = offset + 5;
-//            quadIndices[i +  20] = offset + 6;
-//            quadIndices[i +  21] = offset + 1;
-//            quadIndices[i +  22] = offset + 6;
-//            quadIndices[i +  23] = offset + 2;
-//
-//            // 上面
-//            quadIndices[i + 24] = offset + 11;
-//            quadIndices[i + 25] = offset + 10;
-//            quadIndices[i + 26] = offset + 14;
-//            quadIndices[i + 27] = offset + 11;
-//            quadIndices[i + 28] = offset + 14;
-//            quadIndices[i + 29] = offset + 15;
-//
-//             // 下面
-//            quadIndices[i + 30] = offset + 8;   
-//            quadIndices[i + 31] = offset + 9;   
-//            quadIndices[i + 32] = offset + 13;   
-//            quadIndices[i + 33] = offset + 8;   
-//            quadIndices[i + 34] = offset + 13;   
-//            quadIndices[i + 35] = offset + 12;   
-//
-//            offset += 16;
-//        }
-//
-//        Ref<IndexBuffer> quadIB = IndexBuffer::Create(quadIndices, s_Data.MaxIndices);
-//        s_Data.CubeVertexArray->SetIndexBuffer(quadIB);
-//        delete[] quadIndices;
-//
-//        s_Data.WhiteTexture = Texture2D::Create(1, 1);
-//        uint32_t whiteTextureData = 0xffffffff;
-//        s_Data.WhiteTexture->SetData(&whiteTextureData, sizeof(uint32_t));
-//
-//        int32_t samplers[s_Data.MaxTextureSlots];
-//        for(uint32_t i = 0; i < s_Data.MaxTextureSlots; i++)
-//            samplers[i] = i;
-//
-//        pipeline->Set_Shader("assets/shaders/Texture.glsl", 0);
-//        auto shader = pipeline->Get_Shader(0);
-//        shader->Bind();
-//        shader->SetIntArray("u_Textures", samplers, s_Data.MaxTextureSlots);
-//        //s_Data.TextureShader = Shader::Create("assets/shaders/Texture.glsl");
-//        //s_Data.TextureShader->Bind();
-//        //s_Data.TextureShader->SetIntArray("u_Textures", samplers, s_Data.MaxTextureSlots);
-//
-//        // Set first texture slot to 0
-//        s_Data.TextureSlots[0] = s_Data.WhiteTexture;
-//
-//        s_Data.CubeVertexPositions[0] = {-0.5f, -0.5f,  0.5f, 1.0f};
-//        s_Data.CubeVertexPositions[1] = { 0.5f, -0.5f,  0.5f, 1.0f};
-//        s_Data.CubeVertexPositions[2] = { 0.5f,  0.5f,  0.5f, 1.0f};
-//        s_Data.CubeVertexPositions[3] = {-0.5f,  0.5f,  0.5f, 1.0f};
-//        s_Data.CubeVertexPositions[4] = {-0.5f, -0.5f, -0.5f, 1.0f};
-//        s_Data.CubeVertexPositions[5] = { 0.5f, -0.5f, -0.5f, 1.0f};
-//        s_Data.CubeVertexPositions[6] = { 0.5f,  0.5f, -0.5f, 1.0f};
-//        s_Data.CubeVertexPositions[7] = {-0.5f,  0.5f, -0.5f, 1.0f};
-//        s_Data.CubeVertexPositions[8] = {-0.5f, -0.5f,  0.5f, 1.0f};
-//        s_Data.CubeVertexPositions[9] = {0.5f, -0.5f,  0.5f, 1.0f};
-//        s_Data.CubeVertexPositions[10] = {0.5f,  0.5f,  0.5f, 1.0f};
-//        s_Data.CubeVertexPositions[11] = {-0.5f,  0.5f,  0.5f, 1.0f};
-//        s_Data.CubeVertexPositions[12] = {-0.5f, -0.5f, -0.5f, 1.0f};
-//        s_Data.CubeVertexPositions[13] = {0.5f, -0.5f, -0.5f, 1.0f};
-//        s_Data.CubeVertexPositions[14] = {0.5f,  0.5f, -0.5f, 1.0f};
-//        s_Data.CubeVertexPositions[15] = {-0.5f,  0.5f, -0.5f, 1.0f};
-//    }
-//    
-//    void Renderer3D::Shutdown()
-//    {
-//    }
-//    
-//    void Renderer3D::BeginScene(const SceneCamera& camera, const glm::mat4& transform, Ref<Pipeline>pipeline)
-//    {
-//        //BB_CORE_INFO("mincamera: {}",camera.GetProjection());
-//        pipeline->BeginScene(camera,transform);
-//        StartBatch();
-//    }
-//    
-//    void Renderer3D::BeginScene(const EditorCamera& camera, Ref<Pipeline>pipeline)
-//    {
-//        //glm::mat4 viewProj = camera.GetViewProjection();
-//
-//        pipeline->BeginScene(camera);
-//
-//       /* s_Data.TextureShader->Bind();
-//        s_Data.TextureShader->SetMat4("u_ViewProjection", viewProj);*/
-//
-//        StartBatch();
-//    }
-//    
-//    void Renderer3D::EndScene(Ref<Pipeline>pipeline)
-//    {
-//        Flush(pipeline);
-//    }
-//    
-//    void Renderer3D::Flush(Ref<Pipeline>pipeline)
-//    {
-//        if(s_Data.CubeIndexCount == 0)
-//            return; // Nothing to draw
-//
-//        uint32_t dataSize = (uint32_t)((uint8_t*)s_Data.CubeVertexBufferPtr - (uint8_t*)s_Data.CubeVertexBufferBase);
-//        s_Data.CubeVertexBuffer->SetData(s_Data.CubeVertexBufferBase, dataSize);
-//
-//        // Bind textures
-//        for(uint32_t i = 0; i < s_Data.TextureSlotIndex; i++)
-//            s_Data.TextureSlots[i]->Bind(i);
-//
-//        RenderCommand::DrawIndexed(s_Data.CubeVertexArray, s_Data.CubeIndexCount);
-//        s_Data.Stats.DrawCalls++;
-//    }
-//    
-//    void Renderer3D::DrawCube(Ref<Pipeline>pipeline, const glm::mat4& transform, const glm::vec4& color, int entityID)
-//    {
-//        constexpr size_t quadVertexCount = 16;
-//        const float textureIndex = 0.0f; // White Texture
-//        constexpr glm::vec2 textureCoords[] = {{ 0.0f, 0.0f }, { 1.0f, 0.0f }, { 1.0f, 1.0f }, { 0.0f, 1.0f },
-//                                               { 1.0f, 0.0f }, { 0.0f, 0.0f }, { 0.0f, 1.0f }, { 1.0f, 1.0f },
-//                                               { 0.0f, 0.0f }, { 1.0f, 0.0f }, { 1.0f, 0.0f }, { 0.0f, 0.0f },
-//                                               { 0.0f, 1.0f }, { 1.0f, 1.0f }, { 1.0f, 1.0f }, { 0.0f, 1.0f }};
-//        const float tilingFactor = 1.0f;
-//
-//        if(s_Data.CubeIndexCount >= Render3DUseBatch::Renderer3DData::MaxIndices)
-//            NextBatch(pipeline);
-//
-//        for(size_t i = 0; i < quadVertexCount; i++)
-//        {
-//            s_Data.CubeVertexBufferPtr->Position = transform * s_Data.CubeVertexPositions[i];
-//            s_Data.CubeVertexBufferPtr->Color = color;
-//            s_Data.CubeVertexBufferPtr->TexCoord = textureCoords[i];
-//            s_Data.CubeVertexBufferPtr->TexIndex = textureIndex;
-//            s_Data.CubeVertexBufferPtr->TilingFactor = tilingFactor;
-//            s_Data.CubeVertexBufferPtr->EntityID = entityID;
-//            s_Data.CubeVertexBufferPtr++;
-//        }
-//
-//        s_Data.CubeIndexCount += 36;
-//
-//        s_Data.Stats.CubeCount++;
-//
-//        BB_CORE_INFO("Renderer3D::DrawCube");
-//    } 
-//
-//    void Renderer3D::DrawCube(Ref<Pipeline>pipeline, const glm::mat4& transform, const Ref<Texture2D>& texture, float tilingFactor /*= 1.0f*/, const glm::vec4& tintColor /*= glm::vec4(1.0f)*/, int entityID /*= -1*/)
-//    {
-//        constexpr size_t quadVertexCount = 16;
-//        constexpr glm::vec2 textureCoords[] = {{ 0.0f, 0.0f }, { 1.0f, 0.0f }, { 1.0f, 1.0f }, { 0.0f, 1.0f },
-//                                               { 1.0f, 0.0f }, { 0.0f, 0.0f }, { 0.0f, 1.0f }, { 1.0f, 1.0f },
-//                                               { 0.0f, 0.0f }, { 1.0f, 0.0f }, { 1.0f, 0.0f }, { 0.0f, 0.0f },
-//                                               { 0.0f, 1.0f }, { 1.0f, 1.0f }, { 1.0f, 1.0f }, { 0.0f, 1.0f }};
-//
-//        if(s_Data.CubeIndexCount >= Render3DUseBatch::Renderer3DData::MaxIndices)
-//            NextBatch(pipeline);
-//
-//        float textureIndex = 0.0f;
-//        for(uint32_t i = 1; i < s_Data.TextureSlotIndex; i++)
-//        {
-//            if(*s_Data.TextureSlots[i] == *texture)
-//            {
-//                textureIndex = (float)i;
-//                break;
-//            }
-//        }
-//
-//        if(textureIndex == 0.0f)
-//        {
-//            if(s_Data.TextureSlotIndex >= Render3DUseBatch::Renderer3DData::MaxTextureSlots)
-//                NextBatch(pipeline);
-//
-//            textureIndex = (float)s_Data.TextureSlotIndex;
-//            s_Data.TextureSlots[s_Data.TextureSlotIndex] = texture;
-//            s_Data.TextureSlotIndex++;
-//        }
-//
-//        for(size_t i = 0; i < quadVertexCount; i++)
-//        {
-//            s_Data.CubeVertexBufferPtr->Position = transform * s_Data.CubeVertexPositions[i];
-//            s_Data.CubeVertexBufferPtr->Color = tintColor;
-//            s_Data.CubeVertexBufferPtr->TexCoord = textureCoords[i];
-//            s_Data.CubeVertexBufferPtr->TexIndex = textureIndex;
-//            s_Data.CubeVertexBufferPtr->TilingFactor = tilingFactor;
-//            s_Data.CubeVertexBufferPtr->EntityID = entityID;
-//            s_Data.CubeVertexBufferPtr++;
-//        }
-//
-//        s_Data.CubeIndexCount += 36;
-//
-//        s_Data.Stats.CubeCount++;
-//
-//    }
-//
-//    void Renderer3D::DrawCube(Ref<Pipeline>pipeline, const glm::mat4& transform, const Ref<Texture2D>* textures, int TexturesSize, float tilingFactor /*= 1.0f*/, const glm::vec4& tintColor /*= glm::vec4(1.0f)*/, int entityID /*= -1*/)
-//    {
-//        /*constexpr size_t quadVertexCount = 16;
-//        constexpr glm::vec2 textureCoords[] = {{ 0.0f, 0.0f }, { 1.0f, 0.0f }, { 1.0f, 1.0f }, { 0.0f, 1.0f },
-//                                               { 1.0f, 0.0f }, { 0.0f, 0.0f }, { 0.0f, 1.0f }, { 1.0f, 1.0f },
-//                                               { 0.0f, 0.0f }, { 1.0f, 0.0f }, { 1.0f, 0.0f }, { 0.0f, 0.0f },
-//                                               { 0.0f, 1.0f }, { 1.0f, 1.0f }, { 1.0f, 1.0f }, { 0.0f, 1.0f }};
-//
-//        if(s_Data.CubeIndexCount >= Renderer3DData::MaxIndices)
-//            NextBatch(pipeline);
-//
-//        float textureIndex = 0.0f;
-//        for(uint32_t i = 1; i < s_Data.TextureSlotIndex; i++)
-//        {
-//            if(*s_Data.TextureSlots[i] == *texture)
-//            {
-//                textureIndex = (float)i;
-//                break;
-//            }
-//        }
-//
-//        if(textureIndex == 0.0f)
-//        {
-//            if(s_Data.TextureSlotIndex >= Renderer3DData::MaxTextureSlots)
-//                NextBatch(pipeline);
-//
-//            textureIndex = (float)s_Data.TextureSlotIndex;
-//            s_Data.TextureSlots[s_Data.TextureSlotIndex] = texture;
-//            s_Data.TextureSlotIndex++;
-//        }
-//
-//        for(size_t i = 0; i < quadVertexCount; i++)
-//        {
-//            s_Data.CubeVertexBufferPtr->Position = transform * s_Data.CubeVertexPositions[i];
-//            s_Data.CubeVertexBufferPtr->Color = tintColor;
-//            s_Data.CubeVertexBufferPtr->TexCoord = textureCoords[i];
-//            s_Data.CubeVertexBufferPtr->TexIndex = textureIndex;
-//            s_Data.CubeVertexBufferPtr->TilingFactor = tilingFactor;
-//            s_Data.CubeVertexBufferPtr->EntityID = entityID;
-//            s_Data.CubeVertexBufferPtr++;
-//        }
-//
-//        s_Data.CubeIndexCount += 36;
-//
-//        s_Data.Stats.CubeCount++;*/
-//    }
-//
-//    void Renderer3D::DrawSprite(Ref<Pipeline>pipeline, const glm::mat4& transform, SpriteRendererComponent& src, int entityID/*=-1*/)
-//    {
-//        BB_CORE_INFO("Renderer3D::DrawCube");
-//        if(src.UseTexture)
-//        {
-//            //DrawCube(pipeline,transform, src.Textures,4, src.TilingFactor, src.Color, entityID);
-//            DrawCube(pipeline,transform, src.Textures[2],src.TilingFactor, src.Color, entityID);
-//        }
-//        else
-//            DrawCube(pipeline,transform, src.Color, entityID);
-//    }
-//
-//    void Renderer3D::ResetStats()
-//    {
-//        memset(&s_Data.Stats, 0, sizeof(Statistics));
-//    }
-//
-//    Renderer3D::Statistics Renderer3D::GetStats()
-//    {
-//        return  s_Data.Stats;
-//    }
-//    
-//    void Renderer3D::StartBatch()
-//    {
-//        s_Data.CubeIndexCount = 0;
-//        s_Data.CubeVertexBufferPtr = s_Data.CubeVertexBufferBase;
-//
-//        s_Data.TextureSlotIndex = 1;
-//    }
-//    
-//    void Renderer3D::NextBatch(Ref<Pipeline>pipeline)
-//    {
-//        Flush(pipeline);
-//        StartBatch();
-//    }
-//}
+#include "Renderer3D.h"
+#include "Bubble/Tools/RenderApiState.h"
+namespace Bubble
+{
+
+    namespace Render3DNoBatch
+    {
+        struct CubeVertexData
+        {
+            glm::vec3 Position;
+            glm::vec3 Normal;
+            glm::vec2 TexCoord;
+        }; 
+        struct SphereVertexData
+        {
+            glm::vec3 Position;
+            glm::vec3 Normal;
+            glm::vec2 TexCoord;
+        };
+        struct QuadVertexData
+        {
+            glm::vec3 Position;
+            glm::vec2 TexCoord;
+        };
+
+        struct Renderer3DData
+        {
+            Ref<VertexArray>CubeVAO = nullptr;
+            Ref<VertexArray>QuadVAO = nullptr;
+            Ref<VertexArray>SphereVAO = nullptr;
+
+            Ref<VertexBuffer>CubeVBO = nullptr;
+            Ref<VertexBuffer>QuadVBO = nullptr; 
+            Ref<VertexBuffer>SphereVBO = nullptr;
+
+            unsigned int sphereIndexCount = 0;
+
+            Renderer3D::Statistics Stats;
+        };
+    }
+
+    static Render3DNoBatch::Renderer3DData s_Data;
+
+    unsigned int mmap;
+
+    void Renderer3D::Init()
+    {
+        Render3DNoBatch::CubeVertexData Cubevertexdata[36];
+        {
+            // back face
+            Cubevertexdata[0].Position = {-1.0f, -1.0f, -1.0f};
+            Cubevertexdata[1].Position = { 1.0f,  1.0f, -1.0f};
+            Cubevertexdata[2].Position = { 1.0f, -1.0f, -1.0f};
+            Cubevertexdata[3].Position = { 1.0f,  1.0f, -1.0f};
+            Cubevertexdata[4].Position = {-1.0f, -1.0f, -1.0f};
+            Cubevertexdata[5].Position = {-1.0f,  1.0f, -1.0f};
+            // front face
+            Cubevertexdata[6].Position =  {-1.0f, -1.0f,  1.0f};
+            Cubevertexdata[7].Position =  { 1.0f, -1.0f,  1.0f};
+            Cubevertexdata[8].Position =  { 1.0f,  1.0f,  1.0f};
+            Cubevertexdata[9].Position =  { 1.0f,  1.0f,  1.0f};
+            Cubevertexdata[10].Position = {-1.0f,  1.0f,  1.0f};
+            Cubevertexdata[11].Position = {-1.0f, -1.0f,  1.0f};
+            // left face
+            Cubevertexdata[12].Position = {-1.0f,  1.0f,  1.0f};
+            Cubevertexdata[13].Position = {-1.0f,  1.0f, -1.0f};
+            Cubevertexdata[14].Position = {-1.0f, -1.0f, -1.0f};
+            Cubevertexdata[15].Position = {-1.0f, -1.0f, -1.0f};
+            Cubevertexdata[16].Position = {-1.0f, -1.0f,  1.0f};
+            Cubevertexdata[17].Position = {-1.0f,  1.0f,  1.0f};
+            // right face
+            Cubevertexdata[18].Position = {1.0f,  1.0f,  1.0f};
+            Cubevertexdata[19].Position = {1.0f, -1.0f, -1.0f}; 
+            Cubevertexdata[20].Position = {1.0f,  1.0f, -1.0f};
+            Cubevertexdata[21].Position = {1.0f, -1.0f, -1.0f};
+            Cubevertexdata[22].Position = {1.0f,  1.0f,  1.0f};
+            Cubevertexdata[23].Position = {1.0f, -1.0f,  1.0f};
+            // bottom face
+            Cubevertexdata[24].Position = {-1.0f, -1.0f, -1.0f};
+            Cubevertexdata[25].Position = { 1.0f, -1.0f, -1.0f};
+            Cubevertexdata[26].Position = { 1.0f, -1.0f,  1.0f};
+            Cubevertexdata[27].Position = { 1.0f, -1.0f,  1.0f};
+            Cubevertexdata[28].Position = {-1.0f, -1.0f,  1.0f};
+            Cubevertexdata[29].Position = {-1.0f, -1.0f, -1.0f};
+            // top face
+            Cubevertexdata[30].Position = {-1.0f,  1.0f, -1.0f};
+            Cubevertexdata[31].Position = { 1.0f,  1.0f , 1.0f};
+            Cubevertexdata[32].Position = { 1.0f,  1.0f, -1.0f};
+            Cubevertexdata[33].Position = { 1.0f,  1.0f,  1.0f};
+            Cubevertexdata[34].Position = {-1.0f,  1.0f, -1.0f};
+            Cubevertexdata[35].Position = {-1.0f,  1.0f,  1.0f};
+
+            // Normal
+            // back face
+            Cubevertexdata[0]. Normal = { 0.0f,  0.0f, -1.0f};
+            Cubevertexdata[1]. Normal = { 0.0f,  0.0f, -1.0f};
+            Cubevertexdata[2]. Normal = { 0.0f,  0.0f, -1.0f};
+            Cubevertexdata[3]. Normal = { 0.0f,  0.0f, -1.0f};
+            Cubevertexdata[4]. Normal = { 0.0f,  0.0f, -1.0f};
+            Cubevertexdata[5]. Normal = { 0.0f,  0.0f, -1.0f};
+            // front face      Normal
+            Cubevertexdata[6]. Normal = { 0.0f,  0.0f,  1.0f};
+            Cubevertexdata[7]. Normal = { 0.0f,  0.0f,  1.0f};
+            Cubevertexdata[8]. Normal = { 0.0f,  0.0f,  1.0f};
+            Cubevertexdata[9]. Normal = { 0.0f,  0.0f,  1.0f};
+            Cubevertexdata[10].Normal = { 0.0f,  0.0f,  1.0f};
+            Cubevertexdata[11].Normal = { 0.0f,  0.0f,  1.0f};
+            // left face       Normal
+            Cubevertexdata[12].Normal = {-1.0f,  0.0f,  0.0f};
+            Cubevertexdata[13].Normal = {-1.0f,  0.0f,  0.0f};
+            Cubevertexdata[14].Normal = {-1.0f,  0.0f,  0.0f};
+            Cubevertexdata[15].Normal = {-1.0f,  0.0f,  0.0f};
+            Cubevertexdata[16].Normal = {-1.0f,  0.0f,  0.0f};
+            Cubevertexdata[17].Normal = {-1.0f,  0.0f,  0.0f};
+            // right face      Normal
+            Cubevertexdata[18].Normal = { 1.0f,  0.0f,  0.0f};
+            Cubevertexdata[19].Normal = { 1.0f,  0.0f,  0.0f};
+            Cubevertexdata[20].Normal = { 1.0f,  0.0f,  0.0f};
+            Cubevertexdata[21].Normal = { 1.0f,  0.0f,  0.0f};
+            Cubevertexdata[22].Normal = { 1.0f,  0.0f,  0.0f};
+            Cubevertexdata[23].Normal = { 1.0f,  0.0f,  0.0f};
+            // bottom face     Normal
+            Cubevertexdata[24].Normal = { 0.0f, -1.0f,  0.0f};
+            Cubevertexdata[25].Normal = { 0.0f, -1.0f,  0.0f};
+            Cubevertexdata[26].Normal = { 0.0f, -1.0f,  0.0f};
+            Cubevertexdata[27].Normal = { 0.0f, -1.0f,  0.0f};
+            Cubevertexdata[28].Normal = { 0.0f, -1.0f,  0.0f};
+            Cubevertexdata[29].Normal = { 0.0f, -1.0f,  0.0f};
+            // top face        Normal
+            Cubevertexdata[30].Normal = { 0.0f,  1.0f,  0.0f};
+            Cubevertexdata[31].Normal = { 0.0f,  1.0f,  0.0f};
+            Cubevertexdata[32].Normal = { 0.0f,  1.0f,  0.0f};
+            Cubevertexdata[33].Normal = { 0.0f,  1.0f,  0.0f};
+            Cubevertexdata[34].Normal = { 0.0f,  1.0f,  0.0f};
+            Cubevertexdata[35].Normal = { 0.0f,  1.0f,  0.0f};
+
+            // Tex
+            // back face
+            Cubevertexdata[0].TexCoord = {0.0f, 0.0f};
+            Cubevertexdata[1].TexCoord = {1.0f, 1.0f};
+            Cubevertexdata[2].TexCoord = {1.0f, 0.0f};
+            Cubevertexdata[3].TexCoord = {1.0f, 1.0f};
+            Cubevertexdata[4].TexCoord = {0.0f, 0.0f};
+            Cubevertexdata[5].TexCoord = {0.0f, 1.0f};
+            // front face      TexCoord     
+            Cubevertexdata[6].TexCoord = {0.0f, 0.0f};
+            Cubevertexdata[7].TexCoord = {1.0f, 0.0f};
+            Cubevertexdata[8].TexCoord = {1.0f, 1.0f};
+            Cubevertexdata[9].TexCoord = {1.0f, 1.0f};
+            Cubevertexdata[10].TexCoord = {0.0f, 1.0f};
+            Cubevertexdata[11].TexCoord = {0.0f, 0.0f};
+            // left face       TexCoord     
+            Cubevertexdata[12].TexCoord = {1.0f, 0.0f};
+            Cubevertexdata[13].TexCoord = {1.0f, 1.0f};
+            Cubevertexdata[14].TexCoord = {0.0f, 1.0f};
+            Cubevertexdata[15].TexCoord = {0.0f, 1.0f};
+            Cubevertexdata[16].TexCoord = {0.0f, 0.0f};
+            Cubevertexdata[17].TexCoord = {1.0f, 0.0f};
+            // right face      TexCoord     
+            Cubevertexdata[18].TexCoord = {1.0f, 0.0f};
+            Cubevertexdata[19].TexCoord = {0.0f, 1.0f};
+            Cubevertexdata[20].TexCoord = {1.0f, 1.0f};
+            Cubevertexdata[21].TexCoord = {0.0f, 1.0f};
+            Cubevertexdata[22].TexCoord = {1.0f, 0.0f};
+            Cubevertexdata[23].TexCoord = {0.0f, 0.0f};
+            // bottom face     TexCoord     
+            Cubevertexdata[24].TexCoord = {0.0f, 1.0f};
+            Cubevertexdata[25].TexCoord = {1.0f, 1.0f};
+            Cubevertexdata[26].TexCoord = {1.0f, 0.0f};
+            Cubevertexdata[27].TexCoord = {1.0f, 0.0f};
+            Cubevertexdata[28].TexCoord = {0.0f, 0.0f};
+            Cubevertexdata[29].TexCoord = {0.0f, 1.0f};
+            // top face        TexCoord     
+            Cubevertexdata[30].TexCoord = {0.0f, 1.0f};
+            Cubevertexdata[31].TexCoord = {1.0f, 0.0f};
+            Cubevertexdata[32].TexCoord = {1.0f, 1.0f};
+            Cubevertexdata[33].TexCoord = {1.0f, 0.0f};
+            Cubevertexdata[34].TexCoord = {0.0f, 1.0f};
+            Cubevertexdata[35].TexCoord = {0.0f, 0.0f};
+        }
+
+        s_Data.CubeVAO = VertexArray::Create();
+
+        s_Data.CubeVBO = VertexBuffer::Create(Cubevertexdata,36 * sizeof(Render3DNoBatch::CubeVertexData));
+
+        s_Data.CubeVBO->SetLayout({
+                { ShaderDataType::Float3, "a_Position"  },
+                { ShaderDataType::Float3, "a_Normal"    },
+                { ShaderDataType::Float2, "a_TexCoord"  }
+            });
+        s_Data.CubeVAO->AddVertexBuffer(s_Data.CubeVBO);
+
+        //Ref<IndexBuffer> cubeIB = IndexBuffer::Create(CubeIndices, 36);// 创建EBO并绑定EBO数据
+        //s_Data.CubeVAO->SetIndexBuffer(cubeIB);// 让VAO记录EBO的索引
+
+        // 解绑
+        s_Data.CubeVAO->Unbind();
+        s_Data.CubeVBO->Unbind();;
+
+        Render3DNoBatch::QuadVertexData Quadvertexdata[4];
+        uint32_t QuadIndices[6];
+        {
+            Quadvertexdata[0].Position = {-1.f,-1.f,0.f};
+            Quadvertexdata[1].Position = { 1.f,-1.f,0.f};
+            Quadvertexdata[2].Position = { 1.f, 1.f,0.f};
+            Quadvertexdata[3].Position = {-1.f, 1.f,0.f};
+
+            Quadvertexdata[0].TexCoord = {0.f,0.f};
+            Quadvertexdata[1].TexCoord = {1.f,0.f};
+            Quadvertexdata[2].TexCoord = {1.f,1.f};
+            Quadvertexdata[3].TexCoord = {0.f,1.f};
+
+            QuadIndices[0] = 0;
+            QuadIndices[1] = 1;
+            QuadIndices[2] = 3;
+            QuadIndices[3] = 1;
+            QuadIndices[4] = 2;
+            QuadIndices[5] = 3;
+        }
+
+        s_Data.QuadVAO = VertexArray::Create();
+
+        s_Data.QuadVBO = VertexBuffer::Create(Quadvertexdata, 4 * sizeof(Render3DNoBatch::QuadVertexData));
+
+        s_Data.QuadVBO->SetLayout({
+                { ShaderDataType::Float3, "a_Position"     },
+                { ShaderDataType::Float2, "a_TexCoord"     }
+            });
+        s_Data.QuadVAO->AddVertexBuffer(s_Data.QuadVBO);
+
+        Ref<IndexBuffer> quadIB = IndexBuffer::Create(QuadIndices, 6);// 创建EBO并绑定EBO数据
+        s_Data.QuadVAO->SetIndexBuffer(quadIB);// 让VAO记录EBO的索引
+
+        // 解绑
+        s_Data.QuadVAO->Unbind();
+        s_Data.QuadVBO->Unbind();
+        quadIB->Unbind();
+
+
+        std::vector<glm::vec3> positions;
+        std::vector<glm::vec2> uv;
+        std::vector<glm::vec3> normals;
+        std::vector<uint32_t> indices;
+
+        const unsigned int X_SEGMENTS = 64;
+        const unsigned int Y_SEGMENTS = 64;
+        const float PI = 3.14159265359f;
+        for(unsigned int x = 0; x <= X_SEGMENTS; ++x)
+        {
+            for(unsigned int y = 0; y <= Y_SEGMENTS; ++y)
+            {
+                float xSegment = (float)x / (float)X_SEGMENTS;
+                float ySegment = (float)y / (float)Y_SEGMENTS;
+                float xPos = std::cos(xSegment * 2.0f * PI) * std::sin(ySegment * PI);
+                float yPos = std::cos(ySegment * PI);
+                float zPos = std::sin(xSegment * 2.0f * PI) * std::sin(ySegment * PI);
+
+                positions.push_back(glm::vec3(xPos, yPos, zPos));
+                uv.push_back(glm::vec2(xSegment, ySegment));
+                normals.push_back(glm::vec3(xPos, yPos, zPos));
+            }
+        }
+
+        bool oddRow = false;
+        for(unsigned int y = 0; y < Y_SEGMENTS; ++y)
+        {
+            if(!oddRow) // even rows: y == 0, y == 2; and so on
+            {
+                for(unsigned int x = 0; x <= X_SEGMENTS; ++x)
+                {
+                    indices.push_back(y * (X_SEGMENTS + 1) + x);
+                    indices.push_back((y + 1) * (X_SEGMENTS + 1) + x);
+                }
+            }
+            else
+            {
+                for(int x = X_SEGMENTS; x >= 0; --x)
+                {
+                    indices.push_back((y + 1) * (X_SEGMENTS + 1) + x);
+                    indices.push_back(y * (X_SEGMENTS + 1) + x);
+                }
+            }
+            oddRow = !oddRow;
+        }
+        s_Data.sphereIndexCount = indices.size();
+
+        std::vector<float> data;
+        for(unsigned int i = 0; i < positions.size(); ++i)
+        {
+            data.push_back(positions[i].x);
+            data.push_back(positions[i].y);
+            data.push_back(positions[i].z);
+            if(normals.size() > 0)
+            {
+                data.push_back(normals[i].x);
+                data.push_back(normals[i].y);
+                data.push_back(normals[i].z);
+            }
+            if(uv.size() > 0)
+            {
+                data.push_back(uv[i].x);
+                data.push_back(uv[i].y);
+            }
+        }
+        s_Data.SphereVAO = VertexArray::Create();
+        s_Data.SphereVBO = VertexBuffer::Create(&data[0], data.size() * sizeof(float));
+        s_Data.SphereVBO->SetLayout({
+                { ShaderDataType::Float3, "a_Position"  },
+                { ShaderDataType::Float3, "a_Normal"    },
+                { ShaderDataType::Float2, "a_TexCoord"  }
+            });
+        s_Data.SphereVAO->AddVertexBuffer(s_Data.SphereVBO);
+        Ref<IndexBuffer> sphIB = IndexBuffer::Create(&indices[0], indices.size());
+        s_Data.SphereVAO->SetIndexBuffer(sphIB);
+
+        s_Data.SphereVAO->Unbind();
+        s_Data.SphereVBO->Unbind();
+        sphIB->Unbind();
+    }
+
+    void Renderer3D::Shutdown()
+    {
+
+    }
+
+    void Renderer3D::BeginScene(const SceneCamera& camera, const glm::mat4& transform, Ref<Pipeline>pipeline)
+    {
+        pipeline->BeginScene(camera, transform);
+    }
+
+    void Renderer3D::BeginScene(const EditorCamera& camera, Ref<Pipeline>pipeline)
+    { 
+        pipeline->BeginScene(camera);
+    }
+
+    void Renderer3D::EndScene(Ref<Pipeline>pipeline)
+    {
+        //pipeline->UnbindFramebuffer();
+        pipeline->EndScene();
+    }
+
+    void Renderer3D::ClearEntityID(Ref<Pipeline>pipeline)
+    {
+        
+        pipeline->ClearEntityID();
+        pipeline->UnbindFramebuffer();
+
+    }
+
+    void Renderer3D::DrawQude()
+    {
+        RenderCommand::DrawIndexed(s_Data.QuadVAO, 6);
+    }
+
+    void Renderer3D::DrawCube(Ref<Pipeline>pipeline, int ShaderID, const glm::mat4& transform, const glm::vec4& color, int entityID /*= -1*/)
+    {
+        //BB_CORE_INFO("Renderer3D::DrawCube()");
+        pipeline->Get_Shader(ShaderID)->SetMat4("Transform", transform);
+        pipeline->Get_Shader(ShaderID)->SetFloat4("BaseColor", color);
+        pipeline->Get_Shader(ShaderID)->SetInt("EntityID", entityID);
+
+        //RenderCommand::DrawIndexed(s_Data.CubeVAO, 36);
+        RenderCommand::DrawArrays(s_Data.CubeVAO, 36);
+        s_Data.Stats.DrawCalls++;
+    }
+
+    void Renderer3D::DrawCube(Ref<Pipeline>pipeline, int ShaderID, const glm::mat4& transform, const Ref<Texture2D>* textures, int TexturesSize, const glm::vec4& tintColor /*= glm::vec4(1.0f)*/, int entityID /*= -1*/)
+    {
+        //BB_CORE_INFO("Renderer3D::DrawCube()");
+        pipeline->Get_Shader(ShaderID)->SetMat4("Model", transform);
+        pipeline->Get_Shader(ShaderID)->SetFloat4("BaseColor", tintColor);
+        pipeline->Get_Shader(ShaderID)->SetInt("EntityID", entityID);
+        pipeline->Get_Shader(ShaderID)->SetMat3("NormalMatrix", glm::transpose(glm::inverse(glm::mat3(transform))));
+
+        for(int i = 0; i < TexturesSize; i++)
+        {
+            textures[i]->Bind(i);
+        }
+
+        //RenderCommand::DrawIndexed(s_Data.CubeVAO, 36);
+        RenderCommand::DrawArrays(s_Data.CubeVAO, 36);
+        s_Data.Stats.DrawCalls++;
+    }
+
+    void Renderer3D::DrawCube()
+    {
+        //BB_CORE_INFO("Renderer3D::DrawCube()");
+        //RenderCommand::DrawIndexed(s_Data.CubeVAO, 36);
+        RenderCommand::DrawArrays(s_Data.CubeVAO, 36);
+    }
+
+    void Renderer3D::DrawSphere(Ref<Pipeline>pipeline, int ShaderID, const glm::mat4& transform, const Ref<Texture2D>* textures, int TexturesSize, const glm::vec4& tintColor /*= glm::vec4(1.0f)*/, int entityID /*= -1*/)
+    {
+       /* pipeline->Get_Shader(ShaderID)->SetMat4("Model", transform);
+        pipeline->Get_Shader(ShaderID)->SetFloat4("BaseColor", tintColor);
+        pipeline->Get_Shader(ShaderID)->SetInt("EntityID", entityID);
+        pipeline->Get_Shader(ShaderID)->SetMat3("NormalMatrix", glm::transpose(glm::inverse(glm::mat3(transform))));*/
+
+        for(int i = 0; i < TexturesSize; i++)
+        {
+            textures[i]->Bind(i);
+        }
+
+        RenderCommand::DrawIndexed_STRIP(s_Data.SphereVAO, s_Data.sphereIndexCount);
+        //RenderCommand::DrawArrays(s_Data.SphereVAO, s_Data.sphereIndexCount);
+        s_Data.Stats.DrawCalls++;
+    }
+
+    void Renderer3D::DrawSprite(Ref<Pipeline>pipeline,const glm::mat4& transform, SpriteRendererComponent& src, int entityID /*= -1*/)
+    {
+        //BB_CORE_INFO("Renderer3D::DrawSprite");
+        
+        //DrawCube(pipeline, ShaderID, transform, src.Textures, 5, src.Color, entityID);
+        auto id = pipeline->DrawScene(transform, src.Color, entityID);
+        DrawSphere(pipeline, id, transform, src.Textures, 5, src.Color, entityID);
+        
+    }
+
+    void Renderer3D::Calculatelighting(const glm::vec3&CameraPos, Ref<Pipeline>pipeline)
+    {
+        auto mstate = pipeline->Calculatelighting_Begin();
+        if(mstate)
+        {
+            auto shader = pipeline->Calculatelighting(CameraPos);
+
+            RenderCommand::DrawIndexed(s_Data.QuadVAO, 6);
+
+            pipeline->Calculatelighting_End();
+        } 
+    }
+
+    void Renderer3D::ShowSkyBox(Ref<Pipeline>pipeline, const glm::mat4& View, const glm::mat4& projection)
+    {
+        pipeline->ShowSkyBox_Begin();
+        auto shader = pipeline->ShowSkyBox(View, projection);
+        
+        RenderCommand::DrawArrays(s_Data.CubeVAO, 36);
+
+        pipeline->ShowSkyBox_End();
+    }
+
+    void Renderer3D::ResetStats()
+    {
+        memset(&s_Data.Stats, 0, sizeof(Statistics));
+    }
+
+    Bubble::Renderer3D::Statistics Renderer3D::GetStats()
+    {
+        return  s_Data.Stats;
+    }
+
+}

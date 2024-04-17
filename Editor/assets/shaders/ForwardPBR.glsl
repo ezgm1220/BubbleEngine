@@ -120,6 +120,7 @@ void main()
 {		
     // material properties
     vec3 albedo = pow(texture(albedoMap, TexCoords).rgb, vec3(2.2));
+    //albedo*=BaseColor.rgb;
     float metallic = texture(metallicMap, TexCoords).r;
     float roughness = texture(roughnessMap, TexCoords).r;
     float ao = texture(aoMap, TexCoords).r;

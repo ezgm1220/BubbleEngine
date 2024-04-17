@@ -5,7 +5,7 @@
 #include "Bubble/Scene/ScriptableEntity.h"
 #include "Bubble/Renderer/Renderer2D.h"
 //#include "Bubble/Renderer/Renderer3D.h"
-#include "Bubble/Renderer/Renderer3D_NoBatch.h"
+#include "Bubble/Renderer/Renderer3D.h"
 
 #include <glm/glm.hpp>
 
@@ -81,21 +81,36 @@ namespace Bubble
 
         if(mainCamera)
         {
-            //Renderer2D::BeginScene(*mainCamera, cameraTransform);
+            auto group = m_Registry.group<TransformComponent>(entt::get<SpriteRendererComponent>);
+            Renderer3D::ClearEntityID(pipeline);
 
-            //Renderer3D::BeginScene(*mainCamera, cameraTransform, pipeline);
+            if(group.size())
+            {
+                Renderer3D::ResetStats();
 
-            //auto group = m_Registry.group<TransformComponent>(entt::get<SpriteRendererComponent>);
-            //for(auto entity : group)
-            //{
-            //    auto [transform, sprite] = group.get<TransformComponent, SpriteRendererComponent>(entity);
+                // 获取场景GBuffer信息
+                {
+                    //Renderer3D::BeginScene(camera,pipeline);
+                    Renderer3D::BeginScene(*mainCamera, cameraTransform, pipeline);
 
-            //    //Renderer2D::DrawSprite(transform.GetTransform(), sprite, (int)entity);
-            //    Renderer3D::DrawSprite(pipeline, transform.GetTransform(), sprite, (int)entity);
-            //}
+                    auto group = m_Registry.group<TransformComponent>(entt::get<SpriteRendererComponent>);
+                    for(auto entity : group)
+                    {
+                        auto [transform, sprite] = group.get<TransformComponent, SpriteRendererComponent>(entity);
 
-            //Renderer3D::EndScene(pipeline);
-           // Renderer2D::EndScene();
+                        //Renderer3D::DrawSprite(pipeline, transform.GetTransform(), sprite, (int)entity);
+                        Renderer3D::DrawSprite(pipeline, transform.GetTransform(), sprite, (int)entity);
+                    }
+
+                    //Renderer3D::EndScene(pipeline);
+                    Renderer3D::EndScene(pipeline);
+                }
+
+                Renderer3D::Calculatelighting(glm::vec3(cameraTransform * glm::vec4(0.0, 0.0, 0.0, 1.0)), pipeline);
+            }
+
+            Renderer3D::ShowSkyBox(pipeline, glm::inverse(cameraTransform), mainCamera->GetProjection());
+            pipeline->UnbindFramebuffer();
         }
         else
         {
@@ -108,16 +123,16 @@ namespace Bubble
     {
 
         auto group = m_Registry.group<TransformComponent>(entt::get<SpriteRendererComponent>);
-        Renderer3D_NoBatch::ClearEntityID(pipeline);
+        Renderer3D::ClearEntityID(pipeline);
 
         if(group.size())
         {
-            Renderer3D_NoBatch::ResetStats();
+            Renderer3D::ResetStats();
 
             // 获取场景GBuffer信息
             {
                 //Renderer3D::BeginScene(camera,pipeline);
-                Renderer3D_NoBatch::BeginScene(camera, pipeline);
+                Renderer3D::BeginScene(camera, pipeline);
 
                 auto group = m_Registry.group<TransformComponent>(entt::get<SpriteRendererComponent>);
                 for(auto entity : group)
@@ -125,17 +140,17 @@ namespace Bubble
                     auto [transform, sprite] = group.get<TransformComponent, SpriteRendererComponent>(entity);
 
                     //Renderer3D::DrawSprite(pipeline, transform.GetTransform(), sprite, (int)entity);
-                    Renderer3D_NoBatch::DrawSprite(pipeline, transform.GetTransform(), sprite, (int)entity);
+                    Renderer3D::DrawSprite(pipeline, transform.GetTransform(), sprite, (int)entity);
                 }
 
                 //Renderer3D::EndScene(pipeline);
-                Renderer3D_NoBatch::EndScene(pipeline);
+                Renderer3D::EndScene(pipeline);
             }
 
-            Renderer3D_NoBatch::Calculatelighting(camera.GetPosition(),pipeline);  
+            Renderer3D::Calculatelighting(camera.GetPosition(),pipeline);  
         }
 
-        Renderer3D_NoBatch::ShowSkyBox(pipeline,camera.GetViewMatrix(),camera.GetProjection());
+        Renderer3D::ShowSkyBox(pipeline,camera.GetViewMatrix(),camera.GetProjection());
         pipeline->UnbindFramebuffer();
     }
 

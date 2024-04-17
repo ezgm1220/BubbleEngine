@@ -213,7 +213,7 @@ namespace Bubble
             name = m_HoveredEntity.GetComponent<TagComponent>().Tag;
         ImGui::Text("Hovered Entity: %s", name.c_str());
 
-        auto stats = Renderer3D_NoBatch::GetStats();
+        auto stats = Renderer3D::GetStats();
         ImGui::Text("Renderer3D Stats:");
         ImGui::Text("Draw Calls: %d", stats.DrawCalls);
         ImGui::Text("Quads: %d", stats.CubeCount);

@@ -1,0 +1,61 @@
+<mxfile host="Electron" modified="2024-04-09T16:32:45.497Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.0.3 Chrome/114.0.5735.289 Electron/25.8.4 Safari/537.36" etag="aq6O2-sjASW0GCctKz1g" version="22.0.3" type="device">
+  <diagram name="第 1 页" id="GAR_FvYri9fpIaRAYeww">
+    <mxGraphModel dx="1687" dy="993" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="2500" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="MB9MOdRsgvFiCT7o8jix-2" value="OnUpdateEditor" style="swimlane;whiteSpace=wrap;html=1;rounded=0;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=23;fillColor=default;" vertex="1" parent="1">
+          <mxGeometry x="310" y="110" width="420" height="1200" as="geometry" />
+        </mxCell>
+        <mxCell id="MB9MOdRsgvFiCT7o8jix-4" value="渲染物体" style="swimlane;whiteSpace=wrap;html=1;rounded=0;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=23;fillColor=default;" vertex="1" parent="MB9MOdRsgvFiCT7o8jix-2">
+          <mxGeometry x="110" y="60" width="200" height="510" as="geometry" />
+        </mxCell>
+        <mxCell id="MB9MOdRsgvFiCT7o8jix-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="MB9MOdRsgvFiCT7o8jix-4" source="MB9MOdRsgvFiCT7o8jix-7" target="MB9MOdRsgvFiCT7o8jix-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="MB9MOdRsgvFiCT7o8jix-7" value="BeginDrawEntity" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="MB9MOdRsgvFiCT7o8jix-4">
+          <mxGeometry x="40" y="50" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="MB9MOdRsgvFiCT7o8jix-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="MB9MOdRsgvFiCT7o8jix-4" source="MB9MOdRsgvFiCT7o8jix-9" target="MB9MOdRsgvFiCT7o8jix-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="MB9MOdRsgvFiCT7o8jix-9" value="EndDrawEntity" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="MB9MOdRsgvFiCT7o8jix-4">
+          <mxGeometry x="40" y="310" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="MB9MOdRsgvFiCT7o8jix-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="MB9MOdRsgvFiCT7o8jix-4" source="MB9MOdRsgvFiCT7o8jix-10" target="MB9MOdRsgvFiCT7o8jix-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="MB9MOdRsgvFiCT7o8jix-10" value="遍历实体" style="swimlane;whiteSpace=wrap;html=1;rounded=0;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=23;fillColor=default;" vertex="1" parent="MB9MOdRsgvFiCT7o8jix-4">
+          <mxGeometry x="25" y="140" width="150" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="MB9MOdRsgvFiCT7o8jix-8" value="DrawEntity" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="MB9MOdRsgvFiCT7o8jix-10">
+          <mxGeometry x="15" y="40" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="MB9MOdRsgvFiCT7o8jix-16" value="Calculatelighting" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="MB9MOdRsgvFiCT7o8jix-4">
+          <mxGeometry x="40" y="410" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="MB9MOdRsgvFiCT7o8jix-6" value="天空盒" style="swimlane;whiteSpace=wrap;html=1;rounded=0;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=23;fillColor=default;" vertex="1" parent="MB9MOdRsgvFiCT7o8jix-2">
+          <mxGeometry x="110" y="1020" width="200" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="MB9MOdRsgvFiCT7o8jix-20" value="ShowSkyBox" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="MB9MOdRsgvFiCT7o8jix-6">
+          <mxGeometry x="40" y="50" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="MB9MOdRsgvFiCT7o8jix-11" value="渲染灯光" style="swimlane;whiteSpace=wrap;html=1;rounded=0;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=23;fillColor=default;" vertex="1" parent="MB9MOdRsgvFiCT7o8jix-2">
+          <mxGeometry x="110" y="620" width="200" height="360" as="geometry" />
+        </mxCell>
+        <mxCell id="MB9MOdRsgvFiCT7o8jix-12" value="BeginDrawLighting" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="MB9MOdRsgvFiCT7o8jix-11">
+          <mxGeometry x="40" y="50" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="MB9MOdRsgvFiCT7o8jix-13" value="EndDrawLighting" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="MB9MOdRsgvFiCT7o8jix-11">
+          <mxGeometry x="40" y="280" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="MB9MOdRsgvFiCT7o8jix-14" value="遍历灯光" style="swimlane;whiteSpace=wrap;html=1;rounded=0;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;startSize=23;fillColor=default;" vertex="1" parent="MB9MOdRsgvFiCT7o8jix-11">
+          <mxGeometry x="25" y="130" width="150" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="MB9MOdRsgvFiCT7o8jix-15" value="DrawLighting" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="MB9MOdRsgvFiCT7o8jix-14">
+          <mxGeometry x="15" y="40" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

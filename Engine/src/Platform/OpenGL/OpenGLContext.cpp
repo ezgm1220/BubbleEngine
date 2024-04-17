@@ -28,8 +28,6 @@ namespace Bubble {
 
 	void OpenGLContext::SwapBuffers()
 	{
-		  
-
 		glfwSwapBuffers(m_WindowHandle);
 	}
 

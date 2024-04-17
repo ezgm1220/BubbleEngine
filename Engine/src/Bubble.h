@@ -25,7 +25,6 @@
 #include "Bubble/Renderer/Renderer.h"
 #include "Bubble/Renderer/Renderer2D.h"
 #include "Bubble/Renderer/Renderer3D.h"
-#include "Bubble/Renderer/Renderer3D_NoBatch.h"
 #include "Bubble/Renderer/RenderCommand.h"
 
 #include "Bubble/Renderer/Buffer.h"

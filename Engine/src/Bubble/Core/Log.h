@@ -38,6 +38,12 @@ inline OStream& operator<<(OStream& os, const glm::mat<C, R, T, Q>& matrix)
 {
     return os << glm::to_string(matrix);
 }
+//mat<4, 4, f32, defaultp>
+template<typename OStream>
+inline OStream& operator<<(OStream& os, const glm::mat<4, 4, glm::f32, glm::defaultp>& matrix)
+{
+    return os <<'\n' << glm::to_string(matrix[0]) << '\n' << glm::to_string(matrix[1]) << '\n' << glm::to_string(matrix[2]) << '\n' << glm::to_string(matrix[3]);
+}
 
 template<typename OStream, typename T, glm::qualifier Q>
 inline OStream& operator<<(OStream& os, glm::qua<T, Q> quaternion)

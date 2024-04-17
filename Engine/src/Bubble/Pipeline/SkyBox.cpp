@@ -1,6 +1,6 @@
 #include "bubblepch.h"
 #include "SkyBox.h"
-#include "Bubble/Renderer/Renderer3D_NoBatch.h"
+#include "Bubble/Renderer/Renderer3D.h"
 #include "Bubble/Renderer/RenderCommand.h"
 
 #include <glad/glad.h>
@@ -57,7 +57,7 @@ namespace Bubble
 
             RenderCommand::Clear();
 
-            Renderer3D_NoBatch::DrawCube();
+            Renderer3D::DrawCube();
         }
         //glBindFramebuffer(GL_FRAMEBUFFER, 0);
         m_Framebuffer->Unbind();
@@ -102,7 +102,7 @@ namespace Bubble
             m_IrradianceShader->SetMat4("view", captureViews[i]);
             m_Framebuffer->SetCubeFace(i, m_IrradianceMap->GetRendererID());
             RenderCommand::Clear();
-            Renderer3D_NoBatch::DrawCube();
+            Renderer3D::DrawCube();
         }
         m_Framebuffer->Unbind();
         
@@ -126,7 +126,7 @@ namespace Bubble
                 m_PrefilterShader->SetMat4("view", captureViews[i]);
                 m_Framebuffer->SetCubeFace(i, m_PrefilterMap->GetRendererID(),mip);
                 RenderCommand::Clear();
-                Renderer3D_NoBatch::DrawCube();
+                Renderer3D::DrawCube();
             }
         }
         m_Framebuffer->Unbind();
@@ -141,7 +141,7 @@ namespace Bubble
         glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, m_LUT->GetRendererID(), 0);
         m_LUTShader->Bind();
         RenderCommand::Clear();
-        Renderer3D_NoBatch::DrawQude();
+        Renderer3D::DrawQude();
         m_Framebuffer->Unbind();*/
         m_LUT = Texture2D::Create("assets/textures/LUT.jpg");
     }
