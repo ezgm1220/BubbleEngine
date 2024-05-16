@@ -1,0 +1,58 @@
+Scene: Untitled
+Entities:
+  - Entity: 18276207483444807204
+    TagComponent:
+      Tag: A_11
+    TransformComponent:
+      Translation: [-4, 0, 0]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    SpriteRendererComponent:
+      Color: [1, 1, 1, 1]
+      Albedo: assets\textures\Test\albedo.png
+      Normal: assets\textures\Test\normal.png
+      Metallic: assets\textures\gold\metallic.png
+      Roughness: assets\textures\grass\metallic.png
+      AO: assets\textures\gold\ao.png
+  - Entity: 9055658682100192035
+    TagComponent:
+      Tag: B_10
+    TransformComponent:
+      Translation: [-2, 0, 0]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    SpriteRendererComponent:
+      Color: [1, 1, 1, 1]
+      Albedo: assets\textures\Test\albedo.png
+      Normal: assets\textures\Test\normal.png
+      Metallic: assets\textures\Test\1.png
+      Roughness: assets\textures\wall\roughness.png
+      AO: assets\textures\Test\ao.png
+  - Entity: 201837806373161638
+    TagComponent:
+      Tag: C_01
+    TransformComponent:
+      Translation: [0, 0, 0]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    SpriteRendererComponent:
+      Color: [1, 1, 1, 1]
+      Albedo: assets\textures\Test\albedo.png
+      Normal: assets\textures\Test\normal.png
+      Metallic: assets\textures\Test\0.png
+      Roughness: assets\textures\Test\0.png
+      AO: assets\textures\Test\ao.png
+  - Entity: 11791287859974627231
+    TagComponent:
+      Tag: C_00
+    TransformComponent:
+      Translation: [2, 0, 0]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    SpriteRendererComponent:
+      Color: [1, 1, 1, 1]
+      Albedo: assets\textures\Test\albedo.png
+      Normal: assets\textures\Test\normal.png
+      Metallic: assets\textures\Test\0.png
+      Roughness: assets\textures\Test\1.png
+      AO: assets\textures\Test\ao.png

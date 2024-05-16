@@ -32,6 +32,7 @@
 
 #include "Bubble/Core/Log.h"
 
+#include "Bubble/Debug/Instrumentor.h"
 
 #include <Windows.h>
 

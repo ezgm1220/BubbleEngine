@@ -1,4 +1,4 @@
-﻿
+﻿require "export-compile-commands"
 workspace "Bubble"-- 工作区
 	architecture "x86_64"
 	startproject "Editor"

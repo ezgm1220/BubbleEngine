@@ -75,10 +75,10 @@ namespace Bubble
 
     void PBRPipeline::BeginScene(const SceneCamera& camera, const glm::mat4& transform)
     {
-        glm::mat4 viewProj = camera.GetProjection() * glm::inverse(transform);
-
-        m_Shader[PID(GBufferFB)]->Bind();
-        m_Shader[PID(GBufferFB)]->SetMat4("u_ViewProjection", viewProj);
+        m_Framebuffers[PID(ForwardPBRFB)]->Bind();
+        m_Shader[PID(ForwardPBRFB)]->Bind();
+        m_Shader[PID(ForwardPBRFB)]->SetMat4("ViewProjection", camera.GetProjection() * glm::inverse(transform));
+        m_Shader[PID(ForwardPBRFB)]->SetFloat3("camPos", glm::vec3(transform * glm::vec4(0.0, 0.0, 0.0, 1.0)));
 
     }
 

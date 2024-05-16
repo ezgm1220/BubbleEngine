@@ -144,6 +144,7 @@ void main()
     color = pow(color, vec3(1.0/2.2)); 
 
 	outcolor = vec4(AO,0.0,0.0, 1.0);
+	//outcolor = vec4(CameraPos, 1.0);
 	//outcolor = vec4(texture(MRAMap,v_TexCoord).rgb, 1.0);
 	//outcolor = vec4(0.1,0.3,0.4, 1.0);
 }

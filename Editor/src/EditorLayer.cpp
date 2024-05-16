@@ -31,7 +31,7 @@ namespace Bubble
         m_IconPlay = Texture2D::Create("Resources/Icons/PlayButton.png");
         m_IconStop = Texture2D::Create("Resources/Icons/StopButton.png");
 
-       //m_pipeline = CreateRef<PBRPipeline>();
+        //m_pipeline = CreateRef<PBRPipeline>();
         m_pipeline = CreateRef<FPBR_Pipeline>();
         m_pipeline->Init();
 
@@ -40,6 +40,7 @@ namespace Bubble
         m_EditorCamera = EditorCamera(30.0f, 1.778f, 0.1f, 1000.0f);
 
         m_SceneHierarchyPanel.SetContext(m_ActiveScene);// 相当于设置场景
+        
 
     }
 

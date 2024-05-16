@@ -77,6 +77,7 @@ namespace Bubble
 
     void Application::Run()
     {
+        BB_PROFILE_FUNCTION();
         while(m_Running)
         {
             float time = (float)glfwGetTime();

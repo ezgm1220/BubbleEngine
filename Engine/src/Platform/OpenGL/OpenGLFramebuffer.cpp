@@ -349,10 +349,7 @@ namespace Bubble {
                 BB_CORE_ERROR("ClearAttachment->FramebufferTextureFormat::CUBEMAP_RGB16F No Define");
                 break;
             }
-        }
-
-		
-		
+        }		
 	}
 
     void OpenGLFramebuffer::ChangeColorAttachment(uint32_t OriIndex /*= 0*/, uint32_t NowID /*= 0*/, bool multisampled /*= false*/)

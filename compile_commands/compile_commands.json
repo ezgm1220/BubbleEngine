@@ -1,0 +1,607 @@
+[
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/src/context.c",
+            "command": "cc -MD -MP -D_GLFW_WIN32 -D_CRT_SECURE_NO_WARNINGS -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/bin-int/Debug-windows-x86_64/GLFW/context.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/bin-int/Debug-windows-x86_64/GLFW/context.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/src/context.c"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/src/egl_context.c",
+            "command": "cc -MD -MP -D_GLFW_WIN32 -D_CRT_SECURE_NO_WARNINGS -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/bin-int/Debug-windows-x86_64/GLFW/egl_context.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/bin-int/Debug-windows-x86_64/GLFW/egl_context.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/src/egl_context.c"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/src/init.c",
+            "command": "cc -MD -MP -D_GLFW_WIN32 -D_CRT_SECURE_NO_WARNINGS -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/bin-int/Debug-windows-x86_64/GLFW/init.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/bin-int/Debug-windows-x86_64/GLFW/init.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/src/init.c"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/src/input.c",
+            "command": "cc -MD -MP -D_GLFW_WIN32 -D_CRT_SECURE_NO_WARNINGS -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/bin-int/Debug-windows-x86_64/GLFW/input.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/bin-int/Debug-windows-x86_64/GLFW/input.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/src/input.c"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/src/monitor.c",
+            "command": "cc -MD -MP -D_GLFW_WIN32 -D_CRT_SECURE_NO_WARNINGS -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/bin-int/Debug-windows-x86_64/GLFW/monitor.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/bin-int/Debug-windows-x86_64/GLFW/monitor.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/src/monitor.c"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/src/osmesa_context.c",
+            "command": "cc -MD -MP -D_GLFW_WIN32 -D_CRT_SECURE_NO_WARNINGS -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/bin-int/Debug-windows-x86_64/GLFW/osmesa_context.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/bin-int/Debug-windows-x86_64/GLFW/osmesa_context.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/src/osmesa_context.c"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/src/vulkan.c",
+            "command": "cc -MD -MP -D_GLFW_WIN32 -D_CRT_SECURE_NO_WARNINGS -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/bin-int/Debug-windows-x86_64/GLFW/vulkan.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/bin-int/Debug-windows-x86_64/GLFW/vulkan.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/src/vulkan.c"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/src/wgl_context.c",
+            "command": "cc -MD -MP -D_GLFW_WIN32 -D_CRT_SECURE_NO_WARNINGS -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/bin-int/Debug-windows-x86_64/GLFW/wgl_context.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/bin-int/Debug-windows-x86_64/GLFW/wgl_context.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/src/wgl_context.c"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/src/win32_init.c",
+            "command": "cc -MD -MP -D_GLFW_WIN32 -D_CRT_SECURE_NO_WARNINGS -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/bin-int/Debug-windows-x86_64/GLFW/win32_init.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/bin-int/Debug-windows-x86_64/GLFW/win32_init.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/src/win32_init.c"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/src/win32_joystick.c",
+            "command": "cc -MD -MP -D_GLFW_WIN32 -D_CRT_SECURE_NO_WARNINGS -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/bin-int/Debug-windows-x86_64/GLFW/win32_joystick.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/bin-int/Debug-windows-x86_64/GLFW/win32_joystick.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/src/win32_joystick.c"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/src/win32_monitor.c",
+            "command": "cc -MD -MP -D_GLFW_WIN32 -D_CRT_SECURE_NO_WARNINGS -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/bin-int/Debug-windows-x86_64/GLFW/win32_monitor.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/bin-int/Debug-windows-x86_64/GLFW/win32_monitor.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/src/win32_monitor.c"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/src/win32_thread.c",
+            "command": "cc -MD -MP -D_GLFW_WIN32 -D_CRT_SECURE_NO_WARNINGS -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/bin-int/Debug-windows-x86_64/GLFW/win32_thread.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/bin-int/Debug-windows-x86_64/GLFW/win32_thread.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/src/win32_thread.c"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/src/win32_time.c",
+            "command": "cc -MD -MP -D_GLFW_WIN32 -D_CRT_SECURE_NO_WARNINGS -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/bin-int/Debug-windows-x86_64/GLFW/win32_time.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/bin-int/Debug-windows-x86_64/GLFW/win32_time.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/src/win32_time.c"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/src/win32_window.c",
+            "command": "cc -MD -MP -D_GLFW_WIN32 -D_CRT_SECURE_NO_WARNINGS -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/bin-int/Debug-windows-x86_64/GLFW/win32_window.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/bin-int/Debug-windows-x86_64/GLFW/win32_window.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/src/win32_window.c"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/src/window.c",
+            "command": "cc -MD -MP -D_GLFW_WIN32 -D_CRT_SECURE_NO_WARNINGS -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/bin-int/Debug-windows-x86_64/GLFW/window.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/bin-int/Debug-windows-x86_64/GLFW/window.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/src/window.c"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/Glad",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/Glad/src/glad.c",
+            "command": "cc -MD -MP -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/Glad/include -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/Glad/bin-int/Debug-windows-x86_64/Glad/glad.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/Glad/bin-int/Debug-windows-x86_64/Glad/glad.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/Glad/src/glad.c"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui/imgui.cpp",
+            "command": "cc -MD -MP -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui/bin-int/Debug-windows-x86_64/ImGui/imgui.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui/bin-int/Debug-windows-x86_64/ImGui/imgui.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui/imgui.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui/imgui_demo.cpp",
+            "command": "cc -MD -MP -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui/bin-int/Debug-windows-x86_64/ImGui/imgui_demo.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui/bin-int/Debug-windows-x86_64/ImGui/imgui_demo.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui/imgui_demo.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui/imgui_draw.cpp",
+            "command": "cc -MD -MP -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui/bin-int/Debug-windows-x86_64/ImGui/imgui_draw.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui/bin-int/Debug-windows-x86_64/ImGui/imgui_draw.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui/imgui_draw.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui/imgui_widgets.cpp",
+            "command": "cc -MD -MP -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui/bin-int/Debug-windows-x86_64/ImGui/imgui_widgets.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui/bin-int/Debug-windows-x86_64/ImGui/imgui_widgets.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui/imgui_widgets.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/binary.cpp",
+            "command": "cc -MD -MP -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/binary.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/binary.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/binary.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/contrib/graphbuilder.cpp",
+            "command": "cc -MD -MP -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/graphbuilder.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/graphbuilder.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/contrib/graphbuilder.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/contrib/graphbuilderadapter.cpp",
+            "command": "cc -MD -MP -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/graphbuilderadapter.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/graphbuilderadapter.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/contrib/graphbuilderadapter.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/convert.cpp",
+            "command": "cc -MD -MP -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/convert.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/convert.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/convert.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/depthguard.cpp",
+            "command": "cc -MD -MP -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/depthguard.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/depthguard.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/depthguard.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/directives.cpp",
+            "command": "cc -MD -MP -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/directives.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/directives.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/directives.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/emit.cpp",
+            "command": "cc -MD -MP -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/emit.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/emit.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/emit.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/emitfromevents.cpp",
+            "command": "cc -MD -MP -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/emitfromevents.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/emitfromevents.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/emitfromevents.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/emitter.cpp",
+            "command": "cc -MD -MP -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/emitter.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/emitter.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/emitter.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/emitterstate.cpp",
+            "command": "cc -MD -MP -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/emitterstate.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/emitterstate.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/emitterstate.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/emitterutils.cpp",
+            "command": "cc -MD -MP -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/emitterutils.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/emitterutils.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/emitterutils.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/exceptions.cpp",
+            "command": "cc -MD -MP -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/exceptions.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/exceptions.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/exceptions.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/exp.cpp",
+            "command": "cc -MD -MP -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/exp.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/exp.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/exp.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/memory.cpp",
+            "command": "cc -MD -MP -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/memory.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/memory.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/memory.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/node.cpp",
+            "command": "cc -MD -MP -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/node.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/node.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/node.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/node_data.cpp",
+            "command": "cc -MD -MP -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/node_data.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/node_data.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/node_data.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/nodebuilder.cpp",
+            "command": "cc -MD -MP -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/nodebuilder.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/nodebuilder.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/nodebuilder.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/nodeevents.cpp",
+            "command": "cc -MD -MP -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/nodeevents.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/nodeevents.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/nodeevents.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/null.cpp",
+            "command": "cc -MD -MP -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/null.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/null.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/null.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/ostream_wrapper.cpp",
+            "command": "cc -MD -MP -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/ostream_wrapper.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/ostream_wrapper.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/ostream_wrapper.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/parse.cpp",
+            "command": "cc -MD -MP -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/parse.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/parse.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/parse.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/parser.cpp",
+            "command": "cc -MD -MP -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/parser.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/parser.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/parser.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/regex_yaml.cpp",
+            "command": "cc -MD -MP -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/regex_yaml.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/regex_yaml.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/regex_yaml.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/scanner.cpp",
+            "command": "cc -MD -MP -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/scanner.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/scanner.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/scanner.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/scanscalar.cpp",
+            "command": "cc -MD -MP -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/scanscalar.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/scanscalar.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/scanscalar.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/scantag.cpp",
+            "command": "cc -MD -MP -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/scantag.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/scantag.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/scantag.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/scantoken.cpp",
+            "command": "cc -MD -MP -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/scantoken.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/scantoken.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/scantoken.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/simplekey.cpp",
+            "command": "cc -MD -MP -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/simplekey.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/simplekey.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/simplekey.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/singledocparser.cpp",
+            "command": "cc -MD -MP -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/singledocparser.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/singledocparser.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/singledocparser.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/stream.cpp",
+            "command": "cc -MD -MP -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/stream.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/stream.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/stream.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/tag.cpp",
+            "command": "cc -MD -MP -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/tag.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/bin-int/Debug-windows-x86_64/yaml-cpp/tag.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/src/tag.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Camera/EditorCamera.cpp",
+            "command": "cc -MD -MP -D_CRT_SECURE_NO_WARNINGS -DGLFW_INCLUDE_NONE -DRENDERAPI_DEBUG -DOPENGL_DEBUG -DBB_DEBUG -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/spdlog/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/Glad/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/glm -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/stb_image -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/entt/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/ImGuizmo -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/EditorCamera.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/EditorCamera.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Camera/EditorCamera.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Camera/SceneCamera.cpp",
+            "command": "cc -MD -MP -D_CRT_SECURE_NO_WARNINGS -DGLFW_INCLUDE_NONE -DRENDERAPI_DEBUG -DOPENGL_DEBUG -DBB_DEBUG -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/spdlog/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/Glad/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/glm -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/stb_image -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/entt/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/ImGuizmo -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/SceneCamera.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/SceneCamera.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Camera/SceneCamera.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Core/Application.cpp",
+            "command": "cc -MD -MP -D_CRT_SECURE_NO_WARNINGS -DGLFW_INCLUDE_NONE -DRENDERAPI_DEBUG -DOPENGL_DEBUG -DBB_DEBUG -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/spdlog/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/Glad/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/glm -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/stb_image -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/entt/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/ImGuizmo -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/Application.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/Application.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Core/Application.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Core/Layer.cpp",
+            "command": "cc -MD -MP -D_CRT_SECURE_NO_WARNINGS -DGLFW_INCLUDE_NONE -DRENDERAPI_DEBUG -DOPENGL_DEBUG -DBB_DEBUG -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/spdlog/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/Glad/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/glm -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/stb_image -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/entt/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/ImGuizmo -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/Layer.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/Layer.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Core/Layer.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Core/LayerStack.cpp",
+            "command": "cc -MD -MP -D_CRT_SECURE_NO_WARNINGS -DGLFW_INCLUDE_NONE -DRENDERAPI_DEBUG -DOPENGL_DEBUG -DBB_DEBUG -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/spdlog/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/Glad/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/glm -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/stb_image -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/entt/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/ImGuizmo -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/LayerStack.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/LayerStack.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Core/LayerStack.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Core/Log.cpp",
+            "command": "cc -MD -MP -D_CRT_SECURE_NO_WARNINGS -DGLFW_INCLUDE_NONE -DRENDERAPI_DEBUG -DOPENGL_DEBUG -DBB_DEBUG -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/spdlog/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/Glad/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/glm -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/stb_image -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/entt/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/ImGuizmo -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/Log.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/Log.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Core/Log.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Core/UUID.cpp",
+            "command": "cc -MD -MP -D_CRT_SECURE_NO_WARNINGS -DGLFW_INCLUDE_NONE -DRENDERAPI_DEBUG -DOPENGL_DEBUG -DBB_DEBUG -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/spdlog/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/Glad/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/glm -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/stb_image -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/entt/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/ImGuizmo -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/UUID.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/UUID.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Core/UUID.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Core/Window.cpp",
+            "command": "cc -MD -MP -D_CRT_SECURE_NO_WARNINGS -DGLFW_INCLUDE_NONE -DRENDERAPI_DEBUG -DOPENGL_DEBUG -DBB_DEBUG -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/spdlog/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/Glad/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/glm -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/stb_image -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/entt/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/ImGuizmo -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/Window.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/Window.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Core/Window.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/ImGui/ImGuiBuild.cpp",
+            "command": "cc -MD -MP -D_CRT_SECURE_NO_WARNINGS -DGLFW_INCLUDE_NONE -DRENDERAPI_DEBUG -DOPENGL_DEBUG -DBB_DEBUG -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/spdlog/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/Glad/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/glm -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/stb_image -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/entt/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/ImGuizmo -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/ImGuiBuild.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/ImGuiBuild.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/ImGui/ImGuiBuild.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/ImGui/ImGuiLayer.cpp",
+            "command": "cc -MD -MP -D_CRT_SECURE_NO_WARNINGS -DGLFW_INCLUDE_NONE -DRENDERAPI_DEBUG -DOPENGL_DEBUG -DBB_DEBUG -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/spdlog/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/Glad/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/glm -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/stb_image -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/entt/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/ImGuizmo -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/ImGuiLayer.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/ImGuiLayer.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/ImGui/ImGuiLayer.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Math/Math.cpp",
+            "command": "cc -MD -MP -D_CRT_SECURE_NO_WARNINGS -DGLFW_INCLUDE_NONE -DRENDERAPI_DEBUG -DOPENGL_DEBUG -DBB_DEBUG -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/spdlog/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/Glad/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/glm -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/stb_image -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/entt/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/ImGuizmo -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/Math.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/Math.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Math/Math.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Pipeline/Forward_PBR_Pipeline.cpp",
+            "command": "cc -MD -MP -D_CRT_SECURE_NO_WARNINGS -DGLFW_INCLUDE_NONE -DRENDERAPI_DEBUG -DOPENGL_DEBUG -DBB_DEBUG -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/spdlog/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/Glad/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/glm -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/stb_image -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/entt/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/ImGuizmo -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/Forward_PBR_Pipeline.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/Forward_PBR_Pipeline.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Pipeline/Forward_PBR_Pipeline.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Pipeline/PBR_Pipeline.cpp",
+            "command": "cc -MD -MP -D_CRT_SECURE_NO_WARNINGS -DGLFW_INCLUDE_NONE -DRENDERAPI_DEBUG -DOPENGL_DEBUG -DBB_DEBUG -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/spdlog/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/Glad/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/glm -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/stb_image -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/entt/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/ImGuizmo -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/PBR_Pipeline.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/PBR_Pipeline.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Pipeline/PBR_Pipeline.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Pipeline/Pipeline.cpp",
+            "command": "cc -MD -MP -D_CRT_SECURE_NO_WARNINGS -DGLFW_INCLUDE_NONE -DRENDERAPI_DEBUG -DOPENGL_DEBUG -DBB_DEBUG -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/spdlog/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/Glad/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/glm -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/stb_image -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/entt/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/ImGuizmo -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/Pipeline.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/Pipeline.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Pipeline/Pipeline.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Pipeline/SkyBox.cpp",
+            "command": "cc -MD -MP -D_CRT_SECURE_NO_WARNINGS -DGLFW_INCLUDE_NONE -DRENDERAPI_DEBUG -DOPENGL_DEBUG -DBB_DEBUG -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/spdlog/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/Glad/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/glm -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/stb_image -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/entt/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/ImGuizmo -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/SkyBox.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/SkyBox.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Pipeline/SkyBox.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Renderer/Buffer.cpp",
+            "command": "cc -MD -MP -D_CRT_SECURE_NO_WARNINGS -DGLFW_INCLUDE_NONE -DRENDERAPI_DEBUG -DOPENGL_DEBUG -DBB_DEBUG -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/spdlog/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/Glad/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/glm -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/stb_image -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/entt/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/ImGuizmo -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/Buffer.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/Buffer.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Renderer/Buffer.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Renderer/Framebuffer.cpp",
+            "command": "cc -MD -MP -D_CRT_SECURE_NO_WARNINGS -DGLFW_INCLUDE_NONE -DRENDERAPI_DEBUG -DOPENGL_DEBUG -DBB_DEBUG -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/spdlog/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/Glad/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/glm -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/stb_image -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/entt/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/ImGuizmo -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/Framebuffer.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/Framebuffer.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Renderer/Framebuffer.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Renderer/GraphicsContext.cpp",
+            "command": "cc -MD -MP -D_CRT_SECURE_NO_WARNINGS -DGLFW_INCLUDE_NONE -DRENDERAPI_DEBUG -DOPENGL_DEBUG -DBB_DEBUG -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/spdlog/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/Glad/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/glm -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/stb_image -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/entt/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/ImGuizmo -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/GraphicsContext.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/GraphicsContext.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Renderer/GraphicsContext.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Renderer/OrthographicCamera.cpp",
+            "command": "cc -MD -MP -D_CRT_SECURE_NO_WARNINGS -DGLFW_INCLUDE_NONE -DRENDERAPI_DEBUG -DOPENGL_DEBUG -DBB_DEBUG -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/spdlog/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/Glad/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/glm -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/stb_image -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/entt/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/ImGuizmo -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/OrthographicCamera.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/OrthographicCamera.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Renderer/OrthographicCamera.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Renderer/OrthographicCameraController.cpp",
+            "command": "cc -MD -MP -D_CRT_SECURE_NO_WARNINGS -DGLFW_INCLUDE_NONE -DRENDERAPI_DEBUG -DOPENGL_DEBUG -DBB_DEBUG -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/spdlog/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/Glad/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/glm -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/stb_image -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/entt/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/ImGuizmo -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/OrthographicCameraController.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/OrthographicCameraController.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Renderer/OrthographicCameraController.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Renderer/RenderCommand.cpp",
+            "command": "cc -MD -MP -D_CRT_SECURE_NO_WARNINGS -DGLFW_INCLUDE_NONE -DRENDERAPI_DEBUG -DOPENGL_DEBUG -DBB_DEBUG -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/spdlog/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/Glad/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/glm -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/stb_image -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/entt/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/ImGuizmo -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/RenderCommand.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/RenderCommand.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Renderer/RenderCommand.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Renderer/Renderer.cpp",
+            "command": "cc -MD -MP -D_CRT_SECURE_NO_WARNINGS -DGLFW_INCLUDE_NONE -DRENDERAPI_DEBUG -DOPENGL_DEBUG -DBB_DEBUG -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/spdlog/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/Glad/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/glm -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/stb_image -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/entt/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/ImGuizmo -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/Renderer.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/Renderer.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Renderer/Renderer.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Renderer/Renderer2D.cpp",
+            "command": "cc -MD -MP -D_CRT_SECURE_NO_WARNINGS -DGLFW_INCLUDE_NONE -DRENDERAPI_DEBUG -DOPENGL_DEBUG -DBB_DEBUG -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/spdlog/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/Glad/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/glm -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/stb_image -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/entt/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/ImGuizmo -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/Renderer2D.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/Renderer2D.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Renderer/Renderer2D.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Renderer/Renderer3D.cpp",
+            "command": "cc -MD -MP -D_CRT_SECURE_NO_WARNINGS -DGLFW_INCLUDE_NONE -DRENDERAPI_DEBUG -DOPENGL_DEBUG -DBB_DEBUG -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/spdlog/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/Glad/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/glm -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/stb_image -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/entt/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/ImGuizmo -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/Renderer3D.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/Renderer3D.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Renderer/Renderer3D.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Renderer/Renderer3D_last.cpp",
+            "command": "cc -MD -MP -D_CRT_SECURE_NO_WARNINGS -DGLFW_INCLUDE_NONE -DRENDERAPI_DEBUG -DOPENGL_DEBUG -DBB_DEBUG -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/spdlog/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/Glad/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/glm -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/stb_image -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/entt/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/ImGuizmo -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/Renderer3D_last.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/Renderer3D_last.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Renderer/Renderer3D_last.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Renderer/RendererAPI.cpp",
+            "command": "cc -MD -MP -D_CRT_SECURE_NO_WARNINGS -DGLFW_INCLUDE_NONE -DRENDERAPI_DEBUG -DOPENGL_DEBUG -DBB_DEBUG -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/spdlog/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/Glad/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/glm -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/stb_image -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/entt/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/ImGuizmo -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/RendererAPI.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/RendererAPI.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Renderer/RendererAPI.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Renderer/Shader.cpp",
+            "command": "cc -MD -MP -D_CRT_SECURE_NO_WARNINGS -DGLFW_INCLUDE_NONE -DRENDERAPI_DEBUG -DOPENGL_DEBUG -DBB_DEBUG -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/spdlog/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/Glad/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/glm -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/stb_image -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/entt/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/ImGuizmo -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/Shader.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/Shader.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Renderer/Shader.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Renderer/Texture.cpp",
+            "command": "cc -MD -MP -D_CRT_SECURE_NO_WARNINGS -DGLFW_INCLUDE_NONE -DRENDERAPI_DEBUG -DOPENGL_DEBUG -DBB_DEBUG -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/spdlog/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/Glad/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/glm -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/stb_image -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/entt/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/ImGuizmo -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/Texture.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/Texture.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Renderer/Texture.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Renderer/VertexArray.cpp",
+            "command": "cc -MD -MP -D_CRT_SECURE_NO_WARNINGS -DGLFW_INCLUDE_NONE -DRENDERAPI_DEBUG -DOPENGL_DEBUG -DBB_DEBUG -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/spdlog/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/Glad/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/glm -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/stb_image -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/entt/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/ImGuizmo -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/VertexArray.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/VertexArray.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Renderer/VertexArray.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Scene/Entity.cpp",
+            "command": "cc -MD -MP -D_CRT_SECURE_NO_WARNINGS -DGLFW_INCLUDE_NONE -DRENDERAPI_DEBUG -DOPENGL_DEBUG -DBB_DEBUG -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/spdlog/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/Glad/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/glm -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/stb_image -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/entt/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/ImGuizmo -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/Entity.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/Entity.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Scene/Entity.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Scene/Scene.cpp",
+            "command": "cc -MD -MP -D_CRT_SECURE_NO_WARNINGS -DGLFW_INCLUDE_NONE -DRENDERAPI_DEBUG -DOPENGL_DEBUG -DBB_DEBUG -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/spdlog/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/Glad/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/glm -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/stb_image -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/entt/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/ImGuizmo -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/Scene.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/Scene.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Scene/Scene.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Scene/SceneSerializer.cpp",
+            "command": "cc -MD -MP -D_CRT_SECURE_NO_WARNINGS -DGLFW_INCLUDE_NONE -DRENDERAPI_DEBUG -DOPENGL_DEBUG -DBB_DEBUG -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/spdlog/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/Glad/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/glm -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/stb_image -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/entt/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/ImGuizmo -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/SceneSerializer.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/SceneSerializer.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Bubble/Scene/SceneSerializer.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Platform/OpenGL/OpenGLBuffer.cpp",
+            "command": "cc -MD -MP -D_CRT_SECURE_NO_WARNINGS -DGLFW_INCLUDE_NONE -DRENDERAPI_DEBUG -DOPENGL_DEBUG -DBB_DEBUG -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/spdlog/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/Glad/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/glm -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/stb_image -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/entt/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/ImGuizmo -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/OpenGLBuffer.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/OpenGLBuffer.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Platform/OpenGL/OpenGLBuffer.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Platform/OpenGL/OpenGLContext.cpp",
+            "command": "cc -MD -MP -D_CRT_SECURE_NO_WARNINGS -DGLFW_INCLUDE_NONE -DRENDERAPI_DEBUG -DOPENGL_DEBUG -DBB_DEBUG -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/spdlog/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/Glad/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/glm -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/stb_image -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/entt/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/ImGuizmo -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/OpenGLContext.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/OpenGLContext.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Platform/OpenGL/OpenGLContext.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Platform/OpenGL/OpenGLFramebuffer.cpp",
+            "command": "cc -MD -MP -D_CRT_SECURE_NO_WARNINGS -DGLFW_INCLUDE_NONE -DRENDERAPI_DEBUG -DOPENGL_DEBUG -DBB_DEBUG -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/spdlog/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/Glad/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/glm -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/stb_image -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/entt/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/ImGuizmo -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/OpenGLFramebuffer.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/OpenGLFramebuffer.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Platform/OpenGL/OpenGLFramebuffer.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Platform/OpenGL/OpenGLRendererAPI.cpp",
+            "command": "cc -MD -MP -D_CRT_SECURE_NO_WARNINGS -DGLFW_INCLUDE_NONE -DRENDERAPI_DEBUG -DOPENGL_DEBUG -DBB_DEBUG -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/spdlog/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/Glad/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/glm -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/stb_image -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/entt/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/ImGuizmo -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/OpenGLRendererAPI.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/OpenGLRendererAPI.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Platform/OpenGL/OpenGLRendererAPI.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Platform/OpenGL/OpenGLShader.cpp",
+            "command": "cc -MD -MP -D_CRT_SECURE_NO_WARNINGS -DGLFW_INCLUDE_NONE -DRENDERAPI_DEBUG -DOPENGL_DEBUG -DBB_DEBUG -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/spdlog/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/Glad/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/glm -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/stb_image -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/entt/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/ImGuizmo -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/OpenGLShader.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/OpenGLShader.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Platform/OpenGL/OpenGLShader.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Platform/OpenGL/OpenGLState.cpp",
+            "command": "cc -MD -MP -D_CRT_SECURE_NO_WARNINGS -DGLFW_INCLUDE_NONE -DRENDERAPI_DEBUG -DOPENGL_DEBUG -DBB_DEBUG -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/spdlog/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/Glad/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/glm -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/stb_image -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/entt/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/ImGuizmo -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/OpenGLState.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/OpenGLState.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Platform/OpenGL/OpenGLState.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Platform/OpenGL/OpenGLTexture.cpp",
+            "command": "cc -MD -MP -D_CRT_SECURE_NO_WARNINGS -DGLFW_INCLUDE_NONE -DRENDERAPI_DEBUG -DOPENGL_DEBUG -DBB_DEBUG -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/spdlog/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/Glad/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/glm -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/stb_image -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/entt/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/ImGuizmo -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/OpenGLTexture.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/OpenGLTexture.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Platform/OpenGL/OpenGLTexture.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Platform/OpenGL/OpenGLVertexArray.cpp",
+            "command": "cc -MD -MP -D_CRT_SECURE_NO_WARNINGS -DGLFW_INCLUDE_NONE -DRENDERAPI_DEBUG -DOPENGL_DEBUG -DBB_DEBUG -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/spdlog/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/Glad/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/glm -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/stb_image -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/entt/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/ImGuizmo -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/OpenGLVertexArray.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/OpenGLVertexArray.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Platform/OpenGL/OpenGLVertexArray.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Platform/Windows/WindowsInput.cpp",
+            "command": "cc -MD -MP -D_CRT_SECURE_NO_WARNINGS -DGLFW_INCLUDE_NONE -DRENDERAPI_DEBUG -DOPENGL_DEBUG -DBB_DEBUG -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/spdlog/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/Glad/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/glm -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/stb_image -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/entt/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/ImGuizmo -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/WindowsInput.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/WindowsInput.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Platform/Windows/WindowsInput.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Platform/Windows/WindowsPlatformUtils.cpp",
+            "command": "cc -MD -MP -D_CRT_SECURE_NO_WARNINGS -DGLFW_INCLUDE_NONE -DRENDERAPI_DEBUG -DOPENGL_DEBUG -DBB_DEBUG -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/spdlog/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/Glad/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/glm -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/stb_image -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/entt/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/ImGuizmo -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/WindowsPlatformUtils.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/WindowsPlatformUtils.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Platform/Windows/WindowsPlatformUtils.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Platform/Windows/WindowsWindow.cpp",
+            "command": "cc -MD -MP -D_CRT_SECURE_NO_WARNINGS -DGLFW_INCLUDE_NONE -DRENDERAPI_DEBUG -DOPENGL_DEBUG -DBB_DEBUG -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/spdlog/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/Glad/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/glm -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/stb_image -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/entt/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/ImGuizmo -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/WindowsWindow.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/WindowsWindow.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/Platform/Windows/WindowsWindow.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/bubblepch.cpp",
+            "command": "cc -MD -MP -D_CRT_SECURE_NO_WARNINGS -DGLFW_INCLUDE_NONE -DRENDERAPI_DEBUG -DOPENGL_DEBUG -DBB_DEBUG -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/spdlog/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/Glad/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/glm -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/stb_image -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/entt/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/ImGuizmo -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/bubblepch.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/bubblepch.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src/bubblepch.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/ImGuizmo/ImGuizmo.cpp",
+            "command": "cc -MD -MP -D_CRT_SECURE_NO_WARNINGS -DGLFW_INCLUDE_NONE -DRENDERAPI_DEBUG -DOPENGL_DEBUG -DBB_DEBUG -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/spdlog/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/Glad/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/glm -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/stb_image -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/entt/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/ImGuizmo -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/ImGuizmo.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/ImGuizmo.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/ImGuizmo/ImGuizmo.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/stb_image/stb_image.cpp",
+            "command": "cc -MD -MP -D_CRT_SECURE_NO_WARNINGS -DGLFW_INCLUDE_NONE -DRENDERAPI_DEBUG -DOPENGL_DEBUG -DBB_DEBUG -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/spdlog/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/GLFW/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/Glad/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/imgui -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/glm -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/stb_image -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/entt/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/yaml-cpp/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/ImGuizmo -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/stb_image.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Engine/stb_image.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/stb_image/stb_image.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Editor",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Editor/src/BubbleEditor.cpp",
+            "command": "cc -MD -MP -DRENDERAPI_DEBUG -DOPENGL_DEBUG -DBB_DEBUG -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/spdlog/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/glm -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/entt/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/ImGuizmo -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Editor/BubbleEditor.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Editor/BubbleEditor.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Editor/src/BubbleEditor.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Editor",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Editor/src/EditorLayer.cpp",
+            "command": "cc -MD -MP -DRENDERAPI_DEBUG -DOPENGL_DEBUG -DBB_DEBUG -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/spdlog/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/glm -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/entt/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/ImGuizmo -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Editor/EditorLayer.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Editor/EditorLayer.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Editor/src/EditorLayer.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Editor",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Editor/src/Panels/ContentBrowserPanel.cpp",
+            "command": "cc -MD -MP -DRENDERAPI_DEBUG -DOPENGL_DEBUG -DBB_DEBUG -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/spdlog/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/glm -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/entt/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/ImGuizmo -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Editor/ContentBrowserPanel.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Editor/ContentBrowserPanel.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Editor/src/Panels/ContentBrowserPanel.cpp"
+          }
+,
+          {
+            "directory": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Editor",
+            "file": "C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Editor/src/Panels/SceneHierarchyPanel.cpp",
+            "command": "cc -MD -MP -DRENDERAPI_DEBUG -DOPENGL_DEBUG -DBB_DEBUG -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/spdlog/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/src -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/glm -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/entt/include -IC:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Engine/thirdparty/ImGuizmo -m64 -g -o C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Editor/SceneHierarchyPanel.o -MF C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/bin-int/Debug-windows-x86_64/Editor/SceneHierarchyPanel.d -c C:/Users/czzzz/Desktop/Bubble_3/BubbleEngine/Editor/src/Panels/SceneHierarchyPanel.cpp"
+          }
+]

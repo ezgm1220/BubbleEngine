@@ -2,6 +2,7 @@
 #include <functional>
 
 
+#include "Bubble/Debug/Instrumentor.h"
 #include "Bubble/Core/Base.h"
 
 namespace Bubble

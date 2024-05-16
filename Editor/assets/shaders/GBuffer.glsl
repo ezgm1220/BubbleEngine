@@ -71,7 +71,7 @@ vec3 getNormalFromMap()
 void main()
 {
     out_Color = v_Color * texture(Albedo, v_TexCoord);
-    out_Position = v_WorldPos;
+    out_Position = vec4(v_WorldPos.rgb,1.0);
     out_Normal = vec4(getNormalFromMap(),1.0);
     out_MRA = vec4(texture(Metallic, v_TexCoord).r,texture(Roughness, v_TexCoord).r,texture(AO, v_TexCoord).r,1.0);
 	out_ID=v_EntityID;
