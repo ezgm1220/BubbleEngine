@@ -13,6 +13,25 @@ namespace Bubble
         }
     }
 
+    void Pipeline::ReLoadShaders(const std::unordered_map<int, std::string>& ShaderInformations)
+    {
+        for(auto map : ShaderInformations)
+        {
+            for(auto nmp : this->m_Shader)
+            {
+                auto k = nmp;
+            }
+            if(!m_Shader.count(map.first))
+            {
+                BB_CORE_ERROR("No find " + map.second);
+            }
+            else
+            {
+                m_Shader[map.first] = Shader::Create(map.second);
+            }
+        }
+    }
+
     void Pipeline::BindTextureIndex(const std::unordered_map<int, std::vector<std::pair<int, std::string>>>& indexs)
     {
         for(auto ShaderInformation : indexs)

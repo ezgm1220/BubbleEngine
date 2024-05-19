@@ -1,8 +1,5 @@
-// Basic Texture Shader
-
 #type vertex
 #version 450
-
 layout(location = 0) in vec3 a_Position;
 layout(location = 1) in vec3 a_Normal;
 layout(location = 2) in vec2 a_TexCoord;
@@ -23,20 +20,21 @@ void main()
 {
 	v_Color = BaseColor;
 	v_TexCoord = a_TexCoord;
-    v_WorldPos =  vec3(Model * vec4(a_Position, 1.0));
+    v_WorldPos =  (Model * vec4(a_Position, 1.0)).rgb;
     //v_WorldPos =  Model * vec4(a_Position, 1.0);
     v_Normal = NormalMatrix * a_Normal;
 	v_EntityID = EntityID;
 	gl_Position = ViewProjection * vec4(v_WorldPos,1.0);
 }
 
+
 #type fragment
 #version 450
 
 layout(location = 0) out vec4 out_Color;
-layout(location = 1) out vec3 out_Position;
-layout(location = 2) out vec3 out_Normal;
-layout(location = 3) out vec3 out_MRA;
+layout(location = 1) out vec4 out_Position;
+layout(location = 2) out vec4 out_Normal;
+layout(location = 3) out vec4 out_MRA;
 layout(location = 4) out int out_ID;
 
 in vec4 v_Color;
@@ -68,12 +66,18 @@ vec3 getNormalFromMap()
     return normalize(TBN * tangentNormal);
 }
 
-void main()
-{
-    out_Color = v_Color * texture(Albedo, v_TexCoord);
-    out_Position = vec3(v_WorldPos.rgb);
-    out_Normal = vec3(getNormalFromMap());
-    //out_Normal = vec3(0.1,0.2,0.3);
-    out_MRA = vec3(texture(Metallic, v_TexCoord).r,texture(Roughness, v_TexCoord).r,texture(AO, v_TexCoord).r);
+void main(){
+	vec3 albedo = pow(texture(Albedo, v_TexCoord).rgb, vec3(2.2));
+    float metallic = texture(Metallic, v_TexCoord).r;
+    float roughness = texture(Roughness, v_TexCoord).r;
+    float ao = texture(AO, v_TexCoord).r;
+
+    //out_Color = v_Color * vec4(albedo,1.0);
+    out_Color = vec4(albedo,1.0);
+    out_Position = vec4(v_WorldPos,1.0);
+    out_Normal = vec4(getNormalFromMap(),1.0);
+    //out_Normal = vec4(0.0,0.0,0.3,1.0);
+    out_MRA = vec4(metallic,roughness,ao,1.0);
+    // out_MRA = vec3(metallic,roughness,ao);
 	out_ID=v_EntityID;
 }

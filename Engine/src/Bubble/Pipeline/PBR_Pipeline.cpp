@@ -11,7 +11,7 @@ namespace Bubble
         // 设置帧缓冲信息以及Shader信息
         {
             FramebufferSpecification fbSpec_GBuffer;
-            fbSpec_GBuffer.Attachments = {FramebufferTextureFormat::RGBA8, FramebufferTextureFormat::RGBA16F,FramebufferTextureFormat::RGBA16F, FramebufferTextureFormat::RGBA16F, FramebufferTextureFormat::RED_INTEGER, FramebufferTextureFormat::Depth};
+            fbSpec_GBuffer.Attachments = {FramebufferTextureFormat::RGBA16F, FramebufferTextureFormat::RGBA16F,FramebufferTextureFormat::RGBA16F, FramebufferTextureFormat::RGBA16F, FramebufferTextureFormat::RED_INTEGER, FramebufferTextureFormat::Depth};
             fbSpec_GBuffer.Width = 1280;
             fbSpec_GBuffer.Height = 720;
             this->Set_Framebuffer(fbSpec_GBuffer, PID(GBufferFB));
@@ -30,8 +30,8 @@ namespace Bubble
             this->Set_Framebuffer(fbSpec_SkyBox, PID(SkyBoxFB));
 
             std::unordered_map<int, std::string > shadersmap;
-            shadersmap.insert({PID(GBufferFB),"assets/shaders/GBuffer.glsl"});
-            shadersmap.insert({PID(LightFB),"assets/shaders/Lighting.glsl"});
+            shadersmap.insert({PID(GBufferFB),"assets/shaders/DeferedPipeline/GBufferPass.glsl"});
+            shadersmap.insert({PID(LightFB),"assets/shaders/DeferedPipeline/LightingPass.glsl"});
             shadersmap.insert({PID(SkyBoxFB),"assets/shaders/Skybox.glsl"});
             this->LoadShaders(shadersmap);
 
@@ -42,7 +42,7 @@ namespace Bubble
 
             std::vector<std::pair<int, std::string>> textureinformation_Light = {
                             {0,"ColorMap"},{1,"PositionMap"},{2,"NormalMap"},{3,"MRAMap"},
-                            { 4,"IrradianceMap" },{5,"PrefilterMap"},{6,"BrdfLUT"}};
+                            { 4,"irradianceMap" },{5,"prefilterMap"},{6,"brdfLUT"}};
             shaderinformation.insert({PID(LightFB),textureinformation_Light});
 
             std::vector<std::pair<int, std::string>> textureinformation_SkyBox = {
@@ -62,7 +62,7 @@ namespace Bubble
 
         //this->GetSkybox_SixFaces("assets/SkyBox/Sky");
         //this->GetSkybox_Hdr("assets/shaders/GetCubeMap.glsl", "assets/SkyBox/spree_bank_4k.hdr", 512);
-        this->GetSkybox_Hdr("assets/shaders/GetCubeMap.glsl", "assets/SkyBox/newport_loft.hdr", 2048);
+        this->GetSkybox_Hdr("assets/shaders/GetCubeMap.glsl", "assets/SkyBox/metro_noord_4k.hdr", 2048);
         this->GetIBL(128, 128, 5, 512);
     }
 
@@ -75,10 +75,10 @@ namespace Bubble
 
     void PBRPipeline::BeginScene(const SceneCamera& camera, const glm::mat4& transform)
     {
-        m_Framebuffers[PID(ForwardPBRFB)]->Bind();
-        m_Shader[PID(ForwardPBRFB)]->Bind();
-        m_Shader[PID(ForwardPBRFB)]->SetMat4("ViewProjection", camera.GetProjection() * glm::inverse(transform));
-        m_Shader[PID(ForwardPBRFB)]->SetFloat3("camPos", glm::vec3(transform * glm::vec4(0.0, 0.0, 0.0, 1.0)));
+        m_Framebuffers[PID(GBufferFB)]->Bind();
+        m_Shader[PID(GBufferFB)]->Bind();
+        m_Shader[PID(GBufferFB)]->SetMat4("ViewProjection", camera.GetProjection() * glm::inverse(transform));
+        //m_Shader[PID(ForwardPBRFB)]->SetFloat3("camPos", glm::vec3(transform * glm::vec4(0.0, 0.0, 0.0, 1.0)));
 
     }
 
@@ -139,8 +139,8 @@ namespace Bubble
         m_Shader[PID(LightFB)]->BindTexture(3, texid3);
 
         m_Shader[PID(LightFB)]->BindTexture(4, m_Skybox.GetIrradianceMapID());
-        //m_Shader[PID(LightFB)]->BindTexture(5, m_Skybox.GetPrefilterMapID());
-        m_Shader[PID(LightFB)]->BindTexture(5, m_Skybox.GetCubeMapID());
+        m_Shader[PID(LightFB)]->BindTexture(5, m_Skybox.GetPrefilterMapID());
+        //m_Shader[PID(LightFB)]->BindTexture(5, m_Skybox.GetCubeMapID());
         m_Shader[PID(LightFB)]->BindTexture(6, m_Skybox.GetLUTID());
 
 
@@ -191,9 +191,9 @@ namespace Bubble
         auto texid0 = m_Framebuffers[PID(SkyBoxFB)]->GetColorAttachmentRendererID(0);
         m_Shader[PID(SkyBoxFB)]->BindTexture(0, texid0);
         
-        //m_Shader[PID(SkyBoxFB)]->BindTexture(1, m_Skybox.GetCubeMapID());
+        m_Shader[PID(SkyBoxFB)]->BindTexture(1, m_Skybox.GetCubeMapID());
         //m_Shader[PID(SkyBoxFB)]->BindTexture(1, m_Skybox.GetIrradianceMapID());
-        m_Shader[PID(SkyBoxFB)]->BindTexture(1, m_Skybox.GetPrefilterMapID());
+        //m_Shader[PID(SkyBoxFB)]->BindTexture(1, m_Skybox.GetPrefilterMapID());
 
         m_Shader[PID(SkyBoxFB)]->SetMat4("view", View);
         m_Shader[PID(SkyBoxFB)]->SetMat4("projection", projection);

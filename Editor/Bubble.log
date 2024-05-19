@@ -1,12 +1,96 @@
-[16:49:49] [info] BUBBLE: Creating window Bubble Editor (1600, 900)
-[16:49:50] [info] BUBBLE: OpenGL Info:
-[16:49:50] [info] BUBBLE:   Vendor: NVIDIA Corporation
-[16:49:50] [info] BUBBLE:   Renderer: NVIDIA GeForce RTX 2060/PCIe/SSE2
-[16:49:50] [info] BUBBLE:   Version: 4.5.0 NVIDIA 552.44
-[16:49:53] [trace] BUBBLE: Deserializing scene 'Untitled'
-[16:49:53] [trace] BUBBLE: Deserialized entity with ID = 6141256997528540968, name = Camera A
-[16:49:53] [trace] BUBBLE: Deserialized entity with ID = 12738193814166956915, name = rusted iron
-[16:49:54] [trace] BUBBLE: Deserialized entity with ID = 14597299304727981751, name = gold
-[16:49:54] [trace] BUBBLE: Deserialized entity with ID = 14666236401959362122, name = grass
-[16:49:54] [trace] BUBBLE: Deserialized entity with ID = 5751728619673797090, name = plastic
-[16:49:55] [trace] BUBBLE: Deserialized entity with ID = 608441564598621349, name = wall
+[22:00:27] [info] BUBBLE: Creating window Bubble Editor (1600, 900)
+[22:00:27] [info] BUBBLE: OpenGL Info:
+[22:00:27] [info] BUBBLE:   Vendor: NVIDIA Corporation
+[22:00:27] [info] BUBBLE:   Renderer: NVIDIA GeForce RTX 2060/PCIe/SSE2
+[22:00:27] [info] BUBBLE:   Version: 4.5.0 NVIDIA 552.44
+[22:00:28] [error] BUBBLE: Program/shader state performance warning: Vertex shader in program 4 is being recompiled based on GL state.
+[22:00:28] [error] BUBBLE: Program/shader state performance warning: Vertex shader in program 5 is being recompiled based on GL state.
+[22:00:28] [error] BUBBLE: Program/shader state performance warning: Vertex shader in program 6 is being recompiled based on GL state.
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:30] [info] BUBBLE: No Main Camera
+[22:00:31] [info] BUBBLE: No Main Camera
+[22:00:31] [info] BUBBLE: No Main Camera
+[22:00:31] [info] BUBBLE: No Main Camera
+[22:00:31] [info] BUBBLE: No Main Camera
+[22:00:31] [info] BUBBLE: No Main Camera
+[22:00:31] [info] BUBBLE: No Main Camera
+[22:00:31] [info] BUBBLE: No Main Camera
+[22:00:31] [info] BUBBLE: No Main Camera
+[22:00:31] [info] BUBBLE: No Main Camera
+[22:00:31] [info] BUBBLE: No Main Camera
+[22:00:31] [info] BUBBLE: No Main Camera
+[22:00:31] [info] BUBBLE: No Main Camera
+[22:00:31] [info] BUBBLE: No Main Camera
+[22:00:32] [trace] BUBBLE: Deserializing scene 'Untitled'
+[22:00:32] [trace] BUBBLE: Deserialized entity with ID = 6141256997528540968, name = Camera A
+[22:00:32] [trace] BUBBLE: Deserialized entity with ID = 12738193814166956915, name = rusted iron
+[22:00:33] [trace] BUBBLE: Deserialized entity with ID = 14597299304727981751, name = gold
+[22:00:33] [trace] BUBBLE: Deserialized entity with ID = 14666236401959362122, name = grass
+[22:00:35] [trace] BUBBLE: Deserialized entity with ID = 5751728619673797090, name = plastic
+[22:00:36] [trace] BUBBLE: Deserialized entity with ID = 608441564598621349, name = wall

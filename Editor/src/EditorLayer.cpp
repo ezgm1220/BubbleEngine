@@ -25,14 +25,26 @@ namespace Bubble
 
     void EditorLayer::OnAttach()
     {
-        
-
         //m_CheckerboardTexture = Texture2D::Create("assets/textures/Checkerboard.png");
         m_IconPlay = Texture2D::Create("Resources/Icons/PlayButton.png");
         m_IconStop = Texture2D::Create("Resources/Icons/StopButton.png");
 
-        //m_pipeline = CreateRef<PBRPipeline>();
-        m_pipeline = CreateRef<FPBR_Pipeline>();
+        switch(1)
+        {
+            case 1:
+            {
+                m_pipeline = CreateRef<PBRPipeline>();
+                IsDeferedPipeline = true;
+                break;
+            }
+            case 0:
+            {
+                m_pipeline = CreateRef<FPBR_Pipeline>();
+                IsDeferedPipeline = false;
+                break;
+            }
+        }
+
         m_pipeline->Init();
 
         m_ActiveScene = CreateRef<Scene>();
@@ -63,6 +75,69 @@ namespace Bubble
         //m_pipeline->GetSkybox_Hdr("assets/shaders/GetCubeMap.glsl", "assets/SkyBox/spree_bank_4k.hdr", 512);
         
         // Resize,当视图尺寸发生变换时更新信息
+        if(ChangePipeline)
+        {
+            ChangePipeline = false;
+            if(IsDeferedPipeline)
+            {
+                m_pipeline.reset();
+                m_pipeline = CreateRef<PBRPipeline>();
+                m_pipeline->Init();
+            }
+            else
+            {
+                m_pipeline.reset();
+                m_pipeline = CreateRef<FPBR_Pipeline>();
+                m_pipeline->Init();
+            }
+        }
+        else
+        {
+            if(IsDeferedPipeline)
+            {
+                std::unordered_map<int, std::string > shadersmap;
+                shadersmap.insert({PID(GBufferFB),"assets/shaders/DeferedPipeline/GBufferPass.glsl"});
+                shadersmap.insert({PID(LightFB),"assets/shaders/DeferedPipeline/LightingPass.glsl"});
+                shadersmap.insert({PID(SkyBoxFB),"assets/shaders/Skybox.glsl"});
+                m_pipeline->ReLoadShaders(shadersmap);
+
+                std::unordered_map<int, std::vector<std::pair<int, std::string>>> shaderinformation;
+                std::vector<std::pair<int, std::string>> textureinformation_GBuffer = {
+                                {0,"Albedo"},{1,"Normal"},{2,"Metallic"},{3,"Roughness"},{4,"AO"}};
+                shaderinformation.insert({PID(GBufferFB),textureinformation_GBuffer});
+
+                std::vector<std::pair<int, std::string>> textureinformation_Light = {
+                                {0,"ColorMap"},{1,"PositionMap"},{2,"NormalMap"},{3,"MRAMap"},
+                                { 4,"irradianceMap" },{5,"prefilterMap"},{6,"brdfLUT"}};
+                shaderinformation.insert({PID(LightFB),textureinformation_Light});
+
+                std::vector<std::pair<int, std::string>> textureinformation_SkyBox = {
+                                {0,"RenderMap"},{1,"Skybox"}};
+                shaderinformation.insert({PID(SkyBoxFB),textureinformation_SkyBox});
+
+
+                m_pipeline->BindTextureIndex(shaderinformation);
+            }
+            else
+            {
+                std::unordered_map<int, std::string > shadersmap;
+                shadersmap.insert({PID(ForwardPBRFB),"assets/shaders/ForwardPBR.glsl"});
+                shadersmap.insert({PID(SkyBoxFB),"assets/shaders/Skybox.glsl"});
+                m_pipeline->ReLoadShaders(shadersmap);
+
+                std::unordered_map<int, std::vector<std::pair<int, std::string>>> shaderinformation;
+                std::vector<std::pair<int, std::string>> textureinformation_GBuffer = {
+                                {0,"albedoMap"},{1,"normalMap"},{2,"metallicMap"},{3,"roughnessMap"},{4,"aoMap"},
+                                { 5,"irradianceMap" },{6,"prefilterMap"},{7,"brdfLUT"}};
+                shaderinformation.insert({PID(ForwardPBRFB),textureinformation_GBuffer});
+
+                std::vector<std::pair<int, std::string>> textureinformation_SkyBox = {
+                                    {0,"RenderMap"},{1,"Skybox"}};
+                shaderinformation.insert({PID(SkyBoxFB),textureinformation_SkyBox});
+
+                m_pipeline->BindTextureIndex(shaderinformation);
+            }
+        }
 
         std::vector<Ref<Framebuffer>> framebuffers = m_pipeline->GetFramebufferVector();
         bool ViewoirtSizeChange = false;
@@ -231,7 +306,10 @@ namespace Bubble
 
         ImGui::Begin("Settings");
 
-        DrawVec3Control("Translation", m_EditorCamera.m_Position);
+        if(ImGui::Checkbox("Defered Pepeline", &IsDeferedPipeline))
+        {
+            ChangePipeline = true;
+        }
         m_EditorCamera.UpdateView();
         
 

@@ -85,6 +85,8 @@ namespace Bubble
         // Pipeline
         Ref<Pipeline> m_pipeline;
 
+        bool IsDeferedPipeline = false;
+        bool ChangePipeline = false;
 
     };
 

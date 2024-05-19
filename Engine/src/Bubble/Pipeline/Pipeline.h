@@ -27,6 +27,7 @@ namespace Bubble
         };
 
         void LoadShaders(const std::unordered_map<int, std::string>& ShaderInformations) ;
+        void ReLoadShaders(const std::unordered_map<int, std::string>& ShaderInformations);
         void BindTextureIndex(const std::unordered_map<int, std::vector<std::pair<int, std::string>>>& indexs);
 
         virtual void Init() = 0;
