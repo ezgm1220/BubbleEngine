@@ -1,14 +1,14 @@
-[15:37:42] [info] BUBBLE: Creating window Bubble Editor (1600, 900)
-[15:37:43] [info] BUBBLE: OpenGL Info:
-[15:37:43] [info] BUBBLE:   Vendor: NVIDIA Corporation
-[15:37:43] [info] BUBBLE:   Renderer: NVIDIA GeForce RTX 2060/PCIe/SSE2
-[15:37:43] [info] BUBBLE:   Version: 4.5.0 NVIDIA 552.44
-[15:37:44] [error] BUBBLE: Program/shader state performance warning: Vertex shader in program 4 is being recompiled based on GL state.
-[15:37:44] [error] BUBBLE: Program/shader state performance warning: Vertex shader in program 5 is being recompiled based on GL state.
-[15:37:44] [error] BUBBLE: Program/shader state performance warning: Vertex shader in program 6 is being recompiled based on GL state.
-[15:38:08] [trace] BUBBLE: Deserializing scene 'Untitled'
-[15:38:08] [trace] BUBBLE: Deserialized entity with ID = 17837505294779992335, name = Empty Entity
-[15:39:06] [error] BUBBLE: Program/shader state performance warning: Vertex shader in program 4 is being recompiled based on GL state.
-[15:39:06] [error] BUBBLE: Program/shader state performance warning: Vertex shader in program 5 is being recompiled based on GL state.
-[15:39:06] [error] BUBBLE: Program/shader state performance warning: Vertex shader in program 6 is being recompiled based on GL state.
-[15:39:06] [error] BUBBLE: Program/shader state performance warning: Vertex shader in program 6 is being recompiled based on GL state.
+[15:46:09] [info] BUBBLE: Creating window Bubble Editor (1600, 900)
+[15:46:10] [info] BUBBLE: OpenGL Info:
+[15:46:10] [info] BUBBLE:   Vendor: NVIDIA Corporation
+[15:46:10] [info] BUBBLE:   Renderer: NVIDIA GeForce RTX 2060/PCIe/SSE2
+[15:46:10] [info] BUBBLE:   Version: 4.5.0 NVIDIA 552.44
+[15:46:10] [error] BUBBLE: Program/shader state performance warning: Vertex shader in program 4 is being recompiled based on GL state.
+[15:46:11] [error] BUBBLE: Program/shader state performance warning: Vertex shader in program 5 is being recompiled based on GL state.
+[15:46:11] [error] BUBBLE: Program/shader state performance warning: Vertex shader in program 6 is being recompiled based on GL state.
+[15:46:13] [trace] BUBBLE: Deserializing scene 'Untitled'
+[15:46:13] [trace] BUBBLE: Deserialized entity with ID = 17837505294779992335, name = Empty Entity
+[15:47:03] [error] BUBBLE: Program/shader state performance warning: Vertex shader in program 4 is being recompiled based on GL state.
+[15:47:03] [error] BUBBLE: Program/shader state performance warning: Vertex shader in program 5 is being recompiled based on GL state.
+[15:47:03] [error] BUBBLE: Program/shader state performance warning: Vertex shader in program 6 is being recompiled based on GL state.
+[15:47:03] [error] BUBBLE: Program/shader state performance warning: Vertex shader in program 6 is being recompiled based on GL state.

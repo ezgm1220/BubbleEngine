@@ -332,7 +332,10 @@ namespace Bubble
         {
             ImGui::ColorEdit4("Color", glm::value_ptr(component.Color));
 
-            ImGui::Button("Albedo", ImVec2(100.0f, 0.0f));
+            if(ImGui::Button("Albedo", ImVec2(100.0f, 0.0f)))
+            {
+                component.Textures[0] = DefaultTexture::AlbedoTexture;
+            };
             if(ImGui::BeginDragDropTarget())
             {
                 if(const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("CONTENT_BROWSER_ITEM"))
@@ -350,7 +353,10 @@ namespace Bubble
                 ImGui::EndDragDropTarget();
             }
 
-            ImGui::Button("Normal", ImVec2(100.0f, 0.0f));
+            if(ImGui::Button("Normal", ImVec2(100.0f, 0.0f)))
+            {
+                component.Textures[1] = DefaultTexture::NormalTexture;
+            };
             if(ImGui::BeginDragDropTarget())
             {
                 if(const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("CONTENT_BROWSER_ITEM"))
@@ -367,7 +373,11 @@ namespace Bubble
                 }
                 ImGui::EndDragDropTarget();
             }
-            ImGui::Button("Metallic", ImVec2(100.0f, 0.0f));
+
+            if(ImGui::Button("Metallic", ImVec2(100.0f, 0.0f)))
+            {
+                component.Textures[2] = DefaultTexture::MetallicTexture;
+            };
             if(ImGui::BeginDragDropTarget())
             {
                 if(const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("CONTENT_BROWSER_ITEM"))
@@ -385,7 +395,10 @@ namespace Bubble
                 ImGui::EndDragDropTarget();
             }
             
-            ImGui::Button("Roughness", ImVec2(100.0f, 0.0f));
+            if(ImGui::Button("Roughness", ImVec2(100.0f, 0.0f)))
+            {
+                component.Textures[3] = DefaultTexture::RoughnessTexture;
+            };
             if(ImGui::BeginDragDropTarget())
             {
                 if(const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("CONTENT_BROWSER_ITEM"))
@@ -403,7 +416,10 @@ namespace Bubble
                 ImGui::EndDragDropTarget();
             }
 
-            ImGui::Button("AO", ImVec2(100.0f, 0.0f));
+            if(ImGui::Button("AO", ImVec2(100.0f, 0.0f)))
+            {
+                component.Textures[4] = DefaultTexture::AOTexture;
+            };
             if(ImGui::BeginDragDropTarget())
             {
                 if(const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("CONTENT_BROWSER_ITEM"))
@@ -436,7 +452,7 @@ namespace Bubble
                 component.meshtype = (MeshType)item_current;
             };
 
-            ImGui::DragFloat("Tiling Factor", &component.TilingFactor, 0.1f, 0.0f, 100.0f);
+            //ImGui::DragFloat("Tiling Factor", &component.TilingFactor, 0.1f, 0.0f, 100.0f);
         });
 
     }
