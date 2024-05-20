@@ -53,4 +53,14 @@ namespace Bubble {
     public:
         static Ref<HDRTexture2D> Create(const std::string& path);
     };
+
+    namespace DefaultTexture
+    {
+        extern Ref<Texture2D>AlbedoTexture ;
+        extern Ref<Texture2D>NormalTexture ;
+        extern Ref<Texture2D>MetallicTexture ;
+        extern Ref<Texture2D>RoughnessTexture ;
+        extern Ref<Texture2D>AOTexture ;
+        void InitDefaultTexture();
+    }
 }

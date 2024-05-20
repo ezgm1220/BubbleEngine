@@ -1,6 +1,7 @@
 #include "bubblepch.h"
 #include "Renderer3D.h"
 #include "Bubble/Tools/RenderApiState.h"
+#include "Bubble/Model/Mesh.h"
 namespace Bubble
 {
 
@@ -43,6 +44,8 @@ namespace Bubble
     static Render3DNoBatch::Renderer3DData s_Data;
 
     unsigned int mmap;
+
+    static Mesh m_mesh;
 
     void Renderer3D::Init()
     {
@@ -402,7 +405,9 @@ namespace Bubble
             textures[i]->Bind(i);
         }
 
-        RenderCommand::DrawIndexed_STRIP(s_Data.SphereVAO, s_Data.sphereIndexCount);
+        //RenderCommand::DrawIndexed_STRIP(s_Data.SphereVAO, s_Data.sphereIndexCount);
+        auto VAO = m_mesh.DrawMesh(MeshType::CUBE);
+        RenderCommand::DrawArrays(VAO, m_mesh.Count(MeshType::CUBE));
         //RenderCommand::DrawArrays(s_Data.SphereVAO, s_Data.sphereIndexCount);
         s_Data.Stats.DrawCalls++;
     }

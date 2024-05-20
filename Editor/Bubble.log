@@ -1,96 +1,19 @@
-[22:00:27] [info] BUBBLE: Creating window Bubble Editor (1600, 900)
-[22:00:27] [info] BUBBLE: OpenGL Info:
-[22:00:27] [info] BUBBLE:   Vendor: NVIDIA Corporation
-[22:00:27] [info] BUBBLE:   Renderer: NVIDIA GeForce RTX 2060/PCIe/SSE2
-[22:00:27] [info] BUBBLE:   Version: 4.5.0 NVIDIA 552.44
-[22:00:28] [error] BUBBLE: Program/shader state performance warning: Vertex shader in program 4 is being recompiled based on GL state.
-[22:00:28] [error] BUBBLE: Program/shader state performance warning: Vertex shader in program 5 is being recompiled based on GL state.
-[22:00:28] [error] BUBBLE: Program/shader state performance warning: Vertex shader in program 6 is being recompiled based on GL state.
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:30] [info] BUBBLE: No Main Camera
-[22:00:31] [info] BUBBLE: No Main Camera
-[22:00:31] [info] BUBBLE: No Main Camera
-[22:00:31] [info] BUBBLE: No Main Camera
-[22:00:31] [info] BUBBLE: No Main Camera
-[22:00:31] [info] BUBBLE: No Main Camera
-[22:00:31] [info] BUBBLE: No Main Camera
-[22:00:31] [info] BUBBLE: No Main Camera
-[22:00:31] [info] BUBBLE: No Main Camera
-[22:00:31] [info] BUBBLE: No Main Camera
-[22:00:31] [info] BUBBLE: No Main Camera
-[22:00:31] [info] BUBBLE: No Main Camera
-[22:00:31] [info] BUBBLE: No Main Camera
-[22:00:31] [info] BUBBLE: No Main Camera
-[22:00:32] [trace] BUBBLE: Deserializing scene 'Untitled'
-[22:00:32] [trace] BUBBLE: Deserialized entity with ID = 6141256997528540968, name = Camera A
-[22:00:32] [trace] BUBBLE: Deserialized entity with ID = 12738193814166956915, name = rusted iron
-[22:00:33] [trace] BUBBLE: Deserialized entity with ID = 14597299304727981751, name = gold
-[22:00:33] [trace] BUBBLE: Deserialized entity with ID = 14666236401959362122, name = grass
-[22:00:35] [trace] BUBBLE: Deserialized entity with ID = 5751728619673797090, name = plastic
-[22:00:36] [trace] BUBBLE: Deserialized entity with ID = 608441564598621349, name = wall
+[13:43:25] [info] BUBBLE: Creating window Bubble Editor (1600, 900)
+[13:43:26] [info] BUBBLE: OpenGL Info:
+[13:43:26] [info] BUBBLE:   Vendor: NVIDIA Corporation
+[13:43:26] [info] BUBBLE:   Renderer: NVIDIA GeForce RTX 2060/PCIe/SSE2
+[13:43:26] [info] BUBBLE:   Version: 4.5.0 NVIDIA 552.44
+[13:43:26] [error] BUBBLE: Program/shader state performance warning: Vertex shader in program 4 is being recompiled based on GL state.
+[13:43:27] [error] BUBBLE: Program/shader state performance warning: Vertex shader in program 5 is being recompiled based on GL state.
+[13:43:27] [error] BUBBLE: Program/shader state performance warning: Vertex shader in program 6 is being recompiled based on GL state.
+[13:43:31] [trace] BUBBLE: Deserializing scene 'Untitled'
+[13:43:31] [trace] BUBBLE: Deserialized entity with ID = 6141256997528540968, name = Camera A
+[13:43:31] [trace] BUBBLE: Deserialized entity with ID = 12738193814166956915, name = rusted iron
+[13:43:32] [trace] BUBBLE: Deserialized entity with ID = 14597299304727981751, name = gold
+[13:43:32] [trace] BUBBLE: Deserialized entity with ID = 14666236401959362122, name = grass
+[13:43:34] [trace] BUBBLE: Deserialized entity with ID = 5751728619673797090, name = plastic
+[13:43:35] [trace] BUBBLE: Deserialized entity with ID = 608441564598621349, name = wall
+[13:43:41] [error] BUBBLE: Program/shader state performance warning: Vertex shader in program 4 is being recompiled based on GL state.
+[13:43:41] [error] BUBBLE: Program/shader state performance warning: Vertex shader in program 5 is being recompiled based on GL state.
+[13:43:41] [error] BUBBLE: Program/shader state performance warning: Vertex shader in program 6 is being recompiled based on GL state.
+[13:43:41] [error] BUBBLE: Program/shader state performance warning: Vertex shader in program 6 is being recompiled based on GL state.

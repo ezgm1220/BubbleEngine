@@ -66,5 +66,28 @@ namespace Bubble {
             case RendererAPI::API::OpenGL:  return CreateRef<OpenGLHDRTexture2D>(path);
         }
     }
+    Ref<Texture2D>DefaultTexture::AlbedoTexture ;
+    Ref<Texture2D>DefaultTexture::NormalTexture ;
+    Ref<Texture2D>DefaultTexture::MetallicTexture ;
+    Ref<Texture2D>DefaultTexture::RoughnessTexture ;
+    Ref<Texture2D>DefaultTexture::AOTexture ;
+    void DefaultTexture::InitDefaultTexture()
+    {
+        AlbedoTexture = Texture2D::Create(1, 1);
+        NormalTexture = Texture2D::Create(1, 1);
+        MetallicTexture = Texture2D::Create(1, 1);
+        RoughnessTexture = Texture2D::Create(1, 1);
+        AOTexture = Texture2D::Create(1, 1);
+        uint32_t AlbedoTextureData = 0xffffffff;
+        uint32_t NormalTextureData = 0xffff8080;
+        uint32_t MetallicTextureData = 0xffffffff;
+        uint32_t RoughnessTextureData = 0xff000001;
+        uint32_t AOTextureData = 0xffffffff;
+        AlbedoTexture->SetData(&AlbedoTextureData, sizeof(uint32_t));
+        NormalTexture->SetData(&NormalTextureData, sizeof(uint32_t));
+        MetallicTexture->SetData(&MetallicTextureData, sizeof(uint32_t));
+        RoughnessTexture->SetData(&RoughnessTextureData, sizeof(uint32_t));
+        AOTexture->SetData(&AOTextureData, sizeof(uint32_t));
+    }
 
 }

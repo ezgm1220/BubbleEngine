@@ -13,6 +13,7 @@ namespace Bubble {
 		//Renderer2D::Init();
         //Renderer3D::Init(pipeline);
         Renderer3D::Init();
+        DefaultTexture::InitDefaultTexture();
 	}
 
 	void Renderer::Shutdown()

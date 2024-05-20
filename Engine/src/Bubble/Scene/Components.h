@@ -68,14 +68,11 @@ namespace Bubble
 
         SpriteRendererComponent()
         {
-            Ref<Texture2D> WHITETEXTURE = Texture2D::Create(1, 1);
-            uint32_t whiteTextureData = 0xffffffff;
-            WHITETEXTURE->SetData(&whiteTextureData, sizeof(uint32_t));
-            Textures[0] = WHITETEXTURE;
-            Textures[1] = WHITETEXTURE;
-            Textures[2] = WHITETEXTURE;
-            Textures[3] = WHITETEXTURE;
-            Textures[4] = WHITETEXTURE;
+            Textures[0] = DefaultTexture::AlbedoTexture;
+            Textures[1] = DefaultTexture::NormalTexture;
+            Textures[2] = DefaultTexture::MetallicTexture;
+            Textures[3] = DefaultTexture::RoughnessTexture;
+            Textures[4] = DefaultTexture::AOTexture;
         }
         SpriteRendererComponent(const SpriteRendererComponent&) = default;
         SpriteRendererComponent(const glm::vec4& color)
