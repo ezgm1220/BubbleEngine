@@ -25,6 +25,7 @@ namespace Bubble
         static void EndScene(Ref<Pipeline>pipeline);
         static void ClearEntityID(Ref<Pipeline>pipeline);
 
+        static void InitDraw();
         static void DrawQude();
         static void DrawCube();
         static void DrawCube(Ref<Pipeline>pipeline, int ShaderID, const glm::mat4& transform, const glm::vec4& color, int entityID = -1);

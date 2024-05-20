@@ -418,7 +418,15 @@ namespace Bubble
         
         //DrawCube(pipeline, ShaderID, transform, src.Textures, 5, src.Color, entityID);
         auto id = pipeline->DrawScene(transform, src.Color, entityID);
-        DrawSphere(pipeline, id, transform, src.Textures, 5, src.Color, entityID);
+        for(int i = 0; i < 5; i++)
+        {
+            src.Textures[i]->Bind(i);
+        }
+        auto VAO = m_mesh.DrawMesh(src.meshtype);
+        RenderCommand::DrawArrays(VAO, m_mesh.Count(src.meshtype));
+        //RenderCommand::DrawArrays(s_Data.SphereVAO, s_Data.sphereIndexCount);
+        s_Data.Stats.DrawCalls++;
+        //DrawSphere(pipeline, id, transform, src.Textures, 5, src.Color, entityID);
         
     }
 

@@ -1,0 +1,16 @@
+Scene: Untitled
+Entities:
+  - Entity: 14606669136153917454
+    TagComponent:
+      Tag: Empty Entity
+    TransformComponent:
+      Translation: [0, 0, 0]
+      Rotation: [0, 0, 0]
+      Scale: [20, 20, 20]
+    SpriteRendererComponent:
+      Color: [1, 1, 1, 1]
+      Albedo: ""
+      Normal: ""
+      Metallic: ""
+      Roughness: ""
+      AO: ""

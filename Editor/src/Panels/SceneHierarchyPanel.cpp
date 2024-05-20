@@ -17,6 +17,7 @@
 
 namespace Bubble
 {
+    enum class MeshType;
     extern const std::filesystem::path g_AssetPath;
 
     SceneHierarchyPanel::SceneHierarchyPanel(const Ref<Scene>& context)
@@ -419,6 +420,21 @@ namespace Bubble
                 }
                 ImGui::EndDragDropTarget();
             }
+
+            /*static int style_idx = (int)component.meshtype;
+            if(ImGui::Combo("MeshType", &style_idx,
+                "Cube\0Sphere_Low\0Sphere_High\0Bunny\0Cylinder\0Double_Sword\0Magnet\0Hammer\0"))
+            {
+                component.meshtype = (MeshType)style_idx;
+            }*/
+
+            const char* items[] = {"Cube", "Sphere_Low", "Sphere_High", "Bunny", "Cylinder", "Double_Sword", "Magnet", "Hammer"};
+            static int item_current = (int)component.meshtype;
+            ImGui::SetNextItemWidth(100);
+            if(ImGui::Combo("MeshType", &item_current, items, IM_ARRAYSIZE(items)))
+            {
+                component.meshtype = (MeshType)item_current;
+            };
 
             ImGui::DragFloat("Tiling Factor", &component.TilingFactor, 0.1f, 0.0f, 100.0f);
         });

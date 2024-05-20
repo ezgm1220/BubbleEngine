@@ -10,7 +10,6 @@
 
 namespace YAML
 {
-
     template<>
     struct convert<glm::vec3>
     {
@@ -66,6 +65,7 @@ namespace YAML
 }
 namespace Bubble
 {
+    enum class MeshType;
 
     YAML::Emitter& operator<<(YAML::Emitter& out, const glm::vec3& v)
     {
@@ -154,6 +154,8 @@ namespace Bubble
             out << YAML::Key << "Metallic" << YAML::Value << spriteRendererComponent.Textures[2]->GetPath();
             out << YAML::Key << "Roughness" << YAML::Value << spriteRendererComponent.Textures[3]->GetPath();
             out << YAML::Key << "AO" << YAML::Value << spriteRendererComponent.Textures[4]->GetPath();
+            out << YAML::Key << "MeshType" << YAML::Value << (int)spriteRendererComponent.meshtype;
+
             out << YAML::EndMap; // SpriteRendererComponent
         }
 
@@ -270,6 +272,8 @@ namespace Bubble
                     src.Textures[2] = Texture2D::Create(spriteRendererComponent["Metallic"].as<std::string>());
                     src.Textures[3] = Texture2D::Create(spriteRendererComponent["Roughness"].as<std::string>());
                     src.Textures[4] = Texture2D::Create(spriteRendererComponent["AO"].as<std::string>());*/
+
+                    src.meshtype = (MeshType)(spriteRendererComponent["MeshType"].as<int>());
                 }
             }
         }

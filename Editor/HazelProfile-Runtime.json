@@ -1,1 +1,1 @@
-{"otherData": {},"traceEvents":[{},{"cat":"function","dur":24407026,"name":"void Bubble::Application::Run(void)","ph":"X","pid":0,"tid":32276,"ts":6243172598.500}]}
+{"otherData": {},"traceEvents":[{},{"cat":"function","dur":168104204,"name":"void Bubble::Application::Run(void)","ph":"X","pid":0,"tid":30876,"ts":13100923898.900}]}

@@ -3,6 +3,7 @@
 #include "Bubble/Camera/SceneCamera.h"
 #include "Bubble/Core/UUID.h"
 #include "Bubble/Renderer/Texture.h"
+#include "Bubble/Model/Mesh.h"
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -65,6 +66,7 @@ namespace Bubble
         Ref<Texture2D> Textures[5];
         float TilingFactor = 1.0f;
         bool UseTexture = false;
+        MeshType meshtype = MeshType::CUBE;
 
         SpriteRendererComponent()
         {

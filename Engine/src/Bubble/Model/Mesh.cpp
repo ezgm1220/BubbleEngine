@@ -7,13 +7,13 @@ namespace Bubble
 
     static std::unordered_map< MeshType, std::string> MeshPath = {
         {MeshType::CUBE,"assets/Model/cube.obj"},
-        {MeshType::SPHERE_LOW,"assets/Model/cube.obj"},
-        {MeshType::SPHERE_HIGH,"assets/Model/cube.obj"},
-        {MeshType::BUNNY,"assets/Model/cube.obj"},
-        {MeshType::CYLINDER,"assets/Model/cube.obj"},
-        {MeshType::DOUBLESWORD,"assets/Model/cube.obj"},
-        {MeshType::MAGNET,"assets/Model/cube.obj"},
-        {MeshType::HAMMER,"assets/Model/cube.obj"},
+        {MeshType::SPHERE_LOW,"assets/Model/sphere8.obj"},
+        {MeshType::SPHERE_HIGH,"assets/Model/sphere_smooth.obj"},
+        {MeshType::BUNNY,"assets/Model/bunny.obj"},
+        {MeshType::CYLINDER,"assets/Model/Cylinder.obj"},
+        {MeshType::DOUBLESWORD,"assets/Model/Double_Sword_1.obj"},
+        {MeshType::MAGNET,"assets/Model/Magnet.obj"},
+        {MeshType::HAMMER,"assets/Model/TorHammer.obj"},
     };
 
     Ref<VertexArray> Mesh::DrawMesh(MeshType type)
@@ -40,16 +40,8 @@ namespace Bubble
         std::string warn;
         std::string err;
         std::string filepath = MeshPath[type];
-        bool ret = tinyobj::LoadObj(&attrib, &shapes, &materials, &warn, &err, filepath.c_str());
-        if(!warn.empty())
-        {
-            std::cout << warn << std::endl;
-        }
-
-        if(!err.empty())
-        {
-            std::cerr << err << std::endl;
-        }
+        bool ret = tinyobj::LoadObj(&attrib, &shapes, nullptr, &warn, &err, filepath.c_str());
+       
 
         if(!ret)
         {
