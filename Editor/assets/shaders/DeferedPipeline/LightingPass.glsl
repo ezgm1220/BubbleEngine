@@ -134,7 +134,7 @@ void main()
     // gamma correct
     color = pow(color, vec3(1.0/2.2)); 
 
-    outcolor = vec4(ambient, 1.0);
+    outcolor = vec4(color, 1.0);
     //outcolor = vec4(N, 1.0);
 }
 

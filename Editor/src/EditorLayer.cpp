@@ -29,7 +29,7 @@ namespace Bubble
         m_IconPlay = Texture2D::Create("Resources/Icons/PlayButton.png");
         m_IconStop = Texture2D::Create("Resources/Icons/StopButton.png");
 
-        switch(1)
+        switch(0)
         {
             case 1:
             {

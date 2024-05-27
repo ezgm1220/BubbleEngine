@@ -1,14 +1,59 @@
-[15:46:09] [info] BUBBLE: Creating window Bubble Editor (1600, 900)
-[15:46:10] [info] BUBBLE: OpenGL Info:
-[15:46:10] [info] BUBBLE:   Vendor: NVIDIA Corporation
-[15:46:10] [info] BUBBLE:   Renderer: NVIDIA GeForce RTX 2060/PCIe/SSE2
-[15:46:10] [info] BUBBLE:   Version: 4.5.0 NVIDIA 552.44
-[15:46:10] [error] BUBBLE: Program/shader state performance warning: Vertex shader in program 4 is being recompiled based on GL state.
-[15:46:11] [error] BUBBLE: Program/shader state performance warning: Vertex shader in program 5 is being recompiled based on GL state.
-[15:46:11] [error] BUBBLE: Program/shader state performance warning: Vertex shader in program 6 is being recompiled based on GL state.
-[15:46:13] [trace] BUBBLE: Deserializing scene 'Untitled'
-[15:46:13] [trace] BUBBLE: Deserialized entity with ID = 17837505294779992335, name = Empty Entity
-[15:47:03] [error] BUBBLE: Program/shader state performance warning: Vertex shader in program 4 is being recompiled based on GL state.
-[15:47:03] [error] BUBBLE: Program/shader state performance warning: Vertex shader in program 5 is being recompiled based on GL state.
-[15:47:03] [error] BUBBLE: Program/shader state performance warning: Vertex shader in program 6 is being recompiled based on GL state.
-[15:47:03] [error] BUBBLE: Program/shader state performance warning: Vertex shader in program 6 is being recompiled based on GL state.
+[19:44:06] [info] BUBBLE: Creating window Bubble Editor (1600, 900)
+[19:44:07] [info] BUBBLE: OpenGL Info:
+[19:44:07] [info] BUBBLE:   Vendor: NVIDIA Corporation
+[19:44:07] [info] BUBBLE:   Renderer: NVIDIA GeForce RTX 2060/PCIe/SSE2
+[19:44:07] [info] BUBBLE:   Version: 4.5.0 NVIDIA 555.85
+[19:44:11] [trace] BUBBLE: Deserializing scene 'Untitled'
+[19:44:11] [trace] BUBBLE: Deserialized entity with ID = 2576570510506730334, name = CameraB
+[19:44:11] [trace] BUBBLE: Deserialized entity with ID = 12094712691763248398, name = CameraA
+[19:44:11] [trace] BUBBLE: Deserialized entity with ID = 13142313131189564179, name = Cube
+[19:44:11] [trace] BUBBLE: Deserialized entity with ID = 6366209527638302318, name = Sphere_Low
+[19:44:11] [trace] BUBBLE: Deserialized entity with ID = 101714795296323205, name = Sphere_high
+[19:44:12] [trace] BUBBLE: Deserialized entity with ID = 4112701709197467056, name = Cylinder
+[19:44:12] [trace] BUBBLE: Deserialized entity with ID = 17032524832161925309, name = Sword
+[19:44:12] [trace] BUBBLE: Deserialized entity with ID = 1630808276703374747, name = Magnet
+[19:44:14] [trace] BUBBLE: Deserialized entity with ID = 14043487660261346251, name = Hammer
+[19:46:23] [trace] BUBBLE: Deserializing scene 'Untitled'
+[19:46:23] [trace] BUBBLE: Deserialized entity with ID = 1001637664101297623, name = Empty Entity
+[19:46:26] [trace] BUBBLE: Deserializing scene 'Untitled'
+[19:46:26] [trace] BUBBLE: Deserialized entity with ID = 1001637664101297623, name = Empty Entity
+[19:46:29] [trace] BUBBLE: Deserializing scene 'Untitled'
+[19:46:29] [trace] BUBBLE: Deserialized entity with ID = 1001637664101297623, name = Empty Entity
+[19:46:30] [trace] BUBBLE: Deserializing scene 'Untitled'
+[19:46:30] [trace] BUBBLE: Deserialized entity with ID = 13142313131189564179, name = Cube
+[19:46:30] [trace] BUBBLE: Deserialized entity with ID = 6366209527638302318, name = Sphere_Low
+[19:46:30] [trace] BUBBLE: Deserialized entity with ID = 101714795296323205, name = Sphere_high
+[19:46:30] [trace] BUBBLE: Deserialized entity with ID = 4112701709197467056, name = Cylinder
+[19:46:30] [trace] BUBBLE: Deserialized entity with ID = 17032524832161925309, name = Sword
+[19:46:31] [trace] BUBBLE: Deserialized entity with ID = 1630808276703374747, name = Magnet
+[19:46:32] [trace] BUBBLE: Deserialized entity with ID = 14043487660261346251, name = Hammer
+[19:46:37] [trace] BUBBLE: Deserializing scene 'Untitled'
+[19:46:37] [trace] BUBBLE: Deserialized entity with ID = 2576570510506730334, name = CameraB
+[19:46:37] [trace] BUBBLE: Deserialized entity with ID = 12094712691763248398, name = CameraA
+[19:46:37] [trace] BUBBLE: Deserialized entity with ID = 13142313131189564179, name = Cube
+[19:46:37] [trace] BUBBLE: Deserialized entity with ID = 6366209527638302318, name = Sphere_Low
+[19:46:37] [trace] BUBBLE: Deserialized entity with ID = 101714795296323205, name = Sphere_high
+[19:46:37] [trace] BUBBLE: Deserialized entity with ID = 4112701709197467056, name = Cylinder
+[19:46:37] [trace] BUBBLE: Deserialized entity with ID = 17032524832161925309, name = Sword
+[19:46:38] [trace] BUBBLE: Deserialized entity with ID = 1630808276703374747, name = Magnet
+[19:46:39] [trace] BUBBLE: Deserialized entity with ID = 14043487660261346251, name = Hammer
+[19:46:46] [trace] BUBBLE: Deserializing scene 'Untitled'
+[19:46:46] [trace] BUBBLE: Deserialized entity with ID = 13142313131189564179, name = Cube
+[19:46:46] [trace] BUBBLE: Deserialized entity with ID = 6366209527638302318, name = Sphere_Low
+[19:46:46] [trace] BUBBLE: Deserialized entity with ID = 101714795296323205, name = Sphere_high
+[19:46:46] [trace] BUBBLE: Deserialized entity with ID = 4112701709197467056, name = Cylinder
+[19:46:47] [trace] BUBBLE: Deserialized entity with ID = 17032524832161925309, name = Sword
+[19:46:47] [trace] BUBBLE: Deserialized entity with ID = 1630808276703374747, name = Magnet
+[19:46:49] [trace] BUBBLE: Deserialized entity with ID = 14043487660261346251, name = Hammer
+[19:46:53] [trace] BUBBLE: Deserializing scene 'Untitled'
+[19:46:53] [trace] BUBBLE: Deserialized entity with ID = 1001637664101297623, name = Empty Entity
+[19:46:56] [trace] BUBBLE: Deserializing scene 'Untitled'
+[19:46:56] [trace] BUBBLE: Deserialized entity with ID = 2576570510506730334, name = CameraB
+[19:46:56] [trace] BUBBLE: Deserialized entity with ID = 12094712691763248398, name = CameraA
+[19:46:56] [trace] BUBBLE: Deserialized entity with ID = 13142313131189564179, name = Cube
+[19:46:56] [trace] BUBBLE: Deserialized entity with ID = 6366209527638302318, name = Sphere_Low
+[19:46:56] [trace] BUBBLE: Deserialized entity with ID = 101714795296323205, name = Sphere_high
+[19:46:56] [trace] BUBBLE: Deserialized entity with ID = 4112701709197467056, name = Cylinder
+[19:46:56] [trace] BUBBLE: Deserialized entity with ID = 17032524832161925309, name = Sword
+[19:46:57] [trace] BUBBLE: Deserialized entity with ID = 1630808276703374747, name = Magnet
+[19:46:58] [trace] BUBBLE: Deserialized entity with ID = 14043487660261346251, name = Hammer

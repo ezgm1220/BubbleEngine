@@ -5,6 +5,25 @@
 namespace Bubble
 {
 
+    namespace MeshInformation
+    {
+        extern const char* MeshTypeName[] = {
+            "Cube", "Sphere_Low", "Sphere_High", "Bunny", "Cylinder", "Double_Sword",
+            "Magnet", "Hammer"
+        };
+
+        extern std::unordered_map< MeshType, std::string> MeshPath = {
+            {MeshType::CUBE,"assets/Model/cube.obj"},
+            {MeshType::SPHERE_LOW,"assets/Model/sphere8.obj"},
+            {MeshType::SPHERE_HIGH,"assets/Model/sphere_smooth.obj"},
+            {MeshType::BUNNY,"assets/Modelnny.obj"},
+            {MeshType::CYLINDER,"assets/Model/Cylinder.obj"},
+            {MeshType::DOUBLESWORD,"assets/Model/Double_Sword_1.obj"},
+            {MeshType::MAGNET,"assets/Model/Magnet.obj"},
+            {MeshType::HAMMER,"assets/Model/TorHammer.obj"},
+        };
+    }
+
     static std::unordered_map< MeshType, std::string> MeshPath = {
         {MeshType::CUBE,"assets/Model/cube.obj"},
         {MeshType::SPHERE_LOW,"assets/Model/sphere8.obj"},

@@ -1,54 +1,63 @@
 Scene: Untitled
 Entities:
-  - Entity: 12738193814166956915
+  - Entity: 2576570510506730334
     TagComponent:
-      Tag: rusted iron
+      Tag: CameraB
     TransformComponent:
-      Translation: [-11.6183214, -3.98225307, 3.64985657]
+      Translation: [24.5200005, 4.53000021, 4.40999985]
+      Rotation: [-0.0226892792, 1.60046685, 0]
+      Scale: [1, 1, 1]
+    CameraComponent:
+      Camera:
+        ProjectionType: 0
+        PerspectiveFOV: 0.366519153
+        PerspectiveNear: 0.00999999978
+        PerspectiveFar: 1000
+        OrthographicSize: 10
+        OrthographicNear: -1
+        OrthographicFar: 1
+      Primary: true
+      FixedAspectRatio: false
+  - Entity: 12094712691763248398
+    TagComponent:
+      Tag: CameraA
+    TransformComponent:
+      Translation: [1.87, 3.36999989, 22.6200008]
       Rotation: [0, 0, 0]
-      Scale: [6.55999994, 6.55999994, 6.55999994]
+      Scale: [1, 1, 1]
+    CameraComponent:
+      Camera:
+        ProjectionType: 0
+        PerspectiveFOV: 0.785398185
+        PerspectiveNear: 0.00999999978
+        PerspectiveFar: 1000
+        OrthographicSize: 10
+        OrthographicNear: -1
+        OrthographicFar: 1
+      Primary: true
+      FixedAspectRatio: false
+  - Entity: 13142313131189564179
+    TagComponent:
+      Tag: Cube
+    TransformComponent:
+      Translation: [-4.15844965, 2.43520212, -0.632333755]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
     SpriteRendererComponent:
       Color: [1, 1, 1, 1]
-      Albedo: assets\textures\rusted_iron\albedo.png
-      Normal: assets\textures\rusted_iron\normal.png
-      Metallic: assets\textures\rusted_iron\metallic.png
-      Roughness: assets\textures\rusted_iron\roughness.png
-      AO: assets\textures\rusted_iron\ao.png
-  - Entity: 14597299304727981751
+      Albedo: ""
+      Normal: ""
+      Metallic: ""
+      Roughness: ""
+      AO: ""
+      MeshType: 0
+  - Entity: 6366209527638302318
     TagComponent:
-      Tag: gold
+      Tag: Sphere_Low
     TransformComponent:
-      Translation: [1.32036424, 5.47979879, -1.49737358]
+      Translation: [-4.07218885, -1.1513555, 1.4753046]
       Rotation: [0, 0, 0]
-      Scale: [3.79999995, 3.79999995, 3.79999995]
-    SpriteRendererComponent:
-      Color: [1, 1, 1, 1]
-      Albedo: assets\textures\gold\albedo.png
-      Normal: assets\textures\gold\normal.png
-      Metallic: assets\textures\gold\metallic.png
-      Roughness: assets\textures\gold\roughness.png
-      AO: assets\textures\gold\ao.png
-  - Entity: 14666236401959362122
-    TagComponent:
-      Tag: grass
-    TransformComponent:
-      Translation: [31.8273659, -1.68712616, 1.2154808]
-      Rotation: [0, 0, 0]
-      Scale: [14.2916193, 14.2916193, 14.2916193]
-    SpriteRendererComponent:
-      Color: [1, 1, 1, 1]
-      Albedo: assets\textures\grass\albedo.png
-      Normal: assets\textures\grass\normal.png
-      Metallic: assets\textures\grass\metallic.png
-      Roughness: assets\textures\grass\roughness.png
-      AO: assets\textures\grass\ao.png
-  - Entity: 5751728619673797090
-    TagComponent:
-      Tag: plastic
-    TransformComponent:
-      Translation: [1.33646345, -4.85781384, -4.33572769]
-      Rotation: [0, 0, 0]
-      Scale: [5.42999983, 5.42999983, 5.42999983]
+      Scale: [1, 1, 1]
     SpriteRendererComponent:
       Color: [1, 1, 1, 1]
       Albedo: assets\textures\plastic\albedo.png
@@ -56,17 +65,79 @@ Entities:
       Metallic: assets\textures\plastic\metallic.png
       Roughness: assets\textures\plastic\roughness.png
       AO: assets\textures\plastic\ao.png
-  - Entity: 608441564598621349
+      MeshType: 1
+  - Entity: 101714795296323205
     TagComponent:
-      Tag: wall
+      Tag: Sphere_high
     TransformComponent:
-      Translation: [9.8082037, 4.98983574, 0.972160101]
+      Translation: [-3.51999998, 1.35572851, 0.335377693]
       Rotation: [0, 0, 0]
-      Scale: [2.47379971, 2.47379971, 2.47379971]
+      Scale: [1, 1, 1]
     SpriteRendererComponent:
       Color: [1, 1, 1, 1]
-      Albedo: assets\textures\wall\albedo.png
-      Normal: assets\textures\wall\normal.png
-      Metallic: assets\textures\wall\metallic.png
-      Roughness: assets\textures\wall\roughness.png
-      AO: assets\textures\wall\ao.png
+      Albedo: assets\textures\gold\albedo.png
+      Normal: assets\textures\gold\normal.png
+      Metallic: assets\textures\gold\metallic.png
+      Roughness: assets\textures\gold\roughness.png
+      AO: assets\textures\gold\ao.png
+      MeshType: 2
+  - Entity: 4112701709197467056
+    TagComponent:
+      Tag: Cylinder
+    TransformComponent:
+      Translation: [0.733597159, 0, 0]
+      Rotation: [0, 0, 0]
+      Scale: [0.0500000007, 0.0500000007, 0.0500000007]
+    SpriteRendererComponent:
+      Color: [1, 1, 1, 1]
+      Albedo: assets\textures\Cylinder\Albedo.png
+      Normal: assets\textures\Cylinder\Normal.png
+      Metallic: assets\textures\plastic\metallic.png
+      Roughness: ""
+      AO: assets\textures\Cylinder\AO.png
+      MeshType: 4
+  - Entity: 17032524832161925309
+    TagComponent:
+      Tag: Sword
+    TransformComponent:
+      Translation: [7.07178164, 0, 0]
+      Rotation: [0, 0, 0]
+      Scale: [0.100000001, 0.100000001, 0.100000001]
+    SpriteRendererComponent:
+      Color: [1, 1, 1, 1]
+      Albedo: assets\textures\weapons\Albedo_1.png
+      Normal: assets\textures\weapons\Normal_1.png
+      Metallic: ""
+      Roughness: assets\textures\gold\roughness.png
+      AO: assets\textures\weapons\AO_1.png
+      MeshType: 5
+  - Entity: 1630808276703374747
+    TagComponent:
+      Tag: Magnet
+    TransformComponent:
+      Translation: [0, 6.9000001, 0]
+      Rotation: [0, 0, 0]
+      Scale: [0.300000012, 0.300000012, 0.300000012]
+    SpriteRendererComponent:
+      Color: [1, 1, 1, 1]
+      Albedo: assets\textures\Magnet\Albedo.png
+      Normal: assets\textures\Magnet\Normal.png
+      Metallic: assets\textures\Magnet\Metallic.png
+      Roughness: assets\textures\Magnet\Roughness.png
+      AO: assets\textures\Magnet\AO.png
+      MeshType: 6
+  - Entity: 14043487660261346251
+    TagComponent:
+      Tag: Hammer
+    TransformComponent:
+      Translation: [4.49923134, 4.85048008, -0.224563599]
+      Rotation: [0, 0, 0]
+      Scale: [52.4379959, 52.4379959, 52.4379959]
+    SpriteRendererComponent:
+      Color: [1, 1, 1, 1]
+      Albedo: assets\textures\Hammer\Albedo.png
+      Normal: assets\textures\Hammer\Normal.png
+      Metallic: assets\textures\Hammer\Metallic.png
+      Roughness: assets\textures\Hammer\Roughness.png
+      AO: assets\textures\Hammer\AO.png
+      MeshType: 7

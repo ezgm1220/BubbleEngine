@@ -31,6 +31,13 @@ namespace Bubble
         MAGNET, HAMMER
     };
 
+    namespace MeshInformation
+    {
+        extern const char* MeshTypeName[];
+
+        extern std::unordered_map< MeshType, std::string> MeshPath;
+    }
+
     class Mesh
     {
     public:

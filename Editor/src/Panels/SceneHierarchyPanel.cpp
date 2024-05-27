@@ -447,7 +447,7 @@ namespace Bubble
             const char* items[] = {"Cube", "Sphere_Low", "Sphere_High", "Bunny", "Cylinder", "Double_Sword", "Magnet", "Hammer"};
             static int item_current = (int)component.meshtype;
             ImGui::SetNextItemWidth(100);
-            if(ImGui::Combo("MeshType", &item_current, items, IM_ARRAYSIZE(items)))
+            if(ImGui::Combo("MeshType", &item_current, MeshInformation::MeshTypeName, MeshInformation::MeshPath.size()))
             {
                 component.meshtype = (MeshType)item_current;
             };

@@ -18,6 +18,7 @@ namespace Bubble
 
     Application::Application(const std::string& name)
     {
+        BB_PROFILE_FUNCTION();
 
         BB_CORE_ASSERT(!s_Instance, "Application already exists!");
         s_Instance = this;
@@ -77,7 +78,8 @@ namespace Bubble
 
     void Application::Run()
     {
-        BB_PROFILE_FUNCTION();
+        BB_PROFILE_SCOPE("RunLoop");
+
         while(m_Running)
         {
             float time = (float)glfwGetTime();
@@ -86,17 +88,23 @@ namespace Bubble
 
             if(!m_Minimized)
             {
-                // 逻辑
-                for(Layer* layer : m_LayerStack)
                 {
-                    layer->OnUpdate(timestep);
+                    BB_PROFILE_SCOPE("LayerStack OnUpdate");
+                    // 逻辑
+                    for(Layer* layer : m_LayerStack)
+                    {
+                        layer->OnUpdate(timestep);
+                    }
                 }
 
                 // UI
                 m_ImGuiLayer->Begin();
-                for(Layer* layer : m_LayerStack)
                 {
-                    layer->OnImGuiRender();
+                    BB_PROFILE_SCOPE("LayerStack OnImGuiRender");
+                    for(Layer* layer : m_LayerStack)
+                    {
+                        layer->OnImGuiRender();
+                    }
                 }
                 m_ImGuiLayer->End();
             }

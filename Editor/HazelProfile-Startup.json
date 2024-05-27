@@ -1,1 +1,1 @@
-{"otherData": {},"traceEvents":[{}]}
+{"otherData": {},"traceEvents":[{},{"cat":"function","dur":734152,"name":"Bubble::Application::Application(const class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > &)","ph":"X","pid":0,"tid":5164,"ts":37453536230.800}]}
